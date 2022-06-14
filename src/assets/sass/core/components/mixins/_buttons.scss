@@ -33,7 +33,7 @@
     }
 
     @if ( $border-color != null ) {
-        border-color: $border-color;
+        border-color: $border-color !important;
     }
 
     @if ( $bg-color != null ) {

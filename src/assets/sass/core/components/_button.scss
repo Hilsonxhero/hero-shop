@@ -4,21 +4,56 @@
 
 // Button
 .hx-button {
-    display: inline-block;
-    font-family: $btn-font-family;
-    font-weight: $btn-font-weight;
-    line-height: $btn-line-height;
-    color: $body-color;
-    text-align: center;
-    text-decoration: if($link-decoration==none, null, none);
-    white-space: $btn-white-space;
-    vertical-align: middle;
-    cursor: pointer;
+    align-items: center;
+    border-radius: 0.75rem;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-weight: 500;
+    //letter-spacing: .0892857143em;
+    justify-content: center;
+    outline: 0;
+    position: relative;
+    text-decoration: none;
+    text-indent: .0892857143em;
+    text-transform: uppercase;
+    transition-duration: .28s;
+    transition-property: box-shadow,transform,opacity;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
-    background-color: transparent;
-    border: $btn-border-width solid transparent;
+    vertical-align: middle;
+    white-space: nowrap;
     // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
     // @include transition($btn-transition);
+
+    &__content{
+        align-items: center;
+        color: inherit;
+        display: flex;
+        flex: 1 0 auto;
+        justify-content: inherit;
+        line-height: normal;
+        position: relative;
+        transition: inherit;
+        transition-property: inherit;
+        transition-property: opacity;
+
+        svg{
+            width: 1.5rem;
+            height: 1.5rem;
+            //color: rgba(255,255,255,1);
+            fill: currentColor;
+        }
+    }
+
+    &__round{
+        border-radius: 50%;
+    }
+    &__outlined{
+        border: thin solid !important;
+    }
 
     &::before {
         background-color: currentColor;
@@ -35,9 +70,14 @@
         transition: opacity .2s cubic-bezier(.4, 0, .6, 1);
     }
 
+
+
     &:hover {
         color: $body-color;
         text-decoration: if($link-hover-decoration==underline, none, null);
+        &::before {
+            opacity: 0.10;
+        }
     }
 
     .btn-check:focus+&,
@@ -116,15 +156,6 @@
 // Icons
 .hx-button {
 
-    // Font icon
-    i {
-        display: inline-flex;
-        font-size: $font-size-base;
-        padding-right: 0.35rem;
-        vertical-align: middle;
-        line-height: 0;
-    }
-
     // Svg icon
     .svg-icon {
         flex-shrink: 0;
@@ -134,12 +165,16 @@
 
     // Icon only button
     &.hx-button__icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        height: $input-height;
-        width: $input-height;
+        height: 36px;
+        width: 36px;
+
+        &__content{
+            svg{
+                color: rgba(0,0,0,.54) !important;
+                fill: currentColor !important;
+
+            }
+        }
 
         // Remove border
         &:not(.hx-button__outline):not(.hx-button__dashed):not(.border-hover):not(.border-active):not(.hx-button__flush) {
@@ -186,12 +221,22 @@ $value in $theme-colors {
         $icon-color: theme-inverse-color($name);
         $border-color: $value;
         $bg-color: $value;
-
         $color-active: theme-inverse-color($name);
         $icon-color-active: theme-inverse-color($name);
         $border-color-active: theme-active-color($name);
         $bg-color-active: theme-active-color($name);
+        @include button-custom-variant($color, $icon-color, $border-color, $bg-color, $color-active, $icon-color-active, $border-color-active, $bg-color-active);
+    }
 
+    .hx-button.hx-button__#{$name}-text {
+        $color: theme-inverse-color($name);
+        $icon-color: theme-inverse-color($name);
+        $border-color: $value;
+        $bg-color: $value;
+        $color-active: theme-inverse-color($name);
+        $icon-color-active: theme-inverse-color($name);
+        $border-color-active: theme-active-color($name);
+        $bg-color-active: theme-active-color($name);
         @include button-custom-variant($color, $icon-color, $border-color, $bg-color, $color-active, $icon-color-active, $border-color-active, $bg-color-active);
     }
 
@@ -274,8 +319,7 @@ $value in $theme-text-colors {
             $color: $value;
             $icon-color: $value;
             $bg-color: null;
-            $border-color: null;
-
+            $border-color: $value;
             $color-active: null;
             $icon-color-active: null;
             $border-color-active: null;

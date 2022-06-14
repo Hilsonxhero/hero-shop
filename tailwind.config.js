@@ -14,12 +14,13 @@ module.exports = {
                 "2xl": "2rem",
             },
             screens: {
-                lg: "1124px",
-                xl: "1124px",
-                "2xl": "1300px",
+                lg: "1024px",
+                xl: "1280px",
+                "2xl": "1536px",
             },
         },
 
     },
     plugins: [],
+    important: true,
 }

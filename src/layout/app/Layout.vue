@@ -1,15 +1,27 @@
 <template >
     <div>
-        <Header />
+        <hx-header></hx-header>
         <main style="height:70rem ;">
             <router-view />
         </main>
-        <Footer />
+        <hx-footer></hx-footer>
+
+        <teleport to="body">
+            <div id="hx-overlay" class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-10 hidden"></div>
+        </teleport>
     </div>
 </template>
 <script setup lang="ts">
-import Header from '@/components/app/header/header.vue';
-import Footer from '@/components/app/footer/footer.vue';
+import HxHeader from '@/components/app/header/header.vue';
+import HxFooter from '@/components/app/footer/footer.vue';
 </script>
-<style >
+<style lang="scss">
+.hx-overlay {
+    opacity: 0;
+
+    &.is-active {
+        display: block !important;
+        opacity: .60 !important;
+    }
+}
 </style>

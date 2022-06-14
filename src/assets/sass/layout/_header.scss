@@ -1,5 +1,6 @@
 .t-header {
     box-shadow: 0 2px 12px rgba(0, 0, 0, .1);
+    z-index: 99;
     &__logo {
         transition: height .2s ease-out;
         width: 90px;
@@ -11,8 +12,9 @@
     &__search {
         input {
             font-size: .875rem;
-            min-width: 240px;
+            min-width: 340px;
             max-width: 100%;
+            padding: calc(#{$btn-padding-y} + #{$btn-border-width}) 2.25rem calc(#{$btn-padding-y} + #{$btn-border-width}) calc(#{$btn-padding-y} + #{$btn-border-width});
             &::placeholder {
                 font-size: .775rem;
             }
@@ -28,4 +30,17 @@
     top: 0;
     left: 0;
     right: 0;
+}
+
+input{
+    &:focus-visible{
+        border-color: $gray-500;
+        outline: $gray-500;
+    }
+
+    outline : unset !important;
+}
+
+.transform-50{
+    transform: translateY(-50%);
 }
