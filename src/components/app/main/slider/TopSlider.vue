@@ -2,7 +2,7 @@
     <div>
         <section class="mb-12">
             <swiper class="" :loop="true" :modules="modules" :pagination="{ clickable: true }"
-                :navigation="{ nextEl: '.swiper-button-next-hero', prevEl: '.swiper-button-prev-hero', }">
+                :navigation="{ nextEl: '.swiper-button-next-hero', prevEl: '.swiper-button-prev-hero', }" >
                 <swiper-slide v-for="(item, index) in 4" :key="index">
                     <div>
                         <img src="media/banners/01.jpg" class="w-full  h-60 lg:h-96 object-cover" />
