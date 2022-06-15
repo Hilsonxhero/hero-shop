@@ -1,7 +1,7 @@
 <template >
     <div>
         <hx-header></hx-header>
-        <main style="height:70rem ;">
+        <main>
             <router-view />
         </main>
         <hx-footer></hx-footer>
