@@ -64,7 +64,6 @@
                                 class="w-14 h-14 lg:w-16 lg:h-16 block"><img src="/media/icons/productGuaranty.svg"
                                     loading="lazy" alt="تضمین اصالت کالا"
                                     class="w-full h-full transition-opacity duration-500" width="64" height="64">
-
                             </span>
                             <div class="mt-4 text-center text-gray-800 text-xs font-bold leading-6 lg:mt-5 lg:text-sm">
                                 تضمین اصالت کالا
@@ -72,11 +71,7 @@
                         </a>
                     </div>
                 </div>
-
-
-
             </div>
-
             <div>
                 <div class="flex flex-col lg:flex-row lg:justify-between lg:pb-6">
                     <div

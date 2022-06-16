@@ -19,10 +19,10 @@
     <section class="my-12">
       <TripleBanner />
     </section>
-
+    <!-- 
     <section class="my-12">
       <Categories />
-    </section>
+    </section> -->
 
     <section class="my-12">
       <Pcc />
@@ -30,6 +30,11 @@
 
     <section class="my-12">
       <Pcc />
+    </section>
+
+
+    <section class="my-12">
+      <Articles />
     </section>
   </div>
 </template>
@@ -41,7 +46,8 @@ import Promotion from '@/components/app/main/promotion/promotion.vue';
 import Bestselling from '@/components/app/main/bs/Bestselling.vue';
 import TripleBanner from '@/components/app/main/banners/Triple.vue';
 import QuadrupleBanner from '@/components/app/main/banners/Quadruple.vue';
-import Pcc from '../../components/app/main/pcc/pcc.vue';
+import Pcc from '@/components/app/main/pcc/pcc.vue';
+import Articles from '@/components/app/main/articles/Articles.vue';
 </script>
 
 <style scoped>
