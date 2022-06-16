@@ -28,7 +28,6 @@
                             </svg>
                         </div>
                     </button>
-
                 </swiper>
             </div>
         </div>

@@ -36,7 +36,7 @@
                         <a href="/page/refunds" rel=""
                             class="items-center w-36 h-[7.75rem] t-col flex flex-col  justify-center lg:w-[9.25rem] lg:h-[9.25rem]"><span
                                 class="w-14 h-14 lg:w-16 lg:h-16 block"><img src="/media/icons/productReturn.svg"
-                                    loading="lazy" alt="گارانتی طلایی مبیت"
+                                    loading="lazy" alt="گارانتی طلایی ما"
                                     class="w-full h-full transition-opacity duration-500" width="64" height="64">
 
                             </span>
@@ -83,14 +83,14 @@
                         class="lg:w-[70%] flex justify-start  space-x-reverse lg:space-x-reverse space-x-[2.875rem] overflow-hidden lg:space-x-[3.25rem]">
                         <div class="w-max whitespace-nowrap lg:space-y-5">
                             <div class="menu-title mb-3">
-                                با مبیت
+                                با ما
                             </div>
                             <div class="flex flex-col space-y-4">
                                 <div class="hover:text-typo menu-item"><a href="/page/about-us" class="">
-                                        درباره مبیت
+                                        درباره ما
                                     </a></div>
                                 <div class="hover:text-typo menu-item"><a href="/contact-us" class="">
-                                        تماس با مبیت
+                                        تماس با ما
                                     </a></div>
                                 <div class="hover:text-typo menu-item"><a href="/careers" class="">
                                         فرصت های شغلی
@@ -243,10 +243,10 @@
             <div class="flex flex-col items-start justify-between mt-6 lg:flex-row">
                 <div class="w-full lg:w-[55%]">
                     <h1 class="mb-3 text-gray-800 text-sm leading-7 lg:text-base">
-                        فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال با مناسب ترین قیمت
+                        فروشگاه اینترنتی ما، خرید آسان کالای دیجیتال با مناسب ترین قیمت
                     </h1>
                     <p class="text-justify text-sm transition-all leading-8">
-                        مارکت پلیس مبیت، یکی از بزرگترین عرضه کنندگان کالای دیجیتال در سراسر
+                        مارکت پلیس ما، یکی از بزرگترین عرضه کنندگان کالای دیجیتال در سراسر
                         کشور است که بروزترین و جدیدترین کالاها مانند گوشی های موبایل، لپ
                         تاپ، تبلت و لوازم جانبی گوشی و کامپیوتر را از برترین برندهای جهانی
                         با مناسب ترین قیمت و ضمانت اصالت کالا به کاربران عرضه می کند.
