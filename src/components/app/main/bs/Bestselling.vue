@@ -1,11 +1,13 @@
 <template>
     <div class="container">
         <div class="hx-bs__box w-full relative py-8 px-4 bg-gray-100 overflow-hidden h-full">
-            <div class="flex items-stretch justify-start relative z-10">
-                <div class="flex flex-col items-center w-60 min-w-[15rem]">
+            <div class="flex flex-col lg:flex-row items-stretch justify-start relative z-10">
+                <div
+                    class="flex flex-col items-center justify-center text-center mx-auto lg:justify-start w-60 min-w-[15rem]">
                     <h4 class="text-center mb-2 text-white text-3xl">پر فروش ترین ها</h4>
-                    <div class="text-base text-white mt-6">مشاهده همه</div>
-                    <img class="w-24 h-full flex justify-end object-contain mt-12" src="media/rocket.png" alt="" />
+                    <div class="text-base text-white mt-3 lg:mt-6 mb-6">مشاهده همه</div>
+                    <img class="w-24 h-full hidden lg:flex justify-end object-contain mt-12" src="media/rocket.png"
+                        alt="" />
                 </div>
 
                 <div class="flex-grow overflow-hidden">
@@ -37,8 +39,8 @@ const config = ref({
     },
     breakpoints: {
         '320': {
-            slidesPerView: 5,
-            spaceBetween: 20
+            slidesPerView: 1.5,
+            spaceBetween: 10
         },
         '410': {
             slidesPerView: 5,

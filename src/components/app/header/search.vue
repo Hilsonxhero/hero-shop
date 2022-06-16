@@ -1,5 +1,5 @@
 <template>
-    <div class="relative t-header__box">
+    <div class="relative t-header__box hidden lg:flex">
         <div class="relative w-full t-header__search">
             <input v-clickoutside:t-header__box="hide" class="bg-gray-100 rounded-xl  text-sm  w-full" type="text"
                 placeholder="جستجو در محصولات ،دسته بندی و .." @click="showBox">
@@ -44,6 +44,9 @@
             </div>
         </div>
     </div>
+    <teleport to="body" v-if="visiableSearchBox">
+        <div id="hx-overlay" class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-10 hidden is-active"></div>
+    </teleport>
 </template>
 
 <script setup lang="ts">

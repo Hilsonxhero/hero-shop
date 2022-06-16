@@ -6,9 +6,9 @@
         </main>
         <hx-footer></hx-footer>
 
-        <teleport to="body">
+        <!-- <teleport to="body">
             <div id="hx-overlay" class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-10 hidden"></div>
-        </teleport>
+        </teleport> -->
     </div>
 </template>
 <script setup lang="ts">

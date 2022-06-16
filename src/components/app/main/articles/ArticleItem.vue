@@ -1,15 +1,17 @@
+
+
+
 <template>
-    <div class="col-span-3 relative mx-3 rounded-xl lg:w-auto lg:overflow-hidden over group w-[13.5rem] h-[13.5rem] lg:h-[18.75rem] "
+    <div class="col-span-12  md:col-span-6 lg:col-span-3 relative overflow-hidden rounded-xl group  "
         v-for="(item, index) in 4">
-        <a target="_blank" href="https://www.mobit.ir/mag/best-amazfit-smartwatches/">
+        <a class="overflow-hidden h-[13.5rem] lg:h-[18.75rem] " target="_blank" href="">
             <span
-                class="w-full h-full rounded transition duration-300 lg:transform group-hover:lg:scale-105 min-w-[13.5rem] min-h-[13.5rem] block"><img
-                    data-name="image-img"
-                    src="https://cdnn.mobit.ir/mag/wp-content/uploads/2022/06/06114500/%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B4%D8%A7%D8%AE%D8%B5.jpg"
-                    loading="lazy" class="w-full h-full transition-opacity duration-500 rounded object-cover">
+                class="w-full h-full  transition duration-300 lg:transform group-hover:lg:scale-105 min-w-[13.5rem] min-h-[13.5rem] block"><img
+                    data-name="image-img" src="media/banners/06.jpg" loading="lazy"
+                    class="w-full h-full transition-opacity duration-500  object-cover">
 
             </span>
-            <div class="rounded-b liniear-gr"></div>
+            <div class="liniear-gr"></div>
             <div
                 class="absolute bottom-5 px-3 text-white whitespace-normal text-sm font-medium lg:z-30 lg:right-3 lg:px-0 lg:text-base lg:transform lg:transition-all lg:duration-300 lg:group-hover:bottom-3">
                 بهترین ساعت هوشمند امیزفیت

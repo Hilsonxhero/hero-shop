@@ -15,46 +15,44 @@ const app = createApp(App);
 const clickoutside = {
     created(el: any, binding: any, vnode: any) {
 
-        const parent = `.${binding.arg}`
-
-        const handler = (event: any) => {
-            let overlay = document.getElementById("hx-overlay")
-            overlay?.classList.add('is-active')
-            document.body.classList.add('overflow-hidden')
-            if (!event.target.closest(parent)) {
-                binding.value(event, el);
-                overlay?.classList.remove('is-active')
-                document.body.classList.remove('overflow-hidden')
-            }
-        }
-        // register click and touch events
-        document.body.addEventListener('click', handler)
-        document.body.addEventListener('touchstart', handler)
-
-
     },
 
     beforeMount(el: any) {
 
     },
 
-    mounted() {
-
+    mounted(el: any, binding: any, vnode: any) {
+        const parent = `.${binding.arg}`
+        el.handler = (event: any) => {
+            console.log("EL", el);
+            // let overlay = document.getElementById("hx-overlay")
+            // overlay?.classList.add('is-active')
+            // document.body.classList.add('overflow-hidden')
+            if (!event.target.closest(parent) && !el.contains(event.target)) {
+                binding.value(event, el);
+                // overlay?.classList.remove('is-active')
+                // document.body.classList.remove('overflow-hidden')
+            }
+        }
+        document.body.addEventListener('click', el.handler)
+        document.body.addEventListener('touchstart', el.handler)
     },
     beforeUpdate() { },
     updated() { },
 
     beforeUnmount(el: any) {
-        document.body.removeEventListener('click', el.clickOutsideEvent)
-        document.body.removeEventListener('touchstart', el.clickOutsideEvent)
+        console.log("removeEventListener");
+        document.body.removeEventListener('click', el.handler)
+        document.body.removeEventListener('touchstart', el.handler)
     },
 
     unmounted(event: any) {
-        // event.stopPropagation()
+        event.stopPropagation()
     }
 }
 
 app.directive('clickoutside', clickoutside)
+
 
 
 

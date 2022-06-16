@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="grid grid-cols-12 gap-3">
+        <div class="grid grid-cols-12 gap-y-6 lg:gap-3">
             <ArticleItem />
         </div>
     </div>
@@ -12,5 +12,4 @@ import ArticleItem from './ArticleItem.vue';
 </script>
 
 <style scoped>
-
 </style>

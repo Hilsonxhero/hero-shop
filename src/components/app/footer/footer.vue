@@ -2,7 +2,7 @@
     <footer>
         <div class="container">
             <div class="bg-gray-100 overflow-hidden rounded-xl mb-8 w-full px-6 flex content-between items-center">
-                <div class="flex-grow">
+                <div class="flex-grow hidden lg:block">
                     <div class="flex text-sm py-5">
                         <div class="text-gray-700 ml-3">پشتیبانی</div>
                         <div class="">
@@ -72,133 +72,112 @@
                     </div>
                 </div>
             </div>
+
+
             <div>
-                <div class="flex flex-col lg:flex-row lg:justify-between lg:pb-6">
-                    <div
-                        class="lg:w-[70%] flex justify-start  space-x-reverse lg:space-x-reverse space-x-[2.875rem] overflow-hidden lg:space-x-[3.25rem]">
-                        <div class="w-max whitespace-nowrap lg:space-y-5">
-                            <div class="menu-title mb-3">
-                                با ما
+                <div class="grid grid-cols-12   gap-y-8  lg:pb-6">
+                    <div class="col-span-12 lg:col-span-9  gap-y-4  space-y-4 overflow-hidden ">
+                        <div class="grid grid-cols-12">
+                            <div class="col-span-6 lg:col-span-3  lg:space-y-5">
+                                <div class="menu-title mb-3">
+                                    با ما
+                                </div>
+                                <div class="flex flex-col space-y-4">
+                                    <div class="hover:text-typo menu-item"><a href="/page/about-us" class="">
+                                            درباره ما
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/contact-us" class="">
+                                            تماس با ما
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/careers" class="">
+                                            فرصت های شغلی
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/provider" class="">
+                                            فروشنده شوید
+                                        </a></div>
+                                </div>
                             </div>
-                            <div class="flex flex-col space-y-4">
-                                <div class="hover:text-typo menu-item"><a href="/page/about-us" class="">
-                                        درباره ما
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/contact-us" class="">
-                                        تماس با ما
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/careers" class="">
-                                        فرصت های شغلی
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/provider" class="">
-                                        فروشنده شوید
-                                    </a></div>
+                            <div class="col-span-6 lg:col-span-3  lg:space-y-5">
+                                <div class="menu-title mb-3">
+                                    راهنمای خرید
+                                </div>
+                                <div class="flex flex-col space-y-4">
+                                    <div class="hover:text-typo menu-item"><a href="/page/pay-method" class="">
+                                            روش های پرداخت
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/page/send-method" class="">
+                                            روش های ارسال کالا
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/page/refunds" class="">
+                                            لغو و بازگشت کالا
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/page/guarantee" class="">
+                                            ضمانت اصالت کالا
+                                        </a></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w-max whitespace-nowrap lg:space-y-5">
-                            <div class="menu-title mb-3">
-                                راهنمای خرید
+                            <div class="col-span-6 lg:col-span-3  lg:space-y-5">
+                                <div class="menu-title mb-3">
+                                    خدمات مشتریان
+                                </div>
+                                <div class="flex flex-col space-y-4">
+                                    <div class="hover:text-typo menu-item"><a target="_blank" href="">
+                                            راهنمای جامع
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/page/terms-of-use" class="">
+                                            شرایط و قوانین
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/faq" class="">
+                                            سوالات متداول
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/page/privacy-policy" class="">
+                                            حریم خصوصی
+                                        </a></div>
+                                </div>
                             </div>
-                            <div class="flex flex-col space-y-4">
-                                <div class="hover:text-typo menu-item"><a href="/page/pay-method" class="">
-                                        روش های پرداخت
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/page/send-method" class="">
-                                        روش های ارسال کالا
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/page/refunds" class="">
-                                        لغو و بازگشت کالا
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/page/guarantee" class="">
-                                        ضمانت اصالت کالا
-                                    </a></div>
+                            <div class="col-span-6 lg:col-span-3  lg:space-y-5">
+                                <div class="menu-title mb-3">
+                                    قیمت گوشی
+                                </div>
+                                <div class="flex flex-col space-y-4">
+                                    <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone"
+                                            class="">
+                                            قیمت روز گوشی موبایل
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a
+                                            href="/search/category-mobilephone/samsung" class="">
+                                            قیمت گوشی سامسونگ
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/xiaomi"
+                                            class="">
+                                            قیمت گوشی شیائومی
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/apple"
+                                            class="">
+                                            قیمت گوشی اپل
+                                        </a></div>
+                                    <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/huawei"
+                                            class="">
+                                            قیمت گوشی هواوی
+                                        </a></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w-max whitespace-nowrap lg:space-y-5">
-                            <div class="menu-title mb-3">
-                                خدمات مشتریان
-                            </div>
-                            <div class="flex flex-col space-y-4">
-                                <div class="hover:text-typo menu-item"><a target="_blank"
-                                        href="https://www.mobit.ir/mag/category/review/buyers-guide-review/">
-                                        راهنمای جامع
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/page/terms-of-use" class="">
-                                        شرایط و قوانین
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/faq" class="">
-                                        سوالات متداول
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/page/privacy-policy" class="">
-                                        حریم خصوصی
-                                    </a></div>
-                            </div>
-                        </div>
-                        <div class="w-max whitespace-nowrap lg:space-y-5">
-                            <div class="menu-title mb-3">
-                                قیمت گوشی
-                            </div>
-                            <div class="flex flex-col space-y-4">
-                                <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone" class="">
-                                        قیمت روز گوشی موبایل
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/samsung"
-                                        class="">
-                                        قیمت گوشی سامسونگ
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/xiaomi"
-                                        class="">
-                                        قیمت گوشی شیائومی
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/apple"
-                                        class="">
-                                        قیمت گوشی اپل
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-mobilephone/huawei"
-                                        class="">
-                                        قیمت گوشی هواوی
-                                    </a></div>
-                            </div>
-                        </div>
-                        <div class="w-max whitespace-nowrap lg:space-y-5">
-                            <div class="menu-title mb-3">
-                                قیمت کالای دیجیتال
-                            </div>
-                            <div class="flex flex-col space-y-4">
-                                <div class="hover:text-typo menu-item"><a
-                                        href="/search/category-headphones-headset-handsfree" class="">
-                                        قیمت هدفون، هدست، هندزفری
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-television" class="">
-                                        قیمت تلویزیون
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-home-game-console"
-                                        class="">
-                                        قیمت کنسول بازی خانگی
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-laptop-ultrabook"
-                                        class="">
-                                        قیمت لپ تاپ
-                                    </a></div>
-                                <div class="hover:text-typo menu-item"><a href="/search/category-tablet" class="">
-                                        قیمت تبلت
-                                    </a></div>
-                            </div>
+
                         </div>
                     </div>
 
-                    <div class="flex flex-col">
+                    <div class="col-span-12 lg:col-span-3 flex flex-col">
                         <div class="flex items-center justify-between ">
                             <div class="text-gray-800 text-sm font-extrabold leading-6 lg:text-base lg:leading-7">
                                 با ما همراه باشید
                             </div>
                             <div class="flex flex-wrap items-center justify-center space-x-1 space-x-reverse  lg:pr-3">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="" class="">
-                                    <hx-icon class="w-12 h-12 text-gray-500" icon="instagram"></hx-icon>
+                                    <hx-icon class="w-6 h-6 text-gray-500" icon="instagram"></hx-icon>
 
                                 </a>
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="" class="">
-                                    <hx-icon class="w-12 h-12 text-gray-500" icon="twitter"></hx-icon>
+                                    <hx-icon class="w-6 h-6 text-gray-500" icon="twitter"></hx-icon>
                                 </a>
                             </div>
                         </div>
@@ -209,19 +188,13 @@
                             <div class="h-full,flex justify-center">
                                 <form class="h-full">
                                     <div class="flex flex-col space-y-3">
-                                        <div data-name="container" class="  w-[14.25rem] lg:w-[20.5rem]">
+                                        <div class="w-full ">
                                             <div
                                                 class="overflow-hidden relative min-content-height  rounded-xl  t-input-height ">
-                                                <!-- <input data-crawl="email" inputmode="text" type="text"
-                                                    placeholder="ایمیل خود را وارد کنید " value=""
-                                                    class="block h-full w-full  outline-none  rounded-inherit  focus:border-primary  text-input-placeholder-black text-dark border border border-solid border-gray-300 focus:border-gray-600   transition shadow-sm disabled:opacity-50 pr-3  pl-3  text-right  border-transparent focus:border-[initial] border-2 input-bg focus:bg-white input-styles"> -->
                                                 <hx-input type="text" placeholder="ایمیل خود را وارد کنید"></hx-input>
-
                                             </div>
-
                                         </div>
                                         <div class="flex flex-col space-y-3">
-
                                             <div class="flex justify-end">
                                                 <hx-button class="lg:w-[9.25rem] w-24">ثبت</hx-button>
                                             </div>
@@ -245,37 +218,24 @@
                         کشور است که بروزترین و جدیدترین کالاها مانند گوشی های موبایل، لپ
                         تاپ، تبلت و لوازم جانبی گوشی و کامپیوتر را از برترین برندهای جهانی
                         با مناسب ترین قیمت و ضمانت اصالت کالا به کاربران عرضه می کند.
-
-
                     </p>
-
                 </div>
-                <div class="flex justify-evenly w-full lg:justify-end lg:w-[30%]">
-                    <div class="ml-4">
-                        <div class="flex items-center justify-center mb-3 py-5 rounded-md"><a referrerpolicy="origin"
-                                target="_blank"
-                                href="https://trustseal.enamad.ir/?id=87935&amp;Code=yp8NtxrrUkEadMkBTBiV"
-                                class="lg:w-auto w-[5.43rem] h-[5.43rem] lg:h-[6.25rem]"><img id="yp8NtxrrUkEadMkBTBiV"
-                                    referrerpolicy="origin"
-                                    src="https://Trustseal.eNamad.ir/logo.aspx?id=87935&amp;Code=yp8NtxrrUkEadMkBTBiV"
-                                    loading="lazy" alt="enamad logo" class="h-full object-contain"
-                                    style="cursor: pointer" width="100" height="100%"></a></div>
-                    </div>
+                <div class="flex justify-center w-full lg:justify-end lg:w-[30%]">
+
                     <div class="flex ml-4">
                         <div class="flex items-center justify-center mb-3 py-5 rounded-md">
                             <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img
                                     id="jxlzfukzapfufukzjxlzesgt" alt="samandehi logo" loading="lazy"
-                                    src="https://cdn.mobit.ir/assets/4/samandehi.png?inline=1"
-                                    class="h-full object-contain" style="cursor: pointer" width="100%" height="100%">
+                                    src="media/samandehi.png" class="h-full object-contain" style="cursor: pointer"
+                                    width="100%" height="100%">
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="flex items-center justify-center mb-3 py-5 rounded-md">
-                            <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img
-                                    src="https://cdn.mobit.ir/assets/4/ecunion.png?inline=1" alt="ecunion logo"
-                                    loading="lazy" class="h-full object-contain" style="cursor: pointer" width="100%"
-                                    height="100%"></div>
+                            <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img src="media/ecunion.png"
+                                    alt="ecunion logo" loading="lazy" class="h-full object-contain"
+                                    style="cursor: pointer" width="100%" height="100%"></div>
                         </div>
                     </div>
                 </div>
