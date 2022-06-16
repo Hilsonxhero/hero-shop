@@ -2,7 +2,7 @@
     <div>
         <section class="mb-12">
             <swiper class="" :loop="true" :modules="modules" :pagination="{ clickable: true }"
-                :navigation="{ nextEl: '.swiper-button-next-hero', prevEl: '.swiper-button-prev-hero', }" >
+                :navigation="{ nextEl: '.swiper-button-next-hero', prevEl: '.swiper-button-prev-hero', }">
                 <swiper-slide v-for="(item, index) in 4" :key="index">
                     <div>
                         <img src="media/banners/01.jpg" class="w-full  h-60 lg:h-96 object-cover" />
@@ -16,7 +16,7 @@
                         </svg>
 
                     </div>
-                    <div class="swiper-button-next-hero  " slot="button-next">
+                    <div class="swiper-button-next-hero" slot="button-next">
                         <div class="flex">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                                 <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
