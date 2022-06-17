@@ -6,7 +6,7 @@
           <a href="" class="t-header__logo w-24 ml-4">
             <hx-icon class="w-full" icon="logo"></hx-icon>
           </a>
-          <nav class="hx-header__nav bg-white lg:bg-transparent flex flex-col w-[60%] lg:w-full"
+          <nav class="hx-header__nav bg-white lg:bg-transparent flex flex-col w-[60%] lg:w-full z-[6]"
             :class="{ 'is-active': active }">
             <a href="" class="mx-auto py-4 w-24 lg:hidden">
               <hx-icon class="w-full" icon="logo"></hx-icon>
@@ -35,7 +35,7 @@
         <div class="flex items-center ">
           <header-search></header-search>
           <div class="hidden lg:flex">
-            <hx-button class="mr-2" variant="light">
+            <hx-button :to="{ name: 'auth' }" class="mr-2" variant="light">
               <hx-icon right icon="user"></hx-icon>
               حساب کاربری
             </hx-button>
@@ -54,6 +54,8 @@
 
       </div>
     </div>
+
+    <hx-overlay :active="active"></hx-overlay>
   </header>
 
 
@@ -66,7 +68,6 @@ import HeaderSearch from './search.vue';
 const active = ref(false)
 
 const hide = () => {
-  console.log("qqqqq");
   active.value = false
 }
 
@@ -81,7 +82,7 @@ const showNavHandler = () => {
   @media (max-width : 1024px) {
     transition: all .5s ease-in-out;
     transform: translateX(100%);
-    z-index: 70;
+    // z-index: 70;
     position: fixed;
     top: 0px;
     right: 0px;

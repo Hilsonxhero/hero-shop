@@ -1,18 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+// @ts-ignore
+import app from './application'
+import auth from './auth'
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    component: () => import("@/layout/app/Layout.vue"),
-    children: [
-      {
-        path: '/',
-        name: 'landing',
-        component: () => import(/* webpackChunkName: "home" */ "@/views/app/landing.vue"),
-      },
-    ]
-  },
+  app,
+  auth
 ]
 
 const router = createRouter({

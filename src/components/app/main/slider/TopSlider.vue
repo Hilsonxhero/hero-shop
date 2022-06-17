@@ -86,7 +86,7 @@ const modules = [Navigation, Pagination];
     display: flex;
     justify-content: center;
     margin-top: calc(0px - var(--swiper-navigation-size)/2);
-    z-index: 10;
+    z-index: 2;
     border: 1px solid var(--color-neutral-300);
     height: 40px;
     width: 40px;

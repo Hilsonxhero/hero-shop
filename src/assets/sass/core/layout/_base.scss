@@ -13,3 +13,8 @@
     font-display: swap;
     src: url('@/assets/fonts/YekanBakh/YekanBakh-Medium.woff2') format("woff2"), url('@/assets/fonts/YekanBakh/YekanBakh-Medium.ttf') format("truetype")
 }
+
+.shadow-design-base {
+    --tw-shadow: 0px 2px 14px #0000001a;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}

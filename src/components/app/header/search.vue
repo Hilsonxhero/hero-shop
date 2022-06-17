@@ -44,9 +44,7 @@
             </div>
         </div>
     </div>
-    <teleport to="body" v-if="visiableSearchBox">
-        <div id="hx-overlay" class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-10 hidden is-active"></div>
-    </teleport>
+    <hx-overlay :active="visiableSearchBox"></hx-overlay>
 </template>
 
 <script setup lang="ts">

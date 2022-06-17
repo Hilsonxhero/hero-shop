@@ -24,14 +24,8 @@ const clickoutside = {
     mounted(el: any, binding: any, vnode: any) {
         const parent = `.${binding.arg}`
         el.handler = (event: any) => {
-            console.log("EL", el);
-            // let overlay = document.getElementById("hx-overlay")
-            // overlay?.classList.add('is-active')
-            // document.body.classList.add('overflow-hidden')
             if (!event.target.closest(parent) && !el.contains(event.target)) {
                 binding.value(event, el);
-                // overlay?.classList.remove('is-active')
-                // document.body.classList.remove('overflow-hidden')
             }
         }
         document.body.addEventListener('click', el.handler)
@@ -41,13 +35,12 @@ const clickoutside = {
     updated() { },
 
     beforeUnmount(el: any) {
-        console.log("removeEventListener");
         document.body.removeEventListener('click', el.handler)
         document.body.removeEventListener('touchstart', el.handler)
     },
 
     unmounted(event: any) {
-        event.stopPropagation()
+        // event.stopPropagation()
     }
 }
 

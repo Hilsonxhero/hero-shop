@@ -3,7 +3,11 @@ module.exports = {
         "./src/**/*.{vue,js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            boxShadow: {
+                'design-base': '0px 2px 14px #0000001a'
+            },
+        },
         container: {
             center: true,
             padding: {
