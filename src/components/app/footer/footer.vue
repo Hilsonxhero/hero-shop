@@ -191,7 +191,8 @@
                                         <div class="w-full ">
                                             <div
                                                 class="overflow-hidden relative min-content-height  rounded-xl  t-input-height ">
-                                                <hx-input type="text" placeholder="ایمیل خود را وارد کنید"></hx-input>
+                                                <hx-input v-model="email" type="text"
+                                                    placeholder="ایمیل خود را وارد کنید"></hx-input>
                                             </div>
                                         </div>
                                         <div class="flex flex-col space-y-3">
@@ -246,6 +247,9 @@
 
 <script setup lang="ts">
 import HxInput from '@/components/base/form/input/Input.vue';
+import { ref } from 'vue';
+
+const email = ref(null)
 
 </script>
 

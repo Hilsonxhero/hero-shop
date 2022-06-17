@@ -1,39 +1,56 @@
 <template>
     <div>
         <div class="bg-white p-5 lg:shadow-design-base rounded-3xl">
-            <h1 class="flex justify-start mb-6 text-typo text-xl font-extrabold">
-                ورود به
+            <h1 class="flex justify-start mb-6 text-typo text-xl ">
+                ورود
             </h1>
             <div class="w-full">
                 <div>
                     <div data-name="form-container" class="h-full">
-                        <form class="h-full space-y-4">
+                        <form class="h-full space-y-6" @submit="sendCodeHandler">
+                            <template v-if="otp">
+                                <div class="block mb-4">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div class="text-typo-300 text-sm  cursor-pointer">
+                                            {{ username }}
+                                        </div>
+                                        <div class="text-primary text-sm  cursor-pointer lg:mr-0" @click="otp = false">
+                                            ویرایش شماره موبایل
+                                        </div>
+                                    </div>
 
-                            <div>
 
-                                <hx-form-group label="شماره موبایل">
-                                    <hx-form-input type="text"></hx-form-input>
-                                </hx-form-group>
+                                    <div>
+                                        <Otp :length="4" v-model="code" />
+                                    </div>
+                                </div>
 
-                            </div>
-                            <span class="text-justify  lg:text-xs text-typo-400">
-                                با ورود به ،
-                                <a target="_blank" href="/page/terms-of-use" class="cursor-pointer"><span
-                                        class="text-link">
-                                        شرایط </span></a>
-                                و
+                            </template>
 
-                                <a target="_blank" href="/page/privacy-policy" class="cursor-pointer"><span
-                                        class="text-link">
-                                        قوانین حریم ‌خصوصی </span></a>
+                            <template v-else>
+                                <div class="block mb-4">
+                                    <hx-form-group label="شماره موبایل">
+                                        <hx-form-input type="text" v-model="username"></hx-form-input>
+                                    </hx-form-group>
+                                </div>
+                                <span class="text-justify  lg:text-xs text-typo-400 ">
+                                    با ورود به ،
+                                    <a target="_blank" href="" class="cursor-pointer"><span class="text-link">
+                                            شرایط </span></a>
+                                    و
 
-                                آن را می‌پذیرید.
-                            </span>
+                                    <a target="_blank" href="" class="cursor-pointer"><span class="text-link">
+                                            قوانین حریم ‌خصوصی </span></a>
+
+                                    آن را می‌پذیرید.
+                                </span>
+                            </template>
+
                             <div class="border-gray-300 border lg:auth-content-reverse-padding">
                             </div>
                             <div class="flex flex-col justify-between lg:items-center">
                                 <div class="w-full">
-                                    <hx-button variant="primary" block>ورود</hx-button>
+                                    <hx-button type="submit" variant="primary" block>ورود</hx-button>
                                 </div>
                             </div>
                         </form>
@@ -47,6 +64,22 @@
 <script setup lang="ts">
 import HxFormGroup from '@/components/base/form/Group.vue';
 import HxFormInput from '@/components/base/form/input/Input.vue';
+import Otp from '@/components/base/form/otp/otp.vue';
+import { ref } from 'vue';
+
+const username = ref(null)
+
+const code = ref(null)
+
+const otp = ref(false)
+
+
+
+const sendCodeHandler = (e: any) => {
+    e.preventDefault();
+
+    otp.value = true
+}
 
 </script>
 
