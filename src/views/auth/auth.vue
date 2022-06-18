@@ -6,7 +6,7 @@
             </h1>
             <div class="w-full">
                 <div>
-                    <div data-name="form-container" class="h-full">
+                    <div class="h-full">
                         <form class="h-full space-y-6" @submit="sendCodeHandler">
                             <template v-if="otp">
                                 <div class="block mb-4">

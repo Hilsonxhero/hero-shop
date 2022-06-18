@@ -20,7 +20,7 @@
         </div>
 
         <div class="mt-3">
-            <router-link to="/">
+            <router-link :to="{ name: 'product detail', params: { id: 222, slug: 'samsung-222' } }">
                 <h2> کنسول بازی سونی مدل Playstation 5 Edition
                 </h2>
             </router-link>
@@ -43,8 +43,6 @@
 </script>
 
 <style lang="scss" scoped>
-
-
 .hx-product__item {
     @apply bg-white shadow-md flex flex-col items-center rounded-md p-4 relative
 }

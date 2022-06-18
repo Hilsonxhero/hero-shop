@@ -7,7 +7,7 @@
         <a class="overflow-hidden h-[13.5rem] lg:h-[18.75rem] " target="_blank" href="">
             <span
                 class="w-full h-full  transition duration-300 lg:transform group-hover:lg:scale-105 min-w-[13.5rem] min-h-[13.5rem] block"><img
-                    data-name="image-img" src="media/banners/06.jpg" loading="lazy"
+                    src="media/banners/06.jpg" loading="lazy"
                     class="w-full h-full transition-opacity duration-500  object-cover">
 
             </span>

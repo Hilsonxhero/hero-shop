@@ -1,5 +1,5 @@
 <template>
-  <inline-svg class="hx-icon" fill="currentColor" :src="`media/icons/${icon}.svg`" :class="[
+  <inline-svg class="hx-icon" fill="currentColor" :src="`/media/icons/${icon}.svg`" :class="[
     right && 'hx-icon__right',
     left && 'hx-icon__left'
   ]"></inline-svg>

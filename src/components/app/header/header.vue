@@ -3,9 +3,9 @@
     <div class="container h-16">
       <div class="flex items-center h-full">
         <div class="flex items-center flex-grow">
-          <a href="" class="t-header__logo w-24 ml-4">
+          <router-link :to="{ name: 'landing' }" class="t-header__logo w-24 ml-4">
             <hx-icon class="w-full" icon="logo"></hx-icon>
-          </a>
+          </router-link>
           <nav class="hx-header__nav bg-white lg:bg-transparent flex flex-col w-[60%] lg:w-full z-[6]"
             :class="{ 'is-active': active }">
             <a href="" class="mx-auto py-4 w-24 lg:hidden">

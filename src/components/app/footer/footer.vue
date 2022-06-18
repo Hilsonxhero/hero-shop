@@ -227,14 +227,14 @@
                         <div class="flex items-center justify-center mb-3 py-5 rounded-md">
                             <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img
                                     id="jxlzfukzapfufukzjxlzesgt" alt="samandehi logo" loading="lazy"
-                                    src="media/samandehi.png" class="h-full object-contain" style="cursor: pointer"
+                                    src="/media/samandehi.png" class="h-full object-contain" style="cursor: pointer"
                                     width="100%" height="100%">
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="flex items-center justify-center mb-3 py-5 rounded-md">
-                            <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img src="media/ecunion.png"
+                            <div class="lg:w-auto h-[5.43rem] w-[5.43rem] lg:h-[6.25rem]"><img src="/media/ecunion.png"
                                     alt="ecunion logo" loading="lazy" class="h-full object-contain"
                                     style="cursor: pointer" width="100%" height="100%"></div>
                         </div>

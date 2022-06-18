@@ -8,6 +8,12 @@ export default
                 name: 'landing',
                 component: () => import(/* webpackChunkName: "home" */ "@/views/app/landing.vue"),
             },
+
+            {
+                path: 'product/:id/:slug',
+                name: 'product detail',
+                component: () => import(/* webpackChunkName: "product" */ "@/views/app/product/detail.vue"),
+            },
         ]
     }
 
