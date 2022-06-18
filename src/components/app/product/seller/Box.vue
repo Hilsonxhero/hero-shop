@@ -42,7 +42,7 @@
                                     type="radio" class="absolute opacity-0 cursor-pointer checked:bg-primary" value="1">
                                 <span class="w-[0.625rem] h-[0.625rem] rounded-full bg-white  hidden "></span></span>
                             <!----> <span title="مشکی"
-                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base border border-primary">
+                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl border border-primary">
                                 <div class="w-7 h-7 rounded-sm" style="background-color: rgb(0, 0, 0);">
                                 </div>
                             </span>
@@ -53,7 +53,7 @@
                                     value="73">
                                 <span class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                             <!----> <span title="آبی روشن"
-                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                 <div class="w-7 h-7 rounded-sm" style="background-color: rgb(39, 140, 206);"></div>
                             </span>
                         </label></span><span class="mb-2 ml-4 last:pl-3 lg:ml-3"><label
@@ -63,7 +63,7 @@
                                     value="130"> <span
                                     class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                             <!----> <span title="هلویی"
-                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                 <div class="w-7 h-7 rounded-sm border border-gray-300"
                                     style="background-color: rgb(255, 218, 148);"></div>
                             </span>
@@ -73,7 +73,7 @@
                                     type="radio" class="absolute opacity-0 cursor-pointer checked:bg-primary" value="8">
                                 <span class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                             <!----> <span title="آبی"
-                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                 <div class="w-7 h-7 rounded-sm" style="background-color: rgb(74, 134, 232);"></div>
                             </span>
                         </label></span>
@@ -114,7 +114,7 @@
                             </div>
                         </section>
                         <section class="w-full"><button to=""
-                                class="hidden lg:flex t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md text-white disabled:bg-gray-200 lg:h-11 h-11.5  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-base border-1 focus:outline-none whitespace-nowrap w-full  whitespace-nowrap text-base justify-between w-full"
+                                class="hidden lg:flex t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md text-white disabled:bg-gray-200 lg:h-11 h-11.5  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-xl border-1 focus:outline-none whitespace-nowrap w-full  whitespace-nowrap text-base justify-between w-full"
                                 size="sm" full="true">
                                 <!---->
                                 <!----> <span class="w-6 hidden 2xs:block ml-1"><svg color="#666"
@@ -224,7 +224,7 @@
                                                             <div class="cursor-pointer text-typo-light">
                                                                 انصراف
                                                             </div> <button to=""
-                                                                class="t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md  disabled:bg-gray-200 lg:h-11 h-11.5 btn-md  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-base border-1 focus:outline-none whitespace-nowrap w-min    whitespace-nowrap text-base">
+                                                                class="t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md  disabled:bg-gray-200 lg:h-11 h-11.5 btn-md  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-xl border-1 focus:outline-none whitespace-nowrap w-min    whitespace-nowrap text-base">
                                                                 <!---->
                                                                 <!----> <span
                                                                     class=" input-placeholder-color  text-sm font-extrabold">ثبت

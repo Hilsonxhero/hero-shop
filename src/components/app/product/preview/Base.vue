@@ -6,31 +6,27 @@
                     <div id="threshold-id"></div>
                     <ul class="p-3 bg-gray-100 rounded">
                         <li
-                            class="px-6 py-3 whitespace-nowrap text-sm rounded-base cursor-pointer lg:whitespace-normal bg-gray-200 font-bold text-link">
+                            class="px-6 py-3 whitespace-nowrap text-sm rounded-xl cursor-pointer lg:whitespace-normal bg-gray-200 font-bold text-link">
                             <span class="lg:line-clamp-1">
                                 طراحی گوشی سامسونگ Galaxy A13
                             </span>
                         </li>
-                        <li
-                            class="px-6 py-3 whitespace-nowrap text-sm rounded-base cursor-pointer lg:whitespace-normal">
+                        <li class="px-6 py-3 whitespace-nowrap text-sm rounded-xl cursor-pointer lg:whitespace-normal">
                             <span class="lg:line-clamp-1">
                                 نمایشگر گوشی سامسونگ A13
                             </span>
                         </li>
-                        <li
-                            class="px-6 py-3 whitespace-nowrap text-sm rounded-base cursor-pointer lg:whitespace-normal">
+                        <li class="px-6 py-3 whitespace-nowrap text-sm rounded-xl cursor-pointer lg:whitespace-normal">
                             <span class="lg:line-clamp-1">
                                 دوربین گوشی سامسونگ گلکسی A13
                             </span>
                         </li>
-                        <li
-                            class="px-6 py-3 whitespace-nowrap text-sm rounded-base cursor-pointer lg:whitespace-normal">
+                        <li class="px-6 py-3 whitespace-nowrap text-sm rounded-xl cursor-pointer lg:whitespace-normal">
                             <span class="lg:line-clamp-1">
                                 باتری گوشی سامسونگ Galaxy A13
                             </span>
                         </li>
-                        <li
-                            class="px-6 py-3 whitespace-nowrap text-sm rounded-base cursor-pointer lg:whitespace-normal">
+                        <li class="px-6 py-3 whitespace-nowrap text-sm rounded-xl cursor-pointer lg:whitespace-normal">
                             <span class="lg:line-clamp-1">
                                 سخت افزار و نرم افزار گوشی سامسونگ A13
                             </span>

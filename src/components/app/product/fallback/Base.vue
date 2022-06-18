@@ -1,8 +1,8 @@
 <template>
     <div>
         <div eager="">
-            <section class="feed-container lg:mt-[3.25rem]"><span
-                    class="block p-detail-heading p-detail-heading-border lg:mb-4">بازخورد
+            <section class="feed-container lg:mt-[3.25rem]">
+                <span class="block p-detail-heading p-detail-heading-border lg:mb-4">بازخورد
                     سفارش</span>
                 <div>
                     <div class="gap-4 grid grid-cols-1">
@@ -45,7 +45,6 @@
                     <div class="rounded bg-white vue-portal-target">
                         <div class="w-full overflow-x-auto t-pagination text-typo-light lg:block" pagecount="1"
                             currentpage="1">
-
                         </div>
                     </div>
                     <div class="vue-portal-target"></div>

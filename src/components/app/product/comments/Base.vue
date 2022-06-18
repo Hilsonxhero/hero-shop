@@ -1,52 +1,16 @@
 <template>
     <div>
         <section
-            class="flex flex-col space-y-3 lg:hidden lg:flex-row lg:items-center lg:space-x-reverse lg:space-y-0 lg:space-y-0 lg:mt-[3.25rem]">
+            class="flex flex-col space-y-3 lg:hidden lg:flex-row lg:items-center lg:space-x-reverse  lg:space-y-0 lg:mt-[3.25rem]">
 
             <div
                 class="flex flex-col lg:flex-grow bg-gray-100 lg:bg-transparent rounded p-3 lg:px-0 lg:py-0 mb-12 lg:mb-2 lg:w-full">
                 <section
-                    class="flex justify-center items-center flex-row lg:flex-col lg:border-b broder-gray-300 lg:mb-2 lg:pb-2 justify-center">
+                    class="flex  items-center flex-row lg:flex-col lg:border-b broder-gray-300 lg:mb-2 lg:pb-2 justify-center">
                     <div class="font-black text-base order-1 mx-3 lg:mx-0 lg:order-none lg:text-[40px] lg:mb-4">
                         4</div>
                     <div class="min-h-8 lg:w-36 t-flex-center w-[7.5rem]">
-                        <div class="flex justify-center flex-wrap flex-row-reverse space-x-reverse space-x-1 ">
-                            <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                    class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                <i color="#666" name="t-icon-star_outline-2"
-                                    class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-24px"
-                                    class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                            </div>
-                            <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                    class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                <i color="#666" name="t-icon-star_outline-2"
-                                    class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-24px"
-                                    class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                            </div>
-                            <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                    class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                <i color="#666" name="t-icon-star_outline-2"
-                                    class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-24px"
-                                    class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                            </div>
-                            <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                    class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                <i color="#666" name="t-icon-star_outline-2"
-                                    class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-24px"
-                                    class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                            </div>
-                            <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                    class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-2"
-                                    class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                <i color="#666" name="t-icon-star_outline-24px"
-                                    class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl"></i>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="min-w-12 lg:min-w-[max-content]">
                         <div class="mr-2 lg:mr-0 order-2 lg:order-none text-sm mt-1">
@@ -137,21 +101,17 @@
             </div>
             <section class="lg:pr-4 xl:pr-8">
                 <div
-                    class="py-3 w-full text-center text-white font-bold bg-primary rounded-base cursor-pointer lg:hidden">
+                    class="py-3 w-full text-center text-white font-bold bg-primary rounded-xl cursor-pointer lg:hidden">
                     نظر خود را ثبت کنید
                 </div>
                 <div class="hidden lg:flex lg:flex-col lg:space-y-6">
                     <span class="text-3xl font-bold">شما هم نظرتان را
-                        بنویسید</span> <span class="text-typo-light text-sm">با
+                        بنویسید</span>
+                    <span class="text-typo-light text-sm">با
                         ارسال نظر ضمن کمک به دیگران، اگر
-                        کالا را از فالکون خریده باشید امتیاز دریافت خواهید کرد</span> <button to="" type="button"
-                        class="t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md text-white disabled:bg-gray-200 lg:h-11 h-11.5 btn-md  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-base border-1 focus:outline-none whitespace-nowrap w-min    whitespace-nowrap text-base">
+                        کالا را از فالکون خریده باشید امتیاز دریافت خواهید کرد</span>
 
-                        <span class=" text-sm font-extrabold"><span class="text-white">
-                                ارسال نظر جدید
-                            </span></span>
-
-                    </button>
+                    <hx-button variant="primary">ارسال نظر جدید</hx-button>
                 </div>
             </section>
         </section>
@@ -170,44 +130,7 @@
                                     class="font-black text-base order-1 mx-3 lg:mx-0 lg:order-none lg:text-[40px] lg:mb-4">
                                     4</div>
                                 <div class="min-h-8 lg:w-36 t-flex-center w-[7.5rem]">
-                                    <div
-                                        class="flex justify-center flex-wrap flex-row-reverse space-x-reverse space-x-1 ">
-                                        <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                                class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                            <i color="#666" name="t-icon-star_outline-2"
-                                                class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-24px"
-                                                class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                        </div>
-                                        <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                                class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                            <i color="#666" name="t-icon-star_outline-2"
-                                                class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-24px"
-                                                class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                        </div>
-                                        <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                                class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                            <i color="#666" name="t-icon-star_outline-2"
-                                                class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-24px"
-                                                class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                        </div>
-                                        <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                                class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl"></i>
-                                            <i color="#666" name="t-icon-star_outline-2"
-                                                class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-24px"
-                                                class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                        </div>
-                                        <div class="contents"> <i color="#666" name="t-icon-star_outline-1"
-                                                class="material-icons t-icon-star_outline-1  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-2"
-                                                class="material-icons t-icon-star_outline-2  text-secondary text-3xl lg:text-4xl hidden"></i>
-                                            <i color="#666" name="t-icon-star_outline-24px"
-                                                class="material-icons t-icon-star_outline-24px  text-secondary text-3xl lg:text-4xl"></i>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="min-w-12 lg:min-w-[max-content]">
                                     <div class="mr-2 lg:mr-0 order-2 lg:order-none text-sm mt-1">
@@ -312,15 +235,9 @@
                                         هم نظرتان را
                                         بنویسید</span> <span class="text-center text-typo-light text-sm text-xs">با
                                         ارسال نظر ضمن کمک به دیگران، اگر کالا را از فالکون خریده باشید
-                                        امتیاز دریافت خواهید کرد</span> <button to="" type="button"
-                                        class="t-btn-normal bg-primary hover:bg-primary t-btn-base  transition hover:-md text-white disabled:bg-gray-200 lg:h-11 h-11.5  overflow-hidden flex justify-center items-center px-4 py-2  relative rounded-base border-1 focus:outline-none whitespace-nowrap w-full    whitespace-nowrap text-base max-w-[12rem] lg:max-w-[16rem]">
+                                        امتیاز دریافت خواهید کرد</span>
 
-                                        <span class=" text-sm font-extrabold"><span
-                                                class="text-white text-sm font-medium">
-                                                ارسال نظر جدید
-                                            </span></span>
-
-                                    </button>
+                                    <hx-button variant="primary" block>ارسال نظر جدید</hx-button>
                                 </div>
                             </div>
                         </section>
@@ -332,13 +249,13 @@
                                     کاربران</span> <i color="#666" name="t-icon-sort-24px"
                                     class="block ml-4 mr-4 text-typo-light text-4xl lg:mr-32 material-icons t-icon-sort-24px "></i>
                             </div> <span
-                                class="block px-2 py-2 text-sm rounded-base cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem] font-bold bg-gray-100 text-link transition-all duration-300 ease-out">
+                                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem] font-bold bg-gray-100 text-link transition-all duration-300 ease-out">
                                 جدیدترین نظرات
                             </span><span
-                                class="block px-2 py-2 text-sm rounded-base cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
+                                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
                                 مفیدترین نظرات
                             </span><span
-                                class="block px-2 py-2 text-sm rounded-base cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
+                                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
                                 خریداران کالا
                             </span>
                         </section>

@@ -137,7 +137,7 @@
                                         value="1"> <span
                                         class="w-[0.625rem] h-[0.625rem] rounded-full bg-white  hidden "></span></span>
                                 <span title="مشکی"
-                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base border border-primary">
+                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl border border-primary">
                                     <div class="w-7 h-7 rounded-sm" style="background-color: rgb(0, 0, 0);"></div>
                                 </span>
                             </label></span><span class="mb-2 ml-4 last:pl-3 lg:ml-3"><label
@@ -147,7 +147,7 @@
                                         value="73"> <span
                                         class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                                 <span title="آبی روشن"
-                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                     <div class="w-7 h-7 rounded-sm" style="background-color: rgb(39, 140, 206);"></div>
                                 </span>
                             </label></span><span class="mb-2 ml-4 last:pl-3 lg:ml-3"><label
@@ -157,7 +157,7 @@
                                         value="130"> <span
                                         class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                                 <span title="هلویی"
-                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                     <div class="w-7 h-7 rounded-sm border border-gray-300"
                                         style="background-color: rgb(255, 218, 148);"></div>
                                 </span>
@@ -168,7 +168,7 @@
                                         value="8"> <span
                                         class="w-[0.625rem] h-[0.625rem] rounded-full hidden "></span></span>
                                 <span title="آبی"
-                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-base">
+                                    class="flex items-center p-1 border rounded-sm transition-all duration-100 lg:rounded-xl">
                                     <div class="w-7 h-7 rounded-sm" style="background-color: rgb(74, 134, 232);"></div>
                                 </span>
                             </label></span>
