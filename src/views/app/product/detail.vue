@@ -2,8 +2,8 @@
     <div class="container my-6">
 
         <div class="flex justify-between mb-5">
-            <div>
 
+            <div>
                 <h1 class="text-2xl">
                     گوشی موبایل سامسونگ مدل Galaxy A53 5G ظرفیت 128 گیگابایت و 8 گیگابایت رم
                 </h1>
@@ -42,13 +42,7 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
-
-
         <section class="3xl:grid-cols-12 space-y-3 lg:grid lg:gap-x-4 lg:grid-cols-12 lg:space-y-6">
             <div class="3xl:col-span-10 lg:col-span-9">
                 <section class="section-main">
@@ -127,8 +121,6 @@ import Fallback from '@/components/app/product/fallback/Base.vue';
 import Faq from '@/components/app/product/faq/Base.vue';
 import MainImage from '@/components/app/product/gallery/MainImage.vue';
 import Gallery from '@/components/app/product/gallery/Gallery.vue';
-
-
 
 </script>
 

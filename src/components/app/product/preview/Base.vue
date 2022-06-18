@@ -258,4 +258,7 @@
 </script>
 
 <style scoped>
+p {
+    line-height: 2;
+}
 </style>

@@ -7,8 +7,13 @@
             <section class="comments-container">
 
                 <section class="flex lg:hidden lg:px-[3.375rem]">
-                    <div class="lg:w-[5.56rem] lg:min-w-[5.56rem]"><i color="#666"
-                            class="question-icon lg:mt-8 lg:ml-4 material-icons t-icon-help_outline-24px "></i>
+                    <div class="lg:w-[5.56rem] lg:min-w-[5.56rem]">
+                        <!-- <i color="#666"
+                            class="question-icon lg:mt-8 lg:ml-4 material-icons t-icon-help_outline-24px "></i> -->
+
+                        <hx-button icon variant="gray">
+                            <hx-icon class="text-gray-500" icon="help-circle"></hx-icon>
+                        </hx-button>
                     </div>
                     <div class="w-full mt-1 lg:mt-0">
                         <div class="h-full">
@@ -102,9 +107,10 @@
                                     <div
                                         class="rounded-xl lg:rounded-xl bg-gray-100 lg:px-4 overflow-x-hidden lg:overflow-x-visible w-full">
                                         <div class="lg:flex lg:justify-evenly lg:w-full">
-                                            <div class="t-row justify-center"><i color="#666"
-                                                    name="t-icon-help_outline-24px"
-                                                    class="question-icon material-icons t-icon-help_outline-24px "></i>
+                                            <div class="flex items-center justify-center">
+                                                <hx-button icon variant="gray">
+                                                    <hx-icon class="text-gray-500" icon="help-circle"></hx-icon>
+                                                </hx-button>
                                             </div>
                                             <section
                                                 class="group flex items-end justify-between p-3 lg:px-6 lg:py-4 lg:flex-grow w-full lg:w-auto">
@@ -145,26 +151,36 @@
                                                     class="space-y-3 lg:space-y-5 w-full h-full flex-col justify-between">
                                                     <div class="t-row justify-between lg:justify-start"><span
                                                             class="text-sm lg:font-medium lg:ml-4">پشتیبانی
-                                                            مبیت</span> <span
+                                                            فالکون</span> <span
                                                             class="text-typo-light text-xs lg:text-sm">1401
                                                             خرداد 28</span></div>
                                                     <div
                                                         class="flex flex-col items-end space-y-3 lg:space-y-0 lg:flex-row lg:justify-between">
                                                         <p class="block w-full text-sm lg:font-medium">
-                                                            دوست خوب مبیت سلام،گارانتی ها بصورت رندم ارسال میشود و همه ی
+                                                            دوست خوب فالکون سلام،گارانتی ها بصورت رندم ارسال میشود و همه
+                                                            ی
                                                             گارانتی های طرح قرارداد،جز معتبرترین گارانتی های کشور است.
                                                         </p>
                                                         <section
-                                                            class="t-row transition-opacity text-typo-light space-x-reverse lg:space-x-reverse space-x-4 lg:space-x-5 mr-1">
-                                                            <div class="t-row cursor-pointer space-x-reverse space-x-3">
-                                                                <span>0</span> <i color="#666"
-                                                                    name="t-icon-thumb_down_black_24dp"
-                                                                    class="text-lg material-icons t-icon-thumb_down_black_24dp "></i>
+                                                            class="flex items-center transition-opacity text-typo-light space-x-reverse lg:space-x-reverse space-x-4 lg:space-x-5 mr-1">
+                                                            <div
+                                                                class="flex items-center cursor-pointer space-x-reverse space-x-3">
+                                                                <span>2452</span>
+
+                                                                <hx-button icon variant="gray">
+                                                                    <hx-icon class="text-gray-500" icon="like">
+                                                                    </hx-icon>
+                                                                </hx-button>
+
                                                             </div>
-                                                            <div class="t-row cursor-pointer space-x-reverse space-x-3">
-                                                                <span>0</span> <i color="#666"
-                                                                    name="t-icon-thumb_down_black_-1"
-                                                                    class="text-lg material-icons t-icon-thumb_down_black_-1 "></i>
+                                                            <div
+                                                                class="flex items-center cursor-pointer space-x-reverse space-x-3">
+                                                                <span>133</span>
+                                                                <hx-button icon variant="gray">
+                                                                    <hx-icon class="text-gray-500" icon="dislike">
+                                                                    </hx-icon>
+                                                                </hx-button>
+
                                                             </div>
                                                         </section>
                                                     </div>
