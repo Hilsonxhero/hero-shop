@@ -5,7 +5,8 @@ module.exports = {
     theme: {
         extend: {
             boxShadow: {
-                'design-base': '0px 2px 14px #0000001a'
+                'design-base': '0px 2px 14px #0000001a',
+                'design': '0px 0px 16px #0000001a',
             },
         },
         container: {
@@ -18,7 +19,7 @@ module.exports = {
                 "2xl": "2rem",
             },
             screens: {
-                lg: "1024px",
+                lg: "1124px",
                 xl: "1280px",
                 "2xl": "1536px",
             },

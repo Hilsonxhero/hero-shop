@@ -1,14 +1,13 @@
 <template>
     <div>
-        <div class="rounded lg:bg-white   lg:mt-0">
+        <div class="rounded lg:bg-white my-6 lg:mt-0">
             <div title="">
-                <section class="relative text-justify leading-6 px-3 space-y-6">
+                <section class="relative text-justify leading-6  space-y-6">
                     <div class="space-y-6 lg:space-y-10" v-for="(item, index) in 2">
                         <div>
                             <div class="flex items-center mb-4 lg:mb-3">
-                                <div class="w-2 h-2 flex bg-primary lg:hidden rounded mr-4">
-                                </div>
-                                <h6 class="px-3 text-typo text-sm font-medium lg:px-0">
+
+                                <h6 class=" text-typo text-sm font-medium lg:px-0">
                                     مشخصات
                                 </h6>
                             </div>

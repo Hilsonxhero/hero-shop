@@ -52,20 +52,32 @@
                 <div class="flex item-center mb-4 pt-3 border-t"><span class="ml-1 text-typo-light text-sm">رنگ :
                     </span> <span class="min-w-[7rem] min-h-[1.52rem] text-sm font-medium">مشکی</span>
                 </div>
-                <section class="scrollbar-hidden flex item-center flex-wrap pb-2 px-3 border-b overflow-x-auto">
-                    <span class="mb-2 ml-4 last:pl-3 lg:ml-3">
-                        <label class="relative flex items-center cursor-pointer"><span
-                                class="rounded-full flex flex-shrink-0 justify-center items-center w-0 h-0 "><input
-                                    type="radio" class="absolute opacity-0 cursor-pointer checked:bg-primary" value="1">
-                                <span class="w-[0.625rem] h-[0.625rem] rounded-full bg-white  hidden "></span></span>
-                            <span title="مشکی"
-                                class="flex items-center p-1  rounded-lg transition-all duration-100 lg:rounded-lg border border-primary">
-                                <div class="w-7 h-7 rounded-lg" style="background-color: rgb(0, 0, 0);">
-                                </div>
-                            </span>
+
+                <ul class=" flex  border-b pb-2">
+                    <li class=" c-circle-variant__item ml-3">
+                        <input type="radio" v-model="color" value="8" name="color" id="c-black"
+                            class="js-variant-selector js-color-filter-item" data-title="بنفش" data-type="color">
+                        <label for="c-black" class="js-circle-variant-color c-circle-variant c-circle-variant--color"
+                            style="background: #000000">
                         </label>
-                    </span>
-                </section>
+                    </li>
+                    <li class=" c-circle-variant__item ml-3">
+                        <input type="radio" v-model="color" value="2" name="color" id="C33030"
+                            class="js-variant-selector js-color-filter-item" data-title="بنفش" data-type="color">
+                        <label for="C33030" class="js-circle-variant-color c-circle-variant c-circle-variant--color"
+                            style="background: #C33030">
+                        </label>
+                    </li>
+                    <li class=" c-circle-variant__item ml-3">
+                        <input type="radio" v-model="color" value="1" name="color" id="4F4F4F"
+                            class="js-variant-selector js-color-filter-item" data-title="بنفش" data-type="color">
+                        <label for="4F4F4F" class="js-circle-variant-color c-circle-variant c-circle-variant--color"
+                            style="background: #4F4F4F">
+                        </label>
+                    </li>
+                </ul>
+
+
             </section>
             <section class="flex flex-col px-3 pt-3">
 
@@ -115,8 +127,36 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+
+const color = ref(null)
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.c-circle-variant__item input {
+    display: none
+}
+
+.c-circle-variant--color {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: #535353;
+    font-size: 15px;
+    border: 2px solid #e4e4e4;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+input[type=radio]:checked+.c-circle-variant--color {
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%) !important;
+}
 </style>

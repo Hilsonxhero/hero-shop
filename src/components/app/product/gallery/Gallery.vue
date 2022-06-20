@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="mt-5 lg:min-h-[4.5rem] lg:min-w-[25.18rem]">
-            <section class="max-w-min hidden lg:block w-[26.5rem]">
+        <div class="mt-5 lg:min-h-[4.5rem] ">
+            <section class="max-w-min hidden lg:block ">
                 <div class="relative">
                     <div class="w-full h-full scroll-smooth">
                         <div class=" overflow-auto scrollbar-hidden flex items-center">
