@@ -40,15 +40,15 @@ const modules = [Pagination];
 
   //   transform: translateY(2rem);
 
-  // .swiper-pagination-bullet {
-  //     &-active {
-  //         width: 1.3rem;
-  //         border-radius: 1rem;
-  //         transition: width .2s ease-in-out;
-  //         background: #fff;
-  //         height: 6px;
-  //     }
-  // }
+  .swiper-pagination-bullet {
+    &-active {
+      width: 1.3rem;
+      border-radius: 1rem;
+      transition: width 0.2s ease-in-out;
+      //   background: #fff;
+      height: 6px;
+    }
+  }
 
   .swiper-pagination-bullet-active {
   }

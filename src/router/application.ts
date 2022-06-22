@@ -14,6 +14,11 @@ export default
                 name: 'product detail',
                 component: () => import(/* webpackChunkName: "product" */ "@/views/app/product/detail.vue"),
             },
+            {
+                path: 'checkout/cart',
+                name: 'checkout cart',
+                component: () => import(/* webpackChunkName: "cart" */ "@/views/checkout/cart.vue"),
+            },
         ]
     }
 

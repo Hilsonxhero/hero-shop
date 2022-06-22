@@ -22,3 +22,9 @@
 .rounded-inherit {
     border-radius: inherit;
 }
+
+
+body,
+html {
+    user-select: none !important;
+}
