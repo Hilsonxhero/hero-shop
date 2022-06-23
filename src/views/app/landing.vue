@@ -1,6 +1,7 @@
 <template>
   <div>
     <section>
+      <hx-modal></hx-modal>
       <TopSlider />
     </section>
 
@@ -32,7 +33,6 @@
       <Pcc />
     </section>
 
-
     <section class="my-12">
       <Articles />
     </section>
@@ -40,15 +40,14 @@
 </template>
 
 <script setup lang="ts">
-import TopSlider from '@/components/app/main/slider/TopSlider.vue';
-import Categories from '@/components/app/main/category/categories.vue';
-import Promotion from '@/components/app/main/promotion/promotion.vue';
-import Bestselling from '@/components/app/main/bs/Bestselling.vue';
-import TripleBanner from '@/components/app/main/banners/Triple.vue';
-import QuadrupleBanner from '@/components/app/main/banners/Quadruple.vue';
-import Pcc from '@/components/app/main/pcc/pcc.vue';
-import Articles from '@/components/app/main/articles/Articles.vue';
+import TopSlider from "@/components/app/main/slider/TopSlider.vue";
+import Categories from "@/components/app/main/category/categories.vue";
+import Promotion from "@/components/app/main/promotion/promotion.vue";
+import Bestselling from "@/components/app/main/bs/Bestselling.vue";
+import TripleBanner from "@/components/app/main/banners/Triple.vue";
+import QuadrupleBanner from "@/components/app/main/banners/Quadruple.vue";
+import Pcc from "@/components/app/main/pcc/pcc.vue";
+import Articles from "@/components/app/main/articles/Articles.vue";
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

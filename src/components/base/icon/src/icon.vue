@@ -1,15 +1,16 @@
 <template>
-  <inline-svg class="hx-icon" fill="currentColor" :src="`/media/icons/${icon}.svg`" :class="[
-    right && 'hx-icon__right',
-    left && 'hx-icon__left'
-  ]"></inline-svg>
+  <inline-svg
+    class="hx-icon"
+    fill="currentColor"
+    :src="`/media/icons/${icon}.svg`"
+    :class="[right && 'hx-icon__right', left && 'hx-icon__left']"
+  ></inline-svg>
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps({
   icon: {
-    type: String
+    type: String,
   },
   right: {
     type: Boolean,
@@ -19,9 +20,7 @@ const props = defineProps({
     type: Boolean,
     default: () => false,
   },
-})
-
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
