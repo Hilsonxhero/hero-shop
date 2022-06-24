@@ -11,7 +11,7 @@
       />
       <span></span>
     </span>
-    <span @keydown.stop>
+    <span class="w-full" @keydown.stop>
       <slot>
         {{ label }}
       </slot>
