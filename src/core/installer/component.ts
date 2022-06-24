@@ -7,6 +7,7 @@ import { HxFormGroup } from "@/components/base/form-group";
 import { HxOtp } from "@/components/base/otp";
 import { HxBadge } from "@/components/base/badge";
 import { HxTextarea } from "@/components/base/textarea";
+import { HxRadio } from "@/components/base/radio";
 export default [
   HxModal,
   HxButton,
@@ -17,4 +18,5 @@ export default [
   HxOtp,
   HxBadge,
   HxTextarea,
+  HxRadio,
 ];

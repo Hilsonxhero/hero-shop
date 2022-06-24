@@ -1,55 +1,31 @@
-// Media of at most the maximum and minimum breakpoint widths. No query for the largest breakpoint.
-// Makes the @content apply to the given breakpoint.
-@mixin media-breakpoint-direction($direction, $name, $breakpoints: $grid-breakpoints) {
-    @if $direction==up {
-        $min: breakpoint-min($name, $breakpoints);
-        @if $min {
-            @media (min-width: $min) {
-                @content;
-            }
-        }
-        @else {
-            @content;
-        }
-    }
-    @else if $direction==down {
-        $max: breakpoint-max($name, $breakpoints);
-        @if $max {
-            @media (max-width: $max) {
-                @content;
-            }
-        }
-    }
-}
-
 @mixin media-breakpoint($size) {
-    @if $size==phone-only {
-        @media (max-width: 599px) {
+    @if $size==sm {
+        @media (max-width: 640px) {
             @content;
         }
     }
-    @else if $size==tablet-portrait-up {
-        @media (min-width: 600px) {
+
+    @else if $size==md {
+        @media (min-width: 768px) {
             @content;
         }
     }
-    @else if $size==tablet-landscape-up {
-        @media (min-width: 900px) {
+
+    @else if $size==lg {
+        @media (min-width: 1024px) {
             @content;
         }
     }
-    @else if $size==desktop-up {
-        @media (min-width: 1200px) {
+
+    @else if $size==xl {
+        @media (min-width: 1280px) {
             @content;
         }
     }
-    @else if $size==big-desktop-up {
-        @media (min-width: 1800px) {
+
+    @else if $size==xxl {
+        @media (min-width: 1536px) {
             @content;
         }
     }
 }
-
-// @include media-breakpoint(phone-only) {
-//     font-size: 1rem;
-// }

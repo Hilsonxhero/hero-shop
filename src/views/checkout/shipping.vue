@@ -27,10 +27,139 @@
               </div>
 
               <div>
-                <div class="flex items-center text-blue-600 cursor-pointer">
+                <div
+                  class="flex items-center text-blue-600 cursor-pointer"
+                  @click="handleAddressModal"
+                >
                   <span class="ml-2">تغییر آدرس</span>
                   <hx-icon class="w-5 h-5" icon="chevron-left"></hx-icon>
                 </div>
+
+                <hx-modal
+                  :show="AddressModal"
+                  title="تغییر آدرس"
+                  @close="AddressModal = false"
+                >
+                  <div class="flex flex-col items-start">
+                    <div class="p-2">
+                      <hx-radio
+                        class="flex border-b py-4 cursor-pointer"
+                        name="www"
+                        value="2"
+                        v-model="www"
+                        v-for="(item, index) in 3"
+                      >
+                        <div class="flex-grow">
+                          <h6 class="text-right text-gray-600">
+                            شیراز،خ. قصرالدشت، نرسیده به فلکه قصر الدشت
+                          </h6>
+                          <div class="flex flex-col space-y-4 mt-4">
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="envelope"
+                                ></hx-icon>
+                              </span>
+
+                              <span>34343434</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="mobile"
+                                ></hx-icon>
+                              </span>
+
+                              <span>09013334444</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="user"
+                                ></hx-icon>
+                              </span>
+
+                              <span>امیر</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="trip"
+                                ></hx-icon>
+                              </span>
+
+                              <span>70</span>
+                            </div>
+                          </div>
+                        </div>
+                      </hx-radio>
+
+                      <!-- <label
+                        class="flex item border-b py-4 cursor-pointer"
+                        v-for="(item, index) in 3"
+                      >
+                        <input class="ml-2 mt-1" type="radio" name="address" />
+                        <div class="flex-grow">
+                          <h6 class="text-right text-gray-600">
+                            شیراز،خ. قصرالدشت، نرسیده به فلکه قصر الدشت
+                          </h6>
+                          <div class="flex flex-col space-y-4 mt-4">
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="envelope"
+                                ></hx-icon>
+                              </span>
+
+                              <span>34343434</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="mobile"
+                                ></hx-icon>
+                              </span>
+
+                              <span>09013334444</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="user"
+                                ></hx-icon>
+                              </span>
+
+                              <span>امیر</span>
+                            </div>
+
+                            <div class="flex items-center">
+                              <span class="ml-2">
+                                <hx-icon
+                                  class="w-6 h-6 text-gray-500"
+                                  icon="trip"
+                                ></hx-icon>
+                              </span>
+
+                              <span>70</span>
+                            </div>
+                          </div>
+                        </div>
+                      </label> -->
+                    </div>
+                  </div>
+                </hx-modal>
               </div>
             </div>
           </div>
@@ -143,15 +272,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-const counter = ref(1);
+const AddressModal = ref(false);
+const www = ref(1);
 
-const decrement = () => {
-  counter.value === 1 ? false : (counter.value -= 1);
-  // counter.value -= 1;
-};
-
-const increment = () => {
-  counter.value += 1;
+const handleAddressModal = () => {
+  AddressModal.value = true;
 };
 </script>
 

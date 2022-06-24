@@ -8,12 +8,15 @@
         "test:unit": "vue-cli-service test:unit"
     },
     "dependencies": {
+        "@vueuse/core": "^8.7.5",
         "axios": "^0.27.2",
         "core-js": "^3.6.5",
+        "lodash-unified": "^1.0.2",
         "register-service-worker": "^1.7.1",
         "sass": "^1.52.2",
         "sass-loader": "^13.0.0",
         "swiper": "^8.2.4",
+        "type-fest": "^2.13.1",
         "vue": "^3.0.0",
         "vue-awesome-swiper": "^5.0.1",
         "vue-axios": "^3.4.1",
