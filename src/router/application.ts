@@ -40,5 +40,13 @@ export default {
           /* webpackChunkName: "payment" */ "@/views/checkout/payment.vue"
         ),
     },
+    {
+      path: "search",
+      name: "search",
+      component: () =>
+        import(
+          /* webpackChunkName: "search" */ "@/views/app/search.vue"
+        ),
+    },
   ],
 };

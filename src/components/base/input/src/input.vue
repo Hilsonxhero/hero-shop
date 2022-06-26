@@ -1,5 +1,5 @@
 <template>
-  <div class="h-10 rounded-xl overflow-hidden relative">
+  <div class="h-12 rounded-xl overflow-hidden relative">
     <input
       class="form-input rounded-inherit border-2 border-transparent focus:bg-white focus:border-blue-500"
       :type="type"

@@ -40,6 +40,5 @@ export const withInstallDirective = <T>(directive: T, name: string) => {
 
 export const withNoopInstall = <T>(component: T) => {
   ;(component as SFCWithInstall<T>).install = NOOP
-
   return component as SFCWithInstall<T>
 }
