@@ -40,22 +40,26 @@ const config = ref({
             spaceBetween: 10
         },
         '410': {
-            slidesPerView: 5,
-            spaceBetween: 20
+            slidesPerView: 1.8,
+            spaceBetween: 10
         },
         '640': {
-            slidesPerView: 6,
-            spaceBetween: 20
+            slidesPerView: 2.1,
+            spaceBetween: 10
         },
         '768': {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 10
         },
         '1024': {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 10
         },
         '1200': {
+            slidesPerView: 4.5,
+            spaceBetween: 10
+        },
+        '1400': {
             slidesPerView: 5.5,
             spaceBetween: 10
         }

@@ -13,6 +13,7 @@ import { HxSwitch } from "@/components/base/switch";
 import { HxCollapse } from "@/components/base/collapse";
 import { HxCollapseItem } from "@/components/base/collapse";
 import { HxCollapseTransition } from "@/components/base/collapse-transition";
+import { HxSlider } from "@/components/base/slider";
 export default [
   HxModal,
   HxButton,
@@ -28,5 +29,6 @@ export default [
   HxCollapse,
   HxCollapseItem,
   HxCollapseTransition,
-  HxCheckbox
+  HxCheckbox,
+  HxSlider,
 ];

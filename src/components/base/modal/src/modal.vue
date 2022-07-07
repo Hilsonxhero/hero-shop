@@ -51,15 +51,25 @@
     </transition> -->
 
     <div class="modal__container" v-show="showModal">
-      <div class="modal__content flex flex-col p-5" role="dialog" ref="modal">
+      <div
+        class="modal__content flex flex-col p-5"
+        :class="[fs && 'modal__fs']"
+        role="dialog"
+        ref="modal"
+      >
         <div class="flex items-center justify-between">
-          <div>
-            <h5>{{ title }}</h5>
-          </div>
-
-          <hx-button icon variant="gray" @click="closeModal">
-            <hx-icon icon="close" class="w-6 h-6"></hx-icon>
-          </hx-button>
+          <template v-if="!$slots.header">
+            <div>
+              <h5>{{ title }}</h5>
+            </div>
+            <hx-button icon variant="gray" @click="closeModal">
+              <hx-icon icon="close" class="w-6 h-6"></hx-icon>
+            </hx-button>
+          </template>
+          
+          <template v-else>
+            <slot name="header" :close="closeModal"></slot>
+          </template>
         </div>
 
         <div class="hx-modal__body mt-6">
@@ -84,6 +94,10 @@ const props = defineProps({
 
   title: {
     type: String,
+  },
+  fs: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -137,7 +151,7 @@ watch(
   align-items: flex-end;
   overflow: hidden;
   transition: all 0.3s;
-  z-index: 20;
+  z-index: 1005;
   /* visibility: hidden;
   opacity: 0; */
 
@@ -174,9 +188,17 @@ watch(
   transform: translateY(0);
 }
 
+.modal__content.modal__fs {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-height: unset !important;
+  transform: unset !important;
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 991px) {
   .modal__content {
     margin: auto;
     width: 380px;

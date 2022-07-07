@@ -16,7 +16,6 @@ const props = defineProps({
 watch(
   () => props.active,
   (selection, prevSelection) => {
-    console.log("selection", selection);
     let bd = document.body.classList;
     if (!selection) {
       return bd.remove("overflow-hidden");

@@ -1,5 +1,5 @@
 <template>
-  <div class="hx-product__item lg:col-span-3">
+  <div class="hx-product__item col-span-12 md:col-span-4 lg:col-span-3">
     <div class="relative overflow-hidden bg-gray-100 w-full rounded-xl p-2">
       <router-link to="/">
         <div class="flex justify-between">

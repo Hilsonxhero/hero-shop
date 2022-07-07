@@ -17,8 +17,8 @@
     text-indent: .0892857143em;
     text-transform: uppercase;
     transition-duration: .28s;
-    transition-property: box-shadow,transform,opacity;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: box-shadow, transform, opacity;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -28,7 +28,7 @@
     // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
     // @include transition($btn-transition);
 
-    &__content{
+    &__content {
         align-items: center;
         color: inherit;
         display: flex;
@@ -40,7 +40,7 @@
         transition-property: inherit;
         transition-property: opacity;
 
-        svg{
+        svg {
             width: 1.5rem;
             height: 1.5rem;
             //color: rgba(255,255,255,1);
@@ -48,10 +48,11 @@
         }
     }
 
-    &__round{
+    &__round {
         border-radius: 50%;
     }
-    &__outlined{
+
+    &__outlined {
         border: thin solid !important;
     }
 
@@ -72,9 +73,11 @@
 
 
 
-    &:hover {
+    &:hover,
+    &:active {
         color: $body-color;
         text-decoration: if($link-hover-decoration==underline, none, null);
+
         &::before {
             opacity: 0.10;
         }
@@ -168,9 +171,9 @@
         height: 36px;
         width: 36px;
 
-        &__content{
-            svg{
-                color: rgba(0,0,0,.54) !important;
+        &__content {
+            svg {
+                color: rgba(0, 0, 0, .54) !important;
                 fill: currentColor !important;
 
             }
