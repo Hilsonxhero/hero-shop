@@ -8,6 +8,9 @@
  @import "./core/components/components";
  // Layout
  @import "layout/layout";
+ @import "swiper/css";
+ @import "swiper/css/pagination";
+ @import "swiper/css/navigation";
 
  body {
      font-family: YekanBakh, sans-serif;

@@ -19,12 +19,14 @@
             <ul
               class="flex flex-col space-y-6 lg:space-y-0 p-5 lg:flex-row lg:items-center h-full"
             >
-              <li class="ml-5">
-                <a href="#">
-                  <span class="font-normal text-gray-700">دسته بندی ها</span>
-                </a>
+              <li class="ml-5" v-for="(item, index) in menus">
+                <router-link :to="{ name: item.to }">
+                  <span class="font-normal text-gray-700">{{
+                    item.title
+                  }}</span>
+                </router-link>
               </li>
-              <li class="ml-5">
+              <!-- <li class="ml-5">
                 <a href="#">
                   <span class="font-normal text-gray-700">پیشنهادات ویژه</span>
                 </a>
@@ -33,7 +35,7 @@
                 <a href="#">
                   <span class="font-normal text-gray-700">مقالات</span>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
@@ -77,6 +79,12 @@ import { ref } from "vue";
 import HeaderSearch from "./search.vue";
 
 const active = ref(false);
+
+const menus = ref([
+  { title: "دسته بندی ها", to: "categories" },
+  { title: "پیشنهادات ویژه", to: "categories" },
+  { title: "مقالات", to: "categories" },
+]);
 
 const hide = () => {
   active.value = false;
