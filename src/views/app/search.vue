@@ -28,7 +28,7 @@ const filters = ref({
       {
         id: 33528,
         code: "general-luxe-it",
-        title_fa: "جنرال لوکس",
+        title: "جنرال لوکس",
         title_en: "GENERAL LUXE",
         url: {
           uri: "/brand/general-luxe-it/",
@@ -40,7 +40,7 @@ const filters = ref({
       {
         id: 719,
         code: "miscellaneous",
-        title_fa: "متفرقه",
+        title: "متفرقه",
         title_en: "Miscellaneous",
         url: {
           uri: "/brand/miscellaneous/",
@@ -52,7 +52,7 @@ const filters = ref({
       {
         id: 21414,
         code: "blackview",
-        title_fa: "بلک ویو",
+        title: "بلک ویو",
         title_en: "BLACKVIEW",
         url: {
           uri: "/brand/blackview/",
@@ -64,7 +64,7 @@ const filters = ref({
       {
         id: 10920,
         code: "dox",
-        title_fa: "داکس",
+        title: "داکس",
         title_en: "DOX",
         url: {
           uri: "/brand/dox/",

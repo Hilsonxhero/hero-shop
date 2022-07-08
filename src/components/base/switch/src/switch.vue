@@ -1,6 +1,6 @@
 <template>
   <label>
-    <span class="ml-2 mt-1">
+    <span class="mt-1">
       <input
         class="switch"
         ref="radioRef"

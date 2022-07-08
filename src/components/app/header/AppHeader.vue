@@ -46,7 +46,11 @@
               حساب کاربری
             </hx-button>
 
-            <hx-button class="mr-2" variant="light">
+            <hx-button
+              :to="{ name: 'checkout cart' }"
+              class="mr-2"
+              variant="light"
+            >
               <hx-icon right icon="shopping-bag"></hx-icon>
               سبد خرید
             </hx-button>

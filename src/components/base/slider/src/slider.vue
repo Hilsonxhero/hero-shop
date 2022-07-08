@@ -52,17 +52,12 @@ const props = defineProps({
     type: Number,
     default: 1000,
   },
-  minPrice: {
-    type: Number,
-    default: 0,
-  },
-  maxPrice: {
-    type: Number,
-    default: 0,
+  modelValue: {
+    type: [String, Number, Object, Array],
   },
 });
 
-const emits = defineEmits(["update:modelValue"]);
+// const emits = defineEmits(["update:modelValue"]);
 let priceGap = ref<number>(1000);
 let progress = ref<any>(null);
 let minValInpRef = ref<any>(null);
@@ -92,36 +87,34 @@ const handleRangeInput = (e: any) => {
     progress.value.style.left =
       100 - (maxVal / Number(maxValInpRef.value.max)) * 100 + "%";
 
-    emits("update:modelValue", {
-      min: minValInp.value,
-      max: maxValInp.value,
-    });
+    // emits("update:modelValue", {
+    //   min: minValInp.value,
+    //   max: maxValInp.value,
+    // });
   }
 };
 
 const handlePriceInput = (e: any) => {
   console.log("www");
 
-  let minPrice = props.minPrice,
-    maxPrice = props.maxPrice;
-  // maxPrice - minPrice >= priceGap.value &&
-  if (
-    maxPrice - minPrice >= priceGap.value &&
-    maxPrice <= parseInt(maxValInpRef.value.max)
-  ) {
-    if (e.target.classList.contains("input-min")) {
-      minValInp.value = minPrice;
-      progress.value.style.right =
-        (minPrice / minValInpRef.value.max) * 100 + "%";
-    } else {
-      console.log("here max");
-      // maxPrice = parseInt(maxPriceInp.value);
-      maxValInp.value = maxPrice;
-      progress.value.style.left =
-        100 - (maxPrice / maxValInpRef.value.max) * 100 + "%";
-      console.log("maxPrice", maxPrice);
-    }
-  }
+  // let minPrice = props.minPrice,
+  //   maxPrice = props.maxPrice;
+  // if (
+  //   maxPrice - minPrice >= priceGap.value &&
+  //   maxPrice <= parseInt(maxValInpRef.value.max)
+  // ) {
+  //   if (e.target.classList.contains("input-min")) {
+  //     minValInp.value = minPrice;
+  //     progress.value.style.right =
+  //       (minPrice / minValInpRef.value.max) * 100 + "%";
+  //   } else {
+  //     console.log("here max");
+  //     maxValInp.value = maxPrice;
+  //     progress.value.style.left =
+  //       100 - (maxPrice / maxValInpRef.value.max) * 100 + "%";
+  //     console.log("maxPrice", maxPrice);
+  //   }
+  // }
 };
 
 onMounted(() => {

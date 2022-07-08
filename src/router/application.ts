@@ -44,9 +44,7 @@ export default {
       path: "search",
       name: "search",
       component: () =>
-        import(
-          /* webpackChunkName: "search" */ "@/views/app/search.vue"
-        ),
+        import(/* webpackChunkName: "search" */ "@/views/app/search.vue"),
     },
   ],
 };

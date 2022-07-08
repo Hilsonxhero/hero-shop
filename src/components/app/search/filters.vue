@@ -23,13 +23,7 @@
           </div>
 
           <div class="border-b-2 pb-8">
-            <hx-slider
-              :max="20000000"
-              :gap="1000"
-              v-model="price"
-              :max-price="maxPriceInp"
-              :min-price="minPriceInp"
-            >
+            <hx-slider :max="20000000" :gap="1000" v-model="price">
               <template #price="prop">
                 <div
                   class="flex justify-evenly items-center space-x-3 space-x-reverse my-6"
@@ -113,34 +107,72 @@
 
     <hx-modal fs :show="active" title="فیلترها" @close="handleFilterModal">
       <template #header="{ close }">
-        <h5>فیلترها</h5>
-        <hx-button icon variant="gray" @click="close()">
-          <hx-icon icon="close" class="w-6 h-6"></hx-icon>
-        </hx-button>
+        <template v-if="selectedFilter">
+          <h5>{{ selectedFilter.title }}</h5>
+          <hx-icon
+            @click="handleFilterOption(selectedFilter, selectedFilter.filter)"
+            icon="chevron-left"
+            class="w-6 h-6"
+          ></hx-icon>
+        </template>
+        <template v-else>
+          <h5>فیلترها</h5>
+          <hx-icon icon="close" class="w-6 h-6" @click="close()"></hx-icon>
+        </template>
       </template>
-      <div class="flex flex-col">
-        <div
-          class="flex items-center justify-between border-b py-3"
-          v-for="(filter, index) in filters"
-        >
-          <div>
-            <span class="text-gray-600">{{ filter.title }}</span>
-          </div>
-          <div>
-            <template v-if="filter.type == 'checkbox'">
-              <hx-button icon variant="gray">
+
+      <transition name="scale" mode="out-in">
+        <div class="flex flex-col" v-if="!show">
+          <div
+            class="flex items-center justify-between border-b py-3"
+            v-for="(filter, index) in filters"
+            @click="handleFilterOption(filter, index)"
+          >
+            <div>
+              <span class="text-gray-600">{{ filter.title }}</span>
+            </div>
+            <div>
+              <template v-if="filter.type == 'checkbox'">
                 <hx-icon
-                  class="text-gray-600 w-6 h-6"
+                  class="text-gray-600 w-7 h-7"
                   icon="chevron-left"
                 ></hx-icon>
-              </hx-button>
-            </template>
-            <template v-if="filter.type == 'switch'">
-              <hx-switch name="test" value="2"></hx-switch>
-            </template>
+              </template>
+              <template v-if="filter.type == 'switch'">
+                <hx-switch name="test" value="2"></hx-switch>
+              </template>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="flex flex-col" v-else>
+          <div
+            class="flex items-center justify-between border-b py-3"
+            v-for="(option, index) in selectedFilter?.options"
+            :key="index"
+          >
+            <div>
+              <template v-if="selectedFilter.type == 'checkbox'">
+                <hx-checkbox
+                  class="flex items-center"
+                  :label="option.title"
+                ></hx-checkbox>
+              </template>
+            </div>
+            <div>
+              <template v-if="selectedFilter.filter == 'colors'">
+                <span
+                  class="w-6 h-6 rounded-[50%] inline-block border"
+                  :style="{ 'background-color': option.hex_code }"
+                >
+                </span>
+              </template>
+              <template v-if="selectedFilter.filter == 'brands'">
+                <span> {{ option.title_en }}</span>
+              </template>
+            </div>
+          </div>
+        </div>
+      </transition>
     </hx-modal>
   </div>
 </template>
@@ -158,14 +190,58 @@ const minPriceInp = ref<any>(null);
 const maxPriceInp = ref<any>(null);
 
 const active = ref(false);
-const price = ref<any>({
-  min: 0,
-  max: 0,
-});
+const show = ref(false);
+const selectedFilter = ref(null);
+// const price = ref<any>({
+//   min: 0,
+//   max: 0,
+// });
+const price = ref<any>(22);
 
 const handleFilterModal = () => {
   active.value = !active.value;
 };
+
+const handleFilterOption = (filter: any, index: any) => {
+  if (filter.type == "checkbox") {
+    selectedFilter.value
+      ? (selectedFilter.value = null)
+      : (selectedFilter.value = { ...filter, filter: index });
+    show.value = !show.value;
+  }
+  return false;
+};
 </script>
 
-<style scoped></style>
+<style>
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.75s ease-out;
+}
+.slide-enter-to {
+  position: absolute;
+  right: 0;
+}
+.slide-enter-from {
+  position: absolute;
+  right: -100%;
+}
+.slide-leave-to {
+  position: absolute;
+  left: -100%;
+}
+.slide-leave-from {
+  position: absolute;
+  left: 0;
+}
+
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.5s ease;
+}
+.scale-enter-from,
+.scale-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+</style>
