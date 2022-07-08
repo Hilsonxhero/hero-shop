@@ -1,7 +1,6 @@
 <template>
   <div>
     <section>
-      <hx-modal></hx-modal>
       <TopSlider />
     </section>
 

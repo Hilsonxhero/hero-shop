@@ -13,7 +13,7 @@
           <div class="text-base text-white mt-3 lg:mt-6 mb-6">مشاهده همه</div>
           <img
             class="w-24 h-full hidden lg:flex justify-end object-contain"
-            src="media/bell.png"
+            src="/media/bell.png"
             alt=""
           />
         </div>

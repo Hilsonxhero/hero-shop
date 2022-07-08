@@ -51,8 +51,14 @@ export default {
       name: "categories",
       component: () =>
         import(
-          /* webpackChunkName: "categories" */ "@/views/app/categories.vue"
+          /* webpackChunkName: "categories" */ "@/views/app/categories/landing.vue"
         ),
+    },
+
+    {
+      path: "main/:slug",
+      name: "main category",
+      component: () => import("@/views/app/categories/main.vue"),
     },
   ],
 };
