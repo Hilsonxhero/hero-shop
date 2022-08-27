@@ -2,15 +2,15 @@
   <div class="hx-product__item">
     <div class="relative overflow-hidden">
       <div class="flex justify-between">
-        <div class="t-percent">
-          <span class="text-sm">22</span>
+        <div class="t-percent" v-if="product.default_variant">
+          <span class="text-sm">{{ product.default_variant.discount }}</span>
           <hx-icon
             class="mr-2 text-white w-4 h-4"
             icon="percentage-square"
           ></hx-icon>
         </div>
       </div>
-      <img class="w-full" src="/media/products/01.png" alt="" />
+      <img class="w-full" :src="product.media.main" alt="" />
 
       <div class="flex justify-between pb-2 px-2 w-full lg:pb-0">
         <div
@@ -32,25 +32,44 @@
       <router-link
         :to="{
           name: 'product detail',
-          params: { id: 222, slug: 'samsung-222' },
+          params: { id: product.id, slug: product.slug },
         }"
       >
-        <h2>کنسول بازی سونی مدل Playstation 5 Edition</h2>
+        <h2>
+          {{ product.title_fa }}
+        </h2>
       </router-link>
     </div>
-    <div class="flex flex-col items-center">
+    <div
+      class="flex flex-col items-center"
+      v-if="product.default_variant.is_promotion"
+    >
       <div class="mt-2 text-gray-500">
-        <del class="">9500000</del>
+        <del class="">{{ product.default_variant.rrp_price }}</del>
       </div>
       <div class="mt-2 text-gray-500">
-        <span class="">8500000</span>
+        <span class="">{{ product.default_variant.selling_price }}</span>
+        <span class="mr-1">تومان</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center" v-else>
+      <div class="mt-2 text-gray-500">
+        <span class="">{{ product.default_variant.selling_price }}</span>
         <span class="mr-1">تومان</span>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// @ts-nocheck
+const props = defineProps({
+  product: {
+    type: Object,
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 .hx-product__item {

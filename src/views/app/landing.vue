@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div v-if="init">
     <section>
       <TopSlider />
     </section>
 
     <section class="my-12">
-      <Promotion />
+      <Promotion :products="init.incredible_products" />
     </section>
 
     <section class="my-12">
@@ -39,6 +39,9 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
+
+import { onMounted, ref } from "vue";
 import TopSlider from "@/components/app/main/slider/TopSlider.vue";
 import Categories from "@/components/app/main/category/categories.vue";
 import Promotion from "@/components/app/main/promotion/promotion.vue";
@@ -47,6 +50,16 @@ import TripleBanner from "@/components/app/main/banners/Triple.vue";
 import QuadrupleBanner from "@/components/app/main/banners/Quadruple.vue";
 import Pcc from "@/components/app/main/pcc/pcc.vue";
 import Articles from "@/components/app/main/articles/Articles.vue";
+import ApiService from "@/core/services/ApiService";
+
+const init = ref<Array<any>>([]);
+
+onMounted(() => {
+  ApiService.get("landing").then(({ data }) => {
+    init.value = data.data;
+    // console.log("data", data.data.incredible_products);
+  });
+});
 </script>
 
 <style scoped></style>

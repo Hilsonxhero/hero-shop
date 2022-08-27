@@ -19,8 +19,8 @@
         </div>
         <div class="flex-grow overflow-hidden">
           <swiper :modules="modules" :breakpoints="config.breakpoints">
-            <swiper-slide v-for="(item, index) in 10">
-              <product></product>
+            <swiper-slide v-for="(product, index) in products">
+              <product :product="product"></product>
             </swiper-slide>
           </swiper>
         </div>
@@ -30,10 +30,18 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Product from "./product.vue";
 import { ref } from "vue";
+
+const props = defineProps({
+  products: {
+    type: Array,
+  },
+});
+
 const modules = [Navigation, Pagination, Autoplay];
 const config = ref({
   auto: {
