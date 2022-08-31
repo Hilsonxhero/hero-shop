@@ -1,7 +1,7 @@
 <template>
   <div v-if="init">
     <section>
-      <TopSlider />
+      <TopSlider :items="init.header_banners" />
     </section>
 
     <section class="my-12">
@@ -9,28 +9,28 @@
     </section>
 
     <section class="my-12">
-      <QuadrupleBanner />
-    </section>
-
-    <section class="my-12">
-      <Bestselling />
-    </section>
-
-    <section class="my-12">
-      <TripleBanner />
+      <QuadrupleBanner :items="init.top_banners" />
     </section>
     <!-- 
     <section class="my-12">
-      <Categories />
+      <Bestselling />
     </section> -->
 
     <section class="my-12">
+      <TripleBanner :items="init.middle_banners" />
+    </section>
+
+    <!-- <section class="my-12">
+      <Categories />
+    </section> -->
+    <!-- 
+    <section class="my-12">
       <Pcc />
     </section>
 
     <section class="my-12">
       <Pcc />
-    </section>
+    </section> -->
 
     <section class="my-12">
       <Articles />

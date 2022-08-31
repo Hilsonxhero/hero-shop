@@ -9,18 +9,18 @@
             <div class="text-gray-700 ml-3">پشتیبانی</div>
             <div class="">
               <a class="text-gray-600 text-sm" href="tel:034-91002425">
-                034-91002425</a
-              >
-              <span class="pr-4 text-sm font-bold text-gray-600"
-                >شنبه تا چهارشنبه ۸ الی ۲۱ - پنجشنبه 8 الی ۲۰:۳۰</span
+                {{ config.phone }}
+              </a>
+              <span class="pr-4 text-sm font-bold text-gray-600">
+                {{ config.support_text }}</span
               >
             </div>
           </div>
           <div class="flex text-sm mt-2">
             <div class="text-gray-700 ml-3">ایمیل</div>
-            <a class="text-gray-600 text-sm" href="mailto:info@gmail.com"
-              >info@gmail.com</a
-            >
+            <a class="text-gray-600 text-sm" href="mailto:info@gmail.com">
+              {{ config.email }}
+            </a>
           </div>
         </div>
 
@@ -124,86 +124,18 @@
             class="col-span-12 lg:col-span-9 gap-y-4 space-y-4 overflow-hidden"
           >
             <div class="grid grid-cols-12">
-              <div class="col-span-6 lg:col-span-3 lg:space-y-5">
-                <div class="menu-title mb-3">با ما</div>
+              <div
+                class="col-span-6 lg:col-span-2 lg:space-y-5"
+                v-for="(link, index) in config.links"
+              >
+                <div class="menu-title mb-3">{{ link.title }}</div>
                 <div class="flex flex-col space-y-4">
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/about-us" class=""> درباره ما </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/contact-us" class=""> تماس با ما </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/careers" class=""> فرصت های شغلی </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/provider" class=""> فروشنده شوید </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-span-6 lg:col-span-3 lg:space-y-5">
-                <div class="menu-title mb-3">راهنمای خرید</div>
-                <div class="flex flex-col space-y-4">
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/pay-method" class=""> روش های پرداخت </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/send-method" class="">
-                      روش های ارسال کالا
-                    </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/refunds" class=""> لغو و بازگشت کالا </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/guarantee" class=""> ضمانت اصالت کالا </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-span-6 lg:col-span-3 lg:space-y-5">
-                <div class="menu-title mb-3">خدمات مشتریان</div>
-                <div class="flex flex-col space-y-4">
-                  <div class="hover:text-typo menu-item">
-                    <a target="_blank" href=""> راهنمای جامع </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/terms-of-use" class=""> شرایط و قوانین </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/faq" class=""> سوالات متداول </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/page/privacy-policy" class=""> حریم خصوصی </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-span-6 lg:col-span-3 lg:space-y-5">
-                <div class="menu-title mb-3">قیمت گوشی</div>
-                <div class="flex flex-col space-y-4">
-                  <div class="hover:text-typo menu-item">
-                    <a href="/search/category-mobilephone" class="">
-                      قیمت روز گوشی موبایل
-                    </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/search/category-mobilephone/samsung" class="">
-                      قیمت گوشی سامسونگ
-                    </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/search/category-mobilephone/xiaomi" class="">
-                      قیمت گوشی شیائومی
-                    </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/search/category-mobilephone/apple" class="">
-                      قیمت گوشی اپل
-                    </a>
-                  </div>
-                  <div class="hover:text-typo menu-item">
-                    <a href="/search/category-mobilephone/huawei" class="">
-                      قیمت گوشی هواوی
-                    </a>
+                  <div
+                    class="hover:text-typo menu-item"
+                    v-for="(item, index) in link.values"
+                    :key="index"
+                  >
+                    <a :href="item.url" class="">{{ item.title }}</a>
                   </div>
                 </div>
               </div>
@@ -279,15 +211,7 @@
 
       <div class="flex flex-col items-start justify-between mt-6 lg:flex-row">
         <div class="w-full lg:w-[55%]">
-          <h1 class="mb-3 text-gray-800 text-sm leading-7 lg:text-base">
-            فروشگاه اینترنتی ما، خرید آسان کالای دیجیتال با مناسب ترین قیمت
-          </h1>
-          <p class="text-justify text-sm transition-all leading-8">
-            مارکت پلیس ما، یکی از بزرگترین عرضه کنندگان کالای دیجیتال در سراسر
-            کشور است که بروزترین و جدیدترین کالاها مانند گوشی های موبایل، لپ
-            تاپ، تبلت و لوازم جانبی گوشی و کامپیوتر را از برترین برندهای جهانی
-            با مناسب ترین قیمت و ضمانت اصالت کالا به کاربران عرضه می کند.
-          </p>
+          <div v-html="config.site_description"></div>
         </div>
         <div class="flex justify-center w-full lg:justify-end lg:w-[30%]">
           <div class="flex ml-4">
@@ -329,6 +253,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+
+import { useConfigStore } from "@/modules/config";
+import { storeToRefs } from "pinia";
+const store = useConfigStore();
+const { config } = storeToRefs(store);
 
 const email = ref(null);
 </script>

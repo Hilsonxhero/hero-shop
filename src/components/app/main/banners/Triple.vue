@@ -1,18 +1,32 @@
 <template>
   <div class="container">
     <div class="grid grid-cols-12 gap-6">
-      <div
+      <a
         class="col-span-12 md:col-span-6 lg:col-span-4"
-        v-for="(item, index) in 3"
+        v-for="(item, index) in items"
+        :href="item.url"
+        target="_blank"
       >
         <div class="relative w-full overflow-hidden">
-          <img class="rounded-xl shadow-xl" src="media/banners/02.jpg" alt="" />
+          <img
+            class="rounded-xl shadow-xl"
+            :src="item.banner"
+            :alt="item.title"
+          />
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+//@ts-nocheck
+
+const props = defineProps({
+  items: {
+    type: Array,
+  },
+});
+</script>
 
 <style scoped></style>

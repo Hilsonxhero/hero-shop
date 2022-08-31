@@ -11,4 +11,4 @@ type Many<T> = T | ReadonlyArray<T>
 
 // TODO: remove import alias
 // avoid naming conflicts
-export { castArray as ensureArray } from 'lodash-unified'
+// export { castArray as ensureArray } from 'lodash-unified'

@@ -19,7 +19,7 @@ class ApiService {
     public static init(app: App<Element>) {
         ApiService.vueInstance = app;
         ApiService.vueInstance.use(VueAxios, axios);
-        ApiService.vueInstance.axios.defaults.baseURL = "http://wwz.shop/api/v1";
+        ApiService.vueInstance.axios.defaults.baseURL = "http://public.test/api/v1";
         // ApiService.vueInstance.axios.defaults.baseURL = process.env.BASE_API_URL;
     }
 

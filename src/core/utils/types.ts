@@ -1,5 +1,5 @@
 import { isArray, isObject } from "@vue/shared";
-import { isNil } from "lodash-unified";
+// import { isNil } from "lodash-unified";
 
 export {
   isArray,
@@ -25,6 +25,6 @@ export const isElement = (e: unknown): e is Element => {
   return e instanceof Element;
 };
 
-export const isPropAbsent = (prop: unknown): prop is null | undefined => {
-  return isNil(prop);
-};
+// export const isPropAbsent = (prop: unknown): prop is null | undefined => {
+//   return isNil(prop);
+// };

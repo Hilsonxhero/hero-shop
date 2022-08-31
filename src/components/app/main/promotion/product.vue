@@ -35,7 +35,7 @@
           params: { id: product.id, slug: product.slug },
         }"
       >
-        <h2>
+        <h2 class="ellipsis-2">
           {{ product.title_fa }}
         </h2>
       </router-link>

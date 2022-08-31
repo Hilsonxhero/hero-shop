@@ -153,3 +153,10 @@ html {
 .collapse-transition-opacity-transition {
     transition: opacity getCssVar('transition-duration') cubic-bezier(0.55, 0, 0.1, 1);
 }
+
+.ellipsis-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

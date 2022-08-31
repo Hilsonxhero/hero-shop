@@ -11,12 +11,9 @@
           prevEl: '.swiper-button-prev-hero',
         }"
       >
-        <swiper-slide v-for="(item, index) in 4" :key="index">
+        <swiper-slide v-for="(item, index) in items" :key="index">
           <div>
-            <img
-              src="/media/banners/07.jpg"
-              class="w-full h-60 lg:h-96 object-cover"
-            />
+            <img :src="item.banner" class="w-full h-60 lg:h-96 object-cover" />
           </div>
         </swiper-slide>
 
@@ -54,12 +51,19 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import SwiperClass, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 const modules = [Navigation, Pagination];
+
+const props = defineProps({
+  items: {
+    type: Array,
+  },
+});
 </script>
 
 <style lang="scss">
