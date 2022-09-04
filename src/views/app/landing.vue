@@ -11,10 +11,10 @@
     <section class="my-12">
       <QuadrupleBanner :items="init.top_banners" />
     </section>
-    <!-- 
+
     <section class="my-12">
       <Bestselling />
-    </section> -->
+    </section>
 
     <section class="my-12">
       <TripleBanner :items="init.middle_banners" />
@@ -33,7 +33,7 @@
     </section> -->
 
     <section class="my-12">
-      <Articles />
+      <Articles :items="init.articles" />
     </section>
   </div>
 </template>

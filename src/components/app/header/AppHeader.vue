@@ -1,8 +1,17 @@
 <template>
   <header class="t-header t-sticky-top bg-white">
-    <a class="block w-full" href="">
+    <a
+      v-if="banners?.top_header_banner"
+      class="block w-full"
+      :href="banners?.top_header_banner?.url"
+      target="_blank"
+    >
       <div class="h-16">
-        <img class="object-cover w-full" src="/media/banners/08.jpg" alt="" />
+        <img
+          class="object-cover w-full"
+          :src="banners?.top_header_banner?.banner"
+          alt=""
+        />
       </div>
     </a>
     <div class="container">
@@ -40,8 +49,8 @@
             <header-search></header-search>
             <div class="hidden lg:flex">
               <hx-button :to="{ name: 'auth' }" class="mr-2" variant="light">
-                <hx-icon right icon="user"></hx-icon>
-                حساب کاربری
+                <hx-icon icon="user"></hx-icon>
+                <!-- حساب کاربری -->
               </hx-button>
 
               <hx-button
@@ -49,8 +58,8 @@
                 class="mr-2"
                 variant="light"
               >
-                <hx-icon right icon="shopping-bag"></hx-icon>
-                سبد خرید
+                <hx-icon icon="shopping-bag"></hx-icon>
+                <!-- سبد خرید -->
               </hx-button>
             </div>
             <hx-button
@@ -74,6 +83,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import HeaderSearch from "./search.vue";
+
+import { useConfigStore } from "@/modules/config";
+import { storeToRefs } from "pinia";
+const store = useConfigStore();
+const { config, banners } = storeToRefs(store);
 
 const active = ref(false);
 

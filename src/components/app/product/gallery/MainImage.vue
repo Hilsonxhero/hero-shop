@@ -12,7 +12,7 @@
             <div class="contacts h-[20rem]">
               <img
                 alt="گوشی موبایل سامسونگ مدل Galaxy A13 دو سیم کارت ظرفیت 64 گیگابایت و 4 گیگابایت رم 1 "
-                src="/media/products/12.webp"
+                :src="source"
                 class="w-full h-full transition transform origin-center duration-500 delay-150 translate-x-0 top-0 z-10 object-contain cursor-pointer"
                 width="400"
                 height="600"
@@ -30,8 +30,13 @@ import SwiperClass, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-
 const modules = [Pagination];
+
+const props = defineProps({
+  source: {
+    type: String,
+  },
+});
 </script>
 
 <style lang="scss">

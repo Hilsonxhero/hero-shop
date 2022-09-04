@@ -3,7 +3,7 @@ import ApiService from "@/core/services/ApiService";
 
 import { defineStore } from "pinia";
 export const useConfigStore = defineStore("counter", {
-  state: () => ({ config: {} }),
+  state: () => ({ config: {}, banners: {} }),
   getters: {
     doubleCount: (state: any) => state.count,
   },
@@ -11,8 +11,8 @@ export const useConfigStore = defineStore("counter", {
     async fetchConfig() {
       try {
         const { data } = await ApiService.get(`init`);
-        console.log("wwwww", data.data);
-        this.config = data.data;
+        this.config = data.data.config;
+        this.banners = data.data.banners;
       } catch (error) {
         return error;
       }
