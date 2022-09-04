@@ -1,8 +1,11 @@
 <template>
   <teleport to="body" v-if="active">
     <div
-      class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-[12] hidden is-active"
-    ></div>
+      :tabindex="-1"
+      class="hx-overlay h-screen w-screen bg-gray-400 fixed inset-0 z-[12] lg:z-[120] hidden is-active"
+    >
+      <slot />
+    </div>
   </teleport>
 </template>
 
@@ -11,6 +14,10 @@ import { watch } from "vue";
 
 const props = defineProps({
   active: Boolean,
+});
+
+defineOptions({
+  name: "HxOverlay",
 });
 
 watch(

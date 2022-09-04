@@ -4,6 +4,7 @@
       ns.b('item'),
       ns.is('active', isActive),
       ns.is('disabled', disabled),
+      ns.is('menu', menu),
     ]"
   >
     <div
@@ -17,6 +18,7 @@
         :class="[
           ns.be('item', 'header'),
           ns.is('active', isActive),
+          ns.is('menu', menu),
           { focusing: focusing && !disabled },
         ]"
         role="button"
@@ -26,21 +28,29 @@
         @focus="handleFocus"
         @blur="focusing = false"
       >
-        <div>
-          <slot name="title">{{ title }}</slot>
-        </div>
-        <!-- <icon :class="[ns.be('item', 'arrow'), ns.is('active', isActive)]">
-          <arrow-right />
-        </icon> -->
+        <slot name="title">{{ title }}</slot>
 
-        <hx-icon
-          icon="chevron-down"
-          class="w-6 h-6"
-          :class="[ns.be('item', 'arrow'), ns.is('active', isActive)]"
-        ></hx-icon>
+        <template v-if="menu">
+          <hx-icon
+            icon="arrow-left"
+            class="w-6 h-6 left-[10px] absolute text-gray-400"
+            :class="[ns.be('item', 'arrow'), ns.is('active', isActive)]"
+          ></hx-icon>
+        </template>
+
+        <template v-else>
+          <hx-button icon variant="gray">
+            <hx-icon
+              icon="arrow-left"
+              class="w-6 h-6"
+              :class="[ns.be('item', 'arrow'), ns.is('active', isActive)]"
+            >
+            </hx-icon>
+          </hx-button>
+        </template>
       </div>
     </div>
-    <collapse-transition>
+    <hx-collapse-transition>
       <div
         v-show="isActive"
         :id="ns.b(`content-${id}`)"
@@ -49,11 +59,11 @@
         :aria-hidden="!isActive"
         :aria-labelledby="ns.b(`head-${id}`)"
       >
-        <div :class="ns.be('item', 'content')">
+        <div :class="[ns.be('item', 'content'), menu && ns.be('item', 'menu')]">
           <slot />
         </div>
       </div>
-    </collapse-transition>
+    </hx-collapse-transition>
   </div>
 </template>
 
@@ -74,6 +84,10 @@ import { collapseContextKey } from "@/core/tokens";
 
 import type { CollapseActiveName } from "./collapse";
 
+defineOptions({
+  name: "HxCollapseItem",
+});
+
 const props = defineProps({
   title: {
     type: String,
@@ -84,6 +98,7 @@ const props = defineProps({
     default: () => generateId(),
   },
   disabled: Boolean,
+  menu: Boolean,
 });
 
 const collapse = inject(collapseContextKey);
@@ -129,11 +144,13 @@ defineExpose({
   transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out,
     0.3s padding-bottom ease-in-out;
 }
+
 .collapse-transition-leave-active,
 .collapse-transition-enter-active {
   transition: 0.3s max-height ease-in-out, 0.3s padding-top ease-in-out,
     0.3s padding-bottom ease-in-out;
 }
+
 .horizontal-collapse-transition {
   transition: 0.3s width ease-in-out, 0.3s padding-left ease-in-out,
     0.3s padding-right ease-in-out;

@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, watch, ref, provide } from "vue";
+import { watch, ref, provide } from "vue";
 import { definePropType, isNumber, isString, mutable } from "@/core/utils";
 import { ensureArray } from "@/core/utils";
 import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@/core/constants";
@@ -14,8 +14,14 @@ import { collapseContextKey } from "@/core/tokens";
 import type { CollapseActiveName } from "./collapse";
 import { collapseEmits } from "./collapse";
 export type CollapseModelValue = Arrayable<CollapseActiveName>;
+
+defineOptions({
+  name: "HxCollapse",
+});
+
 const props = defineProps({
   accordion: Boolean,
+  menu: Boolean,
   modelValue: {
     type: definePropType<CollapseModelValue>([Array, String, Number]),
     default: () => mutable([] as const),

@@ -57,6 +57,10 @@ const props = defineProps({
   },
 });
 
+defineOptions({
+  name: "HxSlider",
+});
+
 // const emits = defineEmits(["update:modelValue"]);
 let priceGap = ref<number>(1000);
 let progress = ref<any>(null);
@@ -72,7 +76,6 @@ const handleRangeInput = (e: any) => {
     maxVal: number = maxValInp.value;
   if (maxVal - minVal < priceGap.value) {
     if (e.target.className === "range-min") {
-      console.log("here");
       minValInp.value = maxVal - priceGap.value;
     } else {
       maxValInp.value = minVal + priceGap.value;
@@ -95,8 +98,6 @@ const handleRangeInput = (e: any) => {
 };
 
 const handlePriceInput = (e: any) => {
-  console.log("www");
-
   // let minPrice = props.minPrice,
   //   maxPrice = props.maxPrice;
   // if (
@@ -108,11 +109,9 @@ const handlePriceInput = (e: any) => {
   //     progress.value.style.right =
   //       (minPrice / minValInpRef.value.max) * 100 + "%";
   //   } else {
-  //     console.log("here max");
   //     maxValInp.value = maxPrice;
   //     progress.value.style.left =
   //       100 - (maxPrice / maxValInpRef.value.max) * 100 + "%";
-  //     console.log("maxPrice", maxPrice);
   //   }
   // }
 };

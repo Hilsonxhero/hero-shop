@@ -39,6 +39,10 @@ const props = defineProps({
   },
 });
 
+defineOptions({
+  name: "HxOtp",
+});
+
 const emit = defineEmits(["update:modelValue"]);
 
 const values = ref(Array(length).fill(""));
@@ -47,7 +51,6 @@ const code = ref("");
 const next = (e: any) => {
   let value = e.target.value;
   if (code.value.length < props.length) {
-    console.log("e.target", e.target.nextSibling.nodeName);
     e.target.nextSibling.nodeName == "INPUT" && value.trim().length >= 1
       ? e.target?.nextSibling?.focus()
       : false;

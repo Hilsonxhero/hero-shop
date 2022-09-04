@@ -1,4 +1,5 @@
-import { noop } from "@babel/types";
+import { NOOP } from "@vue/shared";
+// import { NOOP } from "@vue/shared"; "vite-plugin-babel";
 import { watch, unref, onUnmounted } from "vue";
 
 const EVENTS = ["mousedown", "touchstart", "pointerdown"];
@@ -17,7 +18,7 @@ function useEventListener(...args: any) {
 
   if (!target) return;
 
-  let cleanup = () => {};
+  let cleanup = () => { };
 
   watch(
     () => unref(target),
@@ -29,7 +30,7 @@ function useEventListener(...args: any) {
 
       cleanup = () => {
         el.removeEventListener(event, listener, options);
-        cleanup = noop;
+        cleanup = NOOP;
       };
     },
     { immediate: true }

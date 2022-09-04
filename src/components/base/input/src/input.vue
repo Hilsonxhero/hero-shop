@@ -1,7 +1,7 @@
 <template>
   <div class="h-12 rounded-xl overflow-hidden relative">
     <input
-      class="form-input rounded-inherit border-2 border-transparent focus:bg-white focus:border-blue-500"
+      class="form-input rounded-inherit border-2"
       :type="type"
       @input="input"
       :disabled="disabled"
@@ -29,8 +29,11 @@ const props = defineProps({
 });
 const emits = defineEmits(["update:modelValue"]);
 
+defineOptions({
+  name: "HxInput",
+});
+
 const input = (e: any) => {
-  console.log("e.target?.value", e.target?.value);
   emits("update:modelValue", e.target?.value);
 };
 </script>
@@ -41,6 +44,7 @@ const input = (e: any) => {
 }
 
 .form-input {
-  @apply block w-full h-full outline-none text-right bg-gray-100 transition-all ease-out duration-200 shadow-md px-3 text-sm;
+  @apply block w-full h-full outline-none text-right transition-all ease-out duration-200 shadow-md px-3 text-sm;
+  // background: #F5F8FA;
 }
 </style>
