@@ -104,7 +104,10 @@
         </div>
       </div>
       <div class="3xl:col-span-2 lg:col-span-3">
-        <SellerBox />
+        <SellerBox
+          :variant="product.default_variant"
+          :combinations="product?.combinations"
+        />
       </div>
     </section>
 

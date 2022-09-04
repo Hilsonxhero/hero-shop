@@ -38,7 +38,7 @@
         </section>
         <!---->
       </div>
-      <div
+      <!-- <div
         class="relative z-20 flex items-center justify-center mt-3 text-link cursor-pointer space-x-4 space-x-reverse lg:justify-start lg:mt-0 lg:px-6 lg:py-4 lg:text-sm lg:rounded"
       >
         <span> بستن </span>
@@ -47,12 +47,13 @@
           name="t-icon-arrow_back_ios_new-24px"
           class="transform material-icons t-icon-arrow_back_ios_new-24px rotate-90"
         ></i>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 const props = defineProps({
   items: {
     type: Array,
