@@ -26,9 +26,10 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 const props = defineProps({
   article: {
-    type: Array,
+    type: Object,
   },
 });
 </script>

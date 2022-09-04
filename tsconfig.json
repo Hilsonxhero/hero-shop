@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -10,11 +13,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "types": [
-      "webpack-env",
-      "jest"
+      "unplugin-vue-define-options"
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
