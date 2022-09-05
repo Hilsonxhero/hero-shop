@@ -43,7 +43,7 @@
             </hx-button>
 
             <span class="text-typo text-xs font-medium mr-1">
-              {{ variant?.warranty?.title }}</span
+              {{ default_variant?.warranty?.title }}</span
             >
           </div>
           <div class="flex items-center">
@@ -51,22 +51,25 @@
               <hx-icon class="text-gray-500" icon="package"></hx-icon>
             </hx-button>
             <span class="text-typo text-xs font-medium mr-1">
-              {{ variant?.shipment?.title }}</span
+              {{ default_variant?.shipment?.title }}</span
             >
           </div>
         </section>
       </div>
       <section
         v-for="(combination, index) in combinations"
-        class="hidden flex-col px-3 w-full border-b border-gray-300 lg:flex"
+        class="hidden flex-col px-3 mb-4 w-full lg:flex"
       >
-        <div class="flex item-center mb-4 pt-3 border-t">
+        <div
+          class="flex item-center mb-4 pt-3"
+          v-if="selected[combination.group.id]"
+        >
           <span class="ml-1 text-typo-light text-sm"
             >{{ combination?.group?.name }} :
           </span>
           <span class="min-w-[7rem] min-h-[1.52rem] text-sm font-medium">
             <!-- {{ combination.value }} -->
-            -
+            {{ selected[combination.group.id].label }}
           </span>
         </div>
         <template v-if="combination.group?.type == 'color'">
@@ -77,33 +80,33 @@
             >
               <input
                 type="radio"
-                v-model="color"
+                v-model="selected[combination.group.id].group"
                 :value="item.id"
                 name="color"
                 :id="`c-${item.id}`"
                 class="js-variant-selector js-color-filter-item"
-                data-title="بنفش"
-                data-type="color"
+                v-if="selected[combination.group.id]"
               />
               <label
-                for="c-black"
+                :for="`c-${item.id}`"
                 class="js-circle-variant-color c-circle-variant c-circle-variant--color"
-                :style="`background: ${item.variant.value}`"
+                :style="`background: ${item.value}`"
               >
               </label>
             </li>
           </ul>
         </template>
         <template v-if="combination.group?.type == 'size'">
-          <select>
-            <option
-              v-for="(item, index) in combination.values"
-              :key="index"
-              value="{{item.variant.value}}"
-            >
-              {{ item.variant.name }}
-            </option>
-          </select>
+          <hx-select
+            v-if="selected[combination.group.id]"
+            v-model="selected[combination.group.id].group"
+            filterable
+            placeholder="انتخاب سایز"
+            value-key="id"
+            label="name"
+            :options="combination.values"
+          >
+          </hx-select>
         </template>
       </section>
       <section class="flex flex-col px-3 pt-3">
@@ -118,7 +121,10 @@
                 class="flex flex-col lg:flex-row items-center w-full justify-evenly"
               >
                 <section
-                  v-if="variant?.is_incredible || variant?.is_promotion"
+                  v-if="
+                    default_variant?.is_incredible ||
+                    default_variant?.is_promotion
+                  "
                   class="flex-row-reverse justify-end flex item-center"
                 >
                   <span
@@ -146,7 +152,7 @@
                       id="price"
                       class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
                     >
-                      {{ variant?.rrp_price }}
+                      {{ default_variant?.rrp_price }}
                     </span>
                     <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
                       >تومان</span
@@ -168,7 +174,8 @@
 <script setup lang="ts">
 //@ts-nocheck
 
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
+import { generateId } from "@/core/utils";
 
 const props = defineProps({
   variant: {
@@ -179,7 +186,26 @@ const props = defineProps({
   },
 });
 
-const color = ref(null);
+const default_variant = ref(props.variant);
+
+const selected = ref({});
+
+watch(
+  () => props.variant,
+  (val, oldVal) => {
+    console.log("val", val);
+  },
+  { deep: true }
+);
+
+onMounted(() => {
+  default_variant.value.combinations.map((item, index) => {
+    const key = item.group.id;
+    selected.value[key] = { group: item.variant_id, label: item.label };
+
+    // selected.value.push({ group: item.group?.id, id: item.variant_id });
+  });
+});
 </script>
 
 <style lang="scss" scoped>

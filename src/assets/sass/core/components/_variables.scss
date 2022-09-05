@@ -75,13 +75,13 @@ $secondary-light: $gray-100 !default; // Custom variable
 $secondary-inverse: $gray-800 !default; // Custom variable
 
 // Light colors
-$light: rgba(245,245,245,1) !default; // Bootstrap variable
+$light: rgba(245, 245, 245, 1) !default; // Bootstrap variable
 $light-active: $gray-300 !default; // Custom variable
 $light-inverse: if(isDarkMode(), $gray-800, $gray-600) !default; // Custom variable
 $lighten: rgba($light, 0.5); // Custom variable
 
 // Success colors
-$success: #1BC5BD !default; // Bootstrap variable
+$success: #50CD89 !default; // Bootstrap variable
 $success-active: #0BB7AF !default; // Custom variable
 $success-light: if(isDarkMode(), #1C3833, #C9F7F5) !default; // Custom variable
 $success-inverse: $white !default; // Custom variable
@@ -381,7 +381,7 @@ Helvetica,
 
 $font-size-base: 1rem !default; // Assumes the browser default, typically `13px`
 $font-size-lg: $font-size-base * 1.075 !default; // 14.04px
-$font-size-sm: $font-size-base * .925 !default; // 12.025px
+$font-size-sm: $font-size-base * .825 !default; // 12.025px
 
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
@@ -484,8 +484,8 @@ $input-btn-focus-box-shadow: null !default;
 $input-placeholder-color: $gray-500 !default;
 $input-plaintext-color: $body-color !default;
 
-$input-btn-padding-y-sm: .55rem !default;
-$input-btn-padding-x-sm: .75rem !default;
+$input-btn-padding-y-sm: .255rem !default;
+$input-btn-padding-x-sm: .150rem !default;
 $input-btn-font-size-sm: $font-size-sm !default;
 
 $input-btn-padding-y-lg: .825rem !default;
@@ -509,7 +509,7 @@ $btn-line-height: $input-btn-line-height !default;
 $btn-white-space: null !default; // Set to `nowrap` to prevent text wrapping
 
 $btn-padding-y-sm: $input-btn-padding-y-sm !default;
-$btn-padding-x-sm: 1.25rem !default;
+$btn-padding-x-sm: .5rem !default;
 $btn-font-size-sm: $input-btn-font-size-sm !default;
 
 $btn-padding-y-lg: $input-btn-padding-y-lg !default;
@@ -893,7 +893,7 @@ $progress-box-shadow: none !default;
 // Customizes the `.table` component with basic values, each used across all table variations.
 
 $table-cell-padding-y: .75rem !default;
-$table-cell-padding-x: .75rem !default;
+$table-cell-padding-x: 0 !default;
 $table-cell-padding-y-sm: .5rem !default;
 $table-cell-padding-x-sm: .5rem !default;
 
@@ -1155,3 +1155,74 @@ $social-colors: (facebook: (base: #3b5998,
         inverse: #ffffff,
         light: rgba(#0077b5, 0.1),
         active: darken(#0077b5, 7.5%))) !default; // Custom variable
+
+
+// Bullet
+$bullet: (bg-color: $gray-400,
+    dot-size: 4px,
+    bar-height: 4px,
+    bar-width: 8px,
+    bar-border-radius: 6px,
+    line-height: 1px,
+    line-width: 5px,
+) !default;
+
+
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+// scss-docs-start table-variables
+$table-cell-padding-y: .5rem !default;
+$table-cell-padding-x: .5rem !default;
+$table-cell-padding-y-sm: .25rem !default;
+$table-cell-padding-x-sm: .25rem !default;
+
+$table-cell-vertical-align: top !default;
+
+$table-color: $body-color !default;
+$table-bg: transparent !default;
+$table-accent-bg: transparent !default;
+
+$table-th-font-weight: null !default;
+
+$table-striped-color: $table-color !default;
+$table-striped-bg-factor: .05 !default;
+$table-striped-bg: rgba($black, $table-striped-bg-factor) !default;
+
+$table-active-color: $table-color !default;
+$table-active-bg-factor: .1 !default;
+$table-active-bg: rgba($black, $table-active-bg-factor) !default;
+
+$table-hover-color: $table-color !default;
+$table-hover-bg-factor: .075 !default;
+$table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
+
+$table-border-factor: .1 !default;
+$table-border-width: $border-width !default;
+$table-border-color: $border-color !default;
+
+$table-striped-order: odd !default;
+
+$table-group-separator-color: currentColor !default;
+
+$table-caption-color: $text-muted !default;
+
+$table-bg-scale: -80% !default;
+// scss-docs-end table-variables
+
+// scss-docs-start table-loop
+$table-variants: ("primary": shift-color($primary, $table-bg-scale),
+    "secondary": shift-color($secondary, $table-bg-scale),
+    "success": shift-color($success, $table-bg-scale),
+    "info": shift-color($info, $table-bg-scale),
+    "warning": shift-color($warning, $table-bg-scale),
+    "danger": shift-color($danger, $table-bg-scale),
+    "light": $light,
+    "dark": $dark,
+) !default;
+// scss-docs-end table-loop
+
+$variable-prefix: bs- !default;
