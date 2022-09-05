@@ -174,15 +174,15 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { ref, onMounted } from "vue";
-import Attributes from "@/components/app/product/Attributes.vue";
-import SellerBox from "@/components/app/product/seller/Box.vue";
-import MobileSellerBox from "@/components/app/product/seller/MobileBox.vue";
-import Comments from "@/components/app/product/comments/Base.vue";
-import Preview from "@/components/app/product/preview/Base.vue";
-import Fallback from "@/components/app/product/fallback/Base.vue";
-import Faq from "@/components/app/product/faq/Base.vue";
-import MainImage from "@/components/app/product/gallery/MainImage.vue";
-import Gallery from "@/components/app/product/gallery/Gallery.vue";
+import Attributes from "@/modules/product/components/detail/Attributes.vue";
+import SellerBox from "@/modules/product/components/detail/seller/Box.vue";
+import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBox.vue";
+import Comments from "@/modules/product/components/detail/comments/Base.vue";
+import Preview from "@/modules/product/components/detail/preview/Base.vue";
+import Fallback from "@/modules/product/components/detail/fallback/Base.vue";
+import Faq from "@/modules/product/components/detail/faq/Base.vue";
+import MainImage from "@/modules/product/components/detail/gallery/MainImage.vue";
+import Gallery from "@/modules/product/components/detail/gallery/Gallery.vue";
 import ApiService from "@/core/services/ApiService";
 import { useRoute } from "vue-router";
 
