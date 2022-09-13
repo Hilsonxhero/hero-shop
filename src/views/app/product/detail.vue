@@ -124,6 +124,7 @@
             <div class="3xl:col-span-2 lg:col-span-3">
               <SellerBox
                 :variant="product.default_variant"
+                :variants="product.variants"
                 :combinations="product?.combinations"
               />
             </div>

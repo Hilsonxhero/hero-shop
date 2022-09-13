@@ -80,7 +80,7 @@
             >
               <input
                 type="radio"
-                v-model="selected[combination.group.id].group"
+                v-model="selected[combination.group.id].id"
                 :value="item.id"
                 name="color"
                 :id="`c-${item.id}`"
@@ -99,7 +99,7 @@
         <template v-if="combination.group?.type == 'size'">
           <hx-select
             v-if="selected[combination.group.id]"
-            v-model="selected[combination.group.id].group"
+            v-model="selected[combination.group.id].id"
             filterable
             placeholder="انتخاب سایز"
             value-key="id"
@@ -131,13 +131,13 @@
                     class="flex items-center text-typo-light text-xs leading-6 text-typo-light line-through lg:text-base"
                   >
                     <span class="min-w-[3.375rem] text-left leading-6">
-                      {{ variant?.selling_price }}
+                      {{ default_variant?.rrp_price }}
                     </span>
                   </span>
 
                   <div class="ml-2">
                     <hx-badge size="sm" variant="danger">
-                      {{ variant?.discount }}
+                      {{ default_variant?.discount }}
                       <hx-icon
                         class="mr-2 text-white w-4 h-4"
                         icon="percentage-square"
@@ -152,7 +152,7 @@
                       id="price"
                       class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
                     >
-                      {{ default_variant?.rrp_price }}
+                      {{ default_variant?.selling_price }}
                     </span>
                     <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
                       >تومان</span
@@ -173,13 +173,13 @@
 
 <script setup lang="ts">
 //@ts-nocheck
-
 import { ref, onMounted, watch } from "vue";
-import { generateId } from "@/core/utils";
-
 const props = defineProps({
   variant: {
     type: Object,
+  },
+  variants: {
+    type: Array,
   },
   combinations: {
     type: Object,
@@ -189,22 +189,54 @@ const props = defineProps({
 const default_variant = ref(props.variant);
 
 const selected = ref({});
-
+const ww = ref([]);
+const entries = ref([]);
 watch(
-  () => props.variant,
+  selected,
   (val, oldVal) => {
-    console.log("val", val);
+    entries.value = Object.values(val);
+    let oo = handleSelectVariant(props.variants, entries.value);
+    default_variant.value = oo;
   },
   { deep: true }
 );
 
-onMounted(() => {
+watch(default_variant, (val, oldVal) => {
+  initDefaultVariant();
+});
+
+const handleSelectVariant = (
+  variants: Array<unknown>,
+  selectedVariants: Array<any>
+) => {
+  const clone = JSON.parse(JSON.stringify(variants));
+  clone.forEach((variant: any) => {
+    variant.combinations.forEach((combination: any) => {
+      combination.selected = !!selectedVariants.find(
+        ({ group, id }) =>
+          group === combination.group.id && id == combination.variant_id
+      );
+    });
+  });
+  let selectedVariant = clone.findIndex(({ combinations }) => {
+    return combinations.every((combination: any) => combination.selected);
+  });
+  return variants[selectedVariant];
+};
+
+const initDefaultVariant = () => {
   default_variant.value.combinations.map((item, index) => {
     const key = item.group.id;
-    selected.value[key] = { group: item.variant_id, label: item.label };
-
-    // selected.value.push({ group: item.group?.id, id: item.variant_id });
+    selected.value[key] = {
+      group: key,
+      id: item.variant_id,
+      label: item.label,
+    };
   });
+};
+
+onMounted(() => {
+  initDefaultVariant();
 });
 </script>
 

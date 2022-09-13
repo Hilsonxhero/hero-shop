@@ -1,6 +1,6 @@
 export default {
   path: "/",
-  component: () => import("@/layout/app/Layout.vue"),
+  component: () => import("@/layouts/app.vue"),
   children: [
     {
       path: "/",
@@ -17,35 +17,14 @@ export default {
           /* webpackChunkName: "product" */ "@/views/app/product/detail.vue"
         ),
     },
-    {
-      path: "checkout/cart",
-      name: "checkout cart",
-      component: () =>
-        import(/* webpackChunkName: "cart" */ "@/views/checkout/cart.vue"),
-    },
-    {
-      path: "checkout/shipping",
-      name: "checkout shipping",
-      component: () =>
-        import(
-          /* webpackChunkName: "shipping" */ "@/views/checkout/shipping.vue"
-        ),
-    },
 
-    {
-      path: "checkout/payment",
-      name: "checkout payment",
-      component: () =>
-        import(
-          /* webpackChunkName: "payment" */ "@/views/checkout/payment.vue"
-        ),
-    },
     {
       path: "search",
       name: "search",
       component: () =>
         import(/* webpackChunkName: "search" */ "@/views/app/search.vue"),
     },
+
     {
       path: "categories",
       name: "categories",
