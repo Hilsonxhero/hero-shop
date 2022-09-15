@@ -1,5 +1,8 @@
 export default {
   path: "/user",
+  meta: {
+    auth: true,
+  },
   component: () => import("@/layouts/user.vue"),
   children: [
     {

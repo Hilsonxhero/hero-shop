@@ -55,9 +55,11 @@ import ApiService from "@/core/services/ApiService";
 const init = ref<Array<any>>([]);
 
 onMounted(() => {
+  // ApiService.get("user/init").then(({ data }) => {
+  //   console.log("data", data.data);
+  // });
   ApiService.get("landing").then(({ data }) => {
     init.value = data.data;
-    // console.log("data", data.data.incredible_products);
   });
 });
 </script>

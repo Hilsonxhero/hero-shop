@@ -1,18 +1,18 @@
-import { buildProps, definePropType } from '@/core/utils'
+import { buildProps, definePropType } from "@/core/utils";
 
-import type { ExtractPropTypes, VNode } from 'vue'
+import type { ExtractPropTypes, VNode } from "vue";
 
 export const notificationTypes = [
-  'success',
-  'info',
-  'warning',
-  'error',
-] as const
+  "success",
+  "info",
+  "warning",
+  "error",
+] as const;
 
 export const notificationProps = buildProps({
   customClass: {
     type: String,
-    default: '',
+    default: "",
   },
   dangerouslyUseHTMLString: {
     type: Boolean,
@@ -24,15 +24,15 @@ export const notificationProps = buildProps({
   },
   icon: {
     type: definePropType<string | Comment>([String, Object]),
-    default: '',
+    default: "",
   },
   id: {
     type: String,
-    default: '',
+    default: "",
   },
   message: {
     type: definePropType<string | VNode>([String, Object]),
-    default: '',
+    default: "",
   },
   offset: {
     type: Number,
@@ -48,8 +48,15 @@ export const notificationProps = buildProps({
   },
   position: {
     type: String,
-    values: ['top-right', 'top-left', 'bottom-right', 'bottom-left'],
-    default: 'top-right',
+    values: [
+      "top-right",
+      "top-left",
+      "bottom-right",
+      "bottom-left",
+      "top-center",
+      "bottom-center",
+    ],
+    default: "top-right",
   },
   showClose: {
     type: Boolean,
@@ -57,57 +64,57 @@ export const notificationProps = buildProps({
   },
   title: {
     type: String,
-    default: '',
+    default: "",
   },
   type: {
     type: String,
-    values: [...notificationTypes, ''],
-    default: '',
+    values: [...notificationTypes, ""],
+    default: "",
   },
   zIndex: {
     type: Number,
     default: 0,
   },
-} as const)
-export type NotificationProps = ExtractPropTypes<typeof notificationProps>
+} as const);
+export type NotificationProps = ExtractPropTypes<typeof notificationProps>;
 
 export const notificationEmits = {
   destroy: () => true,
-}
-export type NotificationEmits = typeof notificationEmits
+};
+export type NotificationEmits = typeof notificationEmits;
 
-export type NotificationOptions = Omit<NotificationProps, 'id'> & {
-  appendTo?: HTMLElement | string
-}
-export type NotificationOptionsTyped = Omit<NotificationOptions, 'type'>
+export type NotificationOptions = Omit<NotificationProps, "id"> & {
+  appendTo?: HTMLElement | string;
+};
+export type NotificationOptionsTyped = Omit<NotificationOptions, "type">;
 
 export interface NotificationHandle {
-  close: () => void
+  close: () => void;
 }
 
-export type NotificationParams = Partial<NotificationOptions> | string | VNode
+export type NotificationParams = Partial<NotificationOptions> | string | VNode;
 export type NotificationParamsTyped =
   | Partial<NotificationOptionsTyped>
   | string
-  | VNode
+  | VNode;
 
 export type NotifyFn = ((
   options?: NotificationParams
-) => NotificationHandle) & { closeAll: () => void }
+) => NotificationHandle) & { closeAll: () => void };
 
 export type NotifyTypedFn = (
   options?: NotificationParamsTyped
-) => NotificationHandle
+) => NotificationHandle;
 
 export interface Notify extends NotifyFn {
-  success: NotifyTypedFn
-  warning: NotifyTypedFn
-  error: NotifyTypedFn
-  info: NotifyTypedFn
+  success: NotifyTypedFn;
+  warning: NotifyTypedFn;
+  error: NotifyTypedFn;
+  info: NotifyTypedFn;
 }
 
 export interface NotificationQueueItem {
-  vm: VNode
+  vm: VNode;
 }
 
-export type NotificationQueue = NotificationQueueItem[]
+export type NotificationQueue = NotificationQueueItem[];

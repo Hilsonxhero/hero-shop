@@ -4,10 +4,20 @@ import router from "./router";
 
 import ApiService from "@/core/services/ApiService";
 import { initInlineSvg } from "@/core/plugins/inline-svg";
+import { initVeeValidate } from "@/core/plugins/vee-validate";
 import { createPinia } from "pinia";
 import installer from "@/core/installer/index";
 
 const app = createApp(App);
+
+app.config.globalProperties.$filters = {
+  twoDigits(value) {
+    if (value.toString().length <= 1) {
+      return "0" + value.toString();
+    }
+    return value.toString();
+  },
+};
 
 const clickoutside = {
   created(el: any, binding: any, vnode: any) {},
@@ -44,6 +54,7 @@ app.directive("clickoutside", clickoutside);
 ApiService.init(app);
 installer.install(app);
 initInlineSvg(app);
+initVeeValidate(app);
 // registerComponents(app);
 
 app.use(pinia);

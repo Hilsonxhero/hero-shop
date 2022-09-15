@@ -1,5 +1,8 @@
 export default {
   path: "/auth",
+  meta: {
+    guest: true,
+  },
   component: () => import("@/layouts/auth.vue"),
   children: [
     {

@@ -75,6 +75,11 @@
     &.left {
         left: 16px;
     }
+
+    &.center {
+        right: 50%;
+        transform: translateX(50%);
+    }
 }
 
 

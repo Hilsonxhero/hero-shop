@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+
     <div class="flex items-center">
       <input
         maxlength="1"
@@ -14,19 +14,6 @@
       />
     </div>
 
-    <div mode="out-in" class="flex flex-col justify-center mr-6 w-56">
-      <div class="flex items-center text-typo-light text-sm font-extrabold">
-        <span>55</span>
-        :
-        <span>01</span>
-      </div>
-      <div
-        class="inline-block text-xs cursor-pointer text-typo-light font-medium opacity-20"
-      >
-        ارسال مجدد
-      </div>
-    </div>
-  </div>
 </template>
 
 <script setup lang="ts">
