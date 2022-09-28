@@ -1,55 +1,70 @@
 // @ts-nocheck
+import { ref, computed } from "vue";
 import ApiService from "@/core/services/ApiService";
 import { defineStore } from "pinia";
-export const useAuthStore = defineStore("auth", {
-  state: () => ({
-    user: null,
-    isLoggedIn: false,
-    checked: false,
-    errors: null,
-  }),
-  getters: {
-    loggedIn: (state: any) => state.isLoggedIn,
-  },
-  actions: {
-    async init() {
-      if (!this.checked)
-        try {
-          const { data } = await ApiService.get(`user/init`);
-          this.user = data.data?.user;
-          this.isLoggedIn = data.data?.is_logged_in;
-          this.checked = true;
-        } catch (error) {
-          return error;
-        }
-    },
-    async login(form) {
+import { useCartStore } from "@/modules/checkout";
+
+export const useAuthStore = defineStore("auth", () => {
+  const cart = useCartStore();
+
+  const user = ref(null);
+  const isLoggedIn = ref(false);
+  const checked = ref(false);
+  const errors = ref(null);
+
+  const loggedIn = computed(() => isLoggedIn.value);
+
+  const init = async () => {
+    if (!checked.value)
       try {
-        this.checked = false;
-        const { data } = await ApiService.post(`user/login/otp`, form);
-        this.isLoggedIn = true;
-        return data;
+        const { data } = await ApiService.get(`user/init`);
+        user.value = data.data?.user;
+        isLoggedIn.value = data.data?.is_logged_in;
+        checked.value = true;
+        cart.fetch(data.data?.cart);
       } catch (error) {
         return error;
       }
-    },
-    async authenticate(form) {
-      try {
-        const { data } = await ApiService.post(`user/authenticate`, form);
-        return data;
-      } catch (error) {
-        return error;
-      }
-    },
-    async logout() {
-      try {
-        this.checked = false;
-        const { data } = await ApiService.post(`user/logout`);
-        this.user = null;
-        this.isLoggedIn = false;
-      } catch (error) {
-        return error;
-      }
-    },
-  },
+  };
+
+  const login = async (form) => {
+    try {
+      checked.value = false;
+      const { data } = await ApiService.post(`user/login/otp`, form);
+      isLoggedIn.value = true;
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+  const authenticate = async (form) => {
+    try {
+      const { data } = await ApiService.post(`user/authenticate`, form);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+  const logout = async () => {
+    try {
+      checked.value = false;
+      const { data } = await ApiService.post(`user/logout`);
+      user.value = null;
+      isLoggedIn.value = false;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  return {
+    user,
+    isLoggedIn,
+    checked,
+    errors,
+    init,
+    login,
+    authenticate,
+    logout,
+    loggedIn
+  };
 });

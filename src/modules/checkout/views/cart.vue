@@ -3,33 +3,48 @@
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 lg:col-span-9">
         <div class="border rounded-xl">
-          <div class="p-5 border-b-2" v-for="(item, index) in 3">
-            <div class="grid grid-cols-12 gap-2 lg:gap-4">
+          <div
+            class="p-5 border-b-2"
+            v-for="(item, index) in cart?.cart_items"
+            :key="index"
+          >
+            <div class="grid grid-cols-12 gap-2 lg: gap-4">
               <div class="col-span-4 lg:col-span-2">
-                <a href="">
+                <router-link
+                  :to="{
+                    name: 'product detail',
+                    params: { id: item?.product.id, slug: item?.product.slug },
+                  }"
+                >
                   <div class="h-28 w-28">
                     <img
                       class="object-contain w-full"
-                      src="/media/products/11.jpg"
+                      :src="item?.product.media?.thumb"
                       alt=""
                     />
                   </div>
-                </a>
+                </router-link>
               </div>
 
               <div class="col-span-8 lg:col-span-10">
                 <h4 class="text-gray-700 text-sm lg:text-xl">
-                  لپ تاپ 13 اینچی اپل مدل MacBook Pro MYD82 2020 همراه با تاچ
-                  بار
+                  {{ item?.product.title_fa }}
                 </h4>
 
                 <div class="flex flex-col lg:flex-row lg:items-center my-4">
-                  <div class="flex items-center lg:mr-2">
-                    <span
-                      class="w-6 h-6 lg:w-5 lg:h-5 rounded-[50%]"
-                      style="background: #333"
-                    ></span>
-                    <span class="mr-2 text-gray-500 text-sm">مشکی</span>
+                  <div
+                    class="flex items-center lg:mr-2"
+                    v-for="(combination, index) in item?.variant?.combinations"
+                  >
+                    <template v-if="combination.type == 'color'">
+                      <span
+                        class="w-6 h-6 lg:w-5 lg:h-5 rounded-[50%]"
+                        :style="`background: ${combination.value}`"
+                      ></span>
+                    </template>
+                    <span class="mr-2 text-gray-500 text-sm">{{
+                      combination.label
+                    }}</span>
                   </div>
 
                   <div class="flex items-center lg:mr-2">
@@ -40,8 +55,8 @@
                       ></hx-icon>
                     </span>
                     <span class="mr-2 text-gray-500 text-sm">
-                      ماهه یکپارچه (سازگار،آواژنگ،حامی،الماس...)</span
-                    >
+                      {{ item?.variant.warranty?.title }}
+                    </span>
                   </div>
 
                   <div class="flex items-center lg:mr-2">
@@ -61,8 +76,8 @@
                         icon="user"
                       ></hx-icon>
                     </span>
-                    <span class="mr-2 text-gray-500 text-sm"
-                      >ارسال توسط فروشنده
+                    <span class="mr-2 text-gray-500 text-sm">
+                      {{ item?.variant.shipment?.title }}
                     </span>
                   </div>
                 </div>
@@ -70,31 +85,19 @@
                   <div></div>
 
                   <div class="flex items-center">
-                    <div class="flex items-center ml-10">
-                      <div
-                        class="border w-10 h-10 rounded-xl flex items-center justify-center text-2xl cursor-pointer text-link"
-                        @click="increment"
-                      >
-                        <hx-icon
-                          class="w-6 h-6 text-blue-500"
-                          icon="plus"
-                        ></hx-icon>
-                      </div>
-                      <div class="w-10 text-center">
-                        <span class="number-picker-text">{{ counter }}</span>
-                      </div>
-                      <div
-                        class="border w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer text-link"
-                        @click="decrement"
-                      >
-                        <hx-icon
-                          class="w-6 h-6 text-blue-500"
-                          icon="minus"
-                        ></hx-icon>
-                      </div>
-                    </div>
+                    <Counter
+                      :disabled="item.disabled"
+                      :value="item.quantity"
+                      @increment="handleIncrement(item)"
+                      @decrement="handleDecrement(item)"
+                      @delete="handleDelete(item)"
+                    />
 
-                    <div>24000000 تومان</div>
+                    <div class="min-w-[10rem]">
+                      {{ $filters.separate(item?.variant.price) }}
+
+                      تومان
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,12 +105,18 @@
           </div>
           <div class="flex items-center justify-between py-6 px-4">
             <div class="flex items-center">
-              <span class="ml-3">2 کالا در سبد خرید</span>
+              <span class="ml-3">
+                {{ store?.cart?.items_count }}
+                کالا در سبد خرید
+              </span>
               <span class="ml-3"> حذف تمامی آیتم ها </span>
             </div>
             <div class="">
               <span>قابل پرداخت : </span>
-              <span>41900000 تومان </span>
+              <span>
+                {{ $filters.separate(cart?.payable_price) }}
+                تومان
+              </span>
             </div>
           </div>
         </div>
@@ -119,23 +128,27 @@
             <div class="flex flex-col space-y-6 border-b-2 pb-6">
               <div class="flex items-center justify-between">
                 <span class="text-gray-600">مبلغ کالا ها</span>
-                <span>425000000 تومان</span>
+                <span>
+                  {{ $filters.separate(cart?.rrp_price) }}
+                  تومان</span
+                >
               </div>
               <div class="flex items-center justify-between">
                 <span class="text-gray-600">تخفیف</span>
-                <span class="text-red-500">1200000 تومان</span>
-              </div>
-
-              <div class="flex items-center justify-between">
-                <span class="text-gray-600">مبلغ کل</span>
-                <span class="">425000000 تومان</span>
+                <span class="text-red-500">
+                  {{ $filters.separate(cart?.items_discount) }}
+                  تومان</span
+                >
               </div>
             </div>
 
             <div class="pt-6">
               <div class="flex items-center justify-between">
                 <span class="text-gray-500">مبلغ قابل پرداخت</span>
-                <span class="">425000000 تومان</span>
+                <span class="">
+                  {{ $filters.separate(cart?.payable_price) }}
+                  تومان</span
+                >
               </div>
               <div class="mt-6">
                 <hx-button block>ادامه</hx-button>
@@ -149,18 +162,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useCartStore } from "@/modules/checkout";
+import { storeToRefs } from "pinia";
+import Counter from "@/components/common/counter.vue";
 
-const counter = ref(1);
+const store = useCartStore();
+const loader = ref<any>(false);
+const { cart } = storeToRefs(store);
 
-const decrement = () => {
-  counter.value === 1 ? false : (counter.value -= 1);
-  // counter.value -= 1;
+const handleIncrement = async (variant) => {
+  variant.disabled = true;
+  const data = {
+    variant_id: variant.variant.id,
+  };
+  await store.add(data);
+
+  variant.disabled = false;
+};
+const handleDecrement = async (variant) => {
+  variant.disabled = true;
+  const data = {
+    cart_item_id: variant.id,
+    quantity: variant.quantity - 1,
+  };
+  await store.update(data);
+  variant.disabled = false;
+};
+const handleDelete = async (variant) => {
+  variant.disabled = true;
+  await store.remove(variant.id);
+  variant.disabled = false;
 };
 
-const increment = () => {
-  counter.value += 1;
-};
+onMounted(async () => {
+  await store.get();
+});
 </script>
 
 <style scoped></style>

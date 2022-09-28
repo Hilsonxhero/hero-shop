@@ -59,7 +59,7 @@ import { useAuthStore } from "@/modules/auth";
 
 const store = useAuthStore();
 const emit = defineEmits([UPDATE_MODEL_EVENT, "change"]);
-const username = ref("09224729521");
+const username = ref("");
 const otp = ref(false);
 const loader = ref(false);
 const form = ref<any>();

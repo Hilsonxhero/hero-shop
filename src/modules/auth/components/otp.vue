@@ -101,9 +101,9 @@ const handleSendCode = async (e: any) => {
   };
   try {
     const data = await store.login(form);
-    console.log("data.success", data);
+    console.log("data.success", data.data.success);
 
-    if (data.success) {
+    if (data.data.success) {
       await store.init();
       router.push({ name: "user profile" });
     } else {
@@ -112,7 +112,7 @@ const handleSendCode = async (e: any) => {
         title: "",
         message: error.value,
         showClose: true,
-        duration: 400000,
+        duration: 3000,
         position: "bottom-center",
       });
     }

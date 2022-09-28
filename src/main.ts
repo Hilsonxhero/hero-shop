@@ -17,12 +17,24 @@ app.config.globalProperties.$filters = {
     }
     return value.toString();
   },
+  separate(Number) {
+    var x, y, z
+    Number += '';
+    Number = Number.replace(',', '');
+    x = Number.split('.');
+    y = x[0];
+    z = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y))
+      y = y.replace(rgx, '$1' + ',' + '$2');
+    return y + z;
+  }
 };
 
 const clickoutside = {
-  created(el: any, binding: any, vnode: any) {},
+  created(el: any, binding: any, vnode: any) { },
 
-  beforeMount(el: any) {},
+  beforeMount(el: any) { },
 
   mounted(el: any, binding: any, vnode: any) {
     const parent = `.${binding.arg}`;
@@ -34,8 +46,8 @@ const clickoutside = {
     document.body.addEventListener("click", el.handler);
     document.body.addEventListener("touchstart", el.handler);
   },
-  beforeUpdate() {},
-  updated() {},
+  beforeUpdate() { },
+  updated() { },
 
   beforeUnmount(el: any) {
     document.body.removeEventListener("click", el.handler);

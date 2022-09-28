@@ -162,7 +162,17 @@
               </div>
             </section>
             <section class="w-full">
-              <hx-button block> افزودن به سبد خرید </hx-button>
+              <template v-if="current_variant">
+                <hx-button :loading="loader" @click="handleAddToCart" block>
+                  تعداد در سبد خرید شما :
+                  {{ current_variant.quantity }}
+                </hx-button>
+              </template>
+              <template v-else>
+                <hx-button :loading="loader" @click="handleAddToCart" block>
+                  افزودن به سبد خرید
+                </hx-button>
+              </template>
             </section>
           </div>
         </section>
@@ -174,6 +184,11 @@
 <script setup lang="ts">
 //@ts-nocheck
 import { ref, onMounted, watch } from "vue";
+import { useCartStore } from "@/modules/checkout";
+import { storeToRefs } from "pinia";
+const cartStore = useCartStore();
+const { cart } = storeToRefs(cartStore);
+
 const props = defineProps({
   variant: {
     type: Object,
@@ -187,10 +202,11 @@ const props = defineProps({
 });
 
 const default_variant = ref(props.variant);
-
 const selected = ref({});
-const ww = ref([]);
 const entries = ref([]);
+const current_variant = ref<any>(null);
+const loader = ref<any>(false);
+
 watch(
   selected,
   (val, oldVal) => {
@@ -203,7 +219,35 @@ watch(
 
 watch(default_variant, (val, oldVal) => {
   initDefaultVariant();
+  current_variant.value = checkVariantExistsInCart();
 });
+
+watch(
+  () => cart,
+  (val, oldVal) => {
+    console.log("wwww");
+
+    initDefaultVariant();
+    current_variant.value = checkVariantExistsInCart();
+  },
+  { deep: true }
+);
+
+const checkVariantExistsInCart = () => {
+  const items = cartStore.cart?.cart_items;
+  const res = items.find((item) => item.variant.id == default_variant.value.id);
+  if (res) return res;
+  return false;
+};
+
+const handleAddToCart = async () => {
+  loader.value = true;
+  const data = {
+    variant_id: default_variant.value.id,
+  };
+  await cartStore.add(data);
+  loader.value = false;
+};
 
 const handleSelectVariant = (
   variants: Array<unknown>,

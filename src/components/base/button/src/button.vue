@@ -18,13 +18,9 @@
   >
     <template v-if="loading">
       <span class="hx-button__content">
-        <svg
-          class="svg-loader__circular"
-          viewBox="-10, -10, 50, 50"
-          data-v-46801470=""
-        >
+        <svg class="svg-loader__circular" viewBox="-10, -10, 50, 50">
           <path
-            class="svg-loader__path"
+            class="svg-loader__path text-white"
             d="
             M 30 15
             L 28 17
@@ -33,8 +29,8 @@
             A 15 15, 0, 1, 1, 27.99 7.5
             L 15 15
           "
+            stroke="currentColor"
             style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"
-            data-v-46801470=""
           ></path>
         </svg>
       </span>

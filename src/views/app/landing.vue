@@ -1,29 +1,41 @@
 <template>
-  <div v-if="init">
-    <section>
-      <TopSlider :items="init.header_banners" />
-    </section>
+  <hx-skeleton animated :loading="loading">
+    <template #template>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card"></hx-skeleton-item>
+    </template>
+    <template #default>
+      <div>
+        <section>
+          <TopSlider :items="init.header_banners" />
+        </section>
 
-    <section class="my-12">
-      <Promotion :products="init.incredible_products" />
-    </section>
+        <section class="my-12">
+          <Promotion :products="init.incredible_products" />
+        </section>
 
-    <section class="my-12">
-      <QuadrupleBanner :items="init.top_banners" />
-    </section>
+        <section class="my-12">
+          <QuadrupleBanner :items="init.top_banners" />
+        </section>
 
-    <section class="my-12">
-      <Bestselling />
-    </section>
+        <section class="my-12">
+          <Bestselling />
+        </section>
 
-    <section class="my-12">
-      <TripleBanner :items="init.middle_banners" />
-    </section>
+        <section class="my-12">
+          <TripleBanner :items="init.middle_banners" />
+        </section>
 
-    <!-- <section class="my-12">
+        <!-- <section class="my-12">
       <Categories />
     </section> -->
-    <!-- 
+        <!-- 
     <section class="my-12">
       <Pcc />
     </section>
@@ -32,10 +44,12 @@
       <Pcc />
     </section> -->
 
-    <section class="my-12">
-      <Articles :items="init.articles" />
-    </section>
-  </div>
+        <section class="my-12">
+          <Articles :items="init.articles" />
+        </section>
+      </div>
+    </template>
+  </hx-skeleton>
 </template>
 
 <script setup lang="ts">
@@ -53,13 +67,11 @@ import Articles from "@/components/app/main/articles/Articles.vue";
 import ApiService from "@/core/services/ApiService";
 
 const init = ref<Array<any>>([]);
-
+const loading = ref<any>(true);
 onMounted(() => {
-  // ApiService.get("user/init").then(({ data }) => {
-  //   console.log("data", data.data);
-  // });
   ApiService.get("landing").then(({ data }) => {
     init.value = data.data;
+    loading.value = false;
   });
 });
 </script>
