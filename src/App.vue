@@ -6,11 +6,7 @@
   </router-view>
 </template>
 
-<script setup lang="ts">
-import { useAuthStore } from "@/modules/auth";
-const store = useAuthStore();
-// store.init();
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 @import "@/assets/sass/main.scss";

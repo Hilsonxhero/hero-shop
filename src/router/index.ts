@@ -15,10 +15,10 @@ const router = createRouter({
   },
 });
 
-import { useAuthStore } from "@/modules/auth";
+import { useUserStore } from "@/modules/user";
 
 router.beforeEach(async (to, from, next) => {
-  const store = useAuthStore();
+  const store = useUserStore();
 
   if (to.name !== "auth") {
     await store.init();

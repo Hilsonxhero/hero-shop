@@ -26,7 +26,7 @@
           <slot></slot>
         </div>
 
-        <div class="pt-4" :class="ns.e('footer')">
+        <div v-if="$slots.footer" class="pt-4" :class="ns.e('footer')">
           <slot name="footer" :close="closeModal"></slot>
         </div>
       </div>

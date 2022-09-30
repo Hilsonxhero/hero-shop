@@ -8,6 +8,8 @@ import { initVeeValidate } from "@/core/plugins/vee-validate";
 import { createPinia } from "pinia";
 import installer from "@/core/installer/index";
 
+import { createHead } from "@vueuse/head"
+
 const app = createApp(App);
 
 app.config.globalProperties.$filters = {
@@ -59,6 +61,7 @@ const clickoutside = {
   },
 };
 
+const head = createHead()
 const pinia = createPinia();
 
 app.directive("clickoutside", clickoutside);
@@ -68,7 +71,7 @@ installer.install(app);
 initInlineSvg(app);
 initVeeValidate(app);
 // registerComponents(app);
-
+app.use(head)
 app.use(pinia);
 app.use(router);
 app.mount("#app");

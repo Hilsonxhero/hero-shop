@@ -55,9 +55,9 @@ import { ref, watch, watchEffect } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import ApiService from "@/core/services/ApiService";
 import { UPDATE_MODEL_EVENT } from "@/core/constants";
-import { useAuthStore } from "@/modules/auth";
+import { useUserStore } from "@/modules/user";
 
-const store = useAuthStore();
+const store = useUserStore();
 const emit = defineEmits([UPDATE_MODEL_EVENT, "change"]);
 const username = ref("");
 const otp = ref(false);

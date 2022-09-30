@@ -174,7 +174,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import Attributes from "@/modules/product/components/detail/Attributes.vue";
 import SellerBox from "@/modules/product/components/detail/seller/Box.vue";
 import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBox.vue";
@@ -187,10 +187,26 @@ import Gallery from "@/modules/product/components/detail/gallery/Gallery.vue";
 import ApiService from "@/core/services/ApiService";
 import { useRoute } from "vue-router";
 
+import { useHead } from "@vueuse/head";
+
 const id = ref(null);
 const loading = ref(true);
 const product = ref({});
 const route = useRoute();
+
+useHead({
+  title: computed(() => product.value.title_fa),
+  bodyAttrs: {
+    class: "custom-body-class",
+  },
+  meta: [
+    {
+      name: `description`,
+      content: computed(() => product.value.title_fa),
+    },
+  ],
+});
+
 onMounted(() => {
   id.value = route.params.id;
   ApiService.get(`product/${id.value}`)

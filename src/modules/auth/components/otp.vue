@@ -68,7 +68,7 @@ import { ref } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import ApiService from "@/core/services/ApiService";
 import { useRouter } from "vue-router";
-import { useAuthStore } from "@/modules/auth";
+import { useUserStore } from "@/modules/auth";
 import Countdown from "@/components/common/countdown.vue";
 import { HxNotification } from "@/components/base/notification";
 const props = defineProps({
@@ -82,7 +82,7 @@ const props = defineProps({
 
 const emit = defineEmits(["reset"]);
 const resend = ref<boolean>(false);
-const store = useAuthStore();
+const store = useUserStore();
 const code = ref(null);
 const loader = ref(false);
 const router = useRouter();
@@ -136,6 +136,8 @@ const handleresendCode = async () => {
     loader.value = false;
   }
 };
+
+
 </script>
 
 <style scoped></style>

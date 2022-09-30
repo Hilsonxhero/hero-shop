@@ -92,7 +92,6 @@ export default defineComponent({
       //     break;
       // }
       const myArray = props.position.split("-");
-      console.log("myArray[1]", myArray[1]);
       return myArray[1];
     });
 
