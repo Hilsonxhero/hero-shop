@@ -34,8 +34,12 @@ html {
     direction: ltr;
 }
 
-
-
+.ellipsis-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 .ellipsis-2 {
     display: -webkit-box;
@@ -43,6 +47,7 @@ html {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
 
 
 .invalid-feedback {

@@ -68,7 +68,7 @@ import { ref } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import ApiService from "@/core/services/ApiService";
 import { useRouter } from "vue-router";
-import { useUserStore } from "@/modules/auth";
+import { useUserStore } from "@/modules/user";
 import Countdown from "@/components/common/countdown.vue";
 import { HxNotification } from "@/components/base/notification";
 const props = defineProps({

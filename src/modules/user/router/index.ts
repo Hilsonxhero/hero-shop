@@ -10,5 +10,11 @@ export default {
       name: "user profile",
       component: () => import("@/modules/user/views/profile.vue"),
     },
+
+    {
+      path: "addresses",
+      name: "user profile addresses",
+      component: () => import("@/modules/user/views/addresses.vue"),
+    },
   ],
 };

@@ -56,7 +56,7 @@ class ApiService {
   /**
    * @description set the default HTTP request headers
    */
-  public static setHeader(): void {}
+  public static setHeader(): void { }
 
   /**
    * @description send the GET HTTP request
@@ -79,6 +79,8 @@ class ApiService {
    * @returns Promise<AxiosResponse>
    */
   public static get(resource: string) {
+    console.log("ApiService.vueInstance.axios", ApiService.vueInstance.axios);
+
     return ApiService.vueInstance.axios.get(`${resource}`, {
       withCredentials: true,
     });

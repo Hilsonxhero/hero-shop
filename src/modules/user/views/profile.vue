@@ -6,6 +6,8 @@
       <div class="grid grid-cols-12 gap-2 mt-4">
         <username></username>
         <mobile></mobile>
+        <email></email>
+        <password></password>
       </div>
     </div>
   </div>
@@ -19,6 +21,8 @@ import { useRouter } from "vue-router";
 import { HxNotification } from "@/components/base/notification";
 import Username from "@/modules/user/components/profile/update/username.vue";
 import Mobile from "@/modules/user/components/profile/update/mobile.vue";
+import Email from "@/modules/user/components/profile/update/email.vue";
+import Password from "@/modules/user/components/profile/update/password.vue";
 const store = useUserStore();
 const { user } = storeToRefs(store);
 const router = useRouter();
