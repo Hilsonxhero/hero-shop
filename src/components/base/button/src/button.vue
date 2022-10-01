@@ -102,10 +102,14 @@ defineOptions({
   name: "HxButton",
 });
 
+const emit = defineEmits(["click"]);
+
 const router = useRouter();
 
-const clickHandler = () => {
+const clickHandler = (evt: MouseEvent) => {
   if (!props.to) {
+    // return;
+    emit("click", evt);
     return;
   }
 

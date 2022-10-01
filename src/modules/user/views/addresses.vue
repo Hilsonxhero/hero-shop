@@ -84,7 +84,9 @@ const fetch = () => {
   // ApiService.get("user/profile/addresses").then(({ data }) => {
   //   addresses.value = data.data;
   // });
-  ApiService.get("user/profile/addresses").then(({ data }) => {
+  ApiService.get(
+    "http://127.0.0.1:8000/api/v1/application/user/profile/addresses"
+  ).then(({ data }) => {
     addresses.value = data.data;
   });
 };

@@ -21,6 +21,7 @@ import { HxDropdown, HxDropdownMenu, HxDropdownItem } from "@/components/base/dr
 import { HxTabPane, HxTabs } from '@/components/base/tabs'
 import { HxSelect } from '@/components/base/select'
 import { HxSkeleton, HxSkeletonItem } from '@/components/base/skeleton'
+import { HxForm, HxFormItem } from '@/components/base/form'
 import type { Plugin } from 'vue'
 
 export default [
@@ -51,6 +52,8 @@ export default [
   HxTabs,
   HxSelect,
   HxSkeleton,
-  HxSkeletonItem
+  HxSkeletonItem,
+  HxForm,
+  HxFormItem
 
 ] as Plugin[];

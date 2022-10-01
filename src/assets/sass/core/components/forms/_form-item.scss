@@ -1,0 +1,11 @@
+.hx-form-item {
+    &__error {
+        color: #f56c6c;
+        font-size: 14px;
+        line-height: 1;
+        padding: 4px 0;
+        // position: absolute;
+        top: 100%;
+        right: 0;
+    }
+}

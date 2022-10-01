@@ -1,5 +1,4 @@
 <template>
-  <!-- v-click-outside-directive="handleClickOutside" -->
   <div
     ref="selectRef"
     :class="[nsSelectV2.b(), nsSelectV2.m(selectSize)]"
@@ -249,6 +248,8 @@ import useSelect from "./useSelect";
 import { selectV2InjectionKey } from "./token";
 import { SelectProps } from "./defaults";
 import useClickOutside from "@/core/hooks/useClickOutside";
+// import type { OnClickOutsideHandler } from '@vueuse/core'
+import { onClickOutside } from "@vueuse/core";
 export default defineComponent({
   name: "HxSelect",
   components: {
@@ -283,11 +284,15 @@ export default defineComponent({
       getLabel: API.getLabel,
     } as any);
 
-    const { onClickOutside } = useClickOutside();
-
-    onClickOutside(API.selectRef, () => {
+    onClickOutside(API.selectRef, (event) => {
       API.expanded.value = false;
     });
+
+    // const { onClickOutside } = useClickOutside();
+
+    // onClickOutside(API.selectRef, () => {
+    //   API.expanded.value = false;
+    // });
 
     return API;
   },

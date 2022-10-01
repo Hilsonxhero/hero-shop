@@ -8,6 +8,9 @@ import { initVeeValidate } from "@/core/plugins/vee-validate";
 import { createPinia } from "pinia";
 import installer from "@/core/installer/index";
 
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 import { createHead } from "@vueuse/head"
 
 const app = createApp(App);
@@ -65,7 +68,7 @@ const head = createHead()
 const pinia = createPinia();
 
 app.directive("clickoutside", clickoutside);
-
+app.use(ElementPlus)
 ApiService.init(app);
 installer.install(app);
 initInlineSvg(app);
