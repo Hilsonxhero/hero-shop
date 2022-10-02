@@ -7,12 +7,9 @@ import { initInlineSvg } from "@/core/plugins/inline-svg";
 import { initVeeValidate } from "@/core/plugins/vee-validate";
 import { createPinia } from "pinia";
 import installer from "@/core/installer/index";
-
+import { createHead } from "@vueuse/head"
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
-import { createHead } from "@vueuse/head"
-
 const app = createApp(App);
 
 app.config.globalProperties.$filters = {
@@ -67,13 +64,12 @@ const clickoutside = {
 const head = createHead()
 const pinia = createPinia();
 
-app.directive("clickoutside", clickoutside);
-app.use(ElementPlus)
+// app.directive("clickoutside", clickoutside);
 ApiService.init(app);
 installer.install(app);
 initInlineSvg(app);
 initVeeValidate(app);
-// registerComponents(app);
+app.use(ElementPlus)
 app.use(head)
 app.use(pinia);
 app.use(router);

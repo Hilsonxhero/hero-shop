@@ -1,8 +1,8 @@
 <template>
   <div class="relative t-header__box hidden lg:flex">
     <div class="relative w-full t-header__search">
+      <!-- v-clickoutside:t-header__box="hide" -->
       <input
-        v-clickoutside:t-header__box="hide"
         class="bg-gray-100 leading-6 rounded-xl text-sm w-full"
         type="text"
         placeholder="جستجو در محصولات ،دسته بندی و .."

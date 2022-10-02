@@ -22,6 +22,7 @@ import { HxTabPane, HxTabs } from '@/components/base/tabs'
 import { HxSelect } from '@/components/base/select'
 import { HxSkeleton, HxSkeletonItem } from '@/components/base/skeleton'
 import { HxForm, HxFormItem } from '@/components/base/form'
+import { HxDialog } from '@/components/base/dialog'
 import type { Plugin } from 'vue'
 
 export default [
@@ -54,6 +55,7 @@ export default [
   HxSkeleton,
   HxSkeletonItem,
   HxForm,
-  HxFormItem
+  HxFormItem,
+  HxDialog
 
 ] as Plugin[];

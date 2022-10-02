@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-6 bg-gray-100 rounded-xl p-4">
+  <div class="col-span-4 bg-gray-100 rounded-xl p-4">
     <div class="flex">
       <div class="flex h-full flex-col">
         <h4 class="text-xl">آدرس های شما</h4>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <hx-modal :show="active" title="اطلاعات آدرس" @close="active = !active">
+  <hx-dialog title="مشخصات آدرس" width="40%" v-model="active">
     <div>
       <hx-form
         ref="formRef"
@@ -104,7 +104,7 @@
         </div>
       </hx-form>
     </div>
-  </hx-modal>
+  </hx-dialog>
 </template>
 
 <script setup lang="ts">
@@ -132,12 +132,12 @@ const active = ref<boolean>(false);
 const states = ref([]);
 const cities = ref([]);
 const form = ref({
-  address: "",
-  state: null,
-  city: null,
-  postal_code: "",
-  unit: "",
-  building_number: "",
+  address: "222",
+  state: 1,
+  city: 1,
+  postal_code: "22",
+  unit: "22",
+  building_number: "22",
   is_default: 0,
 });
 
@@ -159,7 +159,7 @@ const create = async (formEl: FormInstance | undefined) => {
         };
 
         const { data } = await ApiService.post(
-          "http://127.0.0.1:8000/api/v1/application/user/profile/addresses",
+          "user/profile/addresses",
           formData
         );
 

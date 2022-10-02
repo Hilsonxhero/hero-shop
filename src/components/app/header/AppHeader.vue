@@ -25,6 +25,7 @@
               <hx-icon class="w-full" icon="logo"></hx-icon>
             </router-link>
             <nav
+              ref="navRef"
               class="hx-header__nav bg-white lg:bg-transparent flex flex-col w-[60%] lg:w-full z-[6]"
               :class="{ 'is-active': active }"
             >
@@ -62,11 +63,11 @@
                 <!-- سبد خرید -->
               </hx-button>
             </div>
+            <!-- v-clickoutside:hx-header__nav="hide" -->
             <hx-button
               class="block lg:hidden"
               icon
               variant="gray"
-              v-clickoutside:hx-header__nav="hide"
               @click="showNavHandler"
             >
               <hx-icon class="text-gray-400" icon="menu"></hx-icon>
@@ -83,12 +84,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import HeaderSearch from "./search.vue";
-
+import { onClickOutside } from "@vueuse/core";
 import { useConfigStore } from "@/modules/config";
 import { storeToRefs } from "pinia";
 const store = useConfigStore();
 const { config, banners } = storeToRefs(store);
-
+const navRef = ref(null);
 const active = ref(false);
 
 const menus = ref([
@@ -96,6 +97,10 @@ const menus = ref([
   { title: "پیشنهادات ویژه", to: "categories" },
   { title: "مقالات", to: "categories" },
 ]);
+
+onClickOutside(navRef, (event) => {
+  active.value = false;
+});
 
 const hide = () => {
   active.value = false;
