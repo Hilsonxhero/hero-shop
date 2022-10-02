@@ -109,17 +109,8 @@
 
 <script setup lang="ts">
 // @ts-nocheck
-import {
-  onMounted,
-  ref,
-  reactive,
-  inject,
-  watch,
-  nextTick,
-  watchEffect,
-} from "vue";
+import { onMounted, ref } from "vue";
 import ApiService from "@/core/services/ApiService";
-import axios from "axios";
 
 import type { FormInstance } from "element-plus";
 
@@ -132,12 +123,12 @@ const active = ref<boolean>(false);
 const states = ref([]);
 const cities = ref([]);
 const form = ref({
-  address: "222",
-  state: 1,
-  city: 1,
-  postal_code: "22",
-  unit: "22",
-  building_number: "22",
+  address: "",
+  state: null,
+  city: null,
+  postal_code: "",
+  unit: "",
+  building_number: "",
   is_default: 0,
 });
 
@@ -175,7 +166,6 @@ const create = async (formEl: FormInstance | undefined) => {
         console.error(error);
       }
     } else {
-      console.log("error submit!");
       return false;
     }
   });

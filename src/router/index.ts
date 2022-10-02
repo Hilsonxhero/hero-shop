@@ -26,7 +26,7 @@ router.beforeEach(async (to, from, next) => {
   // if (to.meta.auth || to.matched.some((parent) => parent.meta.auth)) {
   //   await store.init();
   // }
-  console.log("here");
+
 
   if (
     (to.meta.auth || to.matched.some((parent) => parent.meta.auth)) &&

@@ -101,7 +101,7 @@ const handleSendCode = async (e: any) => {
   };
   try {
     const data = await store.login(form);
-    console.log("data.success", data.data.success);
+
 
     if (data.data.success) {
       await store.init();

@@ -79,8 +79,6 @@ class ApiService {
    * @returns Promise<AxiosResponse>
    */
   public static get(resource: string) {
-    console.log("ApiService.vueInstance.axios", ApiService.vueInstance.axios);
-
     return ApiService.vueInstance.axios.get(`${resource}`);
     // .catch((error) => {
     //     throw new Error(`ApiService ${error}`);

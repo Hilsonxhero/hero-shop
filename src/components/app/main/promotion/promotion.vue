@@ -94,7 +94,7 @@ const config = ref({
     right: 0;
     width: 100%;
     height: 250px;
-    background: url("./../../../../../public/media/promotion.png") no-repeat;
+    background: url("/media/promotion.png") no-repeat;
     background-size: cover;
   }
 }

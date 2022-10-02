@@ -12,22 +12,24 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto py-6">
       <!--begin::Logo-->
-      <a
+      <router-link
+        :to="{ name: 'landing' }"
         class="mx-auto flex justify-center"
         href="#"
         v-if="asideTheme === 'dark'"
       >
         <!-- <img alt="Logo" :src="darkLogo" class="h-25px logo" /> -->
         <hx-icon icon="logo" class=""></hx-icon>
-      </a>
-      <a
+      </router-link>
+      <router-link
+        :to="{ name: 'landing' }"
         class="mx-auto flex justify-center w-1/2"
         href="#"
         v-if="asideTheme === 'light'"
       >
         <!-- <img alt="Logo" :src="lightLogo" class="h-25px logo" /> -->
         <hx-icon icon="logo" class=""></hx-icon>
-      </a>
+      </router-link>
       <!--end::Logo-->
 
       <!--begin::Aside toggler-->

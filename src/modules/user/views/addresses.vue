@@ -80,8 +80,6 @@ const fetch = () => {
 };
 
 onMounted(() => {
-  console.log("mounted");
-
   fetch();
 });
 </script>

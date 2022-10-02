@@ -225,8 +225,6 @@ watch(default_variant, (val, oldVal) => {
 watch(
   () => cart,
   (val, oldVal) => {
-    console.log("wwww");
-
     initDefaultVariant();
     current_variant.value = checkVariantExistsInCart();
   },

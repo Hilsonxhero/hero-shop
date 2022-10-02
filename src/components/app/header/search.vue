@@ -15,6 +15,7 @@
       </hx-icon>
     </div>
     <div
+      ref="searchBoxRef"
       v-show="visiableSearchBox"
       class="absolute w-full top-0 left-0 bg-white shadow-md rounded-xl"
     >
@@ -70,12 +71,17 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 const visiableSearchBox = ref(false);
-
+const searchBoxRef = ref(null);
 const emit = defineEmits(["show"]);
 const showBox = () => {
   visiableSearchBox.value = true;
 };
+
+onClickOutside(searchBoxRef, (event) => {
+  visiableSearchBox.value = false;
+});
 
 const hide = () => {
   visiableSearchBox.value = false;

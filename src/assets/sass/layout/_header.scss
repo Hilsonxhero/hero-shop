@@ -1,24 +1,29 @@
 .t-header {
     box-shadow: 0 2px 12px rgba(0, 0, 0, .1);
-    z-index: 99;
+    z-index: 120;
+
     &__logo {
         transition: height .2s ease-out;
         width: 90px;
         flex: 0 0 90px;
+
         svg {
             height: 38px;
         }
     }
+
     &__search {
         input {
             font-size: .875rem;
             min-width: 340px;
             max-width: 100%;
             padding: calc(#{$btn-padding-y} + #{$btn-border-width}) 2.25rem calc(#{$btn-padding-y} + #{$btn-border-width}) calc(#{$btn-padding-y} + #{$btn-border-width});
+
             &::placeholder {
                 font-size: .775rem;
             }
         }
+
         svg {
             transform: translateY(-50%);
         }
@@ -32,8 +37,8 @@
     right: 0;
 }
 
-input{
-    &:focus-visible{
+input {
+    &:focus-visible {
         border-color: $gray-500;
         outline: $gray-500;
     }
@@ -41,6 +46,6 @@ input{
     outline : unset !important;
 }
 
-.transform-50{
+.transform-50 {
     transform: translateY(-50%);
 }
