@@ -1,15 +1,17 @@
-import Radio from "./src/radio-button.vue";
-import { withInstall, SFCWithInstall } from "@/core/utils";
-import type { App } from "vue";
-// export const HxRadio = withInstall(Radio, { name: "HxRadio" });
+import { withInstall, withNoopInstall } from '@/core/utils'
 
-Radio.install = (app: App): void => {
-  app.component(Radio.name, Radio);
-};
-const _Radio = Radio as SFCWithInstall<typeof Radio>;
+import Radio from './src/radio.vue'
+import RadioButton from './src/radio-button.vue'
+import RadioGroup from './src/radio-group.vue'
 
-export const HxRadio = _Radio;
+export const HxRadio = withInstall(Radio, {
+  RadioButton,
+  RadioGroup,
+})
+export default HxRadio
+export const HxRadioGroup = withNoopInstall(RadioGroup)
+export const HxRadioButton = withNoopInstall(RadioButton)
 
-export default _Radio;
-export * from "./src/radio";
-export * from "./src/radio-group";
+export * from './src/radio'
+export * from './src/radio-group'
+export * from './src/radio-button'

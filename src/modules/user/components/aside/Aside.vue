@@ -57,19 +57,7 @@
               src="/media/faces/2.jpg"
               fit="cover"
               shape="circle"
-              @click="showUserDialog"
             ></hx-avatar>
-
-            <hx-modal
-              :show="active"
-              title="حساب کاربری"
-              @close="active = !active"
-            >
-              <h1>{{ user?.phone }}</h1>
-              <hx-button variant="danger" @click="handleLogout"
-                >خروج از حساب کاربری</hx-button
-              >
-            </hx-modal>
           </div>
           <div class="mr-2 w-full">
             <div class="">
@@ -105,8 +93,6 @@ import { useRouter } from "vue-router";
 const store = useUserStore();
 const { user } = storeToRefs(store);
 
-const router = useRouter();
-
 const props = defineProps({
   lightLogo: {
     type: String,
@@ -122,8 +108,6 @@ const asideRef = ref(null);
 
 const show = inject("show", false);
 
-const active = ref(false);
-
 const { onClickOutside } = useClickOutside();
 
 onClickOutside(asideRef, () => {
@@ -131,21 +115,6 @@ onClickOutside(asideRef, () => {
     show.value = false;
   }
 });
-
-const showUserDialog = () => {
-  active.value = !active.value;
-};
-
-const handleLogout = async () => {
-  try {
-    await store.logout();
-    router.push({ name: "auth" });
-  } catch (error) {}
-};
-
-// const handleShowNav = (value: boolean) => {
-//   active.value = value;
-// };
 
 const { t } = useLocale();
 </script>

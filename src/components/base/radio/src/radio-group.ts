@@ -1,8 +1,8 @@
-import { buildProps } from "@/core/utils";
-import { useSizeProp } from "@/core/hooks";
-import { radioEmits } from "./radio";
-import type { ExtractPropTypes } from "@vue/runtime-core";
-import type RadioGroup from "./radio-group.vue";
+import { buildProps } from '@/core/utils'
+import { useSizeProp } from '@/core/hooks'
+import { radioEmits } from './radio'
+import type { ExtractPropTypes } from '@vue/runtime-core'
+import type RadioGroup from './radio-group.vue'
 
 export const radioGroupProps = buildProps({
   id: {
@@ -13,11 +13,11 @@ export const radioGroupProps = buildProps({
   disabled: Boolean,
   modelValue: {
     type: [String, Number, Boolean],
-    default: "",
+    default: '',
   },
   fill: {
     type: String,
-    default: "",
+    default: '',
   },
   label: {
     type: String,
@@ -25,7 +25,7 @@ export const radioGroupProps = buildProps({
   },
   textColor: {
     type: String,
-    default: "",
+    default: '',
   },
   name: {
     type: String,
@@ -35,9 +35,9 @@ export const radioGroupProps = buildProps({
     type: Boolean,
     default: true,
   },
-} as const);
-export type RadioGroupProps = ExtractPropTypes<typeof radioGroupProps>;
+} as const)
+export type RadioGroupProps = ExtractPropTypes<typeof radioGroupProps>
 
-export const radioGroupEmits = radioEmits;
-export type RadioGroupEmits = typeof radioGroupEmits;
-export type RadioGroupInstance = InstanceType<typeof RadioGroup>;
+export const radioGroupEmits = radioEmits
+export type RadioGroupEmits = typeof radioGroupEmits
+export type RadioGroupInstance = InstanceType<typeof RadioGroup>

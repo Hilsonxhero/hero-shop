@@ -112,9 +112,7 @@
 import { onMounted, ref } from "vue";
 import ApiService from "@/core/services/ApiService";
 
-import type { FormInstance } from "element-plus";
-
-const formRef = ref<FormInstance>();
+const formRef = ref();
 
 const emit = defineEmits(["create"]);
 

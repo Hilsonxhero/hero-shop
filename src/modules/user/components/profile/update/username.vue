@@ -6,7 +6,7 @@
     >
       <div>
         <div class="text-blue-600 text-xl">
-          <span v-if="user.username">{{ user.username }}</span>
+          <span v-if="user?.username">{{ user?.username }}</span>
           <span v-else>نام کاربری</span>
         </div>
         <div class="text-sm text-gray-400 mt-1">برای ثبت کلیک کنید</div>

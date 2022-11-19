@@ -1,8 +1,20 @@
 //
 // Form Check
 //
+.hx-radio {
+    margin-bottom: .5rem;
+
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+
 
 .form-check {
+
     // Label
     .form-check-label {
         cursor: pointer;
@@ -89,7 +101,7 @@
 }
 
 // Sizing
-.form-check.form-check-custom {   
+.form-check.form-check-custom {
     &.form-check-sm {
         .form-check-input {
             height: $form-check-input-width-sm;

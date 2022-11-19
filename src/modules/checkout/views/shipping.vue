@@ -2,115 +2,8 @@
   <div class="container my-12">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 lg:col-span-9">
-        <div
-          class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl mb-4"
-        >
-          <div class="p-5">
-            <h2 class="text-xl mb-6">آدرس تحویل سفارش</h2>
+        <Address :default-address="shipping?.default_address" />
 
-            <div
-              class="flex flex-col lg:flex-row lg:items-center justify-between"
-            >
-              <div>
-                <h5 class="text-gray-600">
-                  استان فارس - شیراز - خ. بهشتی نرسیده به خ. ولیعصر جنوبی
-                </h5>
-                <div class="flex items-center">
-                  <div class="ml-2">
-                    <span class="text-sm text-gray-500 ml-2">کد پستی : </span>
-                    <span class="text-sm">463232134</span>
-                  </div>
-
-                  <div class="">
-                    <span class="text-gray-500 ml-2"> گیرنده : </span>
-                    <span class="text-sm">امیرحسین وطن دوست</span>
-                    <span class="mx-2">-</span>
-                    <span class="text-sm">09010105397</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex justify-end">
-                <div
-                  class="flex items-center text-blue-600 cursor-pointer"
-                  @click="handleAddressModal"
-                >
-                  <span class="ml-2">تغییر آدرس</span>
-                  <hx-icon class="w-5 h-5" icon="chevron-left"></hx-icon>
-                </div>
-
-                <hx-modal
-                  :show="AddressModal"
-                  title="تغییر آدرس"
-                  @close="AddressModal = false"
-                >
-                  <div class="flex flex-col items-start">
-                    <div class="p-2">
-                      <hx-radio
-                        class="flex border-b py-4 cursor-pointer"
-                        name="www"
-                        value="2"
-                        v-model="www"
-                        v-for="(item, index) in 3"
-                      >
-                        <div class="flex-grow">
-                          <h6 class="text-right text-gray-600">
-                            شیراز،خ. قصرالدشت، نرسیده به فلکه قصر الدشت
-                          </h6>
-                          <div class="flex flex-col space-y-4 mt-4">
-                            <div class="flex items-center">
-                              <span class="ml-2">
-                                <hx-icon
-                                  class="w-6 h-6 text-gray-500"
-                                  icon="envelope"
-                                ></hx-icon>
-                              </span>
-
-                              <span>34343434</span>
-                            </div>
-
-                            <div class="flex items-center">
-                              <span class="ml-2">
-                                <hx-icon
-                                  class="w-6 h-6 text-gray-500"
-                                  icon="mobile"
-                                ></hx-icon>
-                              </span>
-
-                              <span>09013334444</span>
-                            </div>
-
-                            <div class="flex items-center">
-                              <span class="ml-2">
-                                <hx-icon
-                                  class="w-6 h-6 text-gray-500"
-                                  icon="user"
-                                ></hx-icon>
-                              </span>
-
-                              <span>امیر</span>
-                            </div>
-
-                            <div class="flex items-center">
-                              <span class="ml-2">
-                                <hx-icon
-                                  class="w-6 h-6 text-gray-500"
-                                  icon="trip"
-                                ></hx-icon>
-                              </span>
-
-                              <span>70</span>
-                            </div>
-                          </div>
-                        </div>
-                      </hx-radio>
-                    </div>
-                  </div>
-                </hx-modal>
-              </div>
-            </div>
-          </div>
-        </div>
         <div
           class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl"
         >
@@ -118,71 +11,25 @@
             <div class="border-b flex items-center justify-between p-5">
               <div>نحوه ارسال</div>
               <div class="text-gray-600">
-                سفارش شما در 1 مرسوله ارسال خواهد شد
+                سفارش شما در {{ shipping.packages_count }} مرسوله ارسال خواهد شد
               </div>
             </div>
 
             <div class="p-5">
-              <div
-                class="border-b-2 last-of-type:border-transparent py-6"
-                v-for="(item, index) in 2"
+              <shipping-item
+                v-for="(item, index) in shipping.packages"
                 :key="index"
-              >
-                <div class="flex flex-wrap items-center">
-                  <div class="flex items-center ml-2">
-                    <span class="ml-2">
-                      <hx-icon
-                        class="w-6 h-6 text-gray-500"
-                        icon="package"
-                      ></hx-icon>
-                    </span>
-                    <span class="text-sm text-gray-500"
-                      >سفارش شما از طریق فالکون ارسال می شود</span
-                    >
-                  </div>
-
-                  <div class="flex items-center ml-2">
-                    <span class="text-sm text-gray-500">
-                      مرسوله 1 (زمان تقریبی تحویل 3 تا 5 روز کاری)
-                    </span>
-                  </div>
-
-                  <div class="flex items-center ml-2">
-                    <span class="ml-2 text-sm">هزینه ارسال :</span>
-                    <span class="text-sm text-gray-500"> رایگان </span>
-                  </div>
-                </div>
-
-                <div class="flex flex-wrap items-center my-6">
-                  <div
-                    class="flex flex-col mb-3 ml-2 border rounded-xl"
-                    v-for="(item, index) in 4"
-                    :key="index"
-                  >
-                    <router-link
-                      class="w-24 h-24 lg:w-20 lg:h-20 relative p-2"
-                      to="/"
-                    >
-                      <img
-                        class="object-contain h-full w-full"
-                        src="/media/products/11.jpg"
-                        alt=""
-                      />
-                    </router-link>
-                    <!-- <div
-                      class="lg:flex hidden items-center justify-center text-sm text-gray-500"
-                    >
-                      <span>2</span>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
+                :package="item"
+                :package-key="index"
+                :package-number="index+1"
+                @change="onChangeHandler"
+              ></shipping-item>
             </div>
           </div>
         </div>
       </div>
       <div class="relative col-span-12 lg:col-span-3">
-        <div class="sticky top-20">
+        <div class="sticky top-36">
           <div class="border p-5 rounded-xl">
             <div class="text-gray-600 text-center mb-6">سفارش شما</div>
             <div class="flex flex-col space-y-6 border-b-2 pb-6">
@@ -259,14 +106,31 @@
 </template>
 
 <script setup lang="ts">
+import ApiService from "@/core/services/ApiService";
 import { ref } from "vue";
+
+import ShippingItem from "@/modules/checkout/components/shipping/ShippingItem.vue";
+import Address from "@/modules/checkout/components/shipping/Address.vue";
 
 const AddressModal = ref(false);
 const www = ref(1);
 
+const shipping = ref<any>({});
+
+const packages = ref<Array<any>>([]);
+
 const handleAddressModal = () => {
   AddressModal.value = true;
 };
+
+const onChangeHandler = (val) => {
+  console.log("val", val);
+  packages.value[val.index] = val;
+};
+
+ApiService.get(`shipping`).then(({ data }) => {
+  shipping.value = data.data;
+});
 </script>
 
 <style scoped></style>

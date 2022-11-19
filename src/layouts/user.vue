@@ -7,7 +7,7 @@
     ></HXAside>
 
     <div class="flex flex-col flex-row-fluid wrapper">
-      <!-- <HXHeader title="pageTitle" @show-nav="handleShowNav"></HXHeader> -->
+      <HXHeader title="pageTitle" @show-nav="handleShowNav"></HXHeader>
 
       <div class="content flex flex-col flex-column-fluid">
         <!-- <HXToolbar

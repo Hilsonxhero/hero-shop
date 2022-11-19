@@ -7,7 +7,12 @@ import { HxFormGroup } from "@/components/base/form-group";
 import { HxOtp } from "@/components/base/otp";
 import { HxBadge } from "@/components/base/badge";
 import { HxTextarea } from "@/components/base/textarea";
-import { HxRadio } from "@/components/base/radio";
+// import { HxRadio } from "@/components/base/radio";
+import {
+  HxRadio,
+  HxRadioButton,
+  HxRadioGroup,
+} from "@/components/base/radio"
 import { HxCheckbox, HxCheckboxGroup } from "@/components/base/checkbox";
 import { HxSwitch } from "@/components/base/switch";
 import { HxCollapse, HxCollapseItem } from "@/components/base/collapse";
@@ -36,6 +41,8 @@ export default [
   HxBadge,
   HxTextarea,
   HxRadio,
+  HxRadioButton,
+  HxRadioGroup,
   HxSwitch,
   HxCollapse,
   HxCollapseItem,

@@ -151,7 +151,7 @@
                 >
               </div>
               <div class="mt-6">
-                <hx-button block>ادامه</hx-button>
+                <hx-button block @click="handleShipping">ادامه</hx-button>
               </div>
             </div>
           </div>
@@ -164,13 +164,15 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useCartStore } from "@/modules/checkout";
+import { useUserStore } from "@/modules/user";
 import { storeToRefs } from "pinia";
 import Counter from "@/components/common/counter.vue";
-
+import { useRouter } from "vue-router";
 const store = useCartStore();
+const userStore = useUserStore();
 const loader = ref<any>(false);
 const { cart } = storeToRefs(store);
-
+const router = useRouter();
 const handleIncrement = async (variant) => {
   variant.disabled = true;
   const data = {
@@ -180,6 +182,7 @@ const handleIncrement = async (variant) => {
 
   variant.disabled = false;
 };
+
 const handleDecrement = async (variant) => {
   variant.disabled = true;
   const data = {
@@ -189,10 +192,18 @@ const handleDecrement = async (variant) => {
   await store.update(data);
   variant.disabled = false;
 };
+
 const handleDelete = async (variant) => {
   variant.disabled = true;
   await store.remove(variant.id);
   variant.disabled = false;
+};
+
+const handleShipping = (ev: MouseEvent) => {
+  if (!userStore.loggedIn) {
+    router.push({ name: "auth" });
+  }
+  router.push({ name: "checkout shipping" });
 };
 
 onMounted(async () => {

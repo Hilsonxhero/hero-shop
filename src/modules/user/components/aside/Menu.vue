@@ -127,6 +127,16 @@
       </template>
 
       <div class="menu-item">
+        <a @click="handleLogout" class="menu-link">
+          <span class="menu-icon">
+            <span class="svg-icon svg-icon-2">
+              <hx-icon icon="logout" class="w-6 h-6"></hx-icon> </span
+          ></span>
+          <span class="menu-title">خروج از جساب کاربری</span>
+        </a>
+      </div>
+
+      <div class="menu-item">
         <div class="menu-content">
           <div class="separator mx-1 my-4"></div>
         </div>
@@ -144,6 +154,11 @@ import { defineComponent, onMounted, ref } from "vue";
 import { useLocale } from "@/core/hooks";
 import { useRoute } from "vue-router";
 import MainMenuConfig from "@/core/config/MainMenuConfig";
+import { useUserStore } from "@/modules/user";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const store = useUserStore();
 
 const { t } = useLocale();
 const route = useRoute();
@@ -161,6 +176,13 @@ const translate = (text) => {
   } else {
     return text;
   }
+};
+
+const handleLogout = async () => {
+  try {
+    await store.logout();
+    router.push({ name: "landing" });
+  } catch (error) {}
 };
 
 const hasActiveChildren = (match) => {

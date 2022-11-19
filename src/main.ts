@@ -8,8 +8,7 @@ import { initVeeValidate } from "@/core/plugins/vee-validate";
 import { createPinia } from "pinia";
 import installer from "@/core/installer/index";
 import { createHead } from "@vueuse/head"
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+
 const app = createApp(App);
 
 app.config.globalProperties.$filters = {
@@ -20,16 +19,17 @@ app.config.globalProperties.$filters = {
     return value.toString();
   },
   separate(Number) {
-    var x, y, z
-    Number += '';
-    Number = Number.replace(',', '');
-    x = Number.split('.');
-    y = x[0];
-    z = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while (rgx.test(y))
-      y = y.replace(rgx, '$1' + ',' + '$2');
-    return y + z;
+    // var x, y, z
+    // Number += '';
+    // Number = Number.replace(',', '');
+    // x = Number.split('.');
+    // y = x[0];
+    // z = x.length > 1 ? '.' + x[1] : '';
+    // var rgx = /(\d+)(\d{3})/;
+    // while (rgx.test(y))
+    //   y = y.replace(rgx, '$1' + ',' + '$2');
+    // return y + z;
+    return Number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   }
 };
 
@@ -69,7 +69,6 @@ ApiService.init(app);
 installer.install(app);
 initInlineSvg(app);
 initVeeValidate(app);
-app.use(ElementPlus)
 app.use(head)
 app.use(pinia);
 app.use(router);
