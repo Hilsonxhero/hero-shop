@@ -2,7 +2,10 @@
   <div class="container my-12">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 lg:col-span-9">
-        <Address :default-address="shipping?.default_address" />
+        <Address
+          v-model="selected_address"
+          :default-address="shipping?.default_address"
+        />
 
         <div
           class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl"
@@ -21,7 +24,7 @@
                 :key="index"
                 :package="item"
                 :package-key="index"
-                :package-number="index+1"
+                :package-number="index + 1"
                 @change="onChangeHandler"
               ></shipping-item>
             </div>
@@ -59,7 +62,7 @@
                 <span class="">425000000 تومان</span>
               </div>
               <div class="mt-6">
-                <hx-button block>ادامه</hx-button>
+                <hx-button @click="handleShipping" block>ادامه</hx-button>
               </div>
             </div>
           </div>
@@ -111,25 +114,41 @@ import { ref } from "vue";
 
 import ShippingItem from "@/modules/checkout/components/shipping/ShippingItem.vue";
 import Address from "@/modules/checkout/components/shipping/Address.vue";
-
-const AddressModal = ref(false);
-const www = ref(1);
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const shipping = ref<any>({});
 
+const selected_address = ref<any>({});
+
 const packages = ref<Array<any>>([]);
 
-const handleAddressModal = () => {
-  AddressModal.value = true;
+const onChangeHandler = (val) => {
+  let selected = packages.value.find(
+    (item, index) => item.delivery_id == val.delivery_id
+  );
+  selected.time_scope = val.time_scope;
 };
 
-const onChangeHandler = (val) => {
-  console.log("val", val);
-  packages.value[val.index] = val;
+const handleShipping = () => {
+  const formData = {
+    address_id: selected_address.value,
+    packages: packages.value,
+  };
+  ApiService.post(`shipping`, formData).then(({ data }) => {
+    if (data.success) {
+      router.push({ name: "checkout payment" });
+    }
+  });
 };
 
 ApiService.get(`shipping`).then(({ data }) => {
   shipping.value = data.data;
+  shipping.value.packages.map((item, index) => {
+    packages.value.push({
+      delivery_id: item.delivery_id,
+    });
+  });
 });
 </script>
 

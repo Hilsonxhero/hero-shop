@@ -115,12 +115,14 @@
 // @ts-nocheck
 import { ref, watch } from "vue";
 import ApiService from "@/core/services/ApiService";
-
+import { UPDATE_MODEL_EVENT } from "@/core/constants";
 const props = defineProps({
   defaultAddress: {
     type: Object,
   },
 });
+
+const emits = defineEmits([UPDATE_MODEL_EVENT]);
 
 const activeAddressModal = ref<boolean>(false);
 const selected_address = ref(null);
@@ -148,6 +150,10 @@ watch(
     default_address.value = val;
   }
 );
+
+watch(selected_address, (val, prev) => {
+  emits(UPDATE_MODEL_EVENT, val);
+});
 
 ApiService.get("user/profile/addresses").then(({ data }) => {
   addresses.value = data.data;

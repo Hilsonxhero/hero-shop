@@ -16,7 +16,7 @@
             <div class="overflow-hidden max-w-[6rem] mix-blend-multiply">
               <img
                 class="w-full h-full object-contain"
-                src="media/products/06.png"
+                src="/media/products/06.png"
                 loading="lazy"
                 alt=""
               />

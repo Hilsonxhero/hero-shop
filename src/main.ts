@@ -29,7 +29,8 @@ app.config.globalProperties.$filters = {
     // while (rgx.test(y))
     //   y = y.replace(rgx, '$1' + ',' + '$2');
     // return y + z;
-    return Number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    const value = Number / 10
+    return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   }
 };
 

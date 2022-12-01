@@ -14,7 +14,8 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
+// @ts-nocheck
 import { computed, onMounted, ref, onBeforeUnmount } from "vue";
 
 const props = defineProps({

@@ -13,23 +13,26 @@
             </p>
 
             <div class="mt-6">
-              <section>
+              <section
+                v-for="(payment_method, index) in payment_methods"
+                :key="index"
+              >
                 <hx-radio
                   class="flex items-center bg-blue-100 p-4 cursor-pointer rounded-xl"
-                  name="www"
-                  value="2"
-                  v-model="www"
+                  :value="payment_method.id"
+                  v-model="selected_method"
+                  :label="payment_method.id"
+                  name="payment_method"
                 >
                   <div
                     class="flex flex-grow flex-wrap w-full items-center justify-between"
                   >
-                    <h4 class="text-blue-600">پرداخت آنلاین</h4>
-                    <p class="text-sm text-gray-500">
-                      مبلغ سفارش را بصورت آنلاین از طریق کلیه‌ی کارت‌های عضو
-                      شتاب پرداخت نمائید
+                    <h4 class="text-blue-600">{{ payment_method.title }}</h4>
+                    <p class="text-sm text-gray-500 mr-2">
+                      {{ payment_method.description }}
                     </p>
                     <hx-icon
-                      class="text-blue-600 h-8 w-8 hidden lg:block"
+                      class="text-blue-600 h-8 w-8 hidden lg:block mr-2"
                       icon="online-order"
                     ></hx-icon>
                   </div>
@@ -47,7 +50,7 @@
                 <hx-icon class="text-red-600 h-7 w-7" icon="location"></hx-icon>
               </span>
               <span class="text-gray-6500">
-                استان فارس - شیراز - خ. چمران، نرسیده به خ. رحمت جنوبی
+                {{ address?.address }}
               </span>
             </div>
             <div class="flex items-center flex-wrap">
@@ -58,13 +61,13 @@
                     icon="envelope"
                   ></hx-icon>
                 </span>
-                <span>5443444554</span>
+                <span>{{ address?.postal_code }}</span>
               </div>
               <div class="flex items-center ml-3">
                 <span class="ml-2">
                   <hx-icon class="w-6 h-6 text-gray-500" icon="user"></hx-icon>
                 </span>
-                <span>امیر</span>
+                <span>{{ address?.username }}</span>
               </div>
 
               <div class="flex items-center ml-3">
@@ -74,7 +77,7 @@
                     icon="mobile"
                   ></hx-icon>
                 </span>
-                <span>09013334455</span>
+                <span>{{ address?.mobile }}</span>
               </div>
             </div>
           </div>
@@ -112,7 +115,9 @@
                   <span class="">425000000 تومان</span>
                 </div>
                 <div class="mt-6 hidden lg:block">
-                  <hx-button block>پرداخت و تایید نهایی سفارش</hx-button>
+                  <hx-button @click="handlePayment" block
+                    >پرداخت و تایید نهایی سفارش</hx-button
+                  >
                 </div>
               </div>
             </div>
@@ -196,14 +201,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import ApiService from "@/core/services/ApiService";
 
-const AddressModal = ref(false);
-const www = ref(1);
+const selected_method = ref(null);
+const payment_methods = ref<Array<any>>([]);
+const address = ref<any>({});
 
-const handleAddressModal = () => {
-  AddressModal.value = true;
+const handlePayment = () => {
+  const formData = {
+    payment_method: selected_method.value,
+  };
+  ApiService.post("payment", formData)
+    .then(({ data }) => {
+      window.location.replace(data.data);
+    })
+    .catch(() => {});
 };
+
+onMounted(() => {
+  ApiService.get("payment")
+    .then(({ data }) => {
+      address.value = data.data.address;
+      payment_methods.value = data.data.payment_methods;
+
+      payment_methods.value.map((item) => {
+        if (item.is_default) selected_method.value = item.id;
+      });
+    })
+    .catch(() => {});
+});
 </script>
 
 <style scoped></style>

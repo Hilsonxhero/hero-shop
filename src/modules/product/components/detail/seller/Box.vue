@@ -117,22 +117,23 @@
             class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
           >
             <section class="flex w-full">
-              <div
-                class="flex flex-col lg:flex-row items-center w-full justify-evenly"
-              >
+              <div class="flex flex-col items-center w-full justify-evenly">
                 <section
                   v-if="
                     default_variant?.is_incredible ||
                     default_variant?.is_promotion
                   "
-                  class="flex-row-reverse justify-end flex item-center"
+                  class="flex-col justify-end flex item-center"
                 >
                   <span
                     class="flex items-center text-typo-light text-xs leading-6 text-typo-light line-through lg:text-base"
                   >
                     <span class="min-w-[3.375rem] text-left leading-6">
-                      {{ default_variant?.rrp_price }}
+                      {{ $filters.separate(default_variant?.rrp_price) }}
                     </span>
+                    <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
+                      >تومان</span
+                    >
                   </span>
 
                   <div class="ml-2">
@@ -152,7 +153,7 @@
                       id="price"
                       class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
                     >
-                      {{ default_variant?.selling_price }}
+                      {{ $filters.separate(default_variant?.selling_price) }}
                     </span>
                     <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
                       >تومان</span
@@ -233,6 +234,8 @@ watch(
 
 const checkVariantExistsInCart = () => {
   const items = cartStore.cart?.cart_items;
+  console.log("items", items);
+
   const res = items.find((item) => item.variant.id == default_variant.value.id);
   if (res) return res;
   return false;

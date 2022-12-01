@@ -13,7 +13,7 @@
         </div>
         <img
           class="w-[9.25rem] h-[9.25rem] mx-auto"
-          src="media/products/01.png"
+          src="/media/products/01.png"
           alt=""
         />
 

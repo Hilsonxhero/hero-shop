@@ -178,6 +178,7 @@
 </template>
 
 <script setup lang="ts">
+//@ts-nocheck
 import { onMounted, ref } from "vue";
 
 const props = defineProps({

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { defineComponent, ref, toRef } from "vue";
 import Input from "@/components/base/input";
 import Button from "@/components/base/button";

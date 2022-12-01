@@ -82,6 +82,7 @@
 </template>
 
 <script setup lang="ts">
+//@ts-nocheck
 import { ref } from "vue";
 import HeaderSearch from "./search.vue";
 import { onClickOutside } from "@vueuse/core";

@@ -7,7 +7,7 @@
                     <hx-icon class="mr-2 text-white w-4 h-4" icon="percentage-square"></hx-icon>
                 </div>
             </div>
-            <img class="w-full" src="media/products/01.png" alt="">
+            <img class="w-full" src="/media/products/01.png" alt="">
 
             <div class="flex justify-between pb-2 px-2 w-full lg:pb-0">
                 <div

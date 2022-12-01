@@ -26,5 +26,13 @@ export default {
           /* webpackChunkName: "payment" */ "@/modules/checkout/views/payment.vue"
         ),
     },
+    {
+      path: "confirmation/payment/:id",
+      name: "checkout confirmation payment",
+      component: () =>
+        import(
+          /* webpackChunkName: "confirmation" */ "@/modules/checkout/views/confirmation.vue"
+        ),
+    },
   ],
 };

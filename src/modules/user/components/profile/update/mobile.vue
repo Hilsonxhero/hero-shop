@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+//@ts-nocheck
 import { ref, provide } from "vue";
 import { useUserStore } from "@/modules/user";
 import { storeToRefs } from "pinia";

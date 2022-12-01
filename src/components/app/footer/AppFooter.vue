@@ -252,6 +252,7 @@
 </template>
 
 <script setup lang="ts">
+//@ts-nocheck
 import { ref } from "vue";
 
 import { useConfigStore } from "@/modules/config";

@@ -40,7 +40,7 @@
     <div class="flex flex-wrap items-center my-6">
       <div
         class="flex flex-col mb-3 ml-2 border rounded-xl"
-        v-for="(cart_item, index) in package?.items"
+        v-for="(cart_item, index) in package?.cart_items"
         :key="index"
       >
         <router-link class="w-24 h-24 lg:w-20 lg:h-20 relative p-2" to="/">
@@ -96,7 +96,10 @@
               <hx-radio-group v-model="radio">
                 <hx-radio
                   v-for="interval in time.intervals"
-                  :label="{ index: packageKey, time_scope: interval.id }"
+                  :label="{
+                    delivery_id: package?.delivery_id,
+                    time_scope: interval.id,
+                  }"
                   :value="{ time_scope: interval.id }"
                 >
                   {{ interval.start_at }}<span class="mx-1">تا</span
