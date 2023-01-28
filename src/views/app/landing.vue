@@ -13,15 +13,15 @@
     <template #default>
       <div>
         <section>
-          <TopSlider :items="init.header_banners" />
+          <TopSlider :items="init.banners?.header_banners" />
         </section>
 
         <section class="my-12">
-          <Promotion :products="init.incredible_products" />
+          <Promotion :products="init?.incredible_products" />
         </section>
 
         <section class="my-12">
-          <QuadrupleBanner :items="init.top_banners" />
+          <QuadrupleBanner :items="init?.top_banners" />
         </section>
 
         <section class="my-12">
@@ -29,7 +29,7 @@
         </section>
 
         <section class="my-12">
-          <TripleBanner :items="init.middle_banners" />
+          <TripleBanner :items="init?.middle_banners" />
         </section>
 
         <!-- <section class="my-12">
@@ -76,4 +76,6 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
