@@ -5,14 +5,16 @@
                 <swiper class="swiper sw-categories" :breakpoints="config.breakpoints" :modules="modules"
                     :slides-per-view="8" :navigation="{ nextEl: '.swiper-next-ct', prevEl: '.swiper-prev-ct', }">
 
-                    <swiper-slide class="text-center my-12" v-for="(item, index) in 8">
+                    <swiper-slide class="text-center my-12" v-for="(category, index) in categories">
                         <div class="flex flex-col items-center justify-center ">
                             <router-link to=""
                                 class="h-16 w-16   rounded-md text-white bg-gray-100 flex items-center justify-center">
-                                <hx-icon class="w-16 h-1w-16" icon="mobile-c"></hx-icon>
+                                <!-- <hx-icon class="w-16 h-1w-16" icon="mobile-c"></hx-icon> -->
+                                <img class="p-1" :src="category?.media?.thumb" alt="">
                             </router-link>
                             <h3 class="mt-3 text-gray-600  text-xs overflow-hidden text-ellipsis whitespace-nowrap">
-                                کالای دیجیتال</h3>
+                                {{ category?.title }}
+                            </h3>
                         </div>
                     </swiper-slide>
 
@@ -46,6 +48,10 @@ import "swiper/css/navigation";
 import { ref } from "vue";
 
 const modules = [Navigation];
+
+const props = defineProps({
+    categories: {}
+})
 
 const config = ref({
     auto: {

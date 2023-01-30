@@ -17,7 +17,7 @@
         </section>
 
         <section class="">
-          <Categories />
+          <Categories :categories="init?.main_categories" />
         </section>
 
         <section class="">

@@ -9,17 +9,10 @@
       </div>
       <swiper :breakpoints="config.breakpoints">
         <swiper-slide v-for="(item, index) in 20">
-          <router-link
-            to="/"
-            class="flex flex-col items-center p-5 bg-gray-100 rounded-xl border-2 border-transparent hover:border-2 hover:border-gray-200 transition-all duration-200 ease-in-out"
-          >
+          <router-link to="/"
+            class="flex flex-col items-center p-5 bg-gray-100 rounded-xl border-2 border-transparent hover:border-2 hover:border-gray-200 transition-all duration-200 ease-in-out">
             <div class="overflow-hidden max-w-[6rem] mix-blend-multiply">
-              <img
-                class="w-full h-full object-contain"
-                src="/media/products/06.png"
-                loading="lazy"
-                alt=""
-              />
+              <img class="w-full h-full object-contain" src="/media/products/06.png" loading="lazy" alt="" />
             </div>
             <div class="my-2 flex flex-col items-center">
               <h4 class="text-gray-600">کنسول بازی</h4>
@@ -33,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
@@ -62,11 +55,15 @@ const config = ref({
       spaceBetween: 10,
     },
     "1024": {
-      slidesPerView: 4,
+      slidesPerView: 6,
       spaceBetween: 10,
     },
     "1200": {
-      slidesPerView: 4.5,
+      slidesPerView: 6,
+      spaceBetween: 10,
+    },
+    "1300": {
+      slidesPerView: 10,
       spaceBetween: 10,
     },
     "1400": {
@@ -75,6 +72,13 @@ const config = ref({
     },
   },
 });
+
+const categories = ref<Array<any>>([]);
+
+
+
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

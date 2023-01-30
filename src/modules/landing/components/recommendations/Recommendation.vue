@@ -18,7 +18,9 @@
                             </router-link>
                         </div>
                     </div>
-
+                    <div class="mt-6 flex flex-col items-center">
+                        <router-link to="/" class="text-blue-500 text-sm">مشاهده بیشتر</router-link>
+                    </div>
                 </div>
             </div>
         </div>
