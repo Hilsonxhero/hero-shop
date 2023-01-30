@@ -13,15 +13,19 @@
     <template #default>
       <div>
         <section>
-          <TopSlider :items="init.banners?.header_banners" />
+          <TopSlider :items="init?.banners?.header_banners" />
         </section>
 
-        <section class="my-12">
+        <section class="">
+          <Categories />
+        </section>
+
+        <section class="">
           <Promotion :products="init?.incredible_products" />
         </section>
 
         <section class="my-12">
-          <QuadrupleBanner :items="init?.top_banners" />
+          <QuadrupleBanner :items="init?.banners?.top_banners" />
         </section>
 
         <section class="my-12">
@@ -29,20 +33,17 @@
         </section>
 
         <section class="my-12">
-          <TripleBanner :items="init?.middle_banners" />
+          <TripleBanner :items="init?.banners?.middle_banners" />
         </section>
 
-        <!-- <section class="my-12">
-      <Categories />
-    </section> -->
-        <!-- 
-    <section class="my-12">
-      <Pcc />
-    </section>
 
-    <section class="my-12">
-      <Pcc />
-    </section> -->
+        <!-- <section class="my-12">
+          <Pcc />
+        </section> -->
+
+        <section class="my-8">
+          <Recommendation :recommendations="recommendations" />
+        </section>
 
         <section class="my-12">
           <Articles :items="init.articles" />
@@ -56,6 +57,7 @@
 // @ts-nocheck
 
 import { onMounted, ref } from "vue";
+import Recommendation from "@/modules/landing/components/recommendations/Recommendation.vue";
 import TopSlider from "@/components/app/main/slider/TopSlider.vue";
 import Categories from "@/components/app/main/category/categories.vue";
 import Promotion from "@/components/app/main/promotion/promotion.vue";
@@ -67,10 +69,15 @@ import Articles from "@/components/app/main/articles/Articles.vue";
 import ApiService from "@/core/services/ApiService";
 
 const init = ref<Array<any>>([]);
+const recommendations = ref<Array<any>>([]);
 const loading = ref<any>(true);
 onMounted(() => {
   ApiService.get("landing").then(({ data }) => {
     init.value = data.data;
+
+  });
+  ApiService.get("recommendation").then(({ data }) => {
+    recommendations.value = data.data;
     loading.value = false;
   });
 });

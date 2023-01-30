@@ -1,17 +1,18 @@
 <template>
     <div class="container">
-        <div class="bg-white p-4 border-2 rounded-xl">
+        <div class="bg-white">
             <div class="">
-                <swiper class="swiper sw-categories" :grid="{ rows: 2 }" :modules="modules" :slides-per-view="8"
-                    :navigation="{ nextEl: '.swiper-next-ct', prevEl: '.swiper-prev-ct', }">
+                <swiper class="swiper sw-categories" :breakpoints="config.breakpoints" :modules="modules"
+                    :slides-per-view="8" :navigation="{ nextEl: '.swiper-next-ct', prevEl: '.swiper-prev-ct', }">
 
-                    <swiper-slide class="text-center my-12" v-for="(item, index) in 20">
+                    <swiper-slide class="text-center my-12" v-for="(item, index) in 8">
                         <div class="flex flex-col items-center justify-center ">
                             <router-link to=""
-                                class="h-20 w-20   rounded-[50%] text-white bg-gray-100 flex items-center justify-center">
+                                class="h-16 w-16   rounded-md text-white bg-gray-100 flex items-center justify-center">
                                 <hx-icon class="w-16 h-1w-16" icon="mobile-c"></hx-icon>
                             </router-link>
-                            <h3 class="mt-3 text-gray-600 text-sm">کالای دیجیتال</h3>
+                            <h3 class="mt-3 text-gray-600  text-xs overflow-hidden text-ellipsis whitespace-nowrap">
+                                کالای دیجیتال</h3>
                         </div>
                     </swiper-slide>
 
@@ -41,7 +42,47 @@ import "swiper/css";
 import 'swiper/css/grid'
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-const modules = [Grid, Navigation];
+
+import { ref } from "vue";
+
+const modules = [Navigation];
+
+const config = ref({
+    auto: {
+        delay: 1000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        "320": {
+            slidesPerView: 3.5,
+            spaceBetween: 5,
+        },
+        "410": {
+            slidesPerView: 4,
+            spaceBetween: 10,
+        },
+        "640": {
+            slidesPerView: 4,
+            spaceBetween: 10,
+        },
+        "768": {
+            slidesPerView: 4,
+            spaceBetween: 10,
+        },
+        "1024": {
+            slidesPerView: 6,
+            spaceBetween: 10,
+        },
+        "1200": {
+            slidesPerView: 8,
+            spaceBetween: 10,
+        },
+        "1400": {
+            slidesPerView: 8,
+            spaceBetween: 10,
+        },
+    },
+});
 
 </script>
 
@@ -67,16 +108,20 @@ const modules = [Grid, Navigation];
 
 .swiper-prev-ct,
 .swiper-next-ct {
+
     position: absolute;
     top: 50%;
-    width: calc(var(--swiper-navigation-size)/ 44 * 27);
-    height: var(--swiper-navigation-size);
-    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
-    z-index: 10;
+    align-items: center;
+    color: #333;
     cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+    z-index: 2;
+    border: 1px solid var(--color-neutral-300);
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: none;
 }
 </style>
