@@ -47,13 +47,30 @@ export const useCartStore = defineStore("cart", () => {
     cart.value = payload;
   };
 
+  const replace = (payload) => {
+    Object.keys(payload).forEach((item, key) => {
+
+      // console.log("item", item);
+      // console.log("payload", payload[item]);
+      // console.log("cart.value[item]", cart.value[item]);
+      // console.log("payload[item]", payload[item]);
+      if (cart.value.hasOwnProperty(item)) {
+        console.log("match!");
+        cart.value[item] = payload[item]
+      }
+    })
+
+  };
+
+
   return {
     cart,
     get,
     add,
     update,
     remove,
-    fetch
+    fetch,
+    replace
   };
 });
 
