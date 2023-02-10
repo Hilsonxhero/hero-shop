@@ -74,26 +74,27 @@
         <section class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset">
           <div
             class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4">
-            <section class="flex w-full">
+            <section class="flex  w-full">
               <div class="flex flex-col items-center w-full justify-evenly">
                 <section v-if="
                   default_variant?.is_incredible ||
                   default_variant?.is_promotion
-                " class="flex-col justify-end flex item-center">
-                  <span
-                    class="flex items-center text-typo-light text-xs leading-6 text-typo-light line-through lg:text-base">
+                " class=" flex item-center">
+
+
+                  <div class=" ml-2 flex justify-center">
+                    <hx-badge size="sm" type="danger">
+                      {{ default_variant?.discount }}
+                      <hx-icon class="mr-2 text-white w-4 h-4" icon="percentage-square"></hx-icon>
+                    </hx-badge>
+                  </div>
+
+                  <span class="flex items-center text-typo-light text-xs  text-typo-light line-through lg:text-base">
                     <span class="min-w-[3.375rem] text-left leading-6">
                       {{ $filters.separate(default_variant?.rrp_price) }}
                     </span>
                     <span class="font-normal text-sm leading-6 lg:text-sm mr-2">تومان</span>
                   </span>
-
-                  <div class="ml-2">
-                    <hx-badge size="sm" variant="danger">
-                      {{ default_variant?.discount }}
-                      <hx-icon class="mr-2 text-white w-4 h-4" icon="percentage-square"></hx-icon>
-                    </hx-badge>
-                  </div>
                 </section>
 
                 <div>

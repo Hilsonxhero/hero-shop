@@ -351,12 +351,12 @@
       <div class="mx-4">
         <hx-form ref="formRef" :model="form" labhx-width="100px" class="demo-ruleForm grid grid-cols-12 gap-2">
 
-          <div class="col-span-12" v-if="comments.scores">
+          <div class="col-span-12">
 
 
             <div v-for="(score, index) in comments.scores" :key="index">
               <div>{{ score.title }}</div>
-              <hx-stepper :max="100" :show-tooltip="false" v-model="scores[index]" :step="20" />
+              <hx-stepper :max="100" :show-tooltip="false" v-model="scores[index].value" :step="20" />
             </div>
 
 
@@ -366,29 +366,55 @@
           </div>
 
 
-          <hx-form-item v-slot="{ field }" prop="advantage" :rules="[{ required: true }]" label="ویژگی مثبت"
-            class="col-span-12">
+          <hx-form-item v-slot="{ field }" prop="advantage" label="ویژگی مثبت" class="col-span-12">
 
-            <hx-input v-bind="field" v-model="form.advantage" placeholder="ویژگی مثبت">
+            <hx-input show-word-limit maxlength="20" v-bind="field" v-model="form.advantage" placeholder="ویژگی مثبت">
               <template #suffix>
-                <hx-icon class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
+                <hx-icon @click="handleAddAdvantage" class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
               </template>
             </hx-input>
+
+            <div class="flex flex-wrap items-center">
+              <hx-badge class="ml-1 mt-1 mb-1" type="success" v-for="(advantage, i) in form.advantages" :key="i">
+                <div class="flex items-center justify-between">
+                  <span class="ml-1">{{ advantage }}</span>
+                  <hx-icon @click="handleDeleteAdvantage(i)" class="w-3 h-3 text-white" icon="close-square"></hx-icon>
+                </div>
+              </hx-badge>
+            </div>
           </hx-form-item>
 
           <hx-form-item v-slot="{ field }" prop="disadvantage" label="ویژگی منفی" class="col-span-12">
-            <hx-input v-bind="field" v-model="form.disadvantage" placeholder="ویژگی منفی"></hx-input>
+            <hx-input show-word-limit maxlength="20" v-bind="field" v-model="form.disadvantage"
+              placeholder="ویژگی منفی">
+              <template #suffix>
+                <hx-icon @click="handleAddDisadvantage" class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
+              </template>
+            </hx-input>
+
+            <div class="flex flex-wrap items-center">
+              <hx-badge class="ml-1 mt-1 mb-1" type="danger" v-for="(disadvantage, i) in form.disadvantages" :key="i">
+                <div class="flex items-center justify-between">
+                  <span class="ml-1">{{ disadvantage }}</span>
+                  <hx-icon @click="handleDeleteDisadvantage(i)" class="w-3 h-3 text-white"
+                    icon="close-square"></hx-icon>
+                </div>
+              </hx-badge>
+            </div>
           </hx-form-item>
 
-          <hx-form-item v-slot="{ field }" prop="title" label="عنوان" class="col-span-12">
+          <hx-form-item v-slot="{ field }" prop="title" :rules="[{
+            required: true, message: ' عنوان نظر الزامی می باشد'
+          }]" label="عنوان" class="col-span-12">
             <hx-input v-bind="field" v-model="form.title" placeholder="عنوان نظر"></hx-input>
           </hx-form-item>
 
-          <hx-form-item v-slot="{ field }" label="متن نظر" prop="content" :rules="[{ required: true }]"
-            class="col-span-12">
-            <hx-input v-bind="field" type="textarea" v-model="form.content" placeholder="متن نظر"></hx-input>
+          <hx-form-item v-slot="{ field }" label="متن نظر" prop="content" :rules="[{
+            required: true, message: ' متن نظر الزامی می باشد'
+          }]" class="col-span-12">
+            <hx-input class="h-20" v-bind="field" type="textarea" v-model="form.content"
+              placeholder="متن نظر"></hx-input>
 
-            <!-- <hx-textarea v-bind="field" v-model="form.content" placeholder="متن نظر"></hx-textarea> -->
           </hx-form-item>
 
         </hx-form>
@@ -408,6 +434,10 @@
 import ApiService from "@/core/services/ApiService";
 import { onMounted, ref, watch } from "vue";
 import { HxStepper } from "@/components/base/stepper";
+import { useRoute } from "vue-router";
+import { HxNotification } from "@/components/base/notification";
+import { HxMessage } from "@/components/base/message-box";
+
 
 const props = defineProps({
   comments: {}
@@ -418,10 +448,18 @@ watch(
   () => props.comments,
   (val) => {
     console.log("watch comments", val);
+    val.scores.map((score, index) => {
+      const key = score.id;
+      // scores.value[index] = 50
+      scores.value[index] = { id: score.id, value: 50 }
+    })
   }
 );
+const route = useRoute();
+
 const formRef = ref();
-const visiable_dialog = ref(true)
+const product_id = ref(null);
+const visiable_dialog = ref(false)
 const loader = ref(false)
 const scores = ref([])
 const form = ref({
@@ -446,17 +484,22 @@ const create = async () => {
 
         const formData = {
           title: form.value.title,
-
+          content: form.value.content,
+          advantages: form.value.advantages,
+          disadvantages: form.value.disadvantages,
+          is_anonymous: form.value.is_anonymous,
+          is_recommendation: form.value.is_recommendation,
+          scores: scores.value,
         };
 
         const { data } = await ApiService.post(
-          "user/profile/addresses",
+          `comments/product/${product_id.value}`,
           formData
         );
 
-        // if (data.success) {
-        //   await emit("create");
-        // }
+        if (data.success) {
+
+        }
         visiable_dialog.value = false;
         loader.value = false;
       } catch (error) {
@@ -472,13 +515,47 @@ const openNewCommentDialog = () => {
   visiable_dialog.value = true
 }
 
+const handleAddAdvantage = () => {
+  if (form.value.advantages.findIndex((advantage, i) => advantage == form.value.advantage) !== -1) return false
+  form.value.advantages.push(form.value.advantage)
+  form.value.advantage = ""
+}
+
+const handleAddDisadvantage = () => {
+  if (form.value.disadvantages.findIndex((disadvantage, i) => disadvantage == form.value.disadvantage) !== -1) return false
+  form.value.disadvantages.push(form.value.disadvantage)
+  form.value.disadvantage = ""
+}
+
+const handleDeleteAdvantage = (index) => {
+  form.value.advantages.splice(index, 1)
+}
+
+const handleDeleteDisadvantage = (index) => {
+  form.value.disadvantages.splice(index, 1)
+}
+
+
 onMounted(() => {
-  if (props.comments !== null) {
+  // HxMessage({
+  //   message: 'Congrats, this is a success message.',
+  //   type: 'success',
+  // })
+  // HxNotification.success({
+  //   title: "عملیات موفقیت آمیز",
+  //   message: "ایجاد محصول با موفقیت انجام شد",
+  //   showClose: true,
+  //   duration: 4000,
+  //   position: "bottom-center",
+  // });
+  if (props.comments && props.comments !== null) {
     props.comments?.scores.map((score, index) => {
       const key = score.id;
-      scores.value[index] = 50
+      scores.value[index] = { id: score.id, value: 50 }
     })
   }
+
+  product_id.value = route.params.id
 
 })
 

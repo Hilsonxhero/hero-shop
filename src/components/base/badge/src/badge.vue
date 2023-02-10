@@ -1,55 +1,44 @@
 <template>
-  <div
-    class="hx-badge"
-    :class="[
-      `hx-badge__${size}`,
-      `hx-badge__${vc}`,
-      outlined && 'hx-badge__outlined',
-      disabled && `hx-badge__disabled`,
-      block && `w-full`,
-    ]"
-  >
-    <slot></slot>
+  <div :class="ns.b()">
+
+    <transition :name="`${ns.namespace.value}-zoom-in-center`">
+      <sup :class="[
+        ns.e('content'),
+        ns.em('content', type),
+        ns.is('fixed', !!$slots.default),
+        ns.is('dot', isDot),
+      ]">
+        <slot />
+      </sup>
+    </transition>
   </div>
 </template>
 
-<script setup lang="ts">
-import { computed, PropType } from "vue";
-
-const props = defineProps({
-  size: {
-    type: String,
-    default: "normal",
-  },
-  variant: {
-    type: String,
-    default: "primary",
-  },
-
-  disabled: {
-    type: Boolean,
-    default: () => false,
-  },
-
-  block: {
-    type: Boolean,
-    default: () => false,
-  },
-  squared: {
-    type: Boolean,
-    default: () => false,
-  },
-  outlined: {
-    type: Boolean,
-    default: () => false,
-  },
-});
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { useNamespace } from '@/core/hooks'
+import { isNumber } from '@/core/utils'
+import { badgeProps } from './badge'
 
 defineOptions({
-  name: "HxBadge",
-});
+  name: 'HxBadge',
+})
 
-const vc = computed(() => {
-  return props.outlined ? `color-${props.variant}` : `${props.variant}`;
-});
+const props = defineProps(badgeProps)
+
+const ns = useNamespace('badge')
+
+const content = computed<string>(() => {
+  if (props.isDot) return ''
+
+  if (isNumber(props.value) && isNumber(props.max)) {
+    return props.max < props.value ? `${props.max}+` : `${props.value}`
+  }
+  return `${props.value}`
+})
+
+defineExpose({
+  /** @description badge content */
+  content,
+})
 </script>
