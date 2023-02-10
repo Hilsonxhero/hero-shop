@@ -436,7 +436,7 @@ import { onMounted, ref, watch } from "vue";
 import { HxStepper } from "@/components/base/stepper";
 import { useRoute } from "vue-router";
 import { HxNotification } from "@/components/base/notification";
-import { HxMessage } from "@/components/base/message-box";
+import { HxMessage } from "@/components/base/message";
 
 
 const props = defineProps({
@@ -498,7 +498,14 @@ const create = async () => {
         );
 
         if (data.success) {
-
+          HxMessage({
+            message: 'نظر شما ثبت گردید و پس از بررسی نمایش داده می شود',
+            type: 'success',
+            duration: 4000,
+            center: true,
+            offset: 100,
+            'custom-class': ""
+          })
         }
         visiable_dialog.value = false;
         loader.value = false;
@@ -537,10 +544,7 @@ const handleDeleteDisadvantage = (index) => {
 
 
 onMounted(() => {
-  // HxMessage({
-  //   message: 'Congrats, this is a success message.',
-  //   type: 'success',
-  // })
+
   // HxNotification.success({
   //   title: "عملیات موفقیت آمیز",
   //   message: "ایجاد محصول با موفقیت انجام شد",

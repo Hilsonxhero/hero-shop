@@ -132,7 +132,7 @@
                   </div>
                 </section>
                 <section class="w-full">
-                  <hx-button>افزودن به سبد خرید</hx-button>
+                  <hx-button class="">افزودن به سبد خرید</hx-button>
                 </section>
               </div>
             </section>

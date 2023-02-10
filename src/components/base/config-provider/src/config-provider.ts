@@ -4,8 +4,10 @@ import { provideGlobalConfig, useSizeProp } from '@/core/hooks'
 import type { ExtractPropTypes } from 'vue'
 import type { ExperimentalFeatures } from '@/core/tokens'
 import type { Language } from '@/core/locale'
+import type { MessageConfigContext } from '@/components/base/message'
 
-export const messageConfig = {}
+
+export const messageConfig: MessageConfigContext = {}
 
 export const configProviderProps = buildProps({
   // Controlling if the users want a11y features.
@@ -35,20 +37,20 @@ export const configProviderProps = buildProps({
   },
 
   message: {
-    type: definePropType<any>(Object),
+    type: definePropType<MessageConfigContext>(Object),
   },
 
   zIndex: Number,
 
   namespace: {
     type: String,
-    default: 'el',
+    default: 'hx',
   },
 } as const)
 export type ConfigProviderProps = ExtractPropTypes<typeof configProviderProps>
 
 const ConfigProvider = defineComponent({
-  name: 'ElConfigProvider',
+  name: 'HxConfigProvider',
   props: configProviderProps,
 
   setup(props, { slots }) {
