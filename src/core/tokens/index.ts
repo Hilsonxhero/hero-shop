@@ -6,3 +6,4 @@ export * from "./form";
 export * from "./tabs";
 export * from "./radio";
 export * from "./dialog";
+export * from "./slider";

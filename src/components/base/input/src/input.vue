@@ -1,13 +1,7 @@
 <template>
   <div class="h-12 rounded-xl overflow-hidden relative">
-    <input
-      class="form-input rounded-inherit border-2"
-      :type="type"
-      @input="input"
-      :disabled="disabled"
-      :value="modelValue"
-      :placeholder="placeholder"
-    />
+    <input class="form-input rounded-inherit border-2 placeholder:text-xs" :type="type" @input="input"
+      :disabled="disabled" :value="modelValue" :placeholder="placeholder" />
   </div>
 </template>
 

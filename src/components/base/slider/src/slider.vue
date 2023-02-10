@@ -1,37 +1,16 @@
 <template>
   <div>
-    <slot
-      name="price"
-      :chnage="handlePriceInput"
-      :min="minValInp"
-      :max="maxValInp"
-    ></slot>
+    <slot name="price" :chnage="handlePriceInput" :min="minValInp" :max="maxValInp"></slot>
   </div>
   <div>
     <div class="slider">
       <div class="progress" ref="progress"></div>
     </div>
     <div class="range-input">
-      <input
-        ref="minValInpRef"
-        type="range"
-        class="range-min"
-        :min="min"
-        :max="max"
-        step="5000"
-        v-model="minValInp"
-        @input="handleRangeInput"
-      />
-      <input
-        ref="maxValInpRef"
-        type="range"
-        class="range-max"
-        :min="min"
-        :max="max"
-        step="5000"
-        v-model="maxValInp"
-        @input="handleRangeInput"
-      />
+      <input ref="minValInpRef" type="range" class="range-min" :min="min" :max="max" step="5000" v-model="minValInp"
+        @input="handleRangeInput" />
+      <input ref="maxValInpRef" type="range" class="range-max" :min="min" :max="max" step="5000" v-model="maxValInp"
+        @input="handleRangeInput" />
     </div>
   </div>
 </template>
@@ -128,12 +107,14 @@ onMounted(() => {
   display: flex;
   margin: 30px 0 35px;
 }
+
 .price-input .field {
   display: flex;
   width: 100%;
   height: 45px;
   align-items: center;
 }
+
 .field input {
   width: 100%;
   height: 100%;
@@ -145,10 +126,12 @@ onMounted(() => {
   border: 1px solid #999;
   -moz-appearance: textfield;
 }
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
 .price-input .separator {
   width: 130px;
   display: flex;
@@ -156,12 +139,14 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
 }
+
 .slider {
   height: 5px;
   position: relative;
   background: #ddd;
   border-radius: 5px;
 }
+
 .slider .progress {
   height: 100%;
   left: 0;
@@ -170,9 +155,11 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 5px;
   background: #333;
 }
+
 .range-input {
   position: relative;
 }
+
 .range-input input {
   position: absolute;
   width: 100%;
@@ -183,6 +170,7 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
 input[type="range"]::-webkit-slider-thumb {
   height: 17px;
   width: 17px;
@@ -193,6 +181,7 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
+
 input[type="range"]::-moz-range-thumb {
   height: 17px;
   width: 17px;
