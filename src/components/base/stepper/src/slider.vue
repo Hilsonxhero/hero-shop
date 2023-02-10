@@ -10,18 +10,17 @@
     ]" :style="runwayStyle" @mousedown="onSliderDown" @touchstart="onSliderDown">
       <div :class="ns.e('bar')" :style="barStyle" />
       <slider-button :id="!range ? inputId : undefined" ref="firstButton" :model-value="firstValue" :vertical="vertical"
-        :tooltip-class="tooltipClass" :placement="placement" role="slider" :aria-label="
+        role="slider" :aria-label="
           range || !isLabeledByFormItem ? firstButtonLabel : undefined
         " :aria-labelledby="
   !range && isLabeledByFormItem ? elFormItem?.labelId : undefined
 " :aria-valuemin="min" :aria-valuemax="range ? secondValue : max" :aria-valuenow="firstValue"
         :aria-valuetext="firstValueText" :aria-orientation="vertical ? 'vertical' : 'horizontal'"
         :aria-disabled="sliderDisabled" @update:model-value="setFirstValue" />
-      <slider-button v-if="range" ref="secondButton" :model-value="secondValue" :vertical="vertical"
-        :tooltip-class="tooltipClass" :placement="placement" role="slider" :aria-label="secondButtonLabel"
-        :aria-valuemin="firstValue" :aria-valuemax="max" :aria-valuenow="secondValue" :aria-valuetext="secondValueText"
-        :aria-orientation="vertical ? 'vertical' : 'horizontal'" :aria-disabled="sliderDisabled"
-        @update:model-value="setSecondValue" />
+      <slider-button v-if="range" ref="secondButton" :model-value="secondValue" :vertical="vertical" role="slider"
+        :aria-label="secondButtonLabel" :aria-valuemin="firstValue" :aria-valuemax="max" :aria-valuenow="secondValue"
+        :aria-valuetext="secondValueText" :aria-orientation="vertical ? 'vertical' : 'horizontal'"
+        :aria-disabled="sliderDisabled" @update:model-value="setSecondValue" />
       <div v-if="showStops">
         <div v-for="(item, key) in stops" :key="key" :class="ns.e('stop')" :style="getStopStyle(item)" />
       </div>

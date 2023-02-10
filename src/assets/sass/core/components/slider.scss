@@ -1,10 +1,10 @@
-@use 'sass:map';
+@use "sass:map";
 $slider-height: () !default;
 $slider-height: map.merge(
   (
-    'large': 40px,
-    'default': 32px,
-    'small': 24px,
+    "large": 40px,
+    "default": 32px,
+    "small": 24px,
   ),
   $slider-height
 );
@@ -15,7 +15,7 @@ $slider-height: map.merge(
 
 @include b(slider) {
   width: 100%;
-  height: map.get($slider-height, 'default');
+  height: map.get($slider-height, "default");
   display: flex;
   align-items: center;
 
@@ -36,11 +36,11 @@ $slider-height: map.merge(
       cursor: default;
 
       .#{$namespace}-slider__bar {
-        background-color: getCssVar('slider-disabled-color');
+        background-color: getCssVar("slider-disabled-color");
       }
 
       .#{$namespace}-slider__button {
-        border-color: getCssVar('slider-disabled-color');
+        border-color: getCssVar("slider-disabled-color");
       }
 
       .#{$namespace}-slider__button-wrapper {
@@ -119,7 +119,7 @@ $slider-height: map.merge(
     background-color: $white;
     border-radius: 50%;
     box-sizing: border-box;
-    transition: getCssVar('transition-duration-fast');
+    transition: getCssVar("transition-duration-fast");
     user-select: none;
 
     &:hover,
@@ -157,7 +157,7 @@ $slider-height: map.merge(
       position: absolute;
       transform: translateX(-50%);
       font-size: 14px;
-      color: getCssVar('color-info');
+      color: getCssVar("color-info");
       margin-top: 15px;
     }
   }

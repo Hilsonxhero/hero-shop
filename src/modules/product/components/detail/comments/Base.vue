@@ -348,7 +348,7 @@
 
 
     <hx-dialog title="ثبت نظر جدید" width="50%" v-model="visiable_dialog">
-      <div>
+      <div class="mx-4">
         <hx-form ref="formRef" :model="form" labhx-width="100px" class="demo-ruleForm grid grid-cols-12 gap-2">
 
           <div class="col-span-12" v-if="comments.scores">
@@ -364,23 +364,40 @@
               ثبت امتیاز تخصصی
             </div>
           </div>
-          <!-- <hx-form-item v-slot="{ field }" prop="score" :rules="[{ required: true }]" label="عنوان" class="col-span-12">
 
-          </hx-form-item> -->
 
-          <hx-form-item v-slot="{ field }" prop="title" :rules="[{ required: true }]" label="عنوان" class="col-span-12">
+          <hx-form-item v-slot="{ field }" prop="advantage" :rules="[{ required: true }]" label="ویژگی مثبت"
+            class="col-span-12">
+
+            <hx-input v-bind="field" v-model="form.advantage" placeholder="ویژگی مثبت">
+              <template #suffix>
+                <hx-icon class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
+              </template>
+            </hx-input>
+          </hx-form-item>
+
+          <hx-form-item v-slot="{ field }" prop="disadvantage" label="ویژگی منفی" class="col-span-12">
+            <hx-input v-bind="field" v-model="form.disadvantage" placeholder="ویژگی منفی"></hx-input>
+          </hx-form-item>
+
+          <hx-form-item v-slot="{ field }" prop="title" label="عنوان" class="col-span-12">
             <hx-input v-bind="field" v-model="form.title" placeholder="عنوان نظر"></hx-input>
           </hx-form-item>
 
           <hx-form-item v-slot="{ field }" label="متن نظر" prop="content" :rules="[{ required: true }]"
             class="col-span-12">
-            <hx-textarea v-bind="field" v-model="form.content" placeholder="متن نظر"></hx-textarea>
+            <hx-input v-bind="field" type="textarea" v-model="form.content" placeholder="متن نظر"></hx-input>
+
+            <!-- <hx-textarea v-bind="field" v-model="form.content" placeholder="متن نظر"></hx-textarea> -->
           </hx-form-item>
-          <div>
-            <hx-button :loading="loader" @click="create()">ثبت نظر</hx-button>
-          </div>
+
         </hx-form>
       </div>
+      <template #footer>
+        <div>
+          <hx-button :loading="loader" @click="create()">ثبت نظر</hx-button>
+        </div>
+      </template>
     </hx-dialog>
   </div>
 </template>
@@ -415,6 +432,9 @@ const form = ref({
   is_recommendation: true,
   advantages: [],
   disadvantages: [],
+  advantage: null,
+  disadvantage: null,
+
 });
 
 const create = async () => {
@@ -453,11 +473,13 @@ const openNewCommentDialog = () => {
 }
 
 onMounted(() => {
-  props.comments.scores.map((score, index) => {
-    console.log("score", score);
-    const key = score.id;
-    scores.value[index] = 50
-  })
+  if (props.comments !== null) {
+    props.comments?.scores.map((score, index) => {
+      const key = score.id;
+      scores.value[index] = 50
+    })
+  }
+
 })
 
 </script>
