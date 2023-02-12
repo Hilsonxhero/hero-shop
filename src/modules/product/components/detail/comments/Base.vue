@@ -466,36 +466,6 @@ onMounted(() => {
   // });
 
   fetchComments()
-
-  // ApiService.get(`comments/product/${product_id.value}`)
-  //   .then(({ data }) => {
-  //     comments.value = data.comments;
-  //     comment_scores.value = data.scores;
-  //     pager.value = data.pager;
-
-  //     pagination.value.page = pager.value.current_page
-  //     pagination.value.total = pager.value.total
-  //     pagination.value.rowsPerPage = pager.value.per_page
-
-
-  //     comment_scores.value.map((score, index) => {
-  //       const key = score.id;
-  //       scores.value[index] = { id: score.id, value: 50 }
-  //     })
-
-
-  //   })
-  //   .catch(() => { });
-
-  // if (comments.value && comments.value != null) {
-  //   comments.value?.scores.map((score, index) => {
-  //     const key = score.id;
-  //     scores.value[index] = { id: score.id, value: 50 }
-  //   })
-  // }
-
-
-
 })
 
 </script>

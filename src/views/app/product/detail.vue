@@ -99,7 +99,7 @@
                     <base-comments :rating="product?.rating" :count="product?.comments_count"></base-comments>
                   </div>
                   <div id="-p-faq">
-                    <Faq />
+                    <base-faqs></base-faqs>
                   </div>
 
                 </div>
@@ -150,7 +150,7 @@ import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBo
 import BaseComments from "@/modules/product/components/detail/comments/Base.vue";
 import Preview from "@/modules/product/components/detail/preview/Base.vue";
 import Fallback from "@/modules/product/components/detail/fallback/Base.vue";
-import Faq from "@/modules/product/components/detail/faq/Base.vue";
+import BaseFaqs from "@/modules/product/components/detail/faq/Base.vue";
 import MainImage from "@/modules/product/components/detail/gallery/MainImage.vue";
 import Gallery from "@/modules/product/components/detail/gallery/Gallery.vue";
 import ApiService from "@/core/services/ApiService";
