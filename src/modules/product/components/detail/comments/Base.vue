@@ -1,211 +1,45 @@
 <template>
   <div>
-    <section
-      class="flex flex-col space-y-3 lg:hidden lg:flex-row lg:items-center lg:space-x-reverse lg:space-y-0 lg:mt-[3.25rem]">
-      <div
-        class="flex flex-col lg:flex-grow bg-gray-100 lg:bg-transparent rounded-xl p-3 lg:px-0 lg:py-0 mb-12 lg:mb-2 lg:w-full">
-        <section
-          class="flex items-center flex-row lg:flex-col lg:border-b broder-gray-300 lg:mb-2 lg:pb-2 justify-center">
-          <div class="font-black text-base order-1 mx-3 lg:mx-0 lg:order-none lg:text-[40px] lg:mb-4">
-            4
-          </div>
-          <div class="min-h-8 lg:w-36 t-flex-center w-[7.5rem]"></div>
-          <div class="min-w-12 lg:min-w-[max-content]">
-            <div class="mr-2 lg:mr-0 order-2 lg:order-none text-sm mt-1">
-              از مجموع 2 رای
-            </div>
-          </div>
-        </section>
-        <section
-          class="space-y-5 mt-7 lg:flex lg:flex-grow lg:flex-col lg:justify-between lg:w-full lg:mt-0 lg:space-y-2 lg:border-b broder-gray-300 lg:mb-2 lg:pb-2">
-          <div
-            class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-            <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">ارزش خرید نسبت به قیمت</span>
-            <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-              <section class="flex-grow min-w-[90%]">
-                <div class="w-full ltr flex flex-grow lg:rtl">
-                  <div class="w-full bg-gray-200 rounded-full">
-                    <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2" style="
-                        width: 80%;
-                        background: rgb(102, 187, 106) none repeat scroll 0% 0%;
-                      "></div>
-                  </div>
-                </div>
-              </section>
-              <div class="font-bold order-last text-center ml-1 mr-2">4</div>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-            <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">طراحی و کیفیت ساخت</span>
-            <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-              <section class="flex-grow min-w-[90%]">
-                <div class="w-full ltr flex flex-grow lg:rtl">
-                  <div class="w-full bg-gray-200 rounded-full">
-                    <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2" style="
-                        width: 80%;
-                        background: rgb(102, 187, 106) none repeat scroll 0% 0%;
-                      "></div>
-                  </div>
-                </div>
-              </section>
-              <div class="font-bold order-last text-center ml-1 mr-2">4</div>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-            <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">زیبایی ظاهری</span>
-            <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-              <section class="flex-grow min-w-[90%]">
-                <div class="w-full ltr flex flex-grow lg:rtl">
-                  <div class="w-full bg-gray-200 rounded-full">
-                    <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2" style="
-                        width: 80%;
-                        background: rgb(102, 187, 106) none repeat scroll 0% 0%;
-                      "></div>
-                  </div>
-                </div>
-              </section>
-              <div class="font-bold order-last text-center ml-1 mr-2">4</div>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-            <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">کارایی و عملکرد</span>
-            <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-              <section class="flex-grow min-w-[90%]">
-                <div class="w-full ltr flex flex-grow lg:rtl">
-                  <div class="w-full bg-gray-200 rounded-full">
-                    <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2" style="
-                        width: 80%;
-                        background: rgb(102, 187, 106) none repeat scroll 0% 0%;
-                      "></div>
-                  </div>
-                </div>
-              </section>
-              <div class="font-bold order-last text-center ml-1 mr-2">4</div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <section class="lg:pr-4 xl:pr-8">
-        <div class="py-3 w-full text-center text-white font-bold bg-primary rounded-xl cursor-pointer lg:hidden">
-          نظر خود را ثبت کنید
-        </div>
-        <div class="hidden lg:flex lg:flex-col lg:space-y-6">
-          <span class="text-3xl font-bold">شما هم نظرتان را بنویسید</span>
-          <span class="text-typo-light text-sm">با ارسال نظر ضمن کمک به دیگران، اگر کالا را از فالکون خریده باشید
-            امتیاز دریافت خواهید کرد</span>
-
-          <hx-button @click="openNewCommentDialog" variant="primary">ارسال نظر جدید</hx-button>
-        </div>
-      </section>
-    </section>
     <div>
       <section class="comments-container">
         <div class="flex items-start w-full">
           <section
             class="z-10 hidden flex-col w-full bg-gray-100 space-y-3 lg:sticky lg:left-0 lg:top-24 lg:flex lg:flex-grow lg:items-center lg:justify-center lg:mx-0 lg:mx-auto lg:pr-4 lg:px-6 lg:py-4 lg:w-full lg:bg-transparent lg:rounded-xl lg:space-x-reverse lg:space-y-0 min-w-[18.75rem] max-w-[18.75rem] lg:border lg:border-gray-300">
             <div
-              class="flex flex-col lg:flex-grow bg-gray-100 lg:bg-transparent rounded-xl p-3 lg:px-0 lg:py-0 mb-12 lg:mb-2 lg:w-full hidden lg:flex">
+              class="flex flex-col lg:flex-grow bg-gray-100 lg:bg-transparent rounded-xl p-3 lg:px-0 lg:py-0 mb-12 lg:mb-2 lg:w-full">
               <section
-                class="flex justify-center items-center flex-row lg:flex-col lg:border-b broder-gray-300 lg:mb-2 lg:pb-2 justify-center">
+                class="flex items-center flex-row lg:flex-col lg:border-b broder-gray-300 lg:mb-2 lg:pb-2 justify-center">
                 <div class="font-black text-base order-1 mx-3 lg:mx-0 lg:order-none lg:text-[40px] lg:mb-4">
-                  4
+                  {{ rating }}
                 </div>
                 <div class="min-h-8 lg:w-36 t-flex-center w-[7.5rem]"></div>
                 <div class="min-w-12 lg:min-w-[max-content]">
                   <div class="mr-2 lg:mr-0 order-2 lg:order-none text-sm mt-1">
-                    از مجموع 2 رای
+                    از مجموع {{ commentsCount }} رای
                   </div>
                 </div>
               </section>
               <section
                 class="space-y-5 mt-7 lg:flex lg:flex-grow lg:flex-col lg:justify-between lg:w-full lg:mt-0 lg:space-y-2 lg:border-b broder-gray-300 lg:mb-2 lg:pb-2">
-                <div
+                <div v-for="(score, i) in comment_scores"
                   class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-                  <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">ارزش خرید نسبت به قیمت</span>
+                  <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right"> {{ score.title }} </span>
                   <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
                     <section class="flex-grow min-w-[90%]">
                       <div class="w-full ltr flex flex-grow lg:rtl">
                         <div class="w-full bg-gray-200 rounded-full">
                           <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2"
-                            style="
-                              width: 80%;
-                              background: rgb(102, 187, 106) none repeat scroll
-                                0% 0%;
-                            "></div>
+                            style=" background: rgb(102, 187, 106) none repeat scroll 0% 0%;"
+                            :style="{ width: score.average + '%' }"></div>
                         </div>
                       </div>
                     </section>
                     <div class="font-bold order-last text-center ml-1 mr-2">
-                      4
+                      {{ score.average }}
                     </div>
                   </div>
                 </div>
-                <div
-                  class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-                  <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">طراحی و کیفیت ساخت</span>
-                  <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-                    <section class="flex-grow min-w-[90%]">
-                      <div class="w-full ltr flex flex-grow lg:rtl">
-                        <div class="w-full bg-gray-200 rounded-full">
-                          <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2"
-                            style="
-                              width: 80%;
-                              background: rgb(102, 187, 106) none repeat scroll
-                                0% 0%;
-                            "></div>
-                        </div>
-                      </div>
-                    </section>
-                    <div class="font-bold order-last text-center ml-1 mr-2">
-                      4
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-                  <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">زیبایی ظاهری</span>
-                  <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-                    <section class="flex-grow min-w-[90%]">
-                      <div class="w-full ltr flex flex-grow lg:rtl">
-                        <div class="w-full bg-gray-200 rounded-full">
-                          <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2"
-                            style="
-                              width: 80%;
-                              background: rgb(102, 187, 106) none repeat scroll
-                                0% 0%;
-                            "></div>
-                        </div>
-                      </div>
-                    </section>
-                    <div class="font-bold order-last text-center ml-1 mr-2">
-                      4
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="grid grid-cols-9 lg:flex justify-between w-full lg:justify-start lg:flex-col items-center lg:items-start">
-                  <span class="col-span-4 lg:col-span-3 text-xs lg:font-medium text-right">کارایی و عملکرد</span>
-                  <div class="col-span-5 lg:col-span-9 flex flex-grow lg:w-full items-center lg:justify-between">
-                    <section class="flex-grow min-w-[90%]">
-                      <div class="w-full ltr flex flex-grow lg:rtl">
-                        <div class="w-full bg-gray-200 rounded-full">
-                          <div class="text-white rounded-inherit text-xs leading-none text-center transition py-2"
-                            style="
-                              width: 80%;
-                              background: rgb(102, 187, 106) none repeat scroll
-                                0% 0%;
-                            "></div>
-                        </div>
-                      </div>
-                    </section>
-                    <div class="font-bold order-last text-center ml-1 mr-2">
-                      4
-                    </div>
-                  </div>
-                </div>
+
               </section>
             </div>
             <section class="lg:mx-auto lg:w-full">
@@ -213,10 +47,10 @@
                 class="py-3 w-full text-center text-primary font-bold bg-gray-50 rounded-xl cursor-pointer lg:hidden">
                 نظر خود را ثبت کنید
               </div>
-              <div class="flex hidden items-center justify-start w-full lg:flex">
+              <div class="flex  items-center justify-start w-full">
                 <div class="flex lg:flex-col lg:space-y-4 lg:items-center">
                   <span class="text-sm font-bold">شما هم نظرتان را بنویسید</span>
-                  <span class="text-center text-typo-light text-sm text-xs">با ارسال نظر ضمن کمک به دیگران، اگر کالا را
+                  <span class="text-center text-typo-light  text-xs">با ارسال نظر ضمن کمک به دیگران، اگر کالا را
                     از فالکون خریده
                     باشید امتیاز دریافت خواهید کرد</span>
 
@@ -225,23 +59,23 @@
               </div>
             </section>
           </section>
-          <div class="block w-full overflow-hidden lg:flex-grow lg:pr-4" style="">
-            <section class="flex mb-4 lg:items-center">
+          <div class="block w-full overflow-hidden lg:flex-grow lg:pr-4">
+            <section class="flex justify-between mb-4 lg:items-center">
               <div class="justify-between flex item-center">
-                <span class="block p-detail-heading p-detail-heading-border">نظرات کاربران</span>
-                <i color="#666" name="t-icon-sort-24px"
-                  class="block ml-4 mr-4 text-typo-light text-4xl lg:mr-32 material-icons t-icon-sort-24px"></i>
+                <span class="block p-detail-heading p-detail-heading-border whitespace-nowrap">نظرات کاربران</span>
               </div>
-              <span
-                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem] font-bold bg-gray-100 text-link transition-all duration-300 ease-out">
-                جدیدترین نظرات </span><span
-                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
-                مفیدترین نظرات </span><span
-                class="block px-2 py-2 text-sm rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
-                خریداران کالا
-              </span>
+              <div class="flex items-center">
+                <span
+                  class="block px-2 py-2 text-xs whitespace-nowrap rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem] font-bold bg-gray-100 text-link transition-all duration-300 ease-out">
+                  جدیدترین نظرات </span><span
+                  class="block px-2 py-2 text-xs whitespace-nowrap rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
+                  مفیدترین نظرات </span><span
+                  class="block px-2 py-2 text-xs whitespace-nowrap rounded-xl cursor-pointer lg:flex lg:items-center lg:px-4 lg:py-2 lg:h-[3rem]">
+                  خریداران کالا
+                </span>
+              </div>
             </section>
-            <div>
+            <div v-for="(comment, i) in comments">
               <div class="gap-4 grid grid-cols-1">
                 <div>
                   <div
@@ -250,43 +84,48 @@
                       <div
                         class="flex flex-col 2xs:flex-row 2xs:items-center items-start w-full text-2xs 2xs:text-xs font-medium 2xs:divide-x 2xs:divide-x-reverse 2xs:space-x-3 2xs:space-x-reverse sm:text-sm text-success">
                         <div class="t-center">
-                          <hx-button icon variant="gray">
-                            <hx-icon class="text-gray-500" icon="dislike">
-                            </hx-icon>
-                          </hx-button>
+                          <template v-if="comment.is_recommendation">
+                            <hx-button icon variant="gray">
+                              <hx-icon class="text-gray-500" icon="like">
+                              </hx-icon>
+                            </hx-button>
 
-                          <span class="mr-2">توصیه می کنم</span>
+                            <span class="mr-2">توصیه می کنم</span>
+                          </template>
+                          <template v-else>
+                            <hx-button icon variant="gray">
+                              <hx-icon class="text-gray-500" icon="dislike">
+                              </hx-icon>
+                            </hx-button>
+
+                            <span class="mr-2">توصیه نمی کنم</span>
+                          </template>
+
                         </div>
-                        <div class="2xs:pr-3 t-center">
-                          <!-- <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-6 h-6 text-primary fill-current icon sprite-next">
-                                                        <use href="/_nuxt/5fdc736ea62b670e82b374e43d06d274.svg#i-cartfill"
-                                                            xlink:href="/_nuxt/5fdc736ea62b670e82b374e43d06d274.svg#i-cartfill">
-                                                        </use>
-                                                    </svg> -->
+                        <!-- <div class="2xs:pr-3 t-center">
+
                           <span class="2xs:mr-2 text-primary">
                             خریدار محصول هستم
                           </span>
-                        </div>
+                        </div> -->
                       </div>
                       <h6 class="mb-2 mt-4 text-sm font-bold lg:mb-0 lg:mt-2 lg:text-base">
-                        عالی
+                        {{ comment.title }}
                       </h6>
 
                       <p class="text-xs lg:text-sm">
-                        تحویل سریع و بموقع بسته بندی مناسب.دسترسی اسان به سایت و
-                        انتخاب و خرید کالا
+                        {{ comment.content }}
                       </p>
 
-                      <div class="flex flex-wrap justify-between mt-3 w-full lg:flex-row flex-row-reverse lg:flex-row">
+                      <div class="flex flex-wrap justify-between mt-3 w-full  flex-row-reverse lg:flex-row">
                         <div
                           class="flex flex-col items-start justify-center order-last lg:flex-row lg:items-center lg:justify-start lg:order-none lg:space-x-2 lg:space-x-reverse">
                           <div class="order-last lg:order-none flex item-center">
-                            <span class="text-typo-light text-xs">مهدی سعیدی</span>
+                            <span class="text-typo-light text-xs">{{ comment.username }}</span>
                             <span class="mx-1 w-1.5 h-1.5 bg-typo-lighter rounded-full lg:mx-2"></span>
-                            <span class="text-typo-light text-xs">4 خرداد 1401</span>
+                            <span class="text-typo-light text-xs">{{ comment.created_at }}</span>
                           </div>
-                          <div class="flex item-center">
+                          <!-- <div class="flex item-center">
                             <span class="hidden w-1.5 h-1.5 bg-typo-lighter rounded-full lg:inline"></span>
                             <span class="ml-1 text-typo-light text-xs lg:mx-2">فروشنده</span>
                             <div class="flex item-center">
@@ -294,12 +133,12 @@
                                 فالکون
                               </span>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                         <section
                           class="mr-1 mt-2 text-typo-light space-x-4 space-x-reverse transition-opacity lg:mt-0 lg:space-x-5 lg:space-x-reverse flex item-center">
                           <div class="cursor-pointer space-x-3 space-x-reverse flex item-center">
-                            <span class="self-center">222</span>
+                            <span class="self-center">{{ comment.like }}</span>
 
                             <hx-button icon variant="gray">
                               <hx-icon class="text-gray-500" icon="like">
@@ -307,7 +146,7 @@
                             </hx-button>
                           </div>
                           <div class="cursor-pointer space-x-3 space-x-reverse flex item-center">
-                            <span class="self-center">254</span>
+                            <span class="self-center">{{ comment.dislike }}</span>
 
                             <hx-button icon variant="gray">
                               <hx-icon class="text-gray-500" icon="dislike">
@@ -328,23 +167,17 @@
               </div>
               <div class="vue-portal-target"></div>
             </div>
+            <div class="my-2">
+              <hx-pagination v-model:current-page="pagination.page" @current-change="currentPageChange"
+                :page-size="pagination.rowsPerPage" layout="prev, pager, next" :total="pagination.total"
+                :hide-on-single-page="true" background>
+              </hx-pagination>
+            </div>
           </div>
         </div>
       </section>
     </div>
-    <div class="hidden" teleportto="last-of-body" bottomsheetmaxsize="md">
-      <div>
-        <div>
-          <div
-            class="transition-opacity fixed z-60 bottom-0 left-0 right-0 top-0 flex items-center justify-center opacity-0 w-0 h-0 overflow-hidden duration-300 ease-out">
-            <div
-              class="max-w-[75%] z-30 rounded-xl shadow-design scrollbar-sm max-h-full overflow-y-auto overflow-hidden scrollbar-sm bg-white w-max w-0 h-0 overflow-hidden">
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
 
     <hx-dialog title="ثبت نظر جدید" width="50%" v-model="visiable_dialog">
@@ -354,7 +187,7 @@
           <div class="col-span-12">
 
 
-            <div v-for="(score, index) in comments.scores" :key="index">
+            <div v-for="(score, index) in comment_scores" :key="index">
               <div>{{ score.title }}</div>
               <hx-stepper :max="100" :show-tooltip="false" v-model="scores[index].value" :step="20" />
             </div>
@@ -368,7 +201,7 @@
 
           <hx-form-item v-slot="{ field }" prop="advantage" label="ویژگی مثبت" class="col-span-12">
 
-            <hx-input show-word-limit maxlength="20" v-bind="field" v-model="form.advantage" placeholder="ویژگی مثبت">
+            <hx-input v-bind="field" v-model="form.advantage" placeholder="ویژگی مثبت">
               <template #suffix>
                 <hx-icon @click="handleAddAdvantage" class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
               </template>
@@ -385,8 +218,7 @@
           </hx-form-item>
 
           <hx-form-item v-slot="{ field }" prop="disadvantage" label="ویژگی منفی" class="col-span-12">
-            <hx-input show-word-limit maxlength="20" v-bind="field" v-model="form.disadvantage"
-              placeholder="ویژگی منفی">
+            <hx-input v-bind="field" v-model="form.disadvantage" placeholder="ویژگی منفی">
               <template #suffix>
                 <hx-icon @click="handleAddDisadvantage" class="w-6 h-6 text-gray-500" icon="add"></hx-icon>
               </template>
@@ -412,7 +244,7 @@
           <hx-form-item v-slot="{ field }" label="متن نظر" prop="content" :rules="[{
             required: true, message: ' متن نظر الزامی می باشد'
           }]" class="col-span-12">
-            <hx-input class="h-20" v-bind="field" type="textarea" v-model="form.content"
+            <hx-input show-word-limit maxlength="100" class="h-20" v-bind="field" type="textarea" v-model="form.content"
               placeholder="متن نظر"></hx-input>
 
           </hx-form-item>
@@ -432,32 +264,30 @@
 // @ts-ignore
 // @ts-nocheck
 import ApiService from "@/core/services/ApiService";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, computed } from "vue";
 import { HxStepper } from "@/components/base/stepper";
 import { useRoute } from "vue-router";
 import { HxNotification } from "@/components/base/notification";
 import { HxMessage } from "@/components/base/message";
 
+interface IPagination {
+  page: number;
+  total: number;
+  rowsPerPage: number;
+}
+
 
 const props = defineProps({
-  comments: {}
+  // comments: {},
+  rating: {},
+  count: {}
 })
 
 
-watch(
-  () => props.comments,
-  (val) => {
-    console.log("watch comments", val);
-    val.scores.map((score, index) => {
-      const key = score.id;
-      // scores.value[index] = 50
-      scores.value[index] = { id: score.id, value: 50 }
-    })
-  }
-);
+
 const route = useRoute();
 
-const formRef = ref();
+const formRef = ref(null);
 const product_id = ref(null);
 const visiable_dialog = ref(false)
 const loader = ref(false)
@@ -472,8 +302,70 @@ const form = ref({
   disadvantages: [],
   advantage: null,
   disadvantage: null,
-
 });
+
+const pager = ref({})
+const comments = ref([])
+const comment_scores = ref([])
+
+
+
+const pagination = ref<IPagination>({
+  page: 1,
+  total: 0,
+  rowsPerPage: 15,
+});
+
+const currentPageChange = (val: any) => {
+  pagination.value.page = val;
+  // emit("page", val);
+};
+
+
+watch(
+  () => comments.value,
+  (val) => {
+    // console.log("watch comments", val);
+    // comment_scores.map((score, index) => {
+    //   const key = score.id;
+    //   scores.value[index] = { id: score.id, value: 50 }
+    // })
+  }
+);
+
+watch(
+  () => pagination.value.page,
+  (currentValue, oldValue) => {
+    fetchComments();
+  }
+);
+
+
+const fetchComments = () => {
+  // loading.value = true;
+
+  ApiService.query(`comments/product/${product_id.value}`, {
+    params: { page: pagination.value.page },
+  })
+    .then(({ data }) => {
+      comments.value = data.comments;
+      comment_scores.value = data.scores;
+      pager.value = data.pager;
+
+      // pagination.value.page = pager.value.current_page
+      pagination.value.total = pager.value.total
+      pagination.value.rowsPerPage = pager.value.per_page
+
+      comment_scores.value.map((score, index) => {
+        const key = score.id;
+        scores.value[index] = { id: score.id, value: 50 }
+      })
+      // loading.value = false;
+    })
+    .catch(() => {
+      // loading.value = false;
+    });
+};
 
 const create = async () => {
   if (!formRef.value) return;
@@ -498,6 +390,20 @@ const create = async () => {
         );
 
         if (data.success) {
+          form.value.title = ""
+          form.value.content = ""
+          form.value.advantage = null
+          form.value.disadvantage = null
+          form.value.advantages = []
+          form.value.disadvantages = []
+          comment_scores.value.map((score, index) => {
+            const key = score.id;
+            scores.value[index] = { id: score.id, value: 50 }
+          })
+          console.log("formRef.value.", formRef.value);
+
+          formRef.value.resetFields()
+
           HxMessage({
             message: 'نظر شما ثبت گردید و پس از بررسی نمایش داده می شود',
             type: 'success',
@@ -543,7 +449,13 @@ const handleDeleteDisadvantage = (index) => {
 }
 
 
+const commentsCount = computed(() => {
+  return props.count ?? 0
+})
+
+
 onMounted(() => {
+  product_id.value = route.params.id
 
   // HxNotification.success({
   //   title: "عملیات موفقیت آمیز",
@@ -552,14 +464,37 @@ onMounted(() => {
   //   duration: 4000,
   //   position: "bottom-center",
   // });
-  if (props.comments && props.comments !== null) {
-    props.comments?.scores.map((score, index) => {
-      const key = score.id;
-      scores.value[index] = { id: score.id, value: 50 }
-    })
-  }
 
-  product_id.value = route.params.id
+  fetchComments()
+
+  // ApiService.get(`comments/product/${product_id.value}`)
+  //   .then(({ data }) => {
+  //     comments.value = data.comments;
+  //     comment_scores.value = data.scores;
+  //     pager.value = data.pager;
+
+  //     pagination.value.page = pager.value.current_page
+  //     pagination.value.total = pager.value.total
+  //     pagination.value.rowsPerPage = pager.value.per_page
+
+
+  //     comment_scores.value.map((score, index) => {
+  //       const key = score.id;
+  //       scores.value[index] = { id: score.id, value: 50 }
+  //     })
+
+
+  //   })
+  //   .catch(() => { });
+
+  // if (comments.value && comments.value != null) {
+  //   comments.value?.scores.map((score, index) => {
+  //     const key = score.id;
+  //     scores.value[index] = { id: score.id, value: 50 }
+  //   })
+  // }
+
+
 
 })
 

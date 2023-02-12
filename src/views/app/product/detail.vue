@@ -96,14 +96,12 @@
                     <Preview :review="product.review" />
                   </div>
                   <div id="-p-u-comments">
-                    <base-comments :comments="comments"></base-comments>
+                    <base-comments :rating="product?.rating" :count="product?.comments_count"></base-comments>
                   </div>
                   <div id="-p-faq">
                     <Faq />
                   </div>
-                  <div id="-p-order-feed">
-                    <Fallback />
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -186,11 +184,11 @@ onMounted(() => {
     })
     .catch(() => { });
 
-  ApiService.get(`comments/product/${id.value}`)
-    .then(({ data }) => {
-      comments.value = data;
-    })
-    .catch(() => { });
+  // ApiService.get(`comments/product/${id.value}`)
+  //   .then(({ data }) => {
+  //     comments.value = data;
+  //   })
+  //   .catch(() => { });
 
 
 });
