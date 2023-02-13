@@ -71,7 +71,7 @@
                     <div class="flex items-start lg:sticky lg:top-20">
                       <div class="relative flex-col mb-4 mt-3 w-full lg:mb-0 lg:w-auto t-flex-center">
                         <MainImage :source="product?.media?.main" />
-                        <Gallery />
+                        <Gallery :galleries="product?.media?.galleries" />
                       </div>
                     </div>
 
