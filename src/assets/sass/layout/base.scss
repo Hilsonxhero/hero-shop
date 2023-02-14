@@ -1,0 +1,20 @@
+.product-reviews {
+  &__collapse {
+    .hx-collapse-item {
+      .hx-collapse-item__wrap {
+        position: relative;
+        display: block !important;
+        max-height: 3.5rem !important;
+      }
+
+      &.is-active {
+        .hx-collapse-item__wrap {
+          max-height: unset !important;
+          .collapse-shadow {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
