@@ -56,7 +56,7 @@
 // @ts-nocheck
 const props = defineProps({
   items: {
-    type: Array,
+    type: Object,
   },
 });
 // @ts-nocheck

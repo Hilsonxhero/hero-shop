@@ -1,9 +1,10 @@
 <template>
-  <router-view v-slot="{ Component }">
+  <!-- <router-view v-slot="{ Component }">
     <transition name="scale" mode="out-in">
       <component :is="Component" />
     </transition>
-  </router-view>
+  </router-view> -->
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts"></script>

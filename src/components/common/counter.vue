@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center ml-10">
+  <div class="flex items-center">
     <div
       :class="[disabled && 'pointer-events-none']"
       class="border w-10 h-10 rounded-xl flex items-center justify-center text-2xl cursor-pointer text-link"

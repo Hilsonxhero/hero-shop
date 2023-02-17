@@ -43,7 +43,7 @@ import { radioEmits, radioProps } from "./radio";
 import { useRadio } from "./use-radio";
 
 defineOptions({
-  name: "HxRadio",
+  name: "HxRadioButton",
 });
 
 const props = defineProps(radioProps);
