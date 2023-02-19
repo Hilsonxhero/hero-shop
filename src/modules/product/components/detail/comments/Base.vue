@@ -246,7 +246,7 @@
       </section>
     </div>
 
-    <hx-dialog title="ثبت نظر جدید" width="50%" v-model="visiable_dialog">
+    <hx-dialog title="ثبت نظر جدید" v-model="visiable_dialog">
       <div class="mx-4">
         <hx-form
           ref="formRef"
