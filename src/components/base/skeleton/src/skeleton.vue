@@ -1,6 +1,10 @@
 <template>
-  <template v-if="uiLoading">
-    <div :class="[ns.b(), ns.is('animated', animated)]" v-bind="$attrs">
+  <div>
+    <div
+      v-show="uiLoading"
+      :class="[ns.b(), ns.is('animated', animated)]"
+      v-bind="$attrs"
+    >
       <template v-for="i in count" :key="i">
         <slot v-if="loading" :key="i" name="template">
           <el-skeleton-item :class="ns.is('first')" variant="p" />
@@ -16,10 +20,12 @@
         </slot>
       </template>
     </div>
-  </template>
-  <template v-else>
-    <slot v-bind="$attrs" />
-  </template>
+    <div v-show="!uiLoading">
+      <slot v-bind="$attrs" />
+    </div>
+  </div>
+
+  <!-- <template v-else> </template> -->
 </template>
 
 <script lang="ts" setup>

@@ -34,6 +34,7 @@
         :disabled="isDisabled"
         :true-value="trueLabel"
         :false-value="falseLabel"
+        :value="value"
         @change="handleChange"
         @focus="focus = true"
         @blur="focus = false"

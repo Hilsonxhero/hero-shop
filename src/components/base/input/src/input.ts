@@ -72,6 +72,11 @@ export const inputProps = buildProps({
     type: Boolean,
     default: false,
   },
+  inputClass: {
+    type: String,
+    default: '',
+  },
+
   suffixIcon: {
     type: iconPropType,
     default: '',

@@ -4,11 +4,14 @@
       <input
         ref="input"
         class="switch"
+        role="switch"
         :aria-checked="checked"
         :name="name"
         :disabled="disabled"
         type="checkbox"
         @change="handleChange"
+        :true-value="true"
+        :false-value="false"
       />
       <!-- <span></span> -->
     </span>

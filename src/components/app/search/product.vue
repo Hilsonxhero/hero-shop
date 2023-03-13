@@ -1,10 +1,17 @@
 <template>
   <div class="hx-product__item col-span-12 md:col-span-4 lg:col-span-3">
     <div class="relative overflow-hidden bg-gray-100 w-full rounded-xl p-2">
-      <router-link to="/">
+      <router-link
+        :to="{
+          name: 'product detail',
+          params: { id: product.id, slug: product.slug },
+        }"
+      >
         <div class="flex justify-between">
           <div class="t-percent">
-            <span class="text-sm">22</span>
+            <span class="text-sm">{{
+              product?.default_variant?.discount
+            }}</span>
             <hx-icon
               class="mr-2 text-white w-4 h-4"
               icon="percentage-square"
@@ -13,7 +20,7 @@
         </div>
         <img
           class="w-[9.25rem] h-[9.25rem] mx-auto"
-          src="/media/products/01.png"
+          :src="product?.media?.thumb"
           alt=""
         />
 
@@ -35,23 +42,34 @@
     </div>
 
     <div class="mt-3">
-      <router-link to="/">
-        <h2>کنسول بازی سونی مدل Playstation 5 Edition</h2>
+      <router-link
+        :to="{
+          name: 'product detail',
+          params: { id: product.id, slug: product.slug },
+        }"
+        class="ellipsis-2"
+      >
+        <h2>{{ product?.title_fa }}</h2>
       </router-link>
     </div>
     <div class="flex flex-col items-center">
       <div class="mt-2 text-gray-500">
-        <del class="">9500000</del>
+        <del class="">{{ product?.default_variant?.rrp_price }}</del>
       </div>
       <div class="mt-2 text-gray-500">
-        <span class="">8500000</span>
+        <span class="">{{ product?.default_variant?.selling_price }}</span>
         <span class="mr-1">تومان</span>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// @ts-nocheck
+const props = defineProps({
+  product: {},
+});
+</script>
 
 <style lang="scss" scoped>
 .hx-product__item {

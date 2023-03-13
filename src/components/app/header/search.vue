@@ -17,24 +17,26 @@
     <hx-dialog
       @close="handleCloseSearch"
       title="جستجو"
-      custom-class="w-[60%]"
+      custom-class="lg:w-[60%]"
       v-model="visible_search"
     >
       <div class="mb-4">
-        <div class="relative w-full t-header__search">
-          <input
-            ref="inputRef"
-            v-model="search"
-            class="bg-gray-100 leading-6 rounded-xl text-sm w-full"
-            type="text"
-            placeholder="جستجو در محصولات ،دسته بندی و .."
-          />
-          <hx-icon
-            icon="search"
-            class="w-6 h-6 absolute top-1/2 mr-1 text-gray-400 cursor-pointer"
-          >
-          </hx-icon>
-        </div>
+        <hx-form @submit="handleSubmit">
+          <div class="relative w-full t-header__search">
+            <input
+              ref="inputRef"
+              v-model="search"
+              class="bg-gray-100 leading-6 rounded-xl text-sm w-full"
+              type="text"
+              placeholder="جستجو در محصولات ،دسته بندی و .."
+            />
+            <hx-icon
+              icon="search"
+              class="w-6 h-6 absolute top-1/2 mr-1 text-gray-400 cursor-pointer"
+            >
+            </hx-icon>
+          </div>
+        </hx-form>
       </div>
       <div v-if="categories.length >= 1">
         <div class="mb-3 text-gray-800 text-xs font-extrabold">
@@ -171,12 +173,15 @@ import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import ApiService from "@/core/services/ApiService";
-import router from "@/modules/user/router";
+import { useRouter } from "vue-router";
+
 const modules = [Navigation];
 
 const inputRef = ref();
 
 const { focused } = useFocus(inputRef, { initialValue: true });
+
+const router = useRouter();
 
 const search = ref(null);
 
@@ -230,6 +235,11 @@ const config = ref({
 });
 const handleShowSearch = () => {
   visible_search.value = true;
+};
+const handleSubmit = (e) => {
+  e.preventDefault();
+  visible_search.value = false;
+  router.push({ name: "search", query: { q: search.value } });
 };
 
 const handleCloseSearch = () => {

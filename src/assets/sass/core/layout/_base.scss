@@ -57,6 +57,37 @@ html {
   padding-top: 0.4rem;
 }
 
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.75s ease-out;
+}
+.slide-enter-to {
+  position: absolute;
+  right: 0;
+}
+.slide-enter-from {
+  position: absolute;
+  right: -100%;
+}
+.slide-leave-to {
+  position: absolute;
+  left: -100%;
+}
+.slide-leave-from {
+  position: absolute;
+  left: 0;
+}
+
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.5s ease;
+}
+.scale-enter-from,
+.scale-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
 .scm-whatsapp-bc {
   background: rgb(213, 255, 229);
 }
@@ -70,4 +101,15 @@ html {
 
 .scm-telegram-tc {
   color: rgb(55, 174, 226);
+}
+
+.search-module-range {
+  &__price {
+    .hx-input__wrapper {
+      height: 2rem;
+      .hx-input__inner {
+        font-size: 11px;
+      }
+    }
+  }
 }

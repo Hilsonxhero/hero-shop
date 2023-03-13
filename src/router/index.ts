@@ -4,6 +4,8 @@ import app from "./application";
 import user from "@/modules/user/router";
 import auth from "@/modules/auth/router";
 import checkout from "@/modules/checkout/router";
+import qs from "qs";
+
 const routes: Array<RouteRecordRaw> = [app, auth, user, checkout];
 
 const router = createRouter({
@@ -14,6 +16,14 @@ const router = createRouter({
     // always scroll to top
     return { top: 0, behavior: "smooth" };
   },
+  // parseQuery(query) {
+  //   return qs.parse(query);
+  // },
+  // stringifyQuery(query) {
+  //   const result = qs.stringify(query);
+
+  //   return result ? result : "";
+  // },
 });
 
 import { useUserStore } from "@/modules/user";

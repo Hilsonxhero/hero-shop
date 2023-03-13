@@ -29,6 +29,13 @@ export default {
     },
 
     {
+      path: "search/:category",
+      name: "search-category",
+      component: () =>
+        import(/* webpackChunkName: "search-category" */ "@/views/app/search/category.vue"),
+    },
+
+    {
       path: "categories",
       name: "categories",
       component: () =>

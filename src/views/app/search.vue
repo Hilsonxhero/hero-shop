@@ -13,10 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Products from "@/components/app/search/products.vue";
 import Filters from "@/components/app/search/filters.vue";
 import Sort from "@/components/app/search/sort.vue";
+import ApiService from "@/core/services/ApiService";
 
 const activeName = ref("1");
 
@@ -122,6 +123,12 @@ const filters = ref({
     ],
   },
 });
+
+// onMounted(() => {
+//   ApiService.query("search", {
+//     params: { category_slug: "www", q: search.value },
+//   }).then(({ data }) => {});
+// });
 </script>
 
 <style scoped></style>
