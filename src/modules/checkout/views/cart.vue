@@ -5,11 +5,11 @@
         <div class="col-span-12 lg:col-span-9">
           <div class="border rounded-xl">
             <div
-              class="p-5 border-b-2"
+              class="p-2 lg:p-5 border-b-2"
               v-for="(item, index) in cart?.cart_items"
               :key="index"
             >
-              <div class="grid grid-cols-12 gap-2 lg: gap-4">
+              <div class="grid grid-cols-12 gap-2 lg:gap-4">
                 <div class="col-span-4 lg:col-span-2">
                   <router-link
                     :to="{
@@ -20,7 +20,7 @@
                       },
                     }"
                   >
-                    <div class="h-28 w-28">
+                    <div class="lg:h-28 lg:w-28">
                       <img
                         class="object-contain w-full"
                         :src="item?.product.media?.thumb"
@@ -86,25 +86,25 @@
                       </span>
                     </div>
                   </div>
-                  <div class="flex justify-between items-center">
-                    <div></div>
+                </div>
+              </div>
+              <div class="flex w-full justify-start items-center">
+                <div
+                  class="flex items-center justify-between lg:justify-end w-full"
+                >
+                  <Counter
+                    class="ml-10"
+                    :loader="item.disabled"
+                    :value="item.quantity"
+                    @increment="handleIncrement(item)"
+                    @decrement="handleDecrement(item)"
+                    @delete="handleDelete(item)"
+                  />
 
-                    <div class="flex items-center">
-                      <Counter
-                        class="ml-10"
-                        :disabled="item.disabled"
-                        :value="item.quantity"
-                        @increment="handleIncrement(item)"
-                        @decrement="handleDecrement(item)"
-                        @delete="handleDelete(item)"
-                      />
+                  <div class="lg:min-w-[10rem]">
+                    {{ $filters.separate(item?.variant.price) }}
 
-                      <div class="min-w-[10rem]">
-                        {{ $filters.separate(item?.variant.price) }}
-
-                        تومان
-                      </div>
-                    </div>
+                    تومان
                   </div>
                 </div>
               </div>

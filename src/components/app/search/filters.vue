@@ -24,7 +24,7 @@
           </div>
 
           <div class="border-b-2 pb-3">
-            <hx-slider :max="20000000" :gap="1000" v-model="price">
+            <hx-slider :max="range_price.max" :gap="1000" v-model="range_price">
               <template #price="prop">
                 <div
                   class="flex justify-evenly items-center space-x-1 space-x-reverse my-6"
@@ -217,7 +217,7 @@ const active = ref(false);
 const show = ref(false);
 const selectedFilter = ref(null);
 
-const price = ref<any>(22);
+const range_price = ref<any>({ min: 0, max: 900000000 });
 
 watch(
   () => props.features,
@@ -225,6 +225,14 @@ watch(
     if (filter_features.value.length <= 1) {
       filter_features.value = val;
     }
+  }
+);
+
+watch(
+  () => range_price.value,
+  (val, oldVal) => {
+    range.value.max = val.max;
+    range.value.min = val.min;
   }
 );
 
@@ -292,9 +300,9 @@ watchEffect(() => {
 });
 
 onMounted(() => {
-  nextTick(() => {
-    emit(UPDATE_MODEL_EVENT, selected.value);
-  });
+  // nextTick(() => {
+  //   emit(UPDATE_MODEL_EVENT, selected.value);
+  // });
 });
 </script>
 

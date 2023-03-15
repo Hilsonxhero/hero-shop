@@ -50,9 +50,7 @@ import { vIntersectionObserver } from "@vueuse/components";
 const visiable_index = ref(null);
 
 const props = defineProps({
-  review: {
-    type: Object,
-  },
+  review: {},
 });
 const activeNames = ref([]);
 </script>

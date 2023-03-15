@@ -1,0 +1,133 @@
+<template>
+  <div>
+    <section
+      v-for="(combination, index) in combinations"
+      class="hidden flex-col px-3 mb-4 w-full lg:flex"
+    >
+      <div
+        class="flex item-center mb-4 pt-3"
+        v-if="selected_combinations[combination.group.id]"
+      >
+        <span class="ml-1 text-typo-light text-sm"
+          >{{ combination?.group?.name }} :
+        </span>
+        <span class="min-w-[7rem] min-h-[1.52rem] text-sm font-medium">
+          {{ selected_combinations[combination.group.id].label }}
+        </span>
+      </div>
+      <template v-if="combination.group?.type == 'color'">
+        <ul class="flex border-b pb-2">
+          <li
+            v-for="(item, index) in combination.values"
+            class="c-circle-variant__item ml-3"
+          >
+            <input
+              type="radio"
+              v-model="selected_combinations[combination.group.id].id"
+              :value="item.id"
+              name="color"
+              :id="`c-${item.id}`"
+              class="js-variant-selector js-color-filter-item"
+              v-if="selected_combinations[combination.group.id]"
+            />
+            <label
+              :for="`c-${item.id}`"
+              class="js-circle-variant-color c-circle-variant c-circle-variant--color"
+              :style="`background: ${item.value}`"
+            >
+            </label>
+          </li>
+        </ul>
+      </template>
+      <template v-if="combination.group?.type == 'select'">
+        <hx-select
+          v-if="selected_combinations[combination.group.id]"
+          v-model="selected_combinations[combination.group.id].id"
+          filterable
+          placeholder="انتخاب سایز"
+          value-key="id"
+          label="name"
+          :options="combination.values"
+        >
+        </hx-select>
+      </template>
+    </section>
+  </div>
+</template>
+
+<script setup lang="ts">
+// @ts-nocheck
+import { ref, onMounted, watch } from "vue";
+import { UPDATE_MODEL_EVENT } from "@/core/constants";
+
+const props = defineProps({
+  combinations: {},
+  variant: {},
+  variants: {},
+});
+
+const emits = defineEmits([UPDATE_MODEL_EVENT]);
+
+const entries = ref([]);
+const default_variant = ref(props.variant);
+const selected_combinations = ref({});
+
+watch(
+  () => selected_combinations.value,
+  (val, oldVal) => {
+    // emits(UPDATE_MODEL_EVENT, val);
+  }
+);
+
+watch(default_variant, (val, oldVal) => {
+  initDefaultVariant();
+  emits(UPDATE_MODEL_EVENT, val);
+});
+
+watch(
+  selected_combinations,
+  (val, oldVal) => {
+    entries.value = Object.values(val);
+    let oo = handleSelectVariant(props.variants, entries.value);
+    default_variant.value = oo;
+  },
+  { deep: true }
+);
+
+const handleSelectVariant = (
+  variants: Array<unknown>,
+  selectedVariants: Array<any>
+) => {
+  const clone = JSON.parse(JSON.stringify(variants));
+  clone.forEach((variant: any) => {
+    variant.combinations.forEach((combination: any) => {
+      combination.selected = !!selectedVariants.find(
+        ({ group, id }) =>
+          group === combination.group.id && id == combination.variant_id
+      );
+    });
+  });
+  let selectedVariant = clone.findIndex(({ combinations }) => {
+    return combinations.every((combination: any) => combination.selected);
+  });
+
+  return variants[selectedVariant];
+};
+
+const initDefaultVariant = () => {
+  default_variant.value.combinations.map((item, index) => {
+    const key = item.group.id;
+    selected_combinations.value[key] = {
+      group: key,
+      id: item.variant_id,
+      label: item.label,
+    };
+  });
+};
+
+onMounted(() => {
+  initDefaultVariant();
+});
+</script>
+
+<style scoped></style>

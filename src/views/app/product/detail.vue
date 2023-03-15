@@ -62,7 +62,13 @@
                     >
                       <MobileSellerBox />
                       <div>
-                        <Attributes :items="product?.features" />
+                        <!-- <Attributes :items="product?.features" /> -->
+                        <BaseCombinations
+                          :variant="product.default_variant"
+                          :variants="product.variants"
+                          :combinations="product?.combinations"
+                          v-model="default_variant"
+                        />
                       </div>
                     </div>
                   </div>
@@ -71,6 +77,10 @@
 
               <section class="hidden mt-6 lg:block">
                 <div id="desktop-provider-list" class="lg:mb-6"></div>
+              </section>
+
+              <section>
+                <Attributes :items="product?.features" />
               </section>
 
               <div class="flex items-start justify-between w-full lg:mt-6">
@@ -94,12 +104,7 @@
               </div>
             </div>
             <div class="3xl:col-span-2 lg:col-span-3">
-              <SellerBox
-                v-model="default_variant"
-                :variant="product.default_variant"
-                :variants="product.variants"
-                :combinations="product?.combinations"
-              />
+              <SellerBox :variant="default_variant" />
             </div>
           </section>
 
@@ -148,6 +153,8 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { ref, onMounted, computed } from "vue";
+import BaseCombinations from "@/modules/product/components/detail/combination/Combinations.vue";
+
 import Attributes from "@/modules/product/components/detail/Attributes.vue";
 import SellerBox from "@/modules/product/components/detail/seller/Box.vue";
 import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBox.vue";
@@ -184,6 +191,8 @@ onMounted(() => {
   id.value = route.params.id;
   ApiService.get(`product/${id.value}`)
     .then(({ data }) => {
+      console.log("ApiService product");
+
       product.value = data.data;
       loading.value = false;
     })

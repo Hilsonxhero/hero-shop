@@ -1,14 +1,14 @@
 <template>
   <div class="flex items-center">
     <div
-      :class="[disabled && 'pointer-events-none']"
+      :class="[(loader || disabled) && 'pointer-events-none']"
       class="border w-10 h-10 rounded-xl flex items-center justify-center text-2xl cursor-pointer text-link"
       @click="increment"
     >
       <hx-icon class="w-6 h-6 text-blue-500" icon="plus"></hx-icon>
     </div>
     <div class="w-10 text-center">
-      <template v-if="disabled">
+      <template v-if="loader">
         <svg class="svg-loader__circle" viewBox="-10, -10, 50, 50">
           <path
             class="svg-loader__path text-black"
@@ -42,7 +42,7 @@
     </template>
     <template v-else>
       <div
-        :class="[disabled && 'pointer-events-none']"
+        :class="[loader && 'pointer-events-none']"
         class="border w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer text-link"
         @click="decrement"
       >
@@ -60,6 +60,10 @@ const props = defineProps({
     type: Number,
   },
   disabled: {
+    type: Boolean,
+    default: false,
+  },
+  loader: {
     type: Boolean,
     default: false,
   },

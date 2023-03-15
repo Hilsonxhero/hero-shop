@@ -16,5 +16,15 @@ export default {
       name: "user profile addresses",
       component: () => import("@/modules/user/views/addresses.vue"),
     },
+    {
+      path: "orders",
+      name: "user profile orders",
+      component: () => import("@/modules/user/views/orders/index.vue"),
+    },
+    {
+      path: "orders/:id",
+      name: "user profile orders show",
+      component: () => import("@/modules/user/views/orders/show.vue"),
+    },
   ],
 };

@@ -1,22 +1,44 @@
 <template>
   <div>
-    <slot name="price" :chnage="handlePriceInput" :min="minValInp" :max="maxValInp"></slot>
+    <slot
+      name="price"
+      :chnage="handlePriceInput"
+      :min="minValInp"
+      :max="maxValInp"
+    ></slot>
   </div>
   <div>
     <div class="slider">
       <div class="progress" ref="progress"></div>
     </div>
     <div class="range-input">
-      <input ref="minValInpRef" type="range" class="range-min" :min="min" :max="max" step="5000" v-model="minValInp"
-        @input="handleRangeInput" />
-      <input ref="maxValInpRef" type="range" class="range-max" :min="min" :max="max" step="5000" v-model="maxValInp"
-        @input="handleRangeInput" />
+      <input
+        ref="minValInpRef"
+        type="range"
+        class="range-min"
+        :min="min"
+        :max="max"
+        step="5000"
+        v-model="minValInp"
+        @input="handleRangeInput"
+      />
+      <input
+        ref="maxValInpRef"
+        type="range"
+        class="range-max"
+        :min="min"
+        :max="max"
+        step="5000"
+        v-model="maxValInp"
+        @input="handleRangeInput"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watch, onMounted } from "vue";
+import { UPDATE_MODEL_EVENT } from "@/core/constants";
 
 const props = defineProps({
   min: {
@@ -40,7 +62,7 @@ defineOptions({
   name: "HxSlider",
 });
 
-// const emits = defineEmits(["update:modelValue"]);
+const emits = defineEmits([UPDATE_MODEL_EVENT]);
 let priceGap = ref<number>(1000);
 let progress = ref<any>(null);
 let minValInpRef = ref<any>(null);
@@ -69,10 +91,10 @@ const handleRangeInput = (e: any) => {
     progress.value.style.left =
       100 - (maxVal / Number(maxValInpRef.value.max)) * 100 + "%";
 
-    // emits("update:modelValue", {
-    //   min: minValInp.value,
-    //   max: maxValInp.value,
-    // });
+    emits(UPDATE_MODEL_EVENT, {
+      min: minValInp.value,
+      max: maxValInp.value,
+    });
   }
 };
 
