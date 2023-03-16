@@ -140,7 +140,14 @@
                   >
                     <div class="flex items-center">
                       <div class="text-gray-400">هزینه ارسال</div>
-                      <div class="font-semibold text-gray-700 mr-1">رایگان</div>
+                      <div class="font-semibold text-gray-700 mr-1">
+                        <span v-if="shipment.shipment?.shipping_cost == 0"
+                          >رایگان</span
+                        >
+                        <span v-else>{{
+                          $filters.separate(shipment.shipment?.shipping_cost)
+                        }}</span>
+                      </div>
                     </div>
                     <div class="flex items-center">
                       <div class="text-gray-400">مبلغ مرسوله</div>
@@ -164,7 +171,7 @@
                 v-for="(product, index) in shipment.order_items"
                 :key="index"
               >
-                <div class="grid grid-cols-12 gap-2 lg:gap-4">
+                <div class="grid grid-cols-12 gap-2 lg:gap-4 mb-3">
                   <div class="col-span-4 lg:col-span-2">
                     <router-link
                       :to="{

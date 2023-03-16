@@ -20,7 +20,7 @@
 
       <div class="flex items-center ml-2">
         <span class="text-sm text-gray-500">
-          مرسوله {{ packageNumber }} (زمان تقریبی تحویل 3 تا 5 روز کاری)
+          مرسوله {{ packageNumber }} ({{ package?.submit_type?.delivery_date }})
         </span>
       </div>
 

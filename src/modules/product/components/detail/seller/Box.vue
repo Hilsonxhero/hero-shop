@@ -114,8 +114,7 @@
                   class="text-red-400 text-xs mt-3"
                   v-if="default_variant.stock <= 3"
                 >
-                  تنها {{ default_variant.stock }} عدد در انبار دیجی‌کالا باقی
-                  مانده
+                  تنها {{ default_variant.stock }} عدد در انبار باقی مانده
                 </div>
               </div>
             </section>
@@ -172,6 +171,7 @@ import Counter from "@/components/common/counter.vue";
 import { UPDATE_MODEL_EVENT } from "@/core/constants";
 import ApiService from "@/core/services/ApiService";
 import { HxMessage } from "@/components/base/message";
+import { fa } from "@/core/locale";
 
 const cartStore = useCartStore();
 const { cart } = storeToRefs(cartStore);
@@ -225,9 +225,14 @@ watch(
 );
 
 const disableIncrement = computed(() => {
-  return current_variant.value.quantity + 1 > default_variant.value.order_limit
-    ? true
-    : false;
+  if (
+    current_variant.value.quantity + 1 > default_variant.value.order_limit ||
+    current_variant.value.quantity + 1 > default_variant.value.stock
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 });
 
 const addToAnnouncemente = () => {

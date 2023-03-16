@@ -60,7 +60,14 @@
           <div class="inline-flex mb-8">
             <div class="flex flex-col space-y-6">
               <hx-button>انتقال به درگاه و پرداخت مجدد</hx-button>
-              <hx-button outlined>جزئیات سفارش</hx-button>
+              <hx-button
+                outlined
+                :to="{
+                  name: 'user profile orders show',
+                  params: { id: checkout?.order?.id },
+                }"
+                >جزئیات سفارش</hx-button
+              >
             </div>
           </div>
         </div>
