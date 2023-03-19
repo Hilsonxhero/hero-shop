@@ -23,3 +23,35 @@
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
+
+.heading-color-gradiernt {
+  background-image: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.promotion-vector-rotate {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(50deg) skew(0deg);
+}
+
+@include media-breakpoint-up(lg) {
+  .promotion-module {
+    &__head,
+    &__content {
+      background-image: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .promotion-module {
+    &__head,
+    &__content {
+      color: #ffffff;
+    }
+  }
+}

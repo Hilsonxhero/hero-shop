@@ -80,7 +80,8 @@ const days = computed(() => {
   justify-content: center;
   &__block {
     text-align: center;
-    padding: 0px 15px;
+    // padding: 0px 15px;
+    margin: 0 5px;
     position: relative;
     &:first-child {
       padding-left: 0;
@@ -103,11 +104,11 @@ const days = computed(() => {
     font-weight: bold;
     line-height: 1;
     margin-bottom: 5px;
-    &:before {
-      content: ":";
-      position: absolute;
-      left: -5px;
-    }
+    // &:before {
+    //   content: ":";
+    //   position: absolute;
+    //   left: -7px;
+    // }
   }
 }
 </style>

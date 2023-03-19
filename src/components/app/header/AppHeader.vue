@@ -95,7 +95,7 @@ const active = ref(false);
 
 const menus = ref([
   { title: "دسته بندی ها", to: "categories" },
-  { title: "پیشنهادات ویژه", to: "categories" },
+  { title: "پیشنهادات ویژه", to: "promotion index" },
   { title: "مقالات", to: "categories" },
 ]);
 

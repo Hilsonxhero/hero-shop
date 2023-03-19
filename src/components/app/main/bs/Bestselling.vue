@@ -24,8 +24,8 @@
             :modules="modules"
             :breakpoints="config.breakpoints"
           >
-            <swiper-slide v-for="(item, index) in 10">
-              <product></product>
+            <swiper-slide v-for="(product, index) in products" :key="index">
+              <product :product="product"></product>
             </swiper-slide>
           </swiper>
         </div>
@@ -41,7 +41,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ref } from "vue";
-import Product from "./product.vue";
+import Product from "@/components/app/main/bs/product.vue";
 const modules = [Navigation, Pagination, Autoplay];
 
 const config = ref({
@@ -81,7 +81,9 @@ const config = ref({
   },
 });
 
-
+const props = defineProps({
+  products: {},
+});
 </script>
 
 <style lang="scss" scoped>

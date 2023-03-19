@@ -29,13 +29,12 @@
         </section>
 
         <section class="my-12">
-          <Bestselling />
+          <Bestselling :products="init?.best_selling_products" />
         </section>
 
         <section class="my-12">
           <TripleBanner :items="init?.banners?.middle_banners" />
         </section>
-
 
         <!-- <section class="my-12">
           <Pcc />
@@ -74,7 +73,6 @@ const loading = ref<any>(true);
 onMounted(() => {
   ApiService.get("landing").then(({ data }) => {
     init.value = data.data;
-
   });
   ApiService.get("recommendation").then(({ data }) => {
     recommendations.value = data.data;
@@ -83,6 +81,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

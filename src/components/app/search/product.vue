@@ -19,7 +19,7 @@
           </div>
         </div>
         <img
-          class="w-[9.25rem] h-[9.25rem] mx-auto"
+          class="w-[9.25rem] h-[9.25rem] mx-auto object-contain"
           :src="product?.media?.thumb"
           alt=""
         />
@@ -61,14 +61,26 @@
         <span class="mr-1">تومان</span>
       </div>
     </div>
+    <!-- <div class="mt-3">
+      <Countdown
+        v-if="product.discount_diff_seconds"
+        class="text-sm font-normal heading-color-gradiernt"
+        :date="product?.discount_diff_seconds"
+      />
+    </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
 // @ts-nocheck
+import { onMounted, ref } from "vue";
+
+import Countdown from "@/components/common/countdown.vue";
 const props = defineProps({
   product: {},
 });
+
+const discount_expire = ref(9000 * 1000);
 </script>
 
 <style lang="scss" scoped>
