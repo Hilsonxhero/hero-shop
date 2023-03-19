@@ -35,6 +35,14 @@
     rotateY(0deg) rotateZ(50deg) skew(0deg);
 }
 
+.promotion-module {
+  &__section {
+    background-image: url("/media/promotion/06.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+
 @include media-breakpoint-up(lg) {
   .promotion-module {
     &__head,

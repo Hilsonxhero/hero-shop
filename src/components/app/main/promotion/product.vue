@@ -54,10 +54,14 @@
     </div>
     <div class="flex flex-col items-center">
       <div class="mt-2 text-gray-500">
-        <del class="">{{ product?.default_variant?.rrp_price }}</del>
+        <del class="">{{
+          $filters.separate(product?.default_variant?.rrp_price)
+        }}</del>
       </div>
       <div class="mt-2 text-gray-500">
-        <span class="">{{ product?.default_variant?.selling_price }}</span>
+        <span class="">{{
+          $filters.separate(product?.default_variant?.selling_price)
+        }}</span>
         <span class="mr-1">تومان</span>
       </div>
     </div>

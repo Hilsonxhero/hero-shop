@@ -1,28 +1,27 @@
 <template>
-  <div
-    class="col-span-12 md:col-span-6 lg:col-span-3 relative overflow-hidden rounded-xl group"
+  <router-link
+    :to="{
+      name: 'articles show',
+      params: { id: article?.id, slug: article?.slug },
+    }"
+    class="col-span-12 md:col-span-6 lg:col-span-3 relative overflow-hidden rounded-xl group w-auto h-[13.5rem] lg:h-[14.75rem]"
   >
-    <a
-      class="overflow-hidden h-[13.5rem] lg:h-[18.75rem]"
-      target="_blank"
-      href=""
+    <div
+      class="w-full h-full transition duration-300 lg:transform group-hover:lg:scale-105 block"
     >
-      <span
-        class="w-full h-full transition duration-300 lg:transform group-hover:lg:scale-105 min-w-[13.5rem] min-h-[13.5rem] block"
-        ><img
-          :src="article?.media?.thumb"
-          loading="lazy"
-          class="w-full h-full transition-opacity duration-500 object-cover"
-        />
-      </span>
-      <div class="liniear-gr"></div>
-      <div
-        class="absolute bottom-5 px-3 text-white whitespace-normal text-sm font-medium lg:z-30 lg:right-3 lg:px-0 lg:text-base lg:transform lg:transition-all lg:duration-300 lg:group-hover:bottom-3"
-      >
-        {{ article.title }}
-      </div>
-    </a>
-  </div>
+      <img
+        :src="article?.media?.thumb"
+        loading="lazy"
+        class="w-full h-full transition-opacity duration-500 object-cover"
+      />
+    </div>
+    <div class="liniear-gr"></div>
+    <div
+      class="absolute bottom-5 px-3 text-white whitespace-normal text-sm font-medium lg:z-30 lg:right-3 lg:px-0 lg:text-base lg:transform lg:transition-all lg:duration-300 lg:group-hover:bottom-3"
+    >
+      {{ article?.title }}
+    </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">

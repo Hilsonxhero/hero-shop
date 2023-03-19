@@ -4,10 +4,13 @@
       <component :is="Component" />
     </transition>
   </router-view> -->
-  <router-view></router-view>
+  <router-view :key="route.fullPath"></router-view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from "vue-router";
+const route = useRoute();
+</script>
 
 <style lang="scss">
 @import "@/assets/sass/main.scss";

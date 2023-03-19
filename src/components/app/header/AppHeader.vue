@@ -96,7 +96,7 @@ const active = ref(false);
 const menus = ref([
   { title: "دسته بندی ها", to: "categories" },
   { title: "پیشنهادات ویژه", to: "promotion index" },
-  { title: "مقالات", to: "categories" },
+  { title: "مقالات", to: "articles index" },
 ]);
 
 onClickOutside(navRef, (event) => {

@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <section class="relative overflow-hidden rounded-xl my-3">
+    <section
+      class="relative overflow-hidden rounded-xl my-3 promotion-module__section"
+    >
       <div class="container">
         <div
           class="flex flex-col justify-center items-center py-[120px] relative z-10"
@@ -28,7 +30,7 @@
           src="/media/promotion/05.png"
           alt=""
         />
-        <img
+        <!-- <img
           class="absolute left-[16%] -top-[45%] right-auto bottom-auto max-w-full h-full"
           src="/media/promotion/01.png"
           alt=""
@@ -42,7 +44,7 @@
           class="absolute left-auto top-[0%] right-[0%] bottom-auto max-w-full h-full"
           src="/media/promotion/04.png"
           alt=""
-        />
+        /> -->
         <div class="flex items-center overflow-x-auto my-3 z-10 relative pb-2">
           <div class="pr-3 cursor-pointer">
             <div

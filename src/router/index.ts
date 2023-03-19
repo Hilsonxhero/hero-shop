@@ -5,9 +5,9 @@ import user from "@/modules/user/router";
 import auth from "@/modules/auth/router";
 import checkout from "@/modules/checkout/router";
 import promotion from "@/modules/promotion/router";
+import article from "@/modules/article/router";
 
-
-const routes: Array<RouteRecordRaw> = [app, auth, user, checkout, promotion];
+const routes: Array<RouteRecordRaw> = [app, auth, user, checkout, promotion, article];
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL),
