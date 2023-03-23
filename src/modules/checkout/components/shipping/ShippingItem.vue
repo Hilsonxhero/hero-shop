@@ -31,7 +31,7 @@
         </template>
         <template v-else>
           <span class="text-sm text-gray-500"
-            >{{ package?.submit_type?.shipping_cost }}
+            >{{ $filters.separate(package?.submit_type?.shipping_cost) }}
           </span>
         </template>
       </div>
@@ -115,6 +115,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { ref, watch } from "vue";
 import SwiperClass, { Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";

@@ -41,7 +41,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ref } from "vue";
-import Product from "@/components/app/main/bs/product.vue";
+import Product from "@/components/app/main/promotion/product.vue";
 const modules = [Navigation, Pagination, Autoplay];
 
 const config = ref({
