@@ -30,7 +30,7 @@
         </el-icon>
         
       </button> -->
-      <hx-button icon variant="gray" @click="$emit('close')">
+      <hx-button v-if="showClose" icon variant="gray" @click="$emit('close')">
         <hx-icon icon="close" class="w-6 h-6"></hx-icon>
       </hx-button>
     </header>

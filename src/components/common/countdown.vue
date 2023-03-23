@@ -1,10 +1,10 @@
 <template>
   <div class="countdown dir-ltr">
     <div v-if="days" class="countdown__block">
-      <div class="countdown__digit">{{ days }}</div>
+      <div class="countdown__digit">{{ $filters.twoDigits(days) }}</div>
     </div>
     <div v-if="hours" class="countdown__block">
-      <div class="countdown__digit">{{ hours }}</div>
+      <div class="countdown__digit">{{ $filters.twoDigits(hours) }}</div>
     </div>
     <div class="countdown__block">
       <div class="countdown__digit">{{ $filters.twoDigits(minutes) }}</div>

@@ -2,9 +2,14 @@
   <div class="container my-12">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 lg:col-span-9">
-        <Address v-model="selected_address" :default-address="shipping?.default_address" />
+        <Address
+          v-model="selected_address"
+          :default-address="shipping?.default_address"
+        />
 
-        <div class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl">
+        <div
+          class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl"
+        >
           <div class="">
             <div class="border-b flex items-center justify-between p-5">
               <div>نحوه ارسال</div>
@@ -14,8 +19,14 @@
             </div>
 
             <div class="p-5">
-              <shipping-item v-for="(item, index) in shipping.packages" :key="index" :package="item"
-                :package-key="index" :package-number="index + 1" @change="onChangeHandler"></shipping-item>
+              <shipping-item
+                v-for="(item, index) in shipping.packages"
+                :key="index"
+                :package="item"
+                :package-key="index"
+                :package-number="index + 1"
+                @change="onChangeHandler"
+              ></shipping-item>
             </div>
           </div>
         </div>
@@ -28,14 +39,26 @@
         </check-out-summary>
       </div>
     </div>
+    <CreateAddress
+      :close-on-click-modal="false"
+      :close-on-press-escape="false"
+      :show-close="false"
+      @create="fetchShipping"
+      v-model="create_address_visible"
+    >
+      <template #cancel>
+        <hx-button class="mr-2" variant="light" @click="navigareToCart()">
+          بازگشت به سبد خرید</hx-button
+        >
+      </template>
+    </CreateAddress>
   </div>
-
-
 </template>
 
 <script setup lang="ts">
 import ApiService from "@/core/services/ApiService";
 import { onMounted, ref } from "vue";
+import CreateAddress from "@/modules/user/components/profile/address/create.vue";
 
 import ShippingItem from "@/modules/checkout/components/shipping/ShippingItem.vue";
 import Address from "@/modules/checkout/components/shipping/Address.vue";
@@ -50,6 +73,8 @@ const { cart } = storeToRefs(store);
 
 const router = useRouter();
 
+const create_address_visible = ref(false);
+
 const shipping = ref<any>({});
 
 const selected_address = ref<any>({});
@@ -61,6 +86,11 @@ const onChangeHandler = (val) => {
     (item, index) => item.delivery_id == val.delivery_id
   );
   selected.time_scope = val.time_scope;
+};
+
+const navigareToCart = () => {
+  create_address_visible.value = false;
+  router.push({ name: "checkout cart" });
 };
 
 const handleShipping = () => {
@@ -82,29 +112,34 @@ const handleShippingCost = () => {
   };
   ApiService.post(`shipping/cost`, formData).then(({ data }) => {
     if (data.success) {
-      store.replace({ shipment_cost: data.data?.shipping_cost, payable_price: data.data?.payable_price })
+      store.replace({
+        shipment_cost: data.data?.shipping_cost,
+        payable_price: data.data?.payable_price,
+      });
+    }
+  });
+};
+
+const fetchShipping = () => {
+  ApiService.get(`shipping`).then(({ data }) => {
+    if (data.data.status == "410") {
+      create_address_visible.value = true;
+    } else {
+      shipping.value = data.data;
+      shipping.value.packages.map((item, index) => {
+        packages.value.push({
+          delivery_id: item.delivery_id,
+          shipment_id: item.submit_type?.id,
+        });
+      });
+      handleShippingCost();
     }
   });
 };
 
 onMounted(() => {
-  ApiService.get(`shipping`).then(({ data }) => {
-    shipping.value = data.data;
-    shipping.value.packages.map((item, index) => {
-      packages.value.push({
-        delivery_id: item.delivery_id,
-        shipment_id: item.submit_type?.id,
-      });
-    });
-    handleShippingCost()
-  });
-
-})
-
-
-
+  fetchShipping();
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

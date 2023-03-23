@@ -48,14 +48,35 @@
               </div>
             </div>
           </div>
-          <Create @create="fetch()" />
+          <div class="col-span-4 bg-gray-100 rounded-xl p-4">
+            <div class="flex">
+              <div class="flex h-full flex-col">
+                <h4 class="text-xl">آدرس های شما</h4>
+                <p class="mt-3 h-full grow">
+                  برای ارسال کالا به آدرس انتخابی شما میتوانید آدرس های خود را
+                  اینجا ثبت کنید
+                </p>
+                <div class="mt-3">
+                  <hx-button @click="dialog_visible = true"
+                    >افزودن آدرس جدید</hx-button
+                  >
+                </div>
+              </div>
+              <div>
+                <hx-icon icon="address" class="w-full h-full"></hx-icon>
+              </div>
+            </div>
+          </div>
+          <!-- <Create @create="fetch()" /> -->
         </div>
       </template>
     </hx-skeleton>
+    <Create @create="fetch()" v-model="dialog_visible" />
   </div>
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import ApiService from "@/core/services/ApiService";
 import { onMounted, ref } from "vue";
 import { HxNotification } from "@/components/base/notification";
@@ -70,6 +91,7 @@ interface Address {
 
 const loading = ref<boolean>(true);
 const addresses = ref<Address[]>([]);
+const dialog_visible = ref(false);
 
 const fetch = () => {
   loading.value = true;

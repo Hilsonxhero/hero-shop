@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-4 bg-gray-100 rounded-xl p-4">
+  <!-- <div class="col-span-4 bg-gray-100 rounded-xl p-4">
     <div class="flex">
       <div class="flex h-full flex-col">
         <h4 class="text-xl">آدرس های شما</h4>
@@ -15,9 +15,14 @@
         <hx-icon icon="address" class="w-full h-full"></hx-icon>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <hx-dialog title="مشخصات آدرس" width="40%" v-model="active">
+  <hx-dialog
+    @close="handleOnClose"
+    title="مشخصات آدرس"
+    width="40%"
+    v-model="modelValue"
+  >
     <div>
       <hx-form
         ref="formRef"
@@ -97,10 +102,13 @@
           <hx-input v-bind="field" v-model="form.postal_code"></hx-input>
         </hx-form-item>
 
-        <div>
+        <div class="flex items-center mt-4">
           <hx-button :loading="loader" @click="create(formRef)"
             >ثبت آدرس</hx-button
           >
+          <template v-if="$slots.cancel">
+            <slot name="cancel"></slot>
+          </template>
         </div>
       </hx-form>
     </div>
@@ -111,10 +119,15 @@
 // @ts-nocheck
 import { onMounted, ref } from "vue";
 import ApiService from "@/core/services/ApiService";
+import { UPDATE_MODEL_EVENT } from "@/core/constants";
+
+const props = defineProps({
+  modelValue: {},
+});
 
 const formRef = ref();
 
-const emit = defineEmits(["create"]);
+const emit = defineEmits(["create", UPDATE_MODEL_EVENT]);
 
 const loader = ref<boolean>(false);
 const active = ref<boolean>(false);
@@ -129,6 +142,10 @@ const form = ref({
   building_number: "",
   is_default: 0,
 });
+
+const handleOnClose = () => {
+  emit(UPDATE_MODEL_EVENT, false);
+};
 
 const create = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
@@ -155,6 +172,8 @@ const create = async (formEl: FormInstance | undefined) => {
         // if (data.success) {
         //   await emit("create");
         // }
+
+        handleOnClose();
 
         emit("create");
 
