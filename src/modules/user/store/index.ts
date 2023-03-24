@@ -29,7 +29,7 @@ export const useUserStore = defineStore("user", () => {
         user.value = data.data?.user;
         isLoggedIn.value = data.data?.is_logged_in;
         checked.value = true;
-        cart.fetch(data.data?.cart);
+        cart.fetchPreviewCart(data.data?.cart);
       } catch (error) {
         return error;
       }

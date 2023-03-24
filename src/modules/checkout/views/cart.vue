@@ -174,7 +174,7 @@ const handleIncrement = async (variant) => {
 };
 
 const cartIsEmpty = computed(() => {
-  if (store.cart?.cart_items.length >= 1) return false;
+  if (store.cart?.cart_items?.length >= 1) return false;
   return true;
 });
 

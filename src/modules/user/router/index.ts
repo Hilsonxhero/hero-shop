@@ -22,9 +22,15 @@ export default {
       component: () => import("@/modules/user/views/orders/index.vue"),
     },
     {
+      path: "lists",
+      name: "user profile lists",
+      component: () => import("@/modules/user/views/lists/index.vue"),
+    },
+    {
       path: "orders/:id",
       name: "user profile orders show",
       component: () => import("@/modules/user/views/orders/show.vue"),
     },
+
   ],
 };

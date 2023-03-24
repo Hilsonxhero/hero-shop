@@ -27,6 +27,16 @@ const DocMenuConfig = [
     ],
   },
 
+  {
+    pages: [
+      {
+        heading: "لیست ها",
+        route: "user profile lists",
+        svgIcon: "cube-scan",
+      },
+    ],
+  },
+
 ];
 
 export default DocMenuConfig;

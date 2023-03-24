@@ -125,6 +125,8 @@ const fetchShipping = () => {
     if (data.data.status == "410") {
       create_address_visible.value = true;
     } else {
+      store.fetch(data.data?.cart);
+
       shipping.value = data.data;
       shipping.value.packages.map((item, index) => {
         packages.value.push({

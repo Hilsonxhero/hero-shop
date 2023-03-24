@@ -274,7 +274,7 @@ const addToAnnouncemente = () => {
 };
 
 const checkVariantExistsInCart = () => {
-  const items = cartStore.cart?.cart_items;
+  const items = cartStore.cart_preview?.cart_items;
   const res = items.find((item) => item.variant.id == default_variant.value.id);
   if (res) return res;
   return false;

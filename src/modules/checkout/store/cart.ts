@@ -5,7 +5,7 @@ import { defineStore } from "pinia";
 
 export const useCartStore = defineStore("cart", () => {
   const cart = ref({});
-
+  const cart_preview = ref({});
 
   const get = async () => {
     try {
@@ -20,6 +20,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       const { data } = await ApiService.post(`cart`, payload);
       cart.value = data.data;
+      cart_preview.value = data.data
     } catch (error) {
       return error;
     }
@@ -29,6 +30,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       const { data } = await ApiService.put(`cart/${payload.cart_item_id}`, payload);
       cart.value = data.data;
+      cart_preview.value = data.data
     } catch (error) {
       return error;
     }
@@ -38,6 +40,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       const { data } = await ApiService.delete(`cart/${payload}`, payload);
       cart.value = data.data;
+      cart_preview.value = data.data
     } catch (error) {
       return error;
     }
@@ -46,6 +49,11 @@ export const useCartStore = defineStore("cart", () => {
   const fetch = async (payload) => {
     cart.value = payload;
   };
+
+  const fetchPreviewCart = async (payload) => {
+    cart_preview.value = payload;
+  };
+
 
   const replace = (payload) => {
     Object.keys(payload).forEach((item, key) => {
@@ -59,12 +67,14 @@ export const useCartStore = defineStore("cart", () => {
 
   return {
     cart,
+    cart_preview,
     get,
     add,
     update,
     remove,
     fetch,
-    replace
+    replace,
+    fetchPreviewCart
   };
 });
 
