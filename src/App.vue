@@ -4,12 +4,19 @@
       <component :is="Component" />
     </transition>
   </router-view> -->
-  <router-view :key="route.fullPath"></router-view>
+  <!-- <router-view :key="route.fullPath"></router-view> -->
+  <router-view :key="route.path"></router-view>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
+import { useConfigStore } from "@/modules/config";
+import { storeToRefs } from "pinia";
 const route = useRoute();
+
+const store = useConfigStore();
+const { config } = storeToRefs(store);
+store.fetchConfig();
 </script>
 
 <style lang="scss">

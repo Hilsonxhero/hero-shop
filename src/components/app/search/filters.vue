@@ -263,6 +263,8 @@ watch(
 
     setFilters(filters);
 
+    // router.replace({ query: { test: true } });
+
     emit(UPDATE_MODEL_EVENT, selected.value);
   },
   { deep: true }
