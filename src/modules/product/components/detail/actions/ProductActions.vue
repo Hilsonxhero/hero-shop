@@ -194,7 +194,6 @@ const handleShare = () => {
 };
 
 onMounted(() => {
-  console.log("route.fullPath", window.location.href);
   product_path.value = window.location.href;
   product_id.value = route.params.id;
 });

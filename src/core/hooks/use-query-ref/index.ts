@@ -7,7 +7,7 @@ export default function useQueryFilters() {
     const filters = ref({})
     function setFilters(newFilters: any) {
         const newQuery = Object.assign({}, filters.value);
-        console.log("newQuery", newQuery);
+
 
         router.replace({ query: newQuery });
         filters.value = {}

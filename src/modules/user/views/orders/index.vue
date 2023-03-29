@@ -169,7 +169,6 @@ const fetchOrders = () => {
   params.append(`status`, selected_tab.value);
 
   ApiService.query("user/orders", { params: params }).then(({ data }) => {
-    console.log("data", data);
     orders.value = data.data.orders;
     loading.value = false;
   });

@@ -191,8 +191,6 @@ onMounted(() => {
   id.value = route.params.id;
   ApiService.get(`product/${id.value}`)
     .then(({ data }) => {
-      console.log("ApiService product");
-
       product.value = data.data;
       loading.value = false;
     })

@@ -17,8 +17,6 @@ import HxFooter from "@/components/app/footer/AppFooter.vue";
 // const store = useConfigStore();
 // const { config } = storeToRefs(store);
 
-// console.log("here");
-
 // store.fetchConfig();
 </script>
 <style lang="scss"></style>

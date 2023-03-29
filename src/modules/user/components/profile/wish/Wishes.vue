@@ -44,8 +44,6 @@ watch(
   (val, oldVal) => {
     // must_fetch.value = true;
     if (val == "wishes") {
-      console.log("watch");
-
       fetchWishes();
     }
   }
@@ -88,7 +86,6 @@ const handleOnWishDelete = (index) => {
 
 onMounted(() => {
   if (props.selected && props.selected == "wishes") {
-    console.log("props.selected", props.selected);
     fetchWishes();
   }
 });
