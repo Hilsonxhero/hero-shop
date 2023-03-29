@@ -1,19 +1,17 @@
 <template>
-
-    <div class="flex items-center">
-      <input
-        maxlength="1"
-        autofocus
-        @keyup.delete="previous"
-        class="form-input border-2 border-transparent focus:bg-white mr-2 h-10 focus:border-blue-500"
-        type="text"
-        v-for="(item, index) in length"
-        v-model="values[index]"
-        @input="next"
-        placeholder="-"
-      />
-    </div>
-
+  <div class="flex items-center dir-ltr">
+    <input
+      maxlength="1"
+      autofocus
+      @keyup.delete="previous"
+      class="form-input border-2 border-transparent focus:bg-white mr-2 h-10 focus:border-blue-500"
+      type="text"
+      v-for="(item, index) in length"
+      v-model="values[index]"
+      @input="next"
+      placeholder="-"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">

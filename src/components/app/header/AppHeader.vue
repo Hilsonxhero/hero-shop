@@ -22,7 +22,8 @@
               :to="{ name: 'landing' }"
               class="t-header__logo w-24 ml-4"
             >
-              <hx-icon class="w-full" icon="logo"></hx-icon>
+              <!-- <hx-icon class="w-full" icon="logo"></hx-icon> -->
+              <img :src="config.logo" class="max-h-75px" />
             </router-link>
             <nav
               ref="navRef"
@@ -30,7 +31,8 @@
               :class="{ 'is-active': active }"
             >
               <a href="" class="mx-auto py-4 w-24 lg:hidden">
-                <hx-icon class="w-full" icon="logo"></hx-icon>
+                <!-- <hx-icon class="w-full" icon="logo"></hx-icon> -->
+                <img :src="config.logo" class="max-h-75px" />
               </a>
               <ul
                 class="flex flex-col space-y-6 lg:space-y-0 p-5 lg:flex-row lg:items-center h-full"
