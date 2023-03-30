@@ -1,8 +1,8 @@
 <template>
-  <aside class="hidden mt-10 lg:sticky lg:top-24 lg:block lg:space-y-3 lg:mt-0">
+  <aside class="mt-10 lg:sticky lg:top-24 lg:block lg:space-y-3 lg:mt-0">
     <div
       v-if="default_variant.has_stock"
-      class="seller-container divide-y lg:divide-y-0 p-5 border-2 border-gray-100 flex flex-col rounded-xl"
+      class="seller-container lg:divide-y-0 p-5 border-2 border-gray-100 flex flex-col rounded-xl"
     >
       <div class="space-y-6">
         <!-- <a href="" class="flex items-center justify-between">
@@ -58,15 +58,13 @@
         </section>
       </div>
 
-      <section class="flex flex-col px-3 pt-3">
-        <section
-          class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset"
-        >
+      <section class="flex flex-col lg:px-3">
+        <section class="bg-white lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset">
           <div
-            class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
+            class="flex items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
           >
-            <section class="flex w-full">
-              <div class="flex flex-col items-center w-full justify-evenly">
+            <section class="hidden lg:flex w-full">
+              <div class="flex flex-col items-center w-full lg:justify-evenly">
                 <section
                   v-if="
                     default_variant?.is_incredible ||
@@ -118,7 +116,7 @@
                 </div>
               </div>
             </section>
-            <section class="w-full flex justify-center">
+            <section class="hidden lg:w-full lg:flex lg:justify-center">
               <template v-if="current_variant">
                 <Counter
                   :loader="loader"
@@ -160,6 +158,57 @@
       </hx-button>
     </div>
   </aside>
+
+  <teleport to="body">
+    <div class="sticky z-20 bottom-0 inset-x-0">
+      <section
+        class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset lg:hidden"
+      >
+        <div
+          class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
+        >
+          <section class="flex">
+            <div
+              class="flex flex-col lg:space-y-4 lg:flex-col-reverse lg:space-y-reverse justify-evenly"
+            >
+              <span class="hidden text-sm font-medium lg:block">قیمت</span>
+              <div>
+                <span class="flex items-center font-bold">
+                  <span
+                    id="price"
+                    class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
+                  >
+                    {{ $filters.separate(default_variant?.selling_price) }}
+                  </span>
+                  <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
+                    >تومان</span
+                  >
+                </span>
+              </div>
+            </div>
+          </section>
+          <section class="w-full">
+            <!-- <hx-button class="">افزودن به سبد خرید</hx-button> -->
+            <template v-if="current_variant">
+              <Counter
+                :loader="loader"
+                :disabled="disableIncrement"
+                :value="current_variant.quantity"
+                @increment="handleIncrement()"
+                @decrement="handleDecrement()"
+                @delete="handleDelete()"
+              />
+            </template>
+            <template v-else>
+              <hx-button :loading="loader" @click="handleIncrement">
+                افزودن به سبد خرید
+              </hx-button>
+            </template>
+          </section>
+        </div>
+      </section>
+    </div>
+  </teleport>
 </template>
 
 <script setup lang="ts">

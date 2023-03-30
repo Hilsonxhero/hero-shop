@@ -16,22 +16,32 @@
     </a>
     <div class="container">
       <div class="h-16">
-        <div class="flex items-center h-full">
-          <div class="flex items-center flex-grow">
-            <router-link
-              :to="{ name: 'landing' }"
-              class="t-header__logo w-24 ml-4"
+        <div class="flex items-center h-full justify-between">
+          <div class="flex items-center">
+            <hx-button
+              class="block lg:hidden"
+              icon
+              variant="gray"
+              @click="showNavHandler"
             >
-              <!-- <hx-icon class="w-full" icon="logo"></hx-icon> -->
-              <img :src="config.logo" class="max-h-75px" />
-            </router-link>
+              <hx-icon class="text-gray-400" icon="menu"></hx-icon>
+            </hx-button>
+
+            <div class="hidden lg:block">
+              <router-link
+                :to="{ name: 'landing' }"
+                class="t-header__logo w-24"
+              >
+                <img :src="config.logo" class="max-h-75px" />
+              </router-link>
+            </div>
+
             <nav
               ref="navRef"
               class="hx-header__nav bg-white lg:bg-transparent flex flex-col w-[60%] lg:w-full z-[6]"
               :class="{ 'is-active': active }"
             >
               <a href="" class="mx-auto py-4 w-24 lg:hidden">
-                <!-- <hx-icon class="w-full" icon="logo"></hx-icon> -->
                 <img :src="config.logo" class="max-h-75px" />
               </a>
               <ul
@@ -47,13 +57,19 @@
               </ul>
             </nav>
           </div>
+          <div
+            class="flex lg:hidden items-center absolute left-1/2 transform -translate-x-1/2"
+          >
+            <router-link :to="{ name: 'landing' }" class="t-header__logo w-24">
+              <img :src="config.logo" class="max-h-75px" />
+            </router-link>
+          </div>
 
           <div class="flex items-center">
             <header-search></header-search>
             <div class="hidden lg:flex">
               <hx-button :to="{ name: 'auth' }" class="mr-2" variant="light">
                 <hx-icon icon="user"></hx-icon>
-                <!-- حساب کاربری -->
               </hx-button>
 
               <hx-button
@@ -62,18 +78,20 @@
                 variant="light"
               >
                 <hx-icon icon="shopping-bag"></hx-icon>
-                <!-- سبد خرید -->
               </hx-button>
             </div>
             <!-- v-clickoutside:hx-header__nav="hide" -->
-            <hx-button
-              class="block lg:hidden"
-              icon
-              variant="gray"
-              @click="showNavHandler"
-            >
-              <hx-icon class="text-gray-400" icon="menu"></hx-icon>
-            </hx-button>
+            <div class="flex items-center lg:hidden">
+              <router-link :to="{ name: 'auth' }">
+                <hx-icon icon="user" class="text-gray-400 w-6 h-6"></hx-icon>
+              </router-link>
+              <router-link :to="{ name: 'checkout cart' }">
+                <hx-icon
+                  icon="shopping-bag"
+                  class="text-gray-400 w-6 h-6 mr-4"
+                ></hx-icon>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>

@@ -88,10 +88,12 @@
             </section>
           </section>
           <div class="block w-full overflow-hidden lg:flex-grow lg:pr-4">
-            <section class="flex justify-between mb-4 lg:items-center">
-              <div class="justify-between flex item-center">
+            <section
+              class="flex flex-col lg:flex-row justify-between mb-4 lg:items-center"
+            >
+              <div class="justify-between flex item-center mb-3 lg:mb-0">
                 <span
-                  class="block p-detail-heading p-detail-heading-border whitespace-nowrap"
+                  class="flex lg:block p-detail-heading p-detail-heading-border whitespace-nowrap"
                   >نظرات کاربران</span
                 >
               </div>

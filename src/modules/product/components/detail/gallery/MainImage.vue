@@ -6,7 +6,7 @@
       :modules="modules"
       :pagination="{ clickable: true }"
     >
-      <swiper-slide v-for="(item, index) in 4" :key="index">
+      <swiper-slide>
         <div>
           <div class="relative bg-transparent flex-shrink-0">
             <div class="contacts h-[20rem]">

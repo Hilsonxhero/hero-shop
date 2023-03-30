@@ -46,8 +46,10 @@
             <div class="lg:w-[2rem] lg:min-w-[2rem]"></div>
           </section>
           <div class="flex flex-col flex-grow" style="">
-            <section class="flex w-full lg:items-center mb-4 mr-4">
-              <div class="t-row justify-between">
+            <section
+              class="flex flex-col lg:flex-row w-full lg:items-center mb-4 lg:mr-4"
+            >
+              <div class="t-row justify-between mb-3 lg:mb-0">
                 <span class="block p-detail-heading p-detail-heading-border"
                   >پرسش های کاربران</span
                 >
@@ -57,15 +59,17 @@
                   class="block text-4xl text-typo-light ml-4 mr-4 lg:mr-32 material-icons t-icon-sort-24px"
                 ></i>
               </div>
-              <span
-                class="block cursor-pointer px-2 py-2 lg:py-2 lg:px-4 rounded-xl lg:flex lg:items-center lg:h-[3rem] text-sm"
-              >
-                جدیدترین ها </span
-              ><span
-                class="block cursor-pointer px-2 py-2 lg:py-2 lg:px-4 rounded-xl lg:flex lg:items-center lg:h-[3rem] text-sm font-bold bg-gray-100 text-link transition-all duration-300 ease-out"
-              >
-                کاربردی ترین ها
-              </span>
+              <div class="flex lg:items-center">
+                <span
+                  class="block cursor-pointer px-2 py-2 lg:py-2 lg:px-4 rounded-xl lg:flex lg:items-center lg:h-[3rem] text-sm"
+                >
+                  جدیدترین ها </span
+                ><span
+                  class="block cursor-pointer px-2 py-2 lg:py-2 lg:px-4 rounded-xl lg:flex lg:items-center lg:h-[3rem] text-sm font-bold bg-gray-100 text-link transition-all duration-300 ease-out"
+                >
+                  کاربردی ترین ها
+                </span>
+              </div>
             </section>
             <div>
               <div class="lg:mr-4 flex-grow gap-4 grid grid-cols-1">
@@ -322,7 +326,6 @@
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
 // @ts-nocheck
 import ApiService from "@/core/services/ApiService";
 import { onMounted, ref, watch, computed } from "vue";
@@ -340,7 +343,7 @@ interface IPagination {
 const props = defineProps({
   // comments: {},
   // rating: {},
-  // count: {}
+  count: {},
 });
 
 const route = useRoute();

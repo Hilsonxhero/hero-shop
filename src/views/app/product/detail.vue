@@ -60,9 +60,7 @@
                     <div
                       class="lg:p-2 lg:overflow-hidden tabs-container flex-grow"
                     >
-                      <MobileSellerBox />
                       <div>
-                        <!-- <Attributes :items="product?.features" /> -->
                         <BaseCombinations
                           :variant="product.default_variant"
                           :variants="product.variants"
@@ -73,10 +71,6 @@
                     </div>
                   </div>
                 </div>
-              </section>
-
-              <section class="hidden mt-6 lg:block">
-                <div id="desktop-provider-list" class="lg:mb-6"></div>
               </section>
 
               <section>
@@ -97,53 +91,16 @@
                       :count="product?.comments_count"
                     ></base-comments>
                   </div>
-                  <div id="-p-faq">
-                    <base-faqs></base-faqs>
+                  <div>
+                    <BaseFaq :count="2" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="3xl:col-span-2 lg:col-span-3">
+            <div class="col-span-12 3xl:col-span-2 lg:col-span-3">
               <SellerBox :variant="default_variant" />
             </div>
           </section>
-
-          <div class="sticky z-20 bottom-0 inset-x-0 -mx-3">
-            <section
-              class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset lg:hidden"
-            >
-              <div
-                class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
-              >
-                <section class="flex">
-                  <div
-                    class="flex flex-col lg:space-y-4 lg:flex-col-reverse lg:space-y-reverse justify-evenly"
-                  >
-                    <span class="hidden text-sm font-medium lg:block"
-                      >قیمت</span
-                    >
-                    <div>
-                      <span class="flex items-center font-bold">
-                        <span
-                          id="price"
-                          class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
-                        >
-                          55,600,000
-                        </span>
-                        <span
-                          class="font-normal text-sm leading-6 lg:text-sm mr-2"
-                          >تومان</span
-                        >
-                      </span>
-                    </div>
-                  </div>
-                </section>
-                <section class="w-full">
-                  <hx-button class="">افزودن به سبد خرید</hx-button>
-                </section>
-              </div>
-            </section>
-          </div>
         </div>
       </template>
     </hx-skeleton>
@@ -154,14 +111,12 @@
 // @ts-nocheck
 import { ref, onMounted, computed } from "vue";
 import BaseCombinations from "@/modules/product/components/detail/combination/Combinations.vue";
-
 import Attributes from "@/modules/product/components/detail/Attributes.vue";
-import SellerBox from "@/modules/product/components/detail/seller/Box.vue";
+import SellerBox from "@/modules/product/components/detail/seller/BaseSellerAside.vue";
 import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBox.vue";
-import BaseComments from "@/modules/product/components/detail/comments/Base.vue";
-import Preview from "@/modules/product/components/detail/preview/Base.vue";
-import Fallback from "@/modules/product/components/detail/fallback/Base.vue";
-import BaseFaqs from "@/modules/product/components/detail/faq/Base.vue";
+import BaseComments from "@/modules/product/components/detail/comments/BaseComment.vue";
+import Preview from "@/modules/product/components/detail/preview/BasePreview.vue";
+import BaseFaq from "@/modules/product/components/detail/faq/BaseFaq.vue";
 import MainImage from "@/modules/product/components/detail/gallery/MainImage.vue";
 import Gallery from "@/modules/product/components/detail/gallery/Gallery.vue";
 import ProductActions from "@/modules/product/components/detail/actions/ProductActions.vue";

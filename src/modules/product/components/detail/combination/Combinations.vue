@@ -2,10 +2,10 @@
   <div>
     <section
       v-for="(combination, index) in combinations"
-      class="hidden flex-col px-3 mb-4 w-full lg:flex"
+      class="flex-col lg:px-3 mb-4 w-full lg:flex"
     >
       <div
-        class="flex item-center mb-4 pt-3"
+        class="flex item-center pt-3"
         v-if="selected_combinations[combination.group.id]"
       >
         <span class="ml-1 text-typo-light text-sm"
@@ -16,7 +16,7 @@
         </span>
       </div>
       <template v-if="combination.group?.type == 'color'">
-        <ul class="flex border-b pb-2">
+        <ul class="flex border-b py-3">
           <li
             v-for="(item, index) in combination.values"
             class="c-circle-variant__item ml-3"
