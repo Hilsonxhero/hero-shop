@@ -78,7 +78,8 @@
                         "
                         class="flex items-center"
                         :key="i"
-                        :label="option.title"
+                        :true-label="option.id"
+                        :label="option.id"
                         :value="option.id"
                       >
                         {{ option.title }}
@@ -105,81 +106,41 @@
       </div>
     </div>
 
-    <hx-modal fs :show="active" title="فیلترها" @close="handleFilterModal">
-      <template #header="{ close }">
-        <template v-if="selectedFilter">
-          <h5>{{ selectedFilter.title }}</h5>
-          <hx-icon
-            @click="handleFilterOption(selectedFilter, selectedFilter.filter)"
-            icon="chevron-left"
-            class="w-6 h-6"
-          ></hx-icon>
-        </template>
-        <template v-else>
-          <h5>فیلترها</h5>
-          <hx-icon icon="close" class="w-6 h-6" @click="close()"></hx-icon>
-        </template>
-      </template>
+    <hx-dialog v-model="active" title="فیلترها" @close="handleFilterModal">
+      <hx-collapse accordion>
+        <hx-collapse-item
+          class="border-b-2 mb-4"
+          v-for="(filter, index) in filters"
+          :title="filter.title"
+          :name="index"
+          :key="index"
+        >
+          <div
+            class="flex max-h-[13rem] overflow-y-auto flex-col space-y-4 px-2"
+          >
+            <div>
+              <hx-checkbox
+                v-for="(option, i) in filter.values"
+                v-model="filter_features[index].values"
+                class="flex items-center"
+                :key="i"
+                :true-label="option.id"
+                :label="option.id"
+                :value="option.id"
+              >
+                {{ option.title }}
+              </hx-checkbox>
+            </div>
+          </div>
+        </hx-collapse-item>
+      </hx-collapse>
 
-      <transition name="scale" mode="out-in">
-        <div class="flex flex-col" v-if="!show">
-          <div
-            class="flex items-center justify-between border-b py-3"
-            v-for="(filter, index) in filters"
-            @click="handleFilterOption(filter, index)"
-          >
-            <div>
-              <span class="text-gray-600">{{ filter.title }}</span>
-            </div>
-            <div>
-              <template v-if="filter.type == 'checkbox'">
-                <hx-icon
-                  class="text-gray-600 w-7 h-7"
-                  icon="chevron-left"
-                ></hx-icon>
-              </template>
-              <template v-if="filter.type == 'switch'">
-                <hx-switch name="test" value="2"></hx-switch>
-              </template>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col" v-else>
-          <div
-            class="flex items-center justify-between border-b py-3"
-            v-for="(option, i) in selectedFilter?.values"
-            :key="index"
-          >
-            <div>
-              <template v-if="selectedFilter.type == 'checkbox'">
-                <hx-checkbox
-                  v-model="filter_features[index].values"
-                  @change="
-                    handleChangeFeature(option.id, filter_features[index])
-                  "
-                  class="flex items-center"
-                  :key="i"
-                  :label="option.title"
-                  :value="option.id"
-                ></hx-checkbox>
-              </template>
-            </div>
-            <div>
-              <template v-if="selectedFilter.filter == 'colors'">
-                <span
-                  class="w-6 h-6 rounded-[50%] inline-block border"
-                  :style="{ 'background-color': option.hex_code }"
-                >
-                </span>
-              </template>
-              <template v-if="selectedFilter.filter == 'brands'">
-                <span> {{ option.title_en }}</span>
-              </template>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </hx-modal>
+      <template #footer="{ close }">
+        <hx-button @click="close" class="block w-full my-2" outlined
+          >اعمال فیلتر</hx-button
+        >
+      </template>
+    </hx-dialog>
   </div>
 </template>
 
@@ -228,7 +189,7 @@ const range_price = ref<any>({ min: 0, max: 900000000 });
 watch(
   () => props.features,
   (val, oldVal) => {
-    if (filter_features.value.length <= 1) {
+    if (filter_features.value.length == 0) {
       filter_features.value = val;
     }
   }
@@ -269,14 +230,18 @@ watch(
 
     setFilters(filters);
 
-    // router.replace({ query: { test: true } });
-
     emit(UPDATE_MODEL_EVENT, selected.value);
   },
   { deep: true }
 );
+const handleFetchFilters = () => {
+  selected.value.features = filter_features.value.filter(
+    (item, index) => item.values.length >= 1
+  );
+  handleFilterModal();
+};
 
-const handleChangeFeature = (feature_value, feature) => {
+const handleChangeFeature = () => {
   selected.value.features = filter_features.value.filter(
     (item, index) => item.values.length >= 1
   );
@@ -294,7 +259,6 @@ const handleFilterModal = () => {
 
 const handleFilterOption = (filter: any, index: any) => {
   if (filter.type == "checkbox") {
-    console.log("filter", filter);
     selectedFilter.value
       ? (selectedFilter.value = null)
       : (selectedFilter.value = { ...filter, filter: index });
@@ -303,15 +267,13 @@ const handleFilterOption = (filter: any, index: any) => {
   return false;
 };
 watchEffect(() => {
-  if (filter_features.value.length <= 1) {
+  if (filter_features.value.length == 0) {
     filter_features.value = props.features;
   }
 });
 
 onMounted(() => {
-  // nextTick(() => {
-  //   emit(UPDATE_MODEL_EVENT, selected.value);
-  // });
+  nextTick(() => {});
 });
 </script>
 

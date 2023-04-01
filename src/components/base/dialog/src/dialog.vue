@@ -49,7 +49,7 @@
               </template>
               <slot />
               <template v-if="$slots.footer" #footer>
-                <slot name="footer" />
+                <slot name="footer" :close="handleClose" />
               </template>
             </hx-dialog-content>
           </hx-focus-trap>

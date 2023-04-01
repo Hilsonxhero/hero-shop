@@ -42,7 +42,7 @@
           <hx-button icon variant="gray">
             <hx-icon
               icon="arrow-left"
-              class="w-6 h-6"
+              class="w-5 h-5"
               :class="[ns.be('item', 'arrow'), ns.is('active', isActive)]"
             >
             </hx-icon>

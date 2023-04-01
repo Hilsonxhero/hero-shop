@@ -102,7 +102,7 @@ export const checkboxProps = {
   tabindex: [String, Number],
   validateEvent: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 }
 
@@ -149,6 +149,7 @@ const useModel = (props: CheckboxProps) => {
       return isGroup.value
         ? checkboxGroup.modelValue?.value
         : props.modelValue ?? selfModel.value
+
     },
 
     set(val: unknown) {
@@ -292,7 +293,6 @@ const useEvent = (
   function handleChange(e: Event) {
     if (isLimitExceeded!.value) return
     const target = e.target as HTMLInputElement
-
     emit('change', getLabeledValue(target.checked), e)
   }
 

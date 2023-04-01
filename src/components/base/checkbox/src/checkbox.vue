@@ -47,7 +47,7 @@
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :disabled="isDisabled"
-        :value="value"
+        :value="label"
         :name="name"
         :tabindex="tabindex"
         @change="handleChange"
