@@ -44,7 +44,7 @@
         <div
           class="bg-white shadow-lg lg:bg-transparent lg:shadow-transparent lg:border rounded-xl"
         >
-          <div class="flex items-center justify-between p-5">
+          <div class="flex flex-wrap items-center justify-between p-5">
             <div class="flex items-center">
               <span class="ml-2">
                 <hx-icon class="text-red-600 h-7 w-7" icon="location"></hx-icon>

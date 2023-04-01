@@ -14,7 +14,7 @@
       <template #default>
         <div class="border rounded-xl">
           <div
-            class="flex items-center justify-between border-b border-grat-600 p-3"
+            class="flex flex-wrap items-center justify-between border-b border-grat-600 p-3"
           >
             <div class="flex items-center">
               <hx-button
@@ -27,21 +27,26 @@
                 <hx-icon class="text-gray-500 w-5 h-5" icon="arrow-right-av">
                 </hx-icon>
               </hx-button>
-              <h5 class="text-xl mr-1">جزئیات سفارش</h5>
+              <h5 class="lg:text-xl mr-1">جزئیات سفارش</h5>
             </div>
 
             <div>
               <div class="flex items-center cursor-pointer">
-                <hx-icon class="text-blue-500 w-5 h-5" icon="archive-book">
+                <hx-icon
+                  class="text-blue-500 w-4 h-4 lg:w-5 lg:h-5"
+                  icon="archive-book"
+                >
                 </hx-icon>
-                <span class="mr-1 text-blue-600"> مشاهده فاکتور</span>
+                <span class="text-xs lg:text-base mr-1 text-blue-600">
+                  مشاهده فاکتور</span
+                >
               </div>
             </div>
           </div>
 
           <div class="p-3 border-b border-grat-600 mb-3">
             <div
-              class="flex justify-start items-start space-x-reverse space-x-2 pb-3"
+              class="flex flex-wrap space-y-2 lg:space-y-0 justify-start items-start space-x-reverse lg:space-x-2 pb-3"
             >
               <div class="flex items-center">
                 <div class="text-gray-400">تاریخ ثبت سفارش</div>
@@ -58,7 +63,7 @@
             </div>
 
             <div
-              class="flex justify-start items-start space-x-reverse space-x-2"
+              class="flex flex-wrap space-y-2 lg:space-y-0 justify-start items-start space-x-reverse lg:space-x-2"
             >
               <div class="flex items-center">
                 <div class="text-gray-400">تحویل گیرنده</div>
@@ -73,7 +78,7 @@
                 </div>
               </div>
 
-              <div class="flex items-center">
+              <div class="flex items-center mr-2">
                 <div class="text-gray-400">آدرس</div>
                 <div class="font-semibold text-gray-700 mr-1">
                   {{ order.address?.address }}
@@ -83,22 +88,22 @@
           </div>
           <div class="p-3 border-b border-grat-600 mb-3">
             <div
-              class="flex justify-start items-start space-x-reverse space-x-2"
+              class="flex flex-wrap justify-start items-start space-x-reverse"
             >
-              <div class="flex items-center">
+              <div class="flex items-center ml-2">
                 <div class="text-gray-400">مبلغ</div>
                 <div class="font-semibold text-gray-700 mr-1">
                   {{ $filters.separate(order.price.payable_price) }}
                 </div>
               </div>
-              <div class="flex items-center">
+              <div class="flex items-center ml-2">
                 <div class="text-gray-400">سود شما از خرید</div>
                 <div class="font-semibold text-gray-700 mr-1">
                   {{ $filters.separate(order.price.payable_price) }}
                 </div>
               </div>
 
-              <div class="flex items-center">
+              <div class="flex items-center ml-2">
                 <div class="text-gray-400">نوع پرداخت</div>
                 <div class="font-semibold text-gray-700 mr-1">
                   {{ order?.payment_method?.title }}
@@ -134,11 +139,11 @@
                 </div>
               </div>
               <div class="mb-3">
-                <div class="flex items-center justify-between">
+                <div class="flex flex-wrap items-center justify-between">
                   <div
-                    class="flex justify-start items-start space-x-reverse space-x-6"
+                    class="flex flex-wrap justify-start items-start space-x-reverse"
                   >
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2">
                       <div class="text-gray-400">هزینه ارسال</div>
                       <div class="font-semibold text-gray-700 mr-1">
                         <span v-if="shipment.shipment?.shipping_cost == 0"
@@ -149,14 +154,14 @@
                         }}</span>
                       </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2">
                       <div class="text-gray-400">مبلغ مرسوله</div>
                       <div class="font-semibold text-gray-700 mr-1">
                         {{ $filters.separate(shipment.order_items_cost) }}
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div class="flex-grow mt-2 lg:mt-0">
                     <div class="flex items-center">
                       <div class="text-gray-400">کد پیگیری مرسوله</div>
                       <div class="font-semibold text-gray-700 mr-1">

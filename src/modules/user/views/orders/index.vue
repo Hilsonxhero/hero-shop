@@ -15,7 +15,9 @@
         <div class="border rounded-xl p-4">
           <h5 class="text-xl">تاریخچه سفارشات</h5>
 
-          <ul class="user-orders__tabs flex items-center relative mt-6">
+          <ul
+            class="user-orders__tabs flex overflow-x-auto items-center relative mt-6 pb-2"
+          >
             <li
               @click="changeTabStatus(tab)"
               class="user-orders__tab relative px-6 py-2 cursor-pointer flex items-center flex-col"
@@ -24,9 +26,10 @@
               :key="index"
             >
               <div class="flex items-center">
-                <span class="text-gray-500 user-orders__tab--title">{{
-                  tab.title
-                }}</span>
+                <span
+                  class="text-gray-500 user-orders__tab--title whitespace-nowrap"
+                  >{{ tab.title }}</span
+                >
                 <span
                   class="user-orders__tab--count mr-2 px-2 bg-gray-400 rounded text-white"
                   >{{ tab.count }}</span
@@ -69,26 +72,26 @@
                     </div>
                   </div>
                   <div
-                    class="flex justify-start items-start space-x-reverse space-x-2 user-orders__head pb-2"
+                    class="flex flex-wrap justify-start items-start user-orders__head pb-2"
                   >
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2 mb-2">
                       <div class="font-semibold text-gray-700 mr-1">
                         {{ order.create_at }}
                       </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2 mb-2">
                       <div class="text-gray-400">کد سفارش</div>
                       <div class="font-semibold text-gray-700 mr-1">
                         {{ order.reference_code }}
                       </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2 mb-2">
                       <div class="text-gray-400">مبلغ</div>
                       <div class="font-semibold text-gray-700 mr-1">
                         {{ $filters.separate(order.price.payable_price) }}
                       </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-2 mb-2">
                       <div class="text-gray-400">تخفیف</div>
                       <div class="font-semibold text-gray-700 mr-1">
                         {{ $filters.separate(order.price.payable_price) }}

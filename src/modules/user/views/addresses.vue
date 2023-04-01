@@ -48,7 +48,7 @@
               </div>
             </div>
           </div>
-          <div class="col-span-4 bg-gray-100 rounded-xl p-4">
+          <div class="col-span-12 lg:col-span-4 bg-gray-100 rounded-xl p-4">
             <div class="flex">
               <div class="flex h-full flex-col">
                 <h4 class="text-xl">آدرس های شما</h4>

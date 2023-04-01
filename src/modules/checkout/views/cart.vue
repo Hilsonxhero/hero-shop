@@ -110,14 +110,14 @@
               </div>
             </div>
             <div class="flex items-center justify-between py-6 px-4">
-              <div class="flex items-center">
+              <div class="flex items-center flex-wrap">
                 <span class="ml-3">
                   {{ store?.cart?.items_count }}
                   کالا در سبد خرید
                 </span>
-                <span class="ml-3"> حذف تمامی آیتم ها </span>
+                <span class="ml-3 hidden lg:block"> حذف تمامی آیتم ها </span>
               </div>
-              <div class="">
+              <div class="hidden lg:block">
                 <span>قابل پرداخت : </span>
                 <span>
                   {{ $filters.separate(cart?.payable_price) }}

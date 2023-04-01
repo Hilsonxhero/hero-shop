@@ -30,7 +30,7 @@
       />
       <span :class="ns.e('inner')" />
     </span>
-    <span :class="ns.e('label')" @keydown.stop>
+    <span class="mr-2" :class="ns.e('label')" @keydown.stop>
       <slot>
         {{ label }}
       </slot>

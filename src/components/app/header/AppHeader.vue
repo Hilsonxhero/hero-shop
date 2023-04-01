@@ -86,10 +86,18 @@
                 <hx-icon icon="user" class="text-gray-400 w-6 h-6"></hx-icon>
               </router-link>
               <router-link :to="{ name: 'checkout cart' }">
-                <hx-icon
-                  icon="shopping-bag"
-                  class="text-gray-400 w-6 h-6 mr-4"
-                ></hx-icon>
+                <div class="relative">
+                  <hx-icon
+                    icon="shopping-bag"
+                    class="text-gray-400 w-6 h-6 mr-4"
+                  ></hx-icon>
+                  <div
+                    v-if="cart.items_count >= 1"
+                    class="absolute h-[17px] min-w-[17px] bg-red-500 text-xs text-white rounded-md right-[10px] -bottom-[5px] flex items-center justify-center"
+                  >
+                    {{ cart.items_count }}
+                  </div>
+                </div>
               </router-link>
             </div>
           </div>
@@ -108,6 +116,10 @@ import HeaderSearch from "./search.vue";
 import { onClickOutside } from "@vueuse/core";
 import { useConfigStore } from "@/modules/config";
 import { storeToRefs } from "pinia";
+import { useCartStore } from "@/modules/checkout";
+
+const cartStore = useCartStore();
+const { cart } = storeToRefs(cartStore);
 const store = useConfigStore();
 const { config, banners } = storeToRefs(store);
 const navRef = ref(null);

@@ -147,14 +147,20 @@
         <div class="flex flex-col" v-else>
           <div
             class="flex items-center justify-between border-b py-3"
-            v-for="(option, index) in selectedFilter?.options"
+            v-for="(option, i) in selectedFilter?.values"
             :key="index"
           >
             <div>
               <template v-if="selectedFilter.type == 'checkbox'">
                 <hx-checkbox
+                  v-model="filter_features[index].values"
+                  @change="
+                    handleChangeFeature(option.id, filter_features[index])
+                  "
                   class="flex items-center"
+                  :key="i"
                   :label="option.title"
+                  :value="option.id"
                 ></hx-checkbox>
               </template>
             </div>
@@ -288,6 +294,7 @@ const handleFilterModal = () => {
 
 const handleFilterOption = (filter: any, index: any) => {
   if (filter.type == "checkbox") {
+    console.log("filter", filter);
     selectedFilter.value
       ? (selectedFilter.value = null)
       : (selectedFilter.value = { ...filter, filter: index });
