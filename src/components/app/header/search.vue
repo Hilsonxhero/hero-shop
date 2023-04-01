@@ -1,6 +1,6 @@
 <template>
-  <div class="relative t-header__box hidden lg:flex">
-    <div class="relative w-full t-header__search">
+  <div class="relative t-header__box">
+    <div class="relative w-full t-header__search hidden lg:flex">
       <input
         class="bg-gray-100 leading-6 rounded-xl text-sm w-full"
         type="text"
@@ -12,6 +12,10 @@
         class="w-6 h-6 absolute top-1/2 mr-1 text-gray-400 cursor-pointer"
       >
       </hx-icon>
+    </div>
+
+    <div class="block lg:hidden" @click="handleShowSearch">
+      <hx-icon icon="search-bulk" class="w-6 h-6 mr-4"></hx-icon>
     </div>
 
     <hx-dialog
@@ -54,7 +58,10 @@
         >
           <swiper-slide v-for="(category, index) in categories" :key="index">
             <router-link
-              :to="{ name: 'main category', params: { slug: category.slug } }"
+              :to="{
+                name: 'search-category',
+                params: { category: category.slug },
+              }"
               class="whitespace-nowrap bg-gray-100 rounded-md flex items-center flex-row p-[0.375rem]"
             >
               <span class="ml-2 w-8 h-8 block flex-none"
@@ -173,7 +180,7 @@ import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import ApiService from "@/core/services/ApiService";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const modules = [Navigation];
 
@@ -182,6 +189,8 @@ const inputRef = ref();
 const { focused } = useFocus(inputRef, { initialValue: true });
 
 const router = useRouter();
+
+const route = useRoute();
 
 const search = ref(null);
 
@@ -243,6 +252,8 @@ const handleSubmit = (e) => {
 };
 
 const handleCloseSearch = () => {
+  visible_search.value = false;
+
   search.value = "";
   products.value = [];
   categories.value = [];

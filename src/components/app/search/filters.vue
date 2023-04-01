@@ -2,7 +2,7 @@
   <div>
     <div class="hidden lg:block w-full" v-if="filters">
       <div class="flex flex-col space-y-4">
-        <div class="bg-gray-100 rounded-xl p-3">
+        <!-- <div class="bg-gray-100 rounded-xl p-3">
           <h4 class="text-gray-800">جستجو در کالاها</h4>
           <div class="w-full mt-4">
             <hx-input
@@ -11,7 +11,7 @@
               placeholder="نام کالا یا برند را وارد کنید .."
             ></hx-input>
           </div>
-        </div>
+        </div> -->
         <div class="bg-gray-100 rounded-xl p-3">
           <div class="w-full border-b-2 pb-4">
             <hx-switch
@@ -122,6 +122,7 @@
               <hx-checkbox
                 v-for="(option, i) in filter.values"
                 v-model="filter_features[index].values"
+                @change="handleChangeFeature()"
                 class="flex items-center"
                 :key="i"
                 :true-label="option.id"

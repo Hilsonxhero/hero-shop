@@ -15,7 +15,8 @@ const router = createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     // always scroll to top
-    return { top: 0, behavior: "smooth" };
+    document.getElementById('app')!.scrollIntoView({ behavior: "smooth" });
+    // return { top: 0, behavior: "smooth" };
   },
   // parseQuery(query) {
   //   return qs.parse(query);

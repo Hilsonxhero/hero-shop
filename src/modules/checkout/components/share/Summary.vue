@@ -45,7 +45,7 @@
     </div>
 
     <teleport to="body">
-      <div class="sticky z-20 bottom-0 inset-x-0">
+      <div class="sticky z-20 bottom-[3.77rem] inset-x-0">
         <section
           class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset lg:hidden"
         >

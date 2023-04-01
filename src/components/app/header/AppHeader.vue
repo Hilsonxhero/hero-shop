@@ -24,7 +24,7 @@
               variant="gray"
               @click="showNavHandler"
             >
-              <hx-icon class="text-gray-400" icon="menu"></hx-icon>
+              <hx-icon class="text-gray-400" icon="menu-bulk"></hx-icon>
             </hx-button>
 
             <div class="hidden lg:block">
@@ -82,10 +82,10 @@
             </div>
             <!-- v-clickoutside:hx-header__nav="hide" -->
             <div class="flex items-center lg:hidden">
-              <router-link :to="{ name: 'auth' }">
+              <!-- <router-link :to="{ name: 'auth' }">
                 <hx-icon icon="user" class="text-gray-400 w-6 h-6"></hx-icon>
-              </router-link>
-              <router-link :to="{ name: 'checkout cart' }">
+              </router-link> -->
+              <!-- <router-link :to="{ name: 'checkout cart' }">
                 <div class="relative">
                   <hx-icon
                     icon="shopping-bag"
@@ -98,7 +98,10 @@
                     {{ cart.items_count }}
                   </div>
                 </div>
-              </router-link>
+              </router-link> -->
+              <!-- <div>
+                <hx-icon icon="search-bulk" class="w-6 h-6 mr-4"></hx-icon>
+              </div> -->
             </div>
           </div>
         </div>
@@ -134,10 +137,6 @@ const menus = ref([
 onClickOutside(navRef, (event) => {
   active.value = false;
 });
-
-const hide = () => {
-  active.value = false;
-};
 
 const showNavHandler = () => {
   active.value = true;

@@ -57,7 +57,6 @@
       </div>
     </transition>
   </teleport>
-  <hx-overlay :active="visible"></hx-overlay>
 </template>
 
 <script lang="ts" setup>
