@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-[3.75rem]">
+  <div class="pb-[3.75rem] lg:pb-0">
     <hx-header></hx-header>
     <main>
       <router-view />

@@ -2,7 +2,7 @@
   <footer>
     <div class="container">
       <div
-        class="bg-gray-100 overflow-hidden rounded-xl mb-8 w-full px-6 flex content-between items-center"
+        class="bg-gray-100 overflow-hidden rounded-xl mb-4 w-full px-6 flex content-between items-center"
       >
         <div class="flex-grow hidden lg:block">
           <div class="flex text-sm py-5">
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <div class="grid grid-cols-12 gap-y-8 lg:pb-6">
           <div
             class="col-span-12 lg:col-span-9 gap-y-4 space-y-4 overflow-hidden"
@@ -246,7 +246,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>

@@ -2,7 +2,7 @@
   <div class="container">
     <div
       v-if="products?.length >= 1"
-      class="hx-promotion__box w-full rounded-xl relative py-8 px-4 bg-gray-100 overflow-hidden h-full"
+      class="hx-promotion__box w-full rounded-lg relative py-8 px-4 bg-gray-100 overflow-hidden h-full"
     >
       <div
         class="flex flex-col lg:flex-row items-stretch justify-start relative z-10"
