@@ -176,7 +176,7 @@
                 v-for="(product, index) in shipment.order_items"
                 :key="index"
               >
-                <div class="grid grid-cols-12 gap-2 lg:gap-4 mb-3">
+                <div class="grid grid-cols-12 gap-2 lg:gap-4 my-5">
                   <div class="col-span-4 lg:col-span-2">
                     <router-link
                       :to="{
@@ -187,7 +187,7 @@
                         },
                       }"
                     >
-                      <div class="lg:h-28 lg:w-28">
+                      <div class="lg:h-20 lg:w-20">
                         <img
                           class="object-contain w-full"
                           :src="product?.product.media?.thumb"
@@ -203,27 +203,26 @@
                     </h4>
 
                     <div class="flex flex-col lg:flex-row lg:items-center my-4">
-                      <!-- <div
+                      <div
                         class="flex items-center lg:mr-2"
-                        v-for="(combination, index) in item?.variant
+                        v-for="(combination, index) in product?.variant
                           ?.combinations"
                       >
-                        <template v-if="combination.type == 'color'">
-                          <span
-                            class="w-6 h-6 lg:w-5 lg:h-5 rounded-[50%]"
-                            :style="`background: ${combination.value}`"
-                          ></span>
-                        </template>
+                        <hx-icon
+                          icon="cube-scan-bulk"
+                          class="w-6 h-6"
+                        ></hx-icon>
+
                         <span class="mr-2 text-gray-500 text-sm">{{
                           combination.label
                         }}</span>
-                      </div> -->
+                      </div>
 
                       <div class="flex items-center lg:mr-2">
                         <span class="">
                           <hx-icon
                             class="text-gray-500 w-6 h-6 lg:w-6 lg:h-6"
-                            icon="shield"
+                            icon="shield-tick"
                           ></hx-icon>
                         </span>
                         <span class="mr-2 text-gray-500 text-sm">
@@ -258,12 +257,12 @@
 import { onMounted, ref, watch } from "vue";
 import ApiService from "@/core/services/ApiService";
 import { useRoute } from "vue-router";
-
 const order = ref<any>({});
 const tabs = ref([]);
 const loading = ref<boolean>(true);
 const order_id = ref(null);
 const route = useRoute();
+const html2Pdf = ref(null);
 
 const fetchOrder = () => {
   loading.value = true;

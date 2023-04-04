@@ -115,14 +115,17 @@ const handleSelectVariant = (
 };
 
 const initDefaultVariant = () => {
-  default_variant.value.combinations.map((item, index) => {
-    const key = item.group.id;
-    selected_combinations.value[key] = {
-      group: key,
-      id: item.variant_id,
-      label: item.label,
-    };
-  });
+  if (default_variant.value) {
+    default_variant.value.combinations.map((item, index) => {
+      const key = item.group.id;
+      selected_combinations.value[key] = {
+        group: key,
+        id: item.variant_id,
+        label: item.label,
+      };
+    });
+  } else {
+  }
 };
 
 onMounted(() => {

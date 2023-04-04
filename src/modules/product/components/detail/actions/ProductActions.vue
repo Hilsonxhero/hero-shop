@@ -17,7 +17,7 @@
 
       <div class="ml-3">
         <hx-button
-          v-if="current_variant.is_announcemented_promotion"
+          v-if="current_variant?.is_announcemented_promotion"
           icon
           variant="gray"
           @click="handleAnnouncement"
@@ -111,7 +111,9 @@ const props = defineProps({
 watch(
   () => props.defaultVariant,
   (val, oldVal) => {
-    current_variant.value = val;
+    if (val) {
+      current_variant.value = val;
+    }
   },
   { deep: true }
 );

@@ -1,11 +1,11 @@
 <template>
   <aside class="mt-10 lg:sticky lg:top-24 lg:block lg:space-y-3 lg:mt-0">
     <div
-      v-if="default_variant.has_stock"
+      v-if="default_variant?.has_stock && has_variant"
       class="seller-container lg:divide-y-0 p-5 border-2 border-gray-100 flex flex-col rounded-xl"
     >
       <div class="space-y-6">
-        <!-- <a href="" class="flex items-center justify-between">
+        <!-- <a href="" class="flex items-center justify-betweene">
           <div class="seller-content">
             <div class="container-company-name">
               <div class="wrapper-company-name">
@@ -40,7 +40,7 @@
         <section class="">
           <div class="flex items-center">
             <hx-button icon variant="gray">
-              <hx-icon class="text-gray-500" icon="shield"></hx-icon>
+              <hx-icon class="text-gray-500" icon="shield-tick"></hx-icon>
             </hx-button>
 
             <span class="text-typo text-xs font-medium mr-1">
@@ -49,7 +49,7 @@
           </div>
           <div class="flex items-center">
             <hx-button icon variant="gray">
-              <hx-icon class="text-gray-500" icon="package"></hx-icon>
+              <hx-icon class="text-gray-500" icon="truck-tick"></hx-icon>
             </hx-button>
             <span class="text-typo text-xs font-medium mr-1">
               {{ default_variant?.shipment?.title }}</span
@@ -238,6 +238,7 @@ const selected = ref({});
 const entries = ref([]);
 const current_variant = ref<any>(null);
 const loader = ref<any>(false);
+const has_variant = ref<any>(true);
 
 // watch(
 //   selected,
@@ -252,8 +253,13 @@ const loader = ref<any>(false);
 watch(
   () => props.variant,
   (val, oldVal) => {
-    default_variant.value = val;
-    current_variant.value = checkVariantExistsInCart();
+    if (val) {
+      default_variant.value = val;
+      current_variant.value = checkVariantExistsInCart();
+      has_variant.value = true;
+    } else {
+      has_variant.value = false;
+    }
   },
   { deep: true }
 );

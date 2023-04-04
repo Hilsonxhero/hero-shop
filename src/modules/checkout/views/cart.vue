@@ -41,12 +41,8 @@
                       v-for="(combination, index) in item?.variant
                         ?.combinations"
                     >
-                      <template v-if="combination.type == 'color'">
-                        <span
-                          class="w-6 h-6 lg:w-5 lg:h-5 rounded-[50%]"
-                          :style="`background: ${combination.value}`"
-                        ></span>
-                      </template>
+                      <hx-icon icon="cube-scan-bulk" class="w-6 h-6"></hx-icon>
+
                       <span class="mr-2 text-gray-500 text-sm">{{
                         combination.label
                       }}</span>
@@ -56,7 +52,7 @@
                       <span class="">
                         <hx-icon
                           class="text-gray-500 w-6 h-6 lg:w-6 lg:h-6"
-                          icon="shield"
+                          icon="shield-tick"
                         ></hx-icon>
                       </span>
                       <span class="mr-2 text-gray-500 text-sm">
@@ -68,13 +64,13 @@
                       <span class="">
                         <hx-icon
                           class="text-gray-500 w-6 h-6 lg:w-6 lg:h-6"
-                          icon="store"
+                          icon="shop"
                         ></hx-icon>
                       </span>
                       <span class="mr-2 text-gray-500 text-sm">فالکون</span>
                     </div>
 
-                    <div class="flex items-center lg:mr-2">
+                    <!-- <div class="flex items-center lg:mr-2">
                       <span class="">
                         <hx-icon
                           class="text-gray-500 w-6 h-6 lg:w-6 lg:h-6"
@@ -84,7 +80,7 @@
                       <span class="mr-2 text-gray-500 text-sm">
                         {{ item?.variant.shipment?.title }}
                       </span>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>

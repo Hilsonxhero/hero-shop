@@ -69,7 +69,7 @@
             <header-search></header-search>
             <div class="hidden lg:flex">
               <hx-button :to="{ name: 'auth' }" class="mr-2" variant="light">
-                <hx-icon icon="user"></hx-icon>
+                <hx-icon icon="user-bulk"></hx-icon>
               </hx-button>
 
               <hx-button
@@ -77,7 +77,7 @@
                 class="mr-2"
                 variant="light"
               >
-                <hx-icon icon="shopping-bag"></hx-icon>
+                <hx-icon icon="bag-bulk"></hx-icon>
               </hx-button>
             </div>
             <!-- v-clickoutside:hx-header__nav="hide" -->
