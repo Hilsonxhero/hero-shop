@@ -5,17 +5,19 @@
       class="seller-container lg:divide-y-0 p-5 border-2 border-gray-100 flex flex-col rounded-xl"
     >
       <div class="space-y-6">
-        <!-- <a href="" class="flex items-center justify-betweene">
+        <a href="" class="flex items-center justify-between">
           <div class="seller-content">
             <div class="container-company-name">
               <div class="wrapper-company-name">
                 <span class="company-name-title"> فروشنده </span>
-                <span class="company_name"> فالکون </span>
+                <span class="company_name">
+                  {{ default_variant?.seller?.title }}
+                </span>
               </div>
             </div>
             <div class="flex items-center">
               <span class="text-typo-lighter text-sm lg:mt-4">
-                عملکرد 3 از 5</span
+                عملکرد 5 از 5</span
               >
 
               <hx-button
@@ -33,9 +35,9 @@
             variant="gray"
             class="hidden ml-2 text-typo-lighter text-sm transition-all lg:flex"
           >
-            <hx-icon class="text-gray-500" icon="chevron-left"></hx-icon>
+            <hx-icon class="text-gray-500" icon="arrow-left"></hx-icon>
           </hx-button>
-        </a> -->
+        </a>
 
         <section class="">
           <div class="flex items-center">

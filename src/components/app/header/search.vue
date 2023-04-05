@@ -8,7 +8,7 @@
         @click="handleShowSearch"
       />
       <hx-icon
-        icon="search"
+        icon="search-bulk"
         class="w-6 h-6 absolute top-1/2 mr-1 text-gray-400 cursor-pointer"
       >
       </hx-icon>
