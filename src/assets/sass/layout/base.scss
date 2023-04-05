@@ -63,3 +63,8 @@
     }
   }
 }
+.invoice-container {
+  & .invoice-title-align {
+    margin-top: -1.3rem;
+  }
+}
