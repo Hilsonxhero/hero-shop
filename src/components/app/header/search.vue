@@ -68,7 +68,7 @@
                 ><img
                   data-name="image-img"
                   :src="category.media?.thumb"
-                  class="w-full h-full transition-opacity duration-500"
+                  class="w-full h-full object-contain transition-opacity duration-500"
                 />
               </span>
               <span
@@ -122,7 +122,7 @@
                 ><img
                   data-name="image-img"
                   :src="product.media?.thumb"
-                  class="w-full h-full transition-opacity duration-500"
+                  class="w-full h-full transition-opacity duration-500 object-contain"
                 />
               </span>
               <div class="flex flex-col justify-between">
