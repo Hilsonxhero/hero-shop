@@ -56,30 +56,46 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, PropType, Ref } from "vue";
 import { UPDATE_MODEL_EVENT } from "@/core/constants";
-
+import {
+  ProductCombinationModel,
+  ProductVariantModel,
+  CombinationModel,
+} from "@/modules/product/models/ProductModel";
 const props = defineProps({
-  combinations: {},
-  variant: {},
-  variants: {},
+  combinations: {
+    type: Array as PropType<ProductCombinationModel[]>,
+  },
+  variant: {
+    type: Object as PropType<ProductVariantModel>,
+    required: true,
+  },
+  variants: {
+    type: Array as PropType<ProductVariantModel[]>,
+    required: true,
+  },
 });
+
+interface ISelectionCombination {
+  group: number;
+  id: number;
+  label: string;
+}
 
 const emits = defineEmits([UPDATE_MODEL_EVENT]);
 
-const entries = ref([]);
-const default_variant = ref(props.variant);
-const selected_combinations = ref({});
-
-watch(
-  () => selected_combinations.value,
-  (val, oldVal) => {
-    // emits(UPDATE_MODEL_EVENT, val);
-  }
+const entries: Ref<ISelectionCombination[]> = ref(
+  [] as ISelectionCombination[]
+);
+const default_variant: Ref<ProductVariantModel> = ref(
+  props.variant as ProductVariantModel
+);
+const selected_combinations: Ref<ISelectionCombination> = ref(
+  {} as ISelectionCombination
 );
 
-watch(default_variant, (val, oldVal) => {
+watch(default_variant, (val: ProductVariantModel, oldVal) => {
   initDefaultVariant();
   emits(UPDATE_MODEL_EVENT, val);
 });
@@ -95,8 +111,8 @@ watch(
 );
 
 const handleSelectVariant = (
-  variants: Array<unknown>,
-  selectedVariants: Array<any>
+  variants: ProductVariantModel[],
+  selectedVariants: ISelectionCombination[]
 ) => {
   const clone = JSON.parse(JSON.stringify(variants));
   clone.forEach((variant: any) => {
@@ -116,7 +132,7 @@ const handleSelectVariant = (
 
 const initDefaultVariant = () => {
   if (default_variant.value) {
-    default_variant.value.combinations.map((item, index) => {
+    default_variant.value.combinations.map((item: CombinationModel, index) => {
       const key = item.group.id;
       selected_combinations.value[key] = {
         group: key,

@@ -53,13 +53,11 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
 const props = defineProps({
   items: {
     type: Object,
   },
 });
-// @ts-nocheck
 </script>
 
 <style scoped></style>

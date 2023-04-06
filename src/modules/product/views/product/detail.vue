@@ -108,12 +108,10 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, Ref } from "vue";
 import BaseCombinations from "@/modules/product/components/detail/combination/Combinations.vue";
 import Attributes from "@/modules/product/components/detail/Attributes.vue";
 import SellerBox from "@/modules/product/components/detail/seller/BaseSellerAside.vue";
-import MobileSellerBox from "@/modules/product/components/detail/seller/MobileBox.vue";
 import BaseComments from "@/modules/product/components/detail/comments/BaseComment.vue";
 import Preview from "@/modules/product/components/detail/preview/BasePreview.vue";
 import BaseFaq from "@/modules/product/components/detail/faq/BaseFaq.vue";
@@ -121,17 +119,21 @@ import MainImage from "@/modules/product/components/detail/gallery/MainImage.vue
 import Gallery from "@/modules/product/components/detail/gallery/Gallery.vue";
 import ProductActions from "@/modules/product/components/detail/actions/ProductActions.vue";
 import ApiService from "@/core/services/ApiService";
-import { useRoute } from "vue-router";
-
+import { RouteLocationNormalized, useRoute } from "vue-router";
 import { useHead } from "@vueuse/head";
+import {
+  ProductModel,
+  ProductVariantModel,
+} from "@/modules/product/models/ProductModel";
 
-const id = ref(null);
-const loading = ref(true);
-const product = ref({});
-const route = useRoute();
-const comments = ref(null);
-const comment_scores = ref([]);
-const default_variant = ref({});
+const id = ref<string | string[]>("");
+const loading = ref<boolean>(true);
+const product: Ref<ProductModel> = ref({} as ProductModel);
+const route: RouteLocationNormalized = useRoute();
+const default_variant: Ref<ProductVariantModel> = ref(
+  {} as ProductVariantModel
+);
+
 useHead({
   title: computed(() => product.value.title_fa),
   meta: [
@@ -150,12 +152,6 @@ onMounted(() => {
       loading.value = false;
     })
     .catch(() => {});
-
-  // ApiService.get(`comments/product/${id.value}`)
-  //   .then(({ data }) => {
-  //     comments.value = data;
-  //   })
-  //   .catch(() => { });
 });
 </script>
 

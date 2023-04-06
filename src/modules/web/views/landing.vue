@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import Recommendation from "@/modules/web/components/recommendations/Recommendation.vue";
 import TopSlider from "@/modules/web/components/main/slider/TopSlider.vue";
 import Categories from "@/modules/web/components/main/category/categories.vue";
@@ -65,10 +65,22 @@ import Pcc from "@/modules/web/components/main/pcc/pcc.vue";
 import Articles from "@/modules/web/components/main/articles/Articles.vue";
 import ApiService from "@/core/services/ApiService";
 import { LandingModel } from "@/modules/web/models/LandingModel";
+import { useHead } from "@vueuse/head";
 
 const init = ref<LandingModel>({});
 const recommendations = ref<Array<object>>([]);
 const loading = ref<any>(true);
+
+useHead({
+  title: computed(() => "صفحه اصلی"),
+  meta: [
+    {
+      name: `description`,
+      content: computed(() => "صفحه اصلی"),
+    },
+  ],
+});
+
 onMounted(() => {
   ApiService.get("landing").then(({ data }) => {
     init.value = data.data;
