@@ -1,31 +1,22 @@
 import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from "vue-router";
 // @ts-ignore
-import app from "./application";
 import user from "@/modules/user/router";
 import auth from "@/modules/auth/router";
 import checkout from "@/modules/checkout/router";
 import promotion from "@/modules/promotion/router";
 import article from "@/modules/article/router";
-
-const routes: Array<RouteRecordRaw> = [app, auth, user, checkout, promotion, article];
+import web from "@/modules/web/router";
+import product from "@/modules/product/router";
+const routes: Array<RouteRecordRaw> = [auth, product, user, checkout, promotion, article, web];
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL),
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
     document.getElementById('app')!.scrollIntoView({ behavior: "smooth" });
     // return { top: 0, behavior: "smooth" };
   },
-  // parseQuery(query) {
-  //   return qs.parse(query);
-  // },
-  // stringifyQuery(query) {
-  //   const result = qs.stringify(query);
-
-  //   return result ? result : "";
-  // },
 });
 
 import { useUserStore } from "@/modules/user";
