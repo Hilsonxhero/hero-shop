@@ -2,7 +2,7 @@
   <div class="container">
     <div
       v-if="products?.length >= 1"
-      class="hx-promotion__box w-full rounded-lg relative py-8 px-4 bg-gray-100 overflow-hidden h-full"
+      class="hx-bs__box w-full relative py-8 px-4 bg-gray-100 overflow-hidden h-full rounded-lg"
     >
       <div
         class="flex flex-col lg:flex-row items-stretch justify-start relative z-10"
@@ -10,17 +10,22 @@
         <div
           class="flex flex-col items-center justify-center text-center mx-auto lg:justify-start w-60 min-w-[15rem]"
         >
-          <h4 class="text-center mb-2 text-white text-3xl">تخفیفات ویژه</h4>
+          <h4 class="text-center mb-2 text-white text-3xl">پر فروش ترین ها</h4>
           <div class="text-base text-white mt-3 lg:mt-6 mb-6">مشاهده همه</div>
           <img
-            class="w-24 h-full hidden lg:flex justify-end object-contain"
-            src="/media/bell.png"
+            class="w-24 h-full hidden lg:flex justify-end object-contain mt-12"
+            src="/media/rocket.png"
             alt=""
           />
         </div>
+
         <div class="flex-grow overflow-hidden">
-          <swiper :modules="modules" :breakpoints="config.breakpoints">
-            <swiper-slide v-for="(product, index) in products">
+          <swiper
+            :autoplay="config.auto"
+            :modules="modules"
+            :breakpoints="config.breakpoints"
+          >
+            <swiper-slide v-for="(product, index) in products" :key="index">
               <product :product="product"></product>
             </swiper-slide>
           </swiper>
@@ -32,19 +37,15 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import Product from "./product.vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { ref } from "vue";
-
-const props = defineProps({
-  products: {
-    type: Array,
-  },
-});
-
+import Product from "@/modules/web/components/main/promotion/product.vue";
 const modules = [Navigation, Pagination, Autoplay];
+
 const config = ref({
   auto: {
     delay: 1000,
@@ -81,10 +82,14 @@ const config = ref({
     },
   },
 });
+
+const props = defineProps({
+  products: {},
+});
 </script>
 
 <style lang="scss" scoped>
-.hx-promotion__box {
+.hx-bs__box {
   z-index: 2;
 
   &::before {
@@ -96,8 +101,30 @@ const config = ref({
     right: 0;
     width: 100%;
     height: 250px;
-    background: url("/media/promotion.png") no-repeat;
+    background: url("/media/bs-bg.png") no-repeat;
     background-size: cover;
+  }
+
+  .hx-product__item {
+    @apply bg-white shadow-md flex flex-col items-center rounded-md p-4 relative;
+  }
+
+  .t-percent {
+    height: 1.75rem;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    border-radius: 0.375rem;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 106, 106, 1);
+    padding-left: 0.25rem;
+    padding-right: 0.5rem;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
   }
 }
 </style>

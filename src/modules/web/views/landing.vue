@@ -53,22 +53,21 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
-
 import { onMounted, ref } from "vue";
-import Recommendation from "@/modules/landing/components/recommendations/Recommendation.vue";
-import TopSlider from "@/components/app/main/slider/TopSlider.vue";
-import Categories from "@/components/app/main/category/categories.vue";
-import Promotion from "@/components/app/main/promotion/promotion.vue";
-import Bestselling from "@/components/app/main/bs/Bestselling.vue";
-import TripleBanner from "@/components/app/main/banners/Triple.vue";
-import QuadrupleBanner from "@/components/app/main/banners/Quadruple.vue";
-import Pcc from "@/components/app/main/pcc/pcc.vue";
-import Articles from "@/components/app/main/articles/Articles.vue";
+import Recommendation from "@/modules/web/components/recommendations/Recommendation.vue";
+import TopSlider from "@/modules/web/components/main/slider/TopSlider.vue";
+import Categories from "@/modules/web/components/main/category/categories.vue";
+import Promotion from "@/modules/web/components/main/promotion/promotion.vue";
+import Bestselling from "@/modules/web/components/main/bs/Bestselling.vue";
+import TripleBanner from "@/modules/web/components/main/banners/Triple.vue";
+import QuadrupleBanner from "@/modules/web/components/main/banners/Quadruple.vue";
+import Pcc from "@/modules/web/components/main/pcc/pcc.vue";
+import Articles from "@/modules/web/components/main/articles/Articles.vue";
 import ApiService from "@/core/services/ApiService";
+import { LandingModel } from "@/modules/web/models/LandingModel";
 
-const init = ref<Array<any>>([]);
-const recommendations = ref<Array<any>>([]);
+const init = ref<LandingModel>({});
+const recommendations = ref<Array<object>>([]);
 const loading = ref<any>(true);
 onMounted(() => {
   ApiService.get("landing").then(({ data }) => {

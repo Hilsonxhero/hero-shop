@@ -66,7 +66,7 @@
 // @ts-nocheck
 import { onMounted, ref } from "vue";
 
-import ArticleItem from "@/components/app/main/articles/ArticleItem.vue";
+import ArticleItem from "@/modules/web/components/main/articles/ArticleItem.vue";
 
 import ApiService from "@/core/services/ApiService";
 

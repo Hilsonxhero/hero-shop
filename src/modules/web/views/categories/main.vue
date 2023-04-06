@@ -43,8 +43,8 @@
 </template>
 
 <script setup lang="ts">
-import TopSlider from "@/components/app/main/slider/TopSlider.vue";
-import Promotion from "@/components/app/main/promotion/promotion.vue";
+import TopSlider from "@/modules/web/components/main/slider/TopSlider.vue";
+import Promotion from "@/modules/web/components/main/promotion/promotion.vue";
 import Brands from "@/components/app/main/brands/carousel.vue";
 </script>
 

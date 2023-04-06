@@ -30,21 +30,7 @@
           src="/media/promotion/05.png"
           alt=""
         />
-        <!-- <img
-          class="absolute left-[16%] -top-[45%] right-auto bottom-auto max-w-full h-full"
-          src="/media/promotion/01.png"
-          alt=""
-        />
-        <img
-          class="absolute left-[0%] top-auto right-auto bottom-[0%] max-w-full h-full"
-          src="/media/promotion/02.png"
-          alt=""
-        />
-        <img
-          class="absolute left-auto top-[0%] right-[0%] bottom-auto max-w-full h-full"
-          src="/media/promotion/04.png"
-          alt=""
-        /> -->
+
         <div class="flex items-center overflow-x-auto my-3 z-10 relative pb-2">
           <div class="pr-3 cursor-pointer">
             <div
@@ -112,7 +98,7 @@
 // @ts-nocheck
 import Countdown from "@/components/common/countdown.vue";
 import { onMounted, ref } from "vue";
-import Product from "@/components/app/main/promotion/product.vue";
+import Product from "@/modules/web/components/main/promotion/product.vue";
 import ApiService from "@/core/services/ApiService";
 import { fa } from "@/core/locale";
 
