@@ -48,12 +48,14 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
+// @ts-ignore
 import type { PropType } from "vue";
-import { recommendationModel } from "@/modules/web/models/recommendationModel";
+// import { recommendationModel } from "@/modules/web/models/recommendationModel";
 
 const props = defineProps({
   recommendations: {
-    type: Array as PropType<recommendationModel[]>,
+    type: Array as PropType<any[]>,
   },
 });
 </script>

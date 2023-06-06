@@ -141,6 +141,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 
 import { onMounted, ref, watch } from "vue";
 import ApiService from "@/core/services/ApiService";

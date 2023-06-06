@@ -116,6 +116,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 import { ref, watch } from "vue";
 import SwiperClass, { Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";

@@ -19,7 +19,7 @@
           </ul>
         </aside> -->
         <section
-          v-if="review.items"
+          v-if="review?.items"
           class="relative pb-4 pt-4 px-4 text-justify leading-8 lg:pt-0 lg:leading-10 lg:w-[100%]"
         >
           <hx-collapse class="product-reviews__collapse">
@@ -27,7 +27,7 @@
               :data-index="reviewItem.id"
               :title="reviewItem.title"
               :name="reviewItem.id"
-              v-for="(reviewItem, index) in review.items"
+              v-for="(reviewItem, index) in review?.items"
             >
               <div v-html="reviewItem.content"></div>
 

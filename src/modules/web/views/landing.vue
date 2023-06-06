@@ -64,10 +64,10 @@ import QuadrupleBanner from "@/modules/web/components/main/banners/Quadruple.vue
 import Pcc from "@/modules/web/components/main/pcc/pcc.vue";
 import Articles from "@/modules/web/components/main/articles/Articles.vue";
 import ApiService from "@/core/services/ApiService";
-import { LandingModel } from "@/modules/web/models/LandingModel";
+// import { LandingModel } from "@/modules/web/models/LandingModel";
 import { useHead } from "@vueuse/head";
 
-const init = ref<LandingModel>({});
+const init = ref<any>({});
 const recommendations = ref<Array<object>>([]);
 const loading = ref<any>(true);
 

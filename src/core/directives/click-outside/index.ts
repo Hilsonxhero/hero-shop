@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-nocheckk
 
 import type { DirectiveBinding } from "vue";
 

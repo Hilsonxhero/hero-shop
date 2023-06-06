@@ -1,26 +1,36 @@
 <template>
-  <div ref="button" :class="[ns.e('button-wrapper'), { hover: hovering, dragging }]" :style="wrapperStyle" tabindex="0"
-    @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" @mousedown="onButtonDown" @touchstart="onButtonDown"
-    @focus="handleMouseEnter" @blur="handleMouseLeave" @keydown="onKeyDown">
+  <div
+    ref="button"
+    :class="[ns.e('button-wrapper'), { hover: hovering, dragging }]"
+    :style="wrapperStyle"
+    tabindex="0"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+    @mousedown="onButtonDown"
+    @touchstart="onButtonDown"
+    @focus="handleMouseEnter"
+    @blur="handleMouseLeave"
+    @keydown="onKeyDown"
+  >
     <div :class="[ns.e('button'), { hover: hovering, dragging }]" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, toRefs } from 'vue'
-import { useNamespace } from '@/core/hooks'
-import { useSliderButton } from './composables'
-import { sliderButtonEmits, sliderButtonProps } from './button'
-import type { SliderButtonInitData } from './button'
+import { reactive, toRefs } from "vue";
+import { useNamespace } from "@/core/hooks";
+import { useSliderButton } from "./composables";
+import { sliderButtonEmits, sliderButtonProps } from "./button";
+import type { SliderButtonInitData } from "./button";
 
 defineOptions({
-  name: 'HxSliderButton',
-})
+  name: "HxSliderButton",
+});
 
-const props = defineProps(sliderButtonProps)
-const emit = defineEmits(sliderButtonEmits)
+const props = defineProps(sliderButtonProps);
+const emit = defineEmits(sliderButtonEmits);
 
-const ns = useNamespace('slider')
+const ns = useNamespace("slider");
 
 const initData = reactive<SliderButtonInitData>({
   hovering: false,
@@ -33,20 +43,19 @@ const initData = reactive<SliderButtonInitData>({
   startPosition: 0,
   newPosition: 0,
   oldValue: props.modelValue,
-})
+});
 
 const {
   button,
   wrapperStyle,
-  formatValue,
   handleMouseEnter,
   handleMouseLeave,
   onButtonDown,
   onKeyDown,
   setPosition,
-} = useSliderButton(props, initData, emit)
+} = useSliderButton(props, initData, emit);
 
-const { hovering, dragging } = toRefs(initData)
+const { hovering, dragging } = toRefs(initData);
 
 defineExpose({
   onButtonDown,
@@ -54,5 +63,5 @@ defineExpose({
   setPosition,
   hovering,
   dragging,
-})
+});
 </script>

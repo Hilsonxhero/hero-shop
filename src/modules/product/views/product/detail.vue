@@ -148,7 +148,7 @@ onMounted(() => {
   id.value = route.params.id;
   ApiService.get(`product/${id.value}`)
     .then(({ data }) => {
-      product.value = data.data;
+      product.value = data.data?.product;
       loading.value = false;
     })
     .catch(() => {});

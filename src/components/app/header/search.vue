@@ -171,6 +171,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 import { useFocus } from "@vueuse/core";
 import { debounce } from "lodash-unified";
 import { isEmpty } from "@/core/utils";

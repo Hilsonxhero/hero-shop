@@ -240,7 +240,7 @@ import {
   vModelText,
   ref,
 } from "vue";
-// import { ClickOutside } from '@/core/directives'
+
 import { ClickOutSide } from "@/core/directives";
 import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@/core/constants";
 import ElSelectMenu from "./select-dropdown.vue";

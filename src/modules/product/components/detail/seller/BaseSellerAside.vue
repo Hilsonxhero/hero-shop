@@ -214,7 +214,8 @@
 </template>
 
 <script setup lang="ts">
-//@ts-nocheck
+// @ts-nocheck
+// @ts-ignore
 import { ref, onMounted, watch, computed } from "vue";
 import { useCartStore } from "@/modules/checkout";
 import { storeToRefs } from "pinia";

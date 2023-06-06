@@ -77,6 +77,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 import { onMounted, ref } from "vue";
 
 import Countdown from "@/components/common/countdown.vue";

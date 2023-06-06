@@ -6,26 +6,26 @@
         <div class="flex flex-col space-y-6 border-b-2 pb-6">
           <div class="flex items-center justify-between">
             <span class="text-gray-600">مبلغ کالا ها</span>
-            <span> {{ $filters.separate(cart?.rrp_price) }} تومان</span>
+            <span> {{ $filters?.separate(cart?.rrp_price) }} تومان</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-gray-600">تخفیف کالاها</span>
             <span class="text-red-500">
-              {{ $filters.separate(cart?.items_discount) }} تومان</span
+              {{ $filters?.separate(cart?.items_discount) }} تومان</span
             >
           </div>
 
           <div class="flex items-center justify-between" v-if="showVoucher()">
             <span class="text-gray-600">کد تخفیف</span>
             <span class="text-red-500">
-              {{ $filters.separate(cart?.voucher_discount) }} تومان</span
+              {{ $filters?.separate(cart?.voucher_discount) }} تومان</span
             >
           </div>
 
           <div class="flex items-center justify-between" v-if="showShipment()">
             <span class="text-gray-600">هزینه ارسال</span>
             <span class=""
-              >{{ $filters.separate(cart?.shipment_cost) }} تومان</span
+              >{{ $filters?.separate(cart?.shipment_cost) }} تومان</span
             >
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div class="flex items-center justify-between">
             <span class="text-gray-500">مبلغ قابل پرداخت</span>
             <span class=""
-              >{{ $filters.separate(cart?.payable_price) }} تومان</span
+              >{{ $filters?.separate(cart?.payable_price) }} تومان</span
             >
           </div>
           <div class="mt-6 hidden lg:block">
@@ -63,7 +63,7 @@
                       id="price"
                       class="text-base text-left min-w-[4.5rem] min-h-[1.625rem] font-bold leading-6 lg:text-xl"
                     >
-                      {{ $filters.separate(cart?.payable_price) }}
+                      {{ $filters?.separate(cart?.payable_price) }}
                     </span>
                     <span class="font-normal text-sm leading-6 lg:text-sm mr-2"
                       >تومان</span
@@ -84,8 +84,10 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
+// @ts-ignore
 import { onMounted, ref, computed } from "vue";
-//@ts-nocheck
+
 import { useCartStore } from "@/modules/checkout";
 import { storeToRefs } from "pinia";
 

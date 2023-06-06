@@ -95,6 +95,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 
 import ApiService from "@/core/services/ApiService";
 

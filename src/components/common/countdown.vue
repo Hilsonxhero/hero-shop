@@ -16,6 +16,7 @@
 </template>
 <script setup lang="ts">
 // @ts-nocheck
+// @ts-ignore
 import { computed, onMounted, ref, onBeforeUnmount } from "vue";
 
 const props = defineProps({

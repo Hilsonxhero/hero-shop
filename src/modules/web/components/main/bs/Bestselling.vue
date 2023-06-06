@@ -37,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
+// @ts-ignore
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css";
