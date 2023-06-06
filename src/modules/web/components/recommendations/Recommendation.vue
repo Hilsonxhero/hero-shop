@@ -20,6 +20,7 @@
               :key="index"
             >
               <router-link
+                class="flex justify-center"
                 :to="{
                   name: 'product detail',
                   params: {
@@ -29,7 +30,7 @@
                 }"
               >
                 <img
-                  class="w-full"
+                  class="w-[150px] h-[150px] object-contain"
                   :src="product?.product?.media.thumb"
                   alt=""
                 />
