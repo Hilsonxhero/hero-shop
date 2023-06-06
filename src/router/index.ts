@@ -14,6 +14,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
+    let bd = document.body.classList;
+    bd.remove("overflow-hidden");
     document.getElementById('app')!.scrollIntoView({ behavior: "smooth" });
     // return { top: 0, behavior: "smooth" };
   },
