@@ -9,6 +9,7 @@
       >
         <div class="relative w-full overflow-hidden">
           <img
+            loading="lazy"
             class="rounded-xl shadow-xl"
             :src="item.banner"
             :alt="item.title"

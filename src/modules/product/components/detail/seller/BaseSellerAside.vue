@@ -167,6 +167,7 @@
         class="px-4 py-3 bg-white shadow-design lg:px-0 lg:py-0 lg:shadow-none lg:bg-unset lg:hidden"
       >
         <div
+          v-if="default_variant?.has_stock && has_variant"
           class="flex flex-row-reverse items-center justify-between lg:flex-col lg:items-start lg:justify-start lg:space-y-4"
         >
           <section class="flex">
@@ -207,6 +208,26 @@
               </hx-button>
             </template>
           </section>
+        </div>
+        <div
+          v-else
+          class="seller-container divide-y lg:divide-y-0 p-5 border-2 border-gray-100 flex flex-col rounded-xl"
+        >
+          <p class="text-gray-500">
+            این کالا فعلا موجود نیست اما می‌توانید زنگوله را بزنید تا به محض
+            موجود شدن، به شما خبر دهیم
+          </p>
+          <hx-button
+            variant="danger"
+            class="mt-3"
+            @click="addToAnnouncemente()"
+            block
+          >
+            <template v-if="default_variant.is_announcemented_availability">
+              لغو اطلاع رسانی !
+            </template>
+            <template v-else> خبرم کن ! </template>
+          </hx-button>
         </div>
       </section>
     </div>

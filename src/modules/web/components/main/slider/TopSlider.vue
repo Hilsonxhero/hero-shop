@@ -1,26 +1,50 @@
 <template>
   <div>
     <section class="">
-      <swiper class="swiper-main-ts" :loop="true" :modules="modules" :pagination="{ clickable: true }" :navigation="{
-        nextEl: '.swiper-button-next-hero',
-        prevEl: '.swiper-button-prev-hero',
-      }">
+      <swiper
+        class="swiper-main-ts"
+        :loop="true"
+        :modules="modules"
+        :pagination="{ clickable: true }"
+        :navigation="{
+          nextEl: '.swiper-button-next-hero',
+          prevEl: '.swiper-button-prev-hero',
+        }"
+      >
         <swiper-slide v-for="(item, index) in items" :key="index">
           <div>
-            <img :src="item.banner" class="w-full h-60 lg:h-96 object-cover" />
+            <img
+              :src="item.banner"
+              class="w-full h-60 lg:h-96 object-cover"
+              loading="lazy"
+            />
           </div>
         </swiper-slide>
 
-        <div class="hx-main-swiper__actions hidden items-center z-10 absolute right-0 bottom-2">
+        <div
+          class="hx-main-swiper__actions hidden items-center z-10 absolute right-0 bottom-2"
+        >
           <div class="swiper-button-prev-hero mr-8 ml-2" slot="button-prev">
-            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+            >
+              <path
+                d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+              ></path>
             </svg>
           </div>
           <div class="swiper-button-next-hero" slot="button-next">
             <div class="flex">
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+                ></path>
               </svg>
             </div>
           </div>
@@ -72,16 +96,20 @@ const props = defineProps({
     }
   }
 
-  .swiper-pagination-bullet-active {}
+  .swiper-pagination-bullet-active {
+  }
 }
 </style>
 
 <style>
-.hx-main-swiper__actions {}
+.hx-main-swiper__actions {
+}
 
-.swiper-button-next-hero {}
+.swiper-button-next-hero {
+}
 
-.swiper-button-prev-hero {}
+.swiper-button-prev-hero {
+}
 
 .swiper-button-next-hero,
 .swiper-button-prev-hero {
@@ -117,5 +145,6 @@ const props = defineProps({
   background: #333;
 }
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+}
 </style>

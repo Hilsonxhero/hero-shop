@@ -13,6 +13,7 @@
           <h4 class="text-center mb-2 text-white text-3xl">تخفیفات ویژه</h4>
           <div class="text-base text-white mt-3 lg:mt-6 mb-6">مشاهده همه</div>
           <img
+            loading="lazy"
             class="w-24 h-full hidden lg:flex justify-end object-contain"
             src="/media/bell.png"
             alt=""

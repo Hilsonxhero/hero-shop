@@ -30,6 +30,7 @@
                 }"
               >
                 <img
+                  loading="lazy"
                   class="w-[150px] h-[150px] object-contain"
                   :src="product?.product?.media.thumb"
                   alt=""

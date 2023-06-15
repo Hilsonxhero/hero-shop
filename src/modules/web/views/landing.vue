@@ -1,14 +1,78 @@
 <template>
   <hx-skeleton animated :loading="loading">
     <template #template>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
-      <hx-skeleton-item variant="card"></hx-skeleton-item>
+      <hx-skeleton-item variant="card" class="h-[400px]"></hx-skeleton-item>
+      <div class="container">
+        <div class="grid grid-cols-12 gap-4 my-4 justify-center">
+          <div
+            class="col-span-3 lg:col-span-1 flex justify-center"
+            v-for="(item, index) in 12"
+            :key="index"
+          >
+            <hx-skeleton-item
+              variant="card"
+              class="mx-auto h-[80px] w-[80px]"
+            ></hx-skeleton-item>
+          </div>
+        </div>
+        <hx-skeleton-item
+          variant="card"
+          class="h-[430px] my-6"
+        ></hx-skeleton-item>
+
+        <div class="grid grid-cols-12 gap-4 my-4">
+          <div
+            class="col-span-6 lg:col-span-3 flex justify-center"
+            v-for="(item, index) in 4"
+            :key="index"
+          >
+            <hx-skeleton-item
+              variant="card"
+              class="h-[250px]"
+            ></hx-skeleton-item>
+          </div>
+        </div>
+        <hx-skeleton-item
+          variant="card"
+          class="h-[430px] my-6"
+        ></hx-skeleton-item>
+        <div class="grid grid-cols-12 gap-4 my-4">
+          <div
+            class="col-span-12 lg:col-span-4 flex justify-center"
+            v-for="(item, index) in 3"
+            :key="index"
+          >
+            <hx-skeleton-item
+              variant="card"
+              class="h-[170px]"
+            ></hx-skeleton-item>
+          </div>
+        </div>
+        <div class="grid grid-cols-12 gap-4 my-4">
+          <div
+            class="col-span-12 lg:col-span-3 flex justify-center"
+            v-for="(item, index) in 4"
+            :key="index"
+          >
+            <hx-skeleton-item
+              variant="card"
+              class="h-[310px]"
+            ></hx-skeleton-item>
+          </div>
+        </div>
+        <div class="grid grid-cols-12 gap-4 my-4">
+          <div
+            class="col-span-12 lg:col-span-3 flex justify-center"
+            v-for="(item, index) in 4"
+            :key="index"
+          >
+            <hx-skeleton-item
+              variant="card"
+              class="h-[250px]"
+            ></hx-skeleton-item>
+          </div>
+        </div>
+      </div>
     </template>
     <template #default>
       <div>

@@ -81,6 +81,7 @@
 import HXMenu from "@/modules/user/components/aside/Menu.vue";
 import { asideTheme } from "@/core/helpers/config";
 import { ref, inject } from "vue";
+import { onClickOutside } from "@vueuse/core";
 // import { useI18n } from "vue-i18n/index";
 
 import { useLocale } from "@/core/hooks";
@@ -108,7 +109,7 @@ const asideRef = ref(null);
 
 const show = inject("show", false);
 
-const { onClickOutside } = useClickOutside();
+// const { onClickOutside } = useClickOutside();
 
 onClickOutside(asideRef, () => {
   if (show.value === true) {

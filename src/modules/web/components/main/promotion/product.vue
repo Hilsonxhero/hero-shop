@@ -19,12 +19,13 @@
           </div>
         </div>
         <img
+          loading="lazy"
           class="w-[9.25rem] h-[9.25rem] mx-auto object-contain"
           :src="product?.media?.thumb"
           alt=""
         />
 
-        <div class="flex justify-between pb-2 px-2 w-full lg:pb-0">
+        <!-- <div class="flex justify-between pb-2 px-2 w-full lg:pb-0">
           <div
             class="flex items-center p-2 max-w-max h-5 bg-gray-300 space-x-1 space-x-reverse rounded-[0.375rem]"
           >
@@ -37,7 +38,7 @@
               style="background-color: #fff"
             ></div>
           </div>
-        </div>
+        </div> -->
       </router-link>
     </div>
 

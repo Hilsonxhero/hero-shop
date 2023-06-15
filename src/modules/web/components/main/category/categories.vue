@@ -19,10 +19,15 @@
                 class="h-16 w-16 rounded-md text-white bg-gray-100 flex items-center justify-center"
               >
                 <!-- <hx-icon class="w-16 h-1w-16" icon="mobile-c"></hx-icon> -->
-                <img class="p-1" :src="category?.media?.thumb" alt="" />
+                <img
+                  class="p-1"
+                  loading="lazy"
+                  :src="category?.media?.thumb"
+                  alt=""
+                />
               </router-link>
               <h3
-                class="mt-3 text-gray-600 text-xs overflow-hidden text-ellipsis whitespace-nowrap"
+                class="mt-3 text-gray-600 text-xs overflow-hidden text-ellipsis w-[76px] lg:w-full mx-auto whitespace-nowrap"
               >
                 {{ category?.title }}
               </h3>
