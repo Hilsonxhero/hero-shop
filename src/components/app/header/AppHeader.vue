@@ -6,9 +6,9 @@
       :href="banners?.top_header_banner?.url"
       target="_blank"
     >
-      <div class="h-16">
+      <div class="h-10 lg:h-14">
         <img
-          class="object-cover w-full"
+          class="object-cover w-full h-full"
           :src="banners?.top_header_banner?.banner"
           alt=""
         />
